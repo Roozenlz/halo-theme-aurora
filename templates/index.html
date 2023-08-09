@@ -1,18 +1,1326 @@
 <!DOCTYPE html>
 <html
-  xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{layout :: html(head = null,content = ~{::content})}"
+        xmlns:th="https://www.thymeleaf.org"
+        th:replace="~{layout :: html(head = null,content = ~{::content})}"
 >
-  <th:block th:fragment="content">
-    <ul>
-      <li th:each="post : ${posts.items}">
-        <a
-          th:href="@{${post.status.permalink}}"
-          th:text="${post.spec.title}"
-        ></a>
-      </li>
-    </ul>
+<th:block th:fragment="content">
     <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>
     <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>
-  </th:block>
-</html>
+    <body id="body-container" class="theme-dark">
+    <noscript><strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to
+        continue.</strong></noscript>
+    <div id="app" data-v-app="">
+        <div id="App-Wrapper" class="app-wrapper theme-dark" style="min-height: 664.8px;">
+            <div id="App-Container" class="app-container max-w-10/12 lg:max-w-screen-2xl px-3 lg:px-8" tabindex="-1"
+                 style="--text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);">
+                <div data-v-7c4ba836="" class="header-container">
+                    <header data-v-7c4ba836="" class="site-header">
+                        <div data-v-2633daec="" data-v-7c4ba836="" class="flex items-start self-stretch relative">
+                            <div data-v-2633daec=""
+                                 class="flex flex-col relative py-4 z-10 text-white font-medium ob-drop-shadow cursor-pointer">
+                                <span data-v-2633daec="" class="flex text-4xl">三钻</span>
+                                <span data-v-2633daec="" class="font-extrabold text-xs uppercase">bennyxguo</span>
+                            </div>
+                            <img data-v-2633daec="" class="logo-image"
+                                 src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                                 alt="site-logo"></div>
+                        <nav data-v-faffdebb="" data-v-7c4ba836="" class="items-center flex-1 hidden lg:flex">
+                            <ul data-v-faffdebb="" class="flex flex-row list-none px-6 text-white">
+                                <li data-v-faffdebb=""
+                                    class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                                    <div data-v-faffdebb=""
+                                         class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
+                                         data-menu="Home"><span data-v-faffdebb="" class="relative z-50">Home</span>
+                                    </div>
+                                </li>
+                                <li data-v-faffdebb=""
+                                    class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                                    <div data-v-faffdebb=""
+                                         class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
+                                         data-menu="About"><span data-v-faffdebb="" class="relative z-50">About</span>
+                                    </div>
+                                </li>
+                                <li data-v-faffdebb=""
+                                    class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                                    <div data-v-faffdebb=""
+                                         class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
+                                         data-menu="Archives"><span data-v-faffdebb=""
+                                                                    class="relative z-50">Archives</span>
+                                    </div>
+                                </li>
+                                <li data-v-faffdebb=""
+                                    class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                                    <div data-v-faffdebb=""
+                                         class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
+                                         data-menu="Tags"><span data-v-faffdebb="" class="relative z-50">Tags</span>
+                                    </div>
+                                </li>
+                                <li data-v-faffdebb=""
+                                    class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                                    <div data-v-faffdebb=""
+                                         class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
+                                         data-menu="MessageBoard"><span data-v-faffdebb="" class="relative z-50">Message Board</span>
+                                    </div>
+                                </li>
+                                <li data-v-faffdebb=""
+                                    class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                                    <div data-v-faffdebb=""
+                                         class="ob-dropdown relative z-50 nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase">
+                                        <span data-v-faffdebb="" class="relative z-50">Aurora Theme</span><!----></div>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div data-v-56016d5c="" class="header-controls absolute top-10 right-0 flex flex-row"
+                             tabindex="0">
+                        <span data-v-56016d5c="" class="ob-drop-shadow" data-dia="search">
+                            <svg data-v-729e93ea="" data-v-56016d5c="" class="svg-icon" aria-hidden="true">
+                                <use data-v-729e93ea="" href="#icon-search" fill="currentColor"
+                                     stroke="var(--text-white)"></use>
+                            </svg>
+                        </span>
+                            <div data-v-56016d5c="" class="ob-dropdown relative z-50">
+                            <span data-v-56016d5c="" class="ob-drop-shadow" data-dia="language">
+                                <svg data-v-729e93ea="" data-v-56016d5c="" class="svg-icon" aria-hidden="true">
+                                    <use data-v-729e93ea="" href="#icon-globe" fill="currentColor"
+                                         stroke="var(--text-white)"></use>
+                                </svg>
+                            <span data-v-56016d5c="">EN</span>
+                        </span>
+                            </div>
+                            <span data-v-56016d5c="" no-hover-effect="" class="ob-drop-shadow" data-dia="light-switch">
+                            <div data-v-ec7f8f5f="" data-v-56016d5c="" class="toggler">
+                            <div data-v-ec7f8f5f="" class="toggle-track"></div>
+                                <div data-v-ec7f8f5f="" class="slider"
+                                     style="background-color: rgb(110, 64, 201); transform: translateX(18px);"><svg
+                                        aria-hidden="true" width="14" height="13" viewBox="0 0 14 13"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        style="fill: yellow; margin: 7px 0px 0px 7px;">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z"></path>
+                                </svg>
+                                </div>
+                            </div>
+                        </span>
+                        </div>
+                    </header>
+                </div>
+                <div class="app-banner app-banner-image"
+                     style="background-image: url(&quot;&quot;), url(&quot;/themes/theme-aurora/assets/img/default-cover-dccf965f.jpg&quot;); opacity: 0;"></div>
+                <div class="app-banner app-banner-screen"
+                     style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%); opacity: 0.99;"></div>
+                <div class="relative z-10">
+                    <div class="block">
+                        <div id="feature">
+                            <div class="article-container">
+                            <span class="article-tag">
+                                <b>
+                                    <svg data-v-729e93ea="" class="svg-icon" aria-hidden="true">
+                                        <use data-v-729e93ea="" href="#icon-hot" fill="currentColor"
+                                             stroke="var(--background-primary)"></use>
+                                    </svg> Featured
+                                </b>
+                            </span>
+                                <div class="feature-article">
+                                    <div class="feature-thumbnail">
+                                        <img class="ob-hz-thumbnail" lazy="loaded"
+                                             src="https://source.unsplash.com/ukzHlkoz1IE/1200x628">
+                                        <span class="thumbnail-screen"
+                                              style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                    </div>
+                                    <div class="feature-content">
+                                    <span>
+                                        <b>Aurora</b>
+                                        <ul>
+                                            <li><em># aurora</em></li>
+                                            <li><em># project-blog</em></li>
+                                        </ul>
+                                    </span>
+                                        <a href="/post/aurora%2Fcustom-quotes" class="">
+                                            <h1 data-dia="article-link">
+                                            Aurora 自定义容器（Custom Containers）</h1></a>
+                                        <p>Aurora 添加了与 VuePress 一样的自定义容器, 包括提示 (tip)、注意 (warning)、特别注意
+                                            (danger) 和隐藏内容 (details)...</p>
+                                        <div class="article-footer">
+                                            <div class="flex flex-row items-center"><img
+                                                    class="hover:opacity-50 cursor-pointer" alt="" lazy="loaded"
+                                                    src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"><span
+                                                    class="text-ob-dim"><strong
+                                                    class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong> shared on May 2, 2021</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inverted-main-grid py-8 gap-8 box-border">
+                                <div class="relative overflow-hidden h-56 lg:h-auto rounded-2xl bg-ob-deep-800 shadow-lg">
+                                    <div class="ob-gradient-plate opacity-90 relative z-10 bg-ob-deep-900 rounded-2xl flex justify-start items-end px-8 pb-10 shadow-md">
+                                        <h2 class="text-3xl pb-8 lg:pb-16">
+                                            <p style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%) text; -webkit-text-fill-color: transparent; -webkit-box-decoration-break: clone;">
+                                                EDITOR'S SELECTION</p>
+                                            <span class="relative text-2xl text-ob-bright font-semibold"><svg
+                                                    data-v-729e93ea="" class="svg-icon inline-block inline-block"
+                                                    aria-hidden="true">
+                                            <use data-v-729e93ea="" href="#icon-hot" fill="currentColor"
+                                                 stroke="var(--background-primary)"></use></svg> Feature Articles</span>
+                                        </h2>
+                                    </div>
+                                    <span class="absolute top-0 w-full h-full z-0"
+                                          style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                </div>
+                                <ul class="grid lg:grid-cols-2 gap-8">
+
+                                    <li data-v-42e513fd="" class="article-container">
+                                        <span data-v-42e513fd="" class="article-tag">
+                                            <b data-v-42e513fd="">
+                                                <svg data-v-729e93ea="" data-v-42e513fd="" class="svg-icon"
+                                                     aria-hidden="true">
+                                                    <use data-v-729e93ea="" href="#icon-hot" fill="currentColor"
+                                                         stroke="var(--background-primary)">
+                                                    </use>
+                                                </svg> Featured</b>
+                                        </span>
+                                        <div data-v-42e513fd="" class="article">
+                                            <div data-v-42e513fd="" class="article-thumbnail">
+                                                <img data-v-42e513fd="" alt=""
+                                                     lazy="loaded"
+                                                     src="https://source.unsplash.com/VivsxaizzVE/1200x628"><span
+                                                    data-v-42e513fd="" class="thumbnail-screen"
+                                                    style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                            </div>
+                                            <div data-v-42e513fd="" class="article-content">
+                                                    <span data-v-42e513fd="">
+                                                        <b data-v-42e513fd="">FrontEnd</b>
+                                                        <ul data-v-42e513fd="">
+                                                    <li data-v-42e513fd=""><em data-v-42e513fd=""># JavaScript</em></li>
+                                                    <li data-v-42e513fd=""><em data-v-42e513fd=""># Browser</em></li>
+                                                </ul>
+                                                </span>
+                                                <a data-v-42e513fd=""
+                                                   href="/post/frontend%2Fbrowser-working-logic-css-computation"
+                                                   class="">
+                                                    <h1 data-v-42e513fd="" data-dia="article-link">实战中学习浏览器工作原理
+                                                        —
+                                                        HTML 解析与 CSS 计算</h1></a>
+                                                <p data-v-42e513fd="">上一部分我们完成了从 HTTP 发送 Request，到接收到
+                                                    Response，并且把 Response 中的文本都解析出来。 这一部分我们主要讲解如何做
+                                                    HTML 解析 和 CSS 计算这两个部分。
+                                                    根据我们上部分列出的一个完整的浏览器架构的话，蓝色背景的部分就是我们目前已经...</p>
+                                                <div data-v-42e513fd="" class="article-footer">
+                                                    <div data-v-42e513fd="" class="flex flex-row items-center"><img
+                                                            data-v-42e513fd="" class="hover:opacity-50 cursor-pointer"
+                                                            src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                                                            alt="author avatar"><span data-v-42e513fd=""
+                                                                                      class="text-ob-dim"><strong
+                                                            data-v-42e513fd=""
+                                                            class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong> shared on Aug 23, 2020</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li data-v-42e513fd="" class="article-container">
+                                    <span data-v-42e513fd=""
+                                          class="article-tag">
+                                        <b data-v-42e513fd="">
+                                    <svg data-v-729e93ea="" data-v-42e513fd="" class="svg-icon" aria-hidden="true">
+                                    <use data-v-729e93ea=""
+                                         href="#icon-hot"
+                                         fill="currentColor"
+                                         stroke="var(--background-primary)">
+                                    </use>
+                                    </svg> Featured</b>
+                                    </span>
+                                        <div data-v-42e513fd="" class="article">
+                                            <div data-v-42e513fd="" class="article-thumbnail">
+                                                <img data-v-42e513fd="" alt=""
+                                                     lazy="loaded"
+                                                     src="https://res.cloudinary.com/tridiamond/image/upload/v1690996333/blog/20200401220041648_ofuduk.gif"><span
+                                                    data-v-42e513fd="" class="thumbnail-screen"
+                                                    style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                            </div>
+                                            <div data-v-42e513fd="" class="article-content">
+                                                <span data-v-42e513fd="">
+                                                    <b data-v-42e513fd="">FrontEnd</b><ul data-v-42e513fd="">
+                                                    <li data-v-42e513fd=""><em
+                                                            data-v-42e513fd=""># HTML&amp;CSS</em></li>
+                                                    <li data-v-42e513fd=""><em
+                                                            data-v-42e513fd=""># CSS Animation</em></li>
+                                                </ul>
+                                                </span>
+                                                <a data-v-42e513fd="" href="/post/frontend%2F8-html-css-tips" class="">
+                                                    <h1
+                                                            data-v-42e513fd="" data-dia="article-link">
+                                                        前端必看的8个HTML+CSS技巧</h1></a>
+                                                <p data-v-42e513fd="">CSS
+                                                    是一个很独特的语言。看起来非常简单，但是某种特殊效果看似简单，实现起来就颇有难度。这篇文章主要是给在学习前端的童鞋分享一些新的
+                                                    CSS
+                                                    技巧，一些在前端教程和培训课堂中不会讲到的知识。第二就是让还在前端开发这条道路上的童鞋们，重新燃起对前端排版和特效的热爱和热情！🔥
+                                                    一、...</p>
+                                                <div data-v-42e513fd="" class="article-footer">
+                                                    <div data-v-42e513fd="" class="flex flex-row items-center"><img
+                                                            data-v-42e513fd="" class="hover:opacity-50 cursor-pointer"
+                                                            src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                                                            alt="author avatar">
+                                                        <span data-v-42e513fd=""
+                                                              class="text-ob-dim">
+                                                                <strong data-v-42e513fd=""
+                                                                        class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong> shared on Apr 6, 2020</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <span>
+                            <p id="article-list"
+                               class="relative opacity-90 flex items-center pt-12 pb-2 mb-8 text-3xl text-ob-bright uppercase"><svg
+                                data-v-729e93ea="" class="svg-icon inline-block mr-2 inline-block mr-2"
+                                aria-hidden="true">
+                            <use data-v-729e93ea="" href="#icon-article" fill="currentColor" stroke="var(--background-primary)"></use>
+                        </svg> Articles
+                            <span class="absolute bottom-0 h-1 w-24 rounded-full" style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span></p></span>
+                        <div class="main-grid">
+                            <div class="flex flex-col relative">
+                                <ul class="tab">
+                                    <li class="active">
+                                    <span class="first-tab"
+                                          style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">All</span>
+                                    </li>
+                                    <li class=""><span>Algorithm</span><b>4</b></li>
+                                </ul>
+                                <span class="tab-expander">
+                                <svg data-v-729e93ea="" class="svg-icon" aria-hidden="true">
+                                    <use data-v-729e93ea="" href="#icon-chevron" fill="currentColor"
+                                         stroke="var(--background-primary)"></use>
+                                </svg>
+                                </span>
+                                <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                                    <li th:each="post : ${posts.items}" data-v-42e513fd="" class="article-container">
+                                        <span data-v-42e513fd=""
+                                              class="article-tag">
+                                            <b data-v-42e513fd="">
+                                                <svg data-v-729e93ea="" data-v-42e513fd="" class="svg-icon"
+                                                     aria-hidden="true">
+                                                    <use data-v-729e93ea=""
+                                                         href="#icon-hot"
+                                                         fill="currentColor"
+                                                         stroke="var(--background-primary)">
+                                                    </use>
+                                                </svg> Featured</b>
+                                        </span>
+                                        <div data-v-42e513fd="" class="article">
+                                            <div data-v-42e513fd="" class="article-thumbnail">
+                                                <img data-v-42e513fd="" alt="" lazy="loading"
+                                                     th:src="@{/themes/theme-aurora/assets/img/default-cover-dccf965f.jpg}">
+                                                <span
+                                                    data-v-42e513fd="" class="thumbnail-screen"
+                                                    style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                            </div>
+                                            <div data-v-42e513fd="" class="article-content">
+                                                <span data-v-42e513fd="">
+                                                    <b data-v-42e513fd="">Aurora</b>
+                                                    <ul data-v-42e513fd="">
+                                                        <li data-v-42e513fd="" th:each="tagName : ${post.spec.tags}"
+                                                            th:with="tag = ${tagFinder.getByName(tagName)}">
+                                                            <a th:href="@{${tag.status.permalink}}" >
+                                                                <em data-v-42e513fd=""># [[${tag.spec.displayName}]]</em>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </span>
+                                                <a data-v-42e513fd="" th:href="@{${post.status.permalink}}" class="">
+                                                    <h1 data-v-42e513fd="" data-dia="article-link" th:text="${post.spec.title}"></h1>
+                                                </a>
+                                                <p data-v-42e513fd="" th:text="${post.spec.excerpt.raw}"></p>
+                                                <div data-v-42e513fd="" class="article-footer">
+                                                    <div data-v-42e513fd="" class="flex flex-row items-center"><img
+                                                            data-v-42e513fd="" class="hover:opacity-50 cursor-pointer"
+                                                            src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                                                            alt="author avatar">
+                                                        <span data-v-42e513fd="" class="text-ob-dim">
+                                                            <strong data-v-42e513fd=""
+                                                                    class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong> shared on May 2, 2021</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                                <div data-v-a3fd6a03="" class="paginator">
+                                    <ul data-v-a3fd6a03="">
+                                        <li data-v-a3fd6a03="" class="active">1</li>
+                                        <li data-v-a3fd6a03="" class="">2</li>
+                                        <li data-v-a3fd6a03="" class="">3</li>
+                                        <li data-v-a3fd6a03="" class="text-ob-bright">Older
+                                            <svg data-v-729e93ea="" data-v-a3fd6a03="" class="svg-icon"
+                                                 aria-hidden="true">
+                                                <use data-v-729e93ea="" href="#icon-arrow-right" fill="currentColor"
+                                                     stroke="var(--background-primary)"></use>
+                                            </svg>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div data-v-9da60dd3="" class="h-98 w-full rounded-2xl relative shadow-xl mb-8"
+                                         style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
+                                        <div data-v-9da60dd3=""
+                                             class="ob-gradient-cut-plate absolute bg-ob-deep-900 rounded-xl opacity-90 flex justify-center items-center pt-4 px-6 shadow-lg hover:shadow-2xl duration-300"
+                                             data-dia="author">
+                                            <div data-v-9da60dd3=""
+                                                 class="profile absolute w-full flex flex-col justify-center items-center">
+                                                <div data-v-9da60dd3=""
+                                                     class="flex flex-col justify-center items-center">
+                                                    <img data-v-9da60dd3="" class="ob-avatar diamond-avatar"
+                                                         src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                                                         alt="avatar">
+                                                    <h2 data-v-9da60dd3=""
+                                                        class="text-center pt-4 text-4xl font-semibold text-ob-bright">
+                                                        三钻</h2><span data-v-9da60dd3=""
+                                                                       class="h-1 w-14 rounded-full mt-2"
+                                                                       style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                                    <p data-v-9da60dd3="" class="pt-6 px-10 w-full text-sm text-center">
+                                                        Think like an artist, develop like an artisan. <br> @
+                                                        <b>公众号：技术银河</b></p></div>
+                                                <div data-v-9da60dd3=""
+                                                     class="h-full w-full flex flex-col flex-1 justify-end items-end">
+                                                    <ul data-v-6aef6eb0="" data-v-9da60dd3=""
+                                                        class="flex flex-row justify-evenly flex-wrap w-full py-4 px-2 text-center items-center">
+                                                        <a data-v-6aef6eb0="" href="https://github.com/TriDiamond"
+                                                           target="_blank">
+                                                            <li data-v-6aef6eb0=""
+                                                                class="diamond-clip-path diamond-icon">
+                                                                <svg data-v-729e93ea="" data-v-6aef6eb0=""
+                                                                     class="svg-icon fill-current fill-current"
+                                                                     aria-hidden="true">
+                                                                    <use data-v-729e93ea="" href="#icon-github"
+                                                                         fill="currentColor"
+                                                                         stroke="var(--background-primary)"></use>
+                                                                </svg>
+                                                            </li>
+                                                        </a><a data-v-6aef6eb0=""
+                                                               href="https://weibo.com/u/7318914058"
+                                                               target="_blank">
+                                                        <li data-v-6aef6eb0="" class="diamond-clip-path diamond-icon">
+                                                            <svg data-v-729e93ea="" data-v-6aef6eb0=""
+                                                                 class="svg-icon fill-current fill-current"
+                                                                 aria-hidden="true">
+                                                                <use data-v-729e93ea="" href="#icon-weibo"
+                                                                     fill="currentColor"
+                                                                     stroke="var(--background-primary)"></use>
+                                                            </svg>
+                                                        </li>
+                                                    </a><a data-v-6aef6eb0="" href="https://blog.csdn.net/TriDiamond6"
+                                                           target="_blank">
+                                                        <li data-v-6aef6eb0="" class="diamond-clip-path diamond-icon">
+                                                            <svg data-v-729e93ea="" data-v-6aef6eb0=""
+                                                                 class="svg-icon fill-current fill-current"
+                                                                 aria-hidden="true">
+                                                                <use data-v-729e93ea="" href="#icon-csdn"
+                                                                     fill="currentColor"
+                                                                     stroke="var(--background-primary)"></use>
+                                                            </svg>
+                                                        </li>
+                                                    </a><a data-v-6aef6eb0=""
+                                                           href="https://www.zhihu.com/people/tridiamond"
+                                                           target="_blank">
+                                                        <li data-v-6aef6eb0="" class="diamond-clip-path diamond-icon">
+                                                            <svg data-v-729e93ea="" data-v-6aef6eb0=""
+                                                                 class="svg-icon fill-current fill-current"
+                                                                 aria-hidden="true">
+                                                                <use data-v-729e93ea="" href="#icon-zhifu"
+                                                                     fill="currentColor"
+                                                                     stroke="var(--background-primary)"></use>
+                                                            </svg>
+                                                        </li>
+                                                    </a><a data-v-6aef6eb0=""
+                                                           href="https://juejin.cn/user/1873223546578589"
+                                                           target="_blank">
+                                                        <li data-v-6aef6eb0="" class="diamond-clip-path diamond-icon">掘
+                                                        </li>
+                                                    </a><a data-v-6aef6eb0="" href="https://live.bilibili.com/22619211"
+                                                           target="_blank">
+                                                        <li data-v-6aef6eb0="" class="diamond-clip-path diamond-icon">
+                                                            <div data-v-729e93ea="" data-v-6aef6eb0=""
+                                                                 class="svg-external-icon svg-icon fill-current fill-current"
+                                                                 style="-webkit-mask: url(&quot;/themes/theme-aurora/assets/svg/bilibili.svg&quot;) 50% 50% no-repeat;"></div>
+                                                        </li>
+                                                    </a></ul>
+                                                    <ul data-v-9da60dd3=""
+                                                        class="grid grid-cols-4 pt-4 w-full px-2 text-lg">
+                                                        <li data-v-9da60dd3="" class="col-span-1 text-center"><span
+                                                                data-v-9da60dd3="" class="text-ob-bright">286k</span>
+                                                            <p data-v-9da60dd3="" class="text-base">Words</p></li>
+                                                        <li data-v-9da60dd3="" class="col-span-1 text-center"><span
+                                                                data-v-9da60dd3="" class="text-ob-bright">34</span>
+                                                            <p data-v-9da60dd3="" class="text-base">Articles</p></li>
+                                                        <li data-v-9da60dd3="" class="col-span-1 text-center"><span
+                                                                data-v-9da60dd3="" class="text-ob-bright">14</span>
+                                                            <p data-v-9da60dd3="" class="text-base">Categories</p></li>
+                                                        <li data-v-9da60dd3="" class="col-span-1 text-center"><span
+                                                                data-v-9da60dd3="" class="text-ob-bright">76</span>
+                                                            <p data-v-9da60dd3="" class="text-base">Tags</p></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar-box">
+                                        <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
+                                            <svg data-v-729e93ea="" class="svg-icon inline-block mr-2 inline-block mr-2"
+                                                 aria-hidden="true">
+                                                <use data-v-729e93ea="" href="#icon-quote" fill="currentColor"
+                                                     stroke="var(--background-primary)"></use>
+                                            </svg>
+                                            <span class="w-full block">Recent Comments</span><!----><span
+                                                class="absolute bottom-0 h-1 w-14 rounded-full"
+                                                style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                        </p>
+                                        <ul>
+                                            <li class="bg-ob-deep-900 px-2 py-2 mb-1.5 rounded-lg flex flex-row justify-items-center items-stretch shadow-sm hover:shadow-ob transition-shadow">
+                                                <div class="flex justify-start items-start"><img
+                                                        class="col-span-1 mr-2 rounded-full p-1"
+                                                        src="https://q1.qlogo.cn/g?b=qq&amp;nk=123&amp;s=100"
+                                                        alt="comment-avatar" height="40" width="40"></div>
+                                                <div class="flex-1 text-xs">
+                                                    <div class="text-xs mb-2 pt-1"><span class="text-ob pr-2">123
+                                                        <!----></span>
+                                                        <p class="text-gray-500">3 hours ago</p></div>
+                                                    <div class="text-xs text-ob-bright pb-1">123
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="bg-ob-deep-900 px-2 py-2 mb-1.5 rounded-lg flex flex-row justify-items-center items-stretch shadow-sm hover:shadow-ob transition-shadow">
+                                                <div class="flex justify-start items-start"><img
+                                                        class="col-span-1 mr-2 rounded-full p-1"
+                                                        src="https://q1.qlogo.cn/g?b=qq&amp;nk=4202054&amp;s=100"
+                                                        alt="comment-avatar" height="40" width="40"></div>
+                                                <div class="flex-1 text-xs">
+                                                    <div class="text-xs mb-2 pt-1"><span class="text-ob pr-2">erfwefew
+                                                        <!----></span>
+                                                        <p class="text-gray-500">6 hours ago</p></div>
+                                                    <div class="text-xs text-ob-bright pb-1">ee
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="bg-ob-deep-900 px-2 py-2 mb-1.5 rounded-lg flex flex-row justify-items-center items-stretch shadow-sm hover:shadow-ob transition-shadow">
+                                                <div class="flex justify-start items-start"><img
+                                                        class="col-span-1 mr-2 rounded-full p-1"
+                                                        src="https://seccdn.libravatar.org/avatar/0c0dc4b88d868026b09f85737e4d16ff"
+                                                        alt="comment-avatar" height="40" width="40"></div>
+                                                <div class="flex-1 text-xs">
+                                                    <div class="text-xs mb-2 pt-1"><span class="text-ob pr-2">Myname
+                                                        <!----></span>
+                                                        <p class="text-gray-500">1 days ago</p></div>
+                                                    <div class="text-xs text-ob-bright pb-1">woww
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="bg-ob-deep-900 px-2 py-2 mb-1.5 rounded-lg flex flex-row justify-items-center items-stretch shadow-sm hover:shadow-ob transition-shadow">
+                                                <div class="flex justify-start items-start"><img
+                                                        class="col-span-1 mr-2 rounded-full p-1"
+                                                        src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                                                        alt="comment-avatar" height="40" width="40"></div>
+                                                <div class="flex-1 text-xs">
+                                                    <div class="text-xs mb-2 pt-1"><span class="text-ob pr-2">三钻 <b
+                                                            class="text-ob-secondary bg-ob-deep-800 py-0.5 px-1.5 rounded-md opacity-75">Owner</b></span>
+                                                        <p class="text-gray-500">4 days ago</p></div>
+                                                    <div class="text-xs text-ob-bright pb-1">@monkey: 下次请到 [link]
+                                                        这里提
+                                                        bug...
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="bg-ob-deep-900 px-2 py-2 mb-1.5 rounded-lg flex flex-row justify-items-center items-stretch shadow-sm hover:shadow-ob transition-shadow">
+                                                <div class="flex justify-start items-start"><img
+                                                        class="col-span-1 mr-2 rounded-full p-1"
+                                                        src="https://seccdn.libravatar.org/avatar/0a2db931f239097215155de2f6038f29"
+                                                        alt="comment-avatar" height="40" width="40"></div>
+                                                <div class="flex-1 text-xs">
+                                                    <div class="text-xs mb-2 pt-1"><span class="text-ob pr-2">monkey
+                                                        <!----></span>
+                                                        <p class="text-gray-500">4 days ago</p></div>
+                                                    <div class="text-xs text-ob-bright pb-1">步骤五-“创建关于[about]“页面
+                                                        报错
+                                                        [Auro...
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="bg-ob-deep-900 px-2 py-2 mb-1.5 rounded-lg flex flex-row justify-items-center items-stretch shadow-sm hover:shadow-ob transition-shadow">
+                                                <div class="flex justify-start items-start"><img
+                                                        class="col-span-1 mr-2 rounded-full p-1"
+                                                        src="https://seccdn.libravatar.org/avatar/521c3af33ccac72ae0cfd836f269ac82"
+                                                        alt="comment-avatar" height="40" width="40"></div>
+                                                <div class="flex-1 text-xs">
+                                                    <div class="text-xs mb-2 pt-1"><span class="text-ob pr-2">Encore
+                                                        <!----></span>
+                                                        <p class="text-gray-500">4 days ago</p></div>
+                                                    <div class="text-xs text-ob-bright pb-1">good job！
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="bg-ob-deep-900 px-2 py-2 mb-1.5 rounded-lg flex flex-row justify-items-center items-stretch shadow-sm hover:shadow-ob transition-shadow">
+                                                <div class="flex justify-start items-start"><img
+                                                        class="col-span-1 mr-2 rounded-full p-1"
+                                                        src="https://seccdn.libravatar.org/avatar/448811a3cd3e72cff4e9975e57055515"
+                                                        alt="comment-avatar" height="40" width="40"></div>
+                                                <div class="flex-1 text-xs">
+                                                    <div class="text-xs mb-2 pt-1"><span class="text-ob pr-2">Wuxh
+                                                        <!----></span>
+                                                        <p class="text-gray-500">5 days ago</p></div>
+                                                    <div class="text-xs text-ob-bright pb-1">Awesome man
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="sidebar-box">
+                                        <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
+                                            <svg data-v-729e93ea="" class="svg-icon inline-block mr-2 inline-block mr-2"
+                                                 aria-hidden="true">
+                                                <use data-v-729e93ea="" href="#icon-tag" fill="currentColor"
+                                                     stroke="var(--background-primary)"></use>
+                                            </svg>
+                                            <span class="w-full block">Tags</span><!----><span
+                                                class="absolute bottom-0 h-1 w-14 rounded-full"
+                                                style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                        </p>
+                                        <div class="flex justify-event flex-wrap pt-2">
+                                            <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                                <a href="/tags/search?slug=Linked-List"
+                                                   class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                                                   style="font-size: 0.75rem; line-height: 1rem;"><em
+                                                        class="opacity-50">#</em> Linked List</a><span
+                                                    class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                                                    style="font-size: 0.75rem; line-height: 1rem;">1</span></div>
+                                            <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                                <a href="/tags/search?slug=Array"
+                                                   class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                                                   style="font-size: 0.75rem; line-height: 1rem;"><em
+                                                        class="opacity-50">#</em> Array</a><span
+                                                    class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                                                    style="font-size: 0.75rem; line-height: 1rem;">1</span></div>
+                                            <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                                <a href="/tags/search?slug=Jump-List"
+                                                   class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                                                   style="font-size: 0.75rem; line-height: 1rem;"><em
+                                                        class="opacity-50">#</em> Jump List</a><span
+                                                    class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                                                    style="font-size: 0.75rem; line-height: 1rem;">1</span></div>
+                                            <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                                <a href="/tags/search?slug=Algorithm"
+                                                   class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                                                   style="font-size: 0.75rem; line-height: 1rem;"><em
+                                                        class="opacity-50">#</em> Algorithm</a><span
+                                                    class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                                                    style="font-size: 0.75rem; line-height: 1rem;">2</span></div>
+                                            <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                                <a href="/tags/search?slug=Data-Structure"
+                                                   class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                                                   style="font-size: 0.75rem; line-height: 1rem;"><em
+                                                        class="opacity-50">#</em> Data Structure</a><span
+                                                    class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                                                    style="font-size: 0.75rem; line-height: 1rem;">1</span></div>
+                                            <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                                <a href="/tags/search?slug=Time-Complexity"
+                                                   class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                                                   style="font-size: 0.75rem; line-height: 1rem;"><em
+                                                        class="opacity-50">#</em> Time Complexity</a><span
+                                                    class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                                                    style="font-size: 0.75rem; line-height: 1rem;">1</span></div>
+                                            <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                                <a href="/tags/search?slug=Space-Complexity"
+                                                   class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                                                   style="font-size: 0.75rem; line-height: 1rem;"><em
+                                                        class="opacity-50">#</em> Space Complexity</a><span
+                                                    class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                                                    style="font-size: 0.75rem; line-height: 1rem;">1</span></div>
+                                            <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                                <a href="/tags/search?slug=LeetCode"
+                                                   class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                                                   style="font-size: 0.75rem; line-height: 1rem;"><em
+                                                        class="opacity-50">#</em> LeetCode</a><span
+                                                    class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                                                    style="font-size: 0.75rem; line-height: 1rem;">1</span></div>
+                                            <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                                <a href="/tags/search?slug=aurora"
+                                                   class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                                                   style="font-size: 0.75rem; line-height: 1rem;"><em
+                                                        class="opacity-50">#</em> aurora</a><span
+                                                    class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                                                    style="font-size: 0.75rem; line-height: 1rem;">1</span></div>
+                                            <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                                <a href="/tags/search?slug=project-blog"
+                                                   class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                                                   style="font-size: 0.75rem; line-height: 1rem;"><em
+                                                        class="opacity-50">#</em> project-blog</a><span
+                                                    class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                                                    style="font-size: 0.75rem; line-height: 1rem;">1</span></div>
+                                            <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                            <span class="text-center px-3 py-1 rounded-md text-sm"><b
+                                                    class="border-b-2 border-ob hover:text-ob"><a href="/tags" class="">View more ... </a></b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="loading-bar-wrapper" class=""></div>
+        </div>
+        <div id="footer" class="relative w-full pt-1"
+             style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%); --text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);">
+        <span class="bg-ob-deep-900 flex justify-center"><div
+                class="bg-ob-deep-900 rounded-lg max-w-10/12 lg:max-w-screen-2xl text-sm text-ob-normal w-full py-6 px-6 grid grid-rows-1 lg:grid-rows-none lg:grid-cols-4 justify-center items-center gap-8"><div
+                class="flex flex-col lg:flex-row gap-6 lg:gap-12 row-span-1 lg:col-span-3 text-center lg:text-left"><ul
+                class="flex flex-col gap-1.5"><li> Copyright © 2019 - 2023 <b class="font-extrabold">三钻</b> . All Rights Reserved. </li><li> Powered by <a
+                href="https://hexo.io/"><b class="font-extrabold border-b-2 border-ob hover:text-ob"> Hexo </b></a> &amp; Themed by <a
+                href="https://github.com/obsidianext/hexo-theme-obsidianext"><b
+                class="font-extrabold border-b-2 border-ob hover:text-ob"> Aurora v2.1.2</b></a> . </li><!----></ul><ul><li><span
+                id="busuanzi_container_site_pv"><svg data-v-729e93ea=""
+                                                     class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
+                                                     aria-hidden="true"><use data-v-729e93ea="" href="#icon-eye"
+                                                                             fill="currentColor"
+                                                                             stroke="var(--background-primary)"></use></svg><span
+                id="busuanzi_value_site_pv"></span></span></li><li><span id="busuanzi_container_site_uv"><svg
+                data-v-729e93ea="" class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
+                aria-hidden="true"><use data-v-729e93ea="" href="#icon-people" fill="currentColor"
+                                        stroke="var(--background-primary)"></use></svg><span
+                id="busuanzi_value_site_uv"></span></span></li></ul></div><div
+                class="hidden lg:flex lg:col-span-1 justify-center lg:justify-end row-span-1 relative"><img
+                class="footer-avatar diamond-avatar"
+                src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                alt="avatar" style=""></div></div></span></div><!---->
+        <div data-v-49ffe232="" id="Ob-Navigator" class=""><!---->
+            <div data-v-49ffe232="" class="Ob-Navigator-ball">
+                <div data-v-49ffe232=""
+                     style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
+                    <svg data-v-729e93ea="" data-v-49ffe232="" class="svg-icon" aria-hidden="true">
+                        <use data-v-729e93ea="" href="#icon-dots" fill="currentColor"
+                             stroke="var(--background-primary)"></use>
+                    </svg>
+                </div>
+            </div>
+            <ul data-v-49ffe232="" class="Ob-Navigator-submenu">
+                <li data-v-49ffe232="" id="Ob-Navigator-top"
+                    style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
+                    <div data-v-49ffe232="">
+                        <svg data-v-729e93ea="" data-v-49ffe232="" class="svg-icon text-ob-bright" aria-hidden="true">
+                            <use data-v-729e93ea="" href="#icon-back-to-top" fill="currentColor"
+                                 stroke="var(--background-primary)"></use>
+                        </svg>
+                    </div>
+                    <span data-v-49ffe232="" class="Ob-Navigator-tips">Back to top</span></li><!---->
+                <li data-v-49ffe232="" id="Ob-Navigator-home"
+                    style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
+                    <div data-v-49ffe232="">
+                        <svg data-v-729e93ea="" data-v-49ffe232="" class="svg-icon text-ob-bright" aria-hidden="true">
+                            <use data-v-729e93ea="" href="#icon-nav-home" fill="currentColor"
+                                 stroke="var(--background-primary)"></use>
+                        </svg>
+                    </div>
+                    <span data-v-49ffe232="" class="Ob-Navigator-tips">Back to home</span></li>
+                <li data-v-49ffe232="" id="Ob-Navigator-search"
+                    style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
+                    <div data-v-49ffe232="">
+                        <svg data-v-729e93ea="" data-v-49ffe232="" class="svg-icon text-ob-bright" aria-hidden="true">
+                            <use data-v-729e93ea="" href="#icon-nav-search" fill="none" stroke="white"></use>
+                        </svg>
+                    </div>
+                    <span data-v-49ffe232="" class="Ob-Navigator-tips">Open search</span></li>
+            </ul>
+        </div>
+        <div data-v-e40c54b4="" id="bot-container" style="" class="">
+            <div data-v-e40c54b4="" id="Aurora-Dia--body" style="--aurora-dia--linear-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%); --aurora-dia--linear-gradient-hover: linear-gradient(
+            to bottom,
+            #5433ff,
+            #ff0099
+          ); --aurora-dia--platform-light: #ff0099;">
+                <div data-v-e40c54b4="" id="Aurora-Dia--tips-wrapper" class="">
+                    <div data-v-e40c54b4="" id="Aurora-Dia--tips" class="Aurora-Dia--tips">Welcome back my friend!~
+                    </div>
+                </div>
+                <div data-v-e40c54b4="" id="Aurora-Dia" class="Aurora-Dia">
+                    <div data-v-e40c54b4="" id="Aurora-Dia--eyes" class="Aurora-Dia--eyes">
+                        <div data-v-e40c54b4="" id="Aurora-Dia--left-eye" class="Aurora-Dia--eye left"
+                             style="transform: translateY(0px) translateX(0px);"></div>
+                        <div data-v-e40c54b4="" id="Aurora-Dia--right-eye" class="Aurora-Dia--eye right"
+                             style="transform: translateY(0px) translateX(0px);"></div>
+                    </div>
+                </div>
+                <div data-v-e40c54b4="" class="Aurora-Dia--platform"></div>
+            </div>
+        </div>
+    </div>
+    <script defer=""
+            src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854"
+            integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg=="
+            data-cf-beacon="{&quot;rayId&quot;:&quot;7f3ee443adc235e6&quot;,&quot;version&quot;:&quot;2023.7.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;dca43a35489f4b70880eed83af6998fb&quot;,&quot;si&quot;:100}"
+            crossorigin="anonymous"></script>
+    <svg id="__svg__icons__dom__" xmlns="http://www.w3.org/2000/svg" xmlns:link="http://www.w3.org/1999/xlink"
+         style="position: absolute; width: 0px; height: 0px;">
+        <symbol viewBox="0 0 24 24" id="icon-arrow-left-circle">
+            <path d="m1.999 12 9-8v5s7.66-.5 9.85 4.3c1.6 3.3 1.1 5.9 1 6.3.03-.12-.5-.67-.58-.78-.22-.28-.46-.55-.7-.82-.48-.52-1-1-1.56-1.43-.81-.62-1.73-1.12-2.72-1.39-1.09-.29-2.21-.18-3.33-.18h-1.96v5l-9-8Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-arrow-left">
+            <path d="M2 12a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Z" clip-rule="evenodd"
+                  fill-rule="evenodd"></path>
+            <path d="M9.707 5.293a1 1 0 0 1 0 1.414L4.414 12l5.293 5.293a1 1 0 0 1-1.414 1.414l-6-6a1 1 0 0 1 0-1.414l6-6a1 1 0 0 1 1.414 0Z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-arrow-right-circle">
+            <path d="m22 12-9-8v5s-7.66-.5-9.85 4.3c-1.6 3.3-1.1 5.9-1 6.3-.03-.12.5-.67.58-.78.22-.28.46-.55.7-.82.48-.52 1-1 1.56-1.43.81-.62 1.73-1.12 2.72-1.39 1.09-.29 2.21-.18 3.33-.18H13v5l9-8Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-arrow-right">
+            <path d="M2 12a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Z" clip-rule="evenodd"
+                  fill-rule="evenodd"></path>
+            <path d="M14.293 5.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L19.586 12l-5.293-5.293a1 1 0 0 1 0-1.414Z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-article">
+            <path d="M18.767 22A2.988 2.988 0 0 1 18 20V2H2v20h16.767Z" clip-rule="evenodd" fill-rule="evenodd"></path>
+            <path stroke-linejoin="round" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"
+                  d="M5 19h10M12 9h3M12 6h3M5 16h10M5 13h10"></path>
+            <path d="M9 5H5v5h4V5Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M9 5H5v5h4V5Z"></path>
+            <path d="M21 22c-1.1 0-2-.9-2-2V9h4v11c0 1.1-.9 2-2 2Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-back-to-top">
+            <path d="M17.87 15.5c.08.79.13 1.65.13 2.5 1.5 0 3 2 3 2s-.02-1.27-.3-2c-.44-1.15-1.48-2.31-2.83-2.5ZM6.13 15.5c-1.37.18-2.38 1.32-2.83 2.5-.28.73-.3 2-.3 2s1.5-2 3-2c0-.85.05-1.7.13-2.5Z"></path>
+            <path d="M18 18H6c0-5.02 1.61-9.13 3.16-11.93.17.14.41.32.77.49.47.21 1.13.39 2.06.39.93 0 1.59-.18 2.07-.39.36-.17.61-.35.78-.49C16.39 8.87 18 12.98 18 18Z"></path>
+            <path d="M12 16c.55 0 1 .45 1 1v3c0 .55-.45 1-1 1s-1-.45-1-1v-3c0-.55.45-1 1-1Z" clip-rule="evenodd"
+                  fill-rule="evenodd"></path>
+            <path stroke-width="2" d="M12.12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+            <path d="M12.12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+            <path stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M14.84 6.07c-.17.14-.42.32-.78.49-.47.21-1.14.39-2.07.39-.93 0-1.59-.18-2.05-.39-.37-.17-.61-.35-.78-.49"></path>
+            <path d="M14.84 6.07c-.17.14-.42.32-.78.49-.47.21-1.14.39-2.07.39-.93 0-1.59-.18-2.05-.39-.37-.17-.61-.35-.78-.49C10.61 3.47 12 2 12 2s1.39 1.47 2.84 4.07Z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-category">
+            <path d="M8 4v1c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4h3c.55 0 1 .45 1 1v16c0 .55-.45 1-1 1H5c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1h3Z"></path>
+            <path stroke-linejoin="round" stroke-width="2" d="M8 4v1c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4"></path>
+            <path d="M15 6H9c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h6c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M16 10H8M16 18H8M16 14H8"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-chevron">
+            <path d="M11.293 12.707a1 1 0 0 0 1.414 0l8-8a1 1 0 0 0-1.414-1.414L12 10.586 4.707 3.293a1 1 0 0 0-1.414 1.414l8 8Z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+            <path d="M11.293 20.707a1 1 0 0 0 1.414 0l8-8a1 1 0 0 0-1.414-1.414L12 18.586l-7.293-7.293a1 1 0 0 0-1.414 1.414l8 8Z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+        </symbol>
+        <symbol fill="none" viewBox="0 0 24 24" id="icon-clock-outline">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2"
+                  d="M12 22a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M18.67 2 22 5.33M2 5.33 5.33 2"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2"
+                  d="M13 13h4M12 7v5M12 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-clock">
+            <path d="M12 22a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"></path>
+            <path d="M17.963 1.293a1 1 0 0 1 1.414 0l3.33 3.33a1 1 0 1 1-1.414 1.414l-3.33-3.33a1 1 0 0 1 0-1.414ZM6.037 1.293a1 1 0 0 1 0 1.414l-3.33 3.33a1 1 0 0 1-1.414-1.414l3.33-3.33a1 1 0 0 1 1.414 0Z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M13 13h4M12 7v5"></path>
+            <path d="M12 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2"
+                  d="M12 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-close">
+            <path d="M22.707 1.293a1 1 0 0 1 0 1.414l-20 20a1 1 0 0 1-1.414-1.414l20-20a1 1 0 0 1 1.414 0Z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+            <path d="M1.293 1.293a1 1 0 0 1 1.414 0l20 20a1 1 0 0 1-1.414 1.414l-20-20a1 1 0 0 1 0-1.414Z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+        </symbol>
+        <symbol class="icon" viewBox="0 0 1024 1024" id="icon-csdn">
+            <path d="M512 0c282.784 0 512 229.216 512 512s-229.216 512-512 512S0 794.784 0 512 229.216 0 512 0zm189.952 752 11.2-108.224c-31.904 9.536-100.928 16.128-147.712 16.128-134.464 0-205.728-47.296-195.328-146.304 11.584-110.688 113.152-145.696 232.64-145.696 54.784 0 122.432 8.8 151.296 18.336L768 272.704C724.544 262.24 678.272 256 599.584 256c-203.2 0-388.704 94.88-406.4 263.488C178.336 660.96 303.584 768 535.616 768c80.672 0 138.464-6.432 166.336-16z"></path>
+        </symbol>
+        <symbol fill="none" viewBox="0 0 24 24" id="icon-date-outline">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M21 22H3c-.55 0-1-.45-1-1v-9h20v9c0 .55-.45 1-1 1Z"></path>
+            <path d="M17 5h4c.55 0 1 .45 1 1v6H2V6c0-.55.45-1 1-1h4"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M17 5h4c.55 0 1 .45 1 1v6H2V6c0-.55.45-1 1-1h4M14 5h-4"></path>
+            <path stroke-miterlimit="10" stroke-width="2"
+                  d="M15.5 8c-.83 0-1.5-.67-1.5-1.5v-3c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v3c0 .83-.67 1.5-1.5 1.5ZM8.5 8C7.67 8 7 7.33 7 6.5v-3C7 2.67 7.67 2 8.5 2s1.5.67 1.5 1.5v3C10 7.33 9.33 8 8.5 8Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M17.5 19h1M13.5 19h1M9.5 19h1M5.5 19h1M17.5 15h1M13.5 15h1M9.5 15h1M5.5 15h1"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-date">
+            <path d="M21 22H3c-.55 0-1-.45-1-1V11h20v10c0 .55-.45 1-1 1ZM17 5h4c.55 0 1 .45 1 1v5H2V6c0-.55.45-1 1-1h4"></path>
+            <path stroke-miterlimit="10" stroke-width="2" stroke="currentColor"
+                  d="M14 5v1.5c0 .83.67 1.5 1.5 1.5S17 7.33 17 6.5V5M7 5v1.5C7 7.33 7.67 8 8.5 8S10 7.33 10 6.5V5"></path>
+            <path d="M8.5 8C7.67 8 7 7.33 7 6.5v-3C7 2.67 7.67 2 8.5 2s1.5.67 1.5 1.5v3C10 7.33 9.33 8 8.5 8Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  stroke="#221b38"
+                  d="M17.5 19h1M13.5 19h1M9.5 19h1M5.5 19h1M17.5 15h1M13.5 15h1M9.5 15h1M5.5 15h1"></path>
+            <path stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" stroke="#221b38" d="M22 11H2"></path>
+            <path d="M15.5 8c-.83 0-1.5-.67-1.5-1.5v-3c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v3c0 .83-.67 1.5-1.5 1.5Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-dots">
+            <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM5 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 800 600" fill="none" id="icon-empty-search">
+            <path d="M183.718 292.003s-13.595 28.135-17.541 22.432c-2.545-3.678-1.164-10.804-1.164-10.804s-17.941 22.245-22.234 18.207c-4.292-4.038-7.703-23.387-2.245-28.635 5.35-5.144 23.504-21.682 29.481-18.908 5.976 2.774 13.703 17.708 13.703 17.708Z"
+                  fill="#F2DEB8"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M146.389 296.493a.529.529 0 0 1 .661.825l-.33-.412-.331-.413Zm-8.922 8.478c-.272.216-.477.377-.526.409a.528.528 0 0 1-.586-.879l.018-.014.096-.075a406.086 406.086 0 0 0 1.509-1.197c.954-.759 2.206-1.759 3.452-2.755l3.414-2.73 1.545-1.237.331.413.33.412-1.546 1.237-3.414 2.73c-1.247.996-2.5 1.997-3.454 2.756l-1.169.93ZM148.233 301.461a.529.529 0 0 1 .659.826l-.329-.413-.33-.413Zm-11.644 10.632c-.088.069-.172.135-.206.158a.529.529 0 0 1-.586-.879l.025-.02.115-.09.419-.33 1.439-1.143c1.179-.938 2.731-2.176 4.278-3.41l4.24-3.384 1.92-1.534.33.413.329.413-1.92 1.534a21372.466 21372.466 0 0 1-8.519 6.794 1189.056 1189.056 0 0 1-1.864 1.478ZM150.076 306.43a.528.528 0 1 1 .659.825l-.329-.412-.33-.413Zm-11.644 10.632a6.248 6.248 0 0 1-.206.158.53.53 0 0 1-.586-.879l.025-.02.115-.09.419-.331 1.439-1.143c1.179-.937 2.731-2.175 4.278-3.409l4.24-3.384 1.92-1.534.33.413.329.412-1.92 1.534-4.24 3.385c-1.547 1.234-3.1 2.472-4.279 3.41l-1.441 1.145-.423.333Z"
+                  fill="#C4B6FF"></path>
+            <path d="M300.475 569.508a1.684 1.684 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM428.967 572.972a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM221.396 580.832a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM218.025 574.565a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM94.72 575.776a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM442.962 575.097a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM235.218 567.823a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM412.79 571.194a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM458.803 579.571a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM399.5 580.275a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM233.532 577.461a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM262.29 572.202a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM276.467 569.508a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM550.308 575.097a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM209.867 578.589a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM422.533 581.257a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM201.446 572.879a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM191.417 580.832a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM145.618 575.097a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM504.674 574.658a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM289.514 569.508a1.684 1.684 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM254.883 578.302a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM155.364 579.825a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM249.567 569.508a1.684 1.684 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM245.328 579.988a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM467.78 565.081a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM449.955 564.24a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM476.702 573.813a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM484.763 565.081a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM133.467 580.832a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM123.165 575.776a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM281.267 578.302a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM497.689 565.081a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM519.006 565.081a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM535.071 562.554a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM271.288 577.461a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM535.958 572.972a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM168.841 576.783a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM183.952 572.879a1.684 1.684 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM585.378 564.24a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM328.387 580.832a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM57.48 576.783a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM74.664 579.988a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM350.374 579.988a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM492.806 577.461a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM318.544 572.202a1.684 1.684 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM338.414 572.202a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM303.846 577.461a1.684 1.684 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM294.405 577.461a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM599.404 572.972a1.686 1.686 0 1 0-.002-3.372 1.686 1.686 0 0 0 .002 3.372ZM356.24 567.823a1.686 1.686 0 1 0-.002-3.372 1.686 1.686 0 0 0 .002 3.372ZM374.443 570.517a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM365.161 578.302a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM384.243 571.194a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM108.076 580.275a1.685 1.685 0 1 0 .001-3.37 1.685 1.685 0 0 0-.001 3.37ZM556.946 564.24a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM567.681 572.972a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM583.693 573.813a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM388.258 578.302a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM608.475 562.554a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM455.116 63.621a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM583.608 67.085a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM376.037 74.945a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM372.666 68.678a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM249.361 69.889a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM597.603 69.21a1.686 1.686 0 1 0-.001-3.371 1.686 1.686 0 0 0 .001 3.371ZM389.859 61.936a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM567.431 65.307a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM613.444 73.684a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM554.141 74.388a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM388.173 71.574a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM416.93 66.315a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM431.108 63.621a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM704.949 69.21a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM364.508 72.702a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM577.174 75.37a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM356.087 66.992a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM346.058 74.945a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM300.259 69.21a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM659.315 68.77a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM444.155 63.621a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM409.524 72.415a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM310.005 73.938a1.686 1.686 0 1 0-.001-3.371 1.686 1.686 0 0 0 .001 3.371ZM404.208 63.621a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM399.969 74.1a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.372ZM622.421 59.194a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM604.596 58.353a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM631.343 67.925a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM639.404 59.194a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM288.108 74.945a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM277.806 69.889a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM435.908 72.415a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM652.33 59.194a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM673.647 59.194a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM689.712 56.667a1.686 1.686 0 1 0-.001-3.371 1.686 1.686 0 0 0 .001 3.371ZM425.929 71.574a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM690.599 67.085a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM323.482 70.896a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM338.593 66.992a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM740.019 58.353a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM483.028 74.945a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM212.121 70.896a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM229.305 74.1a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.372ZM505.015 74.1a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM647.447 71.574a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM473.185 66.315a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM493.055 66.315a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM458.487 71.574a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM449.046 71.574a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371ZM754.044 67.085a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM510.881 61.936a1.686 1.686 0 1 0-.001-3.372 1.686 1.686 0 0 0 .001 3.372ZM529.084 64.63a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM519.802 72.415a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM538.884 65.307a1.686 1.686 0 1 0 0-3.372 1.686 1.686 0 0 0 0 3.372ZM262.717 74.388a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM711.587 58.353a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM722.322 67.085a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM738.334 67.925a1.685 1.685 0 1 0 0-3.37 1.685 1.685 0 0 0 0 3.37ZM542.899 72.415a1.686 1.686 0 1 0-.001-3.371 1.686 1.686 0 0 0 .001 3.371ZM763.115 56.667a1.686 1.686 0 1 0 0-3.371 1.686 1.686 0 0 0 0 3.371Z"
+                  fill="#C4B6FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="m49.352 44.155 45.533-22.198 22.199 45.534L71.55 89.689 49.352 44.155Zm1.412.487 21.273 43.634 43.634-21.272-21.272-43.635-43.635 21.273Z"
+                  fill="#C4B6FF"></path>
+            <path d="m313.519 431.34-13.717 6.688 6.688 13.717 13.717-6.687-6.688-13.718Z" fill="#B5CDFB"></path>
+            <path d="m741.69 106.963-19.677 9.593 9.593 19.677 19.677-9.593-9.593-19.677ZM742.095 331.582c0 33.019-8.302 64.105-22.942 91.273-.053.095-.095.18-.148.274C686.43 483.39 622.663 524.32 549.357 524.32c-106.44 0-192.738-86.287-192.738-192.738 0-10.795.888-21.389 2.599-31.72.063-.422.137-.834.211-1.257 14.862-86.192 86.973-152.789 175.774-159.233a190.46 190.46 0 0 1 14.154-.517c58.169 0 110.317 25.762 145.65 66.503 29.343 33.822 47.088 77.953 47.088 126.224Z"
+                  fill="#C4B6FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M549.353 127.993c-5.034 0-10.021.179-14.951.547h-.003c-93.805 6.806-169.983 77.159-185.683 168.209a204.979 204.979 0 0 0-2.968 34.837c0 112.454 91.163 203.605 203.605 203.605 77.559 0 145-43.37 179.369-107.187 15.465-28.698 24.235-61.535 24.235-96.418 0-50.993-18.745-97.611-49.743-133.34l.798-.692-.798.692c-37.326-43.039-92.413-70.253-153.861-70.253Zm-15.108-1.56a203.05 203.05 0 0 1 15.108-.552c62.086 0 117.747 27.499 155.457 70.981 31.318 36.098 50.26 83.203 50.26 134.724 0 35.241-8.862 68.422-24.488 97.42-34.723 64.474-102.862 108.298-181.229 108.298-113.609 0-205.717-92.098-205.717-205.718 0-11.994 1.025-23.752 2.998-35.196l1.041.18-1.041-.18c15.863-91.997 92.829-163.079 187.611-169.957Z"
+                  fill="#C4B6FF"></path>
+            <path d="M719.005 423.131c-32.575 60.26-96.342 101.19-169.648 101.19-106.44 0-192.738-86.287-192.738-192.737 0-10.796.888-21.39 2.599-31.721.528.106 1.056.243 1.584.412 0 0 43.54-28.276 91.019 13.236 47.48 41.5 37.339 157.511 97.969 137.083 60.62-20.428 72.059-31.044 95.751-29.418 23.682 1.637 45.188 6.539 49.149-6.538 3.359-11.091 19.604 3.591 24.315 8.493Z"
+                  fill="#B5CDFB"></path>
+            <path d="M681.927 331.513c14.27 14.651 8.946 39.093-10.12 46.497-9.506 3.687-18.759 6.708-25.192 7.51-19.414 2.43-38.839 9.718-55.824-28.72-16.995-38.427-40.455-7.679-59.869-26.269-19.425-18.58 34.783-55.845 42.187-127.851 7.405-72.006-23.586-14.566-35.226-16.183-7.521-1.045-5.324-28.086-2.82-47.099.073-.01.137-.021.211-.021 4.573-.348 9.316-.517 14.08-.517a191.612 191.612 0 0 1 144.656 65.921c-12.538 5.968-25.287 10.215-32.829 13.109-18.611 7.13-18.611 48.705-20.924 60.841-1.31 6.866 21.569 32.142 41.67 52.782Z"
+                  fill="#B5CDFB"></path>
+            <path d="M483.528 149.435c.172-1.166.29-2.348.29-3.561 0-13.408-10.869-24.276-24.276-24.276h-9.012c-13.408 0-24.276 10.868-24.276 24.276h-14.453c-13.407 0-24.276 10.869-24.276 24.276s10.869 24.276 24.276 24.276h59.117c13.408 0 24.276-10.869 24.276-24.276 0-8.783-4.68-16.453-11.666-20.715ZM767.782 385.419h-54.104c-12.271 0-22.218-9.948-22.218-22.218s9.947-22.218 22.218-22.218h54.104c12.271 0 22.218 9.948 22.218 22.218s-9.947 22.218-22.218 22.218Z"
+                  fill="#7D55FF"></path>
+            <path d="M749.007 363.201h-8.248c-12.27 0-22.217-9.947-22.217-22.218 0-12.27 9.947-22.217 22.217-22.217h8.248c12.271 0 22.218 9.947 22.218 22.217 0 12.271-9.947 22.218-22.218 22.218ZM593.307 173.054c-6.605 0-11.959 5.354-11.959 11.963 0 4.308 11.959 27.272 11.959 27.272s11.963-23.706 11.963-27.272c0-6.609-5.354-11.963-11.963-11.963Zm0 17.642a6.582 6.582 0 0 1 0-13.164 6.584 6.584 0 0 1 6.587 6.582 6.584 6.584 0 0 1-6.587 6.582ZM593.309 217.21c4.029 0 7.295-.868 7.295-1.939 0-1.07-3.266-1.938-7.295-1.938s-7.295.868-7.295 1.938c0 1.071 3.266 1.939 7.295 1.939ZM390.896 381.897c-6.605 0-11.959 5.353-11.959 11.963 0 4.308 11.959 27.272 11.959 27.272s11.963-23.706 11.963-27.272c0-6.61-5.354-11.963-11.963-11.963Zm0 17.642a6.582 6.582 0 0 1 0-13.164 6.583 6.583 0 1 1 0 13.164ZM390.898 426.053c4.029 0 7.295-.868 7.295-1.939 0-1.071-3.266-1.939-7.295-1.939s-7.295.868-7.295 1.939c0 1.071 3.266 1.939 7.295 1.939ZM470.907 200.075a7.18 7.18 0 0 0-7.18 7.184c0 2.587 7.18 16.376 7.18 16.376s7.184-14.235 7.184-16.376a7.182 7.182 0 0 0-7.184-7.184Zm0 10.594a3.953 3.953 0 1 1 .002-7.906 3.953 3.953 0 0 1-.002 7.906ZM470.909 226.589c2.419 0 4.38-.521 4.38-1.164 0-.643-1.961-1.165-4.38-1.165-2.42 0-4.381.522-4.381 1.165s1.961 1.164 4.381 1.164Z"
+                  fill="#7D55FF"></path>
+            <path d="M344.259 224.019c-.349 2.665-1.716 9.591-3.642 10.909-1.926 1.318-2.16-.862-3.637-.709"
+                  fill="#414042"></path>
+            <path d="M304.058 215.153c-4.32 8.095-13.697 17.8-18.176 26.857-4.48 9.058 8.765 21.757 22.773 19.233 5.058-.911 8.471-10.202 10.55-15.965"
+                  fill="#F2DEB8"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M304.307 214.687a.527.527 0 0 1 .217.714c-2.032 3.808-5.164 7.958-8.355 12.186l-.717.951c-3.449 4.577-6.882 9.229-9.097 13.706-2.085 4.217-.092 9.41 4.331 13.331 4.398 3.898 11.051 6.378 17.875 5.148 1.119-.201 2.187-.874 3.206-1.918 1.018-1.042 1.957-2.424 2.818-3.981 1.722-3.114 3.081-6.839 4.123-9.725a.528.528 0 1 1 .993.358c-1.037 2.876-2.423 6.679-4.192 9.878-.885 1.601-1.877 3.072-2.986 4.208-1.109 1.135-2.364 1.965-3.775 2.22-7.184 1.294-14.157-1.314-18.763-5.398-4.582-4.062-6.971-9.748-4.577-14.589 2.266-4.58 5.761-9.309 9.2-13.873.234-.312.469-.622.702-.931 3.208-4.252 6.291-8.337 8.282-12.068a.528.528 0 0 1 .715-.217Z"
+                  fill="#414042"></path>
+            <path d="M317.53 244.477c1.895.766 6.731 3.853 9.214 2.831 7.809-3.216 16.436-19.559 19.901-27.712 1.453-3.419 1.356-5.401 2.561-8.529l-23.713-11.928-11.413-3.426-5.844-.45.99 8.885-2.785 1.983-1.362 3.812-.798 3.542"
+                  fill="#F2DEB8"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="m307.641 194.687 6.537.504 11.511 3.456 24.182 12.163-.172.447c-.541 1.403-.812 2.566-1.093 3.772l-.073.314c-.31 1.323-.658 2.708-1.402 4.46-1.742 4.098-4.779 10.25-8.364 15.788-1.793 2.768-3.731 5.395-5.72 7.536-1.982 2.135-4.047 3.823-6.102 4.669-.758.312-1.644.293-2.52.127-.885-.167-1.82-.497-2.714-.873a42.553 42.553 0 0 1-2.528-1.192l-.239-.12c-.664-.334-1.211-.61-1.612-.772a.528.528 0 1 1 .396-.979c.444.18 1.035.477 1.685.804l.244.123c.758.381 1.604.8 2.464 1.162.863.364 1.72.662 2.5.81.788.149 1.437.133 1.921-.067 1.85-.761 3.792-2.322 5.731-4.411 1.934-2.081 3.834-4.654 5.607-7.392 3.546-5.476 6.556-11.572 8.279-15.627.709-1.667 1.04-2.983 1.345-4.287l.075-.318c.251-1.079.507-2.179.967-3.458l-23.249-11.694-11.314-3.396-5.151-.398.953 8.56-2.902 2.067-1.295 3.625-.792 3.511a.528.528 0 0 1-1.03-.232l.805-3.574 1.429-3.998 2.667-1.899-1.026-9.211Z"
+                  fill="#414042"></path>
+            <path d="M326.308 238.391c.022.248.224.43.475.413a.423.423 0 0 0 .396-.474.441.441 0 0 0-.474-.412.422.422 0 0 0-.397.473Z"
+                  fill="#231F20"></path>
+            <path d="m326.738 237.917-.033.001a.422.422 0 0 0-.397.473.443.443 0 0 0 .442.414l.033-.001a.423.423 0 0 0 .396-.474.441.441 0 0 0-.441-.413Z"
+                  fill="#414042"></path>
+            <path d="M328.999 240.642a.443.443 0 0 0 .478.409.424.424 0 0 0 .397-.474.442.442 0 0 0-.478-.409.425.425 0 0 0-.397.474Z"
+                  fill="#231F20"></path>
+            <path d="m329.433 240.167-.037.001a.424.424 0 0 0-.397.474c.022.237.21.41.444.41l.034-.001a.424.424 0 0 0 .397-.474.441.441 0 0 0-.441-.41Z"
+                  fill="#414042"></path>
+            <path d="M331.073 241.827a.442.442 0 0 0 .478.409.422.422 0 0 0 .396-.473.44.44 0 0 0-.477-.409.422.422 0 0 0-.397.473Z"
+                  fill="#231F20"></path>
+            <path d="m331.505 241.352-.035.002a.422.422 0 0 0-.397.473.44.44 0 0 0 .443.41l.035-.001a.422.422 0 0 0 .396-.473.442.442 0 0 0-.442-.411Z"
+                  fill="#414042"></path>
+            <path d="M327.222 244.012a.442.442 0 0 0 .478.409.422.422 0 0 0 .397-.473.442.442 0 0 0-.478-.409.424.424 0 0 0-.397.473Z"
+                  fill="#231F20"></path>
+            <path d="m327.655 243.537-.036.002a.424.424 0 0 0-.397.473c.022.238.21.41.444.41l.034-.001a.422.422 0 0 0 .397-.473.442.442 0 0 0-.442-.411Z"
+                  fill="#414042"></path>
+            <path d="M336.161 231.256c.023.249.23.425.479.408a.423.423 0 0 0 .399-.471.443.443 0 0 0-.48-.408.424.424 0 0 0-.398.471Z"
+                  fill="#231F20"></path>
+            <path d="m336.594 230.785-.035.001a.422.422 0 0 0-.398.47.443.443 0 0 0 .445.409l.034-.001a.423.423 0 0 0 .399-.471.442.442 0 0 0-.445-.408Z"
+                  fill="#414042"></path>
+            <path d="M326.34 233.945c.022.249.23.426.48.408a.421.421 0 0 0 .398-.471.443.443 0 0 0-.48-.408.422.422 0 0 0-.398.471Z"
+                  fill="#231F20"></path>
+            <path d="m326.774 233.473-.036.001a.422.422 0 0 0-.398.471.442.442 0 0 0 .446.409l.034-.001a.421.421 0 0 0 .398-.471.442.442 0 0 0-.444-.409Z"
+                  fill="#414042"></path>
+            <path d="M334.355 234.393a.44.44 0 0 0 .478.409c.25-.02.419-.23.396-.479a.439.439 0 0 0-.477-.408.428.428 0 0 0-.397.478Z"
+                  fill="#231F20"></path>
+            <path d="m334.791 233.914-.039.001a.427.427 0 0 0-.397.478.44.44 0 0 0 .44.41l.038-.002a.427.427 0 0 0 .396-.478.438.438 0 0 0-.438-.409Z"
+                  fill="#414042"></path>
+            <path d="M330.463 231.702a.44.44 0 0 0 .478.407.424.424 0 0 0 .395-.476.44.44 0 0 0-.478-.407.425.425 0 0 0-.395.476Z"
+                  fill="#231F20"></path>
+            <path d="m330.896 231.225-.038.001a.425.425 0 0 0-.395.476.44.44 0 0 0 .441.408l.037-.001a.424.424 0 0 0 .395-.476.439.439 0 0 0-.44-.408Z"
+                  fill="#414042"></path>
+            <path d="M330.021 235.276a.445.445 0 0 0 .479.411.422.422 0 0 0 .398-.472.445.445 0 0 0-.479-.411.422.422 0 0 0-.398.472Z"
+                  fill="#231F20"></path>
+            <path d="m330.453 234.803-.034.001a.422.422 0 0 0-.398.472.444.444 0 0 0 .446.412l.033-.001a.422.422 0 0 0 .398-.472.444.444 0 0 0-.445-.412Z"
+                  fill="#414042"></path>
+            <path d="M332.101 237.552a.44.44 0 0 0 .478.409.428.428 0 0 0 .396-.479.438.438 0 0 0-.477-.408.427.427 0 0 0-.397.478Z"
+                  fill="#231F20"></path>
+            <path d="m332.536 237.072-.038.001a.429.429 0 0 0-.397.479.44.44 0 0 0 .478.408.426.426 0 0 0 .396-.478.44.44 0 0 0-.439-.41Z"
+                  fill="#414042"></path>
+            <path d="M333.113 239.397c.022.25.226.429.477.409a.427.427 0 0 0 .397-.478.44.44 0 0 0-.478-.409.427.427 0 0 0-.396.478Z"
+                  fill="#231F20"></path>
+            <path d="m333.547 238.918-.038.001a.427.427 0 0 0-.396.478.439.439 0 0 0 .477.409.427.427 0 0 0 .397-.478.44.44 0 0 0-.44-.41Z"
+                  fill="#414042"></path>
+            <path d="M324.737 242.267a.44.44 0 0 0 .479.405.422.422 0 0 0 .399-.47.44.44 0 0 0-.479-.406.424.424 0 0 0-.399.471Z"
+                  fill="#231F20"></path>
+            <path d="m325.172 241.795-.036.001a.423.423 0 0 0-.399.471.44.44 0 0 0 .444.407c.012 0 .023 0 .035-.002a.422.422 0 0 0 .399-.47.44.44 0 0 0-.443-.407ZM365.804 204.862c-3.654 3.935-3.586 2.297-6.577 5.106-.54 4.163-1.875 7.449-6.368 7.243-2.213.125-4.105-.129-6.319 0-1.613 1.834-4.618 4.968-6.301 6.635-.785.777-1.703-1.27-1.744-2.074-.147-2.874-.085-10.253-.085-11.983 0-1.729-.016-.487-.039-.565-.672-2.257-6.095-4.151-7.326-4.572-6.027-2.059-13.132-3.654-17.397-7.906-.379-.378-.197-.451-.321-.536-.917-.628-1.54-1.624-2.683-.124-1.143 1.5-2.739 4.879-3.977 6.738-.042 1.23-6.475 9.327-6.397 8.886-.125-4.2 6.916-32.117 10.518-31.554 3.602.564 7.03 2.929 7.857 1.367 3.756-7.088 9.092-6.974 15.725-4.91.89.277 2.441 1.102 3.702 1.458 8.157 2.3 19.404 5.481 27.422 1.124-1.102 3.396-2.22 6.793-3.323 10.182 5.503-.143 9.449-3.394 13.371-6.682-1.569 6.413-6.084 18.232-9.738 22.167Z"
+                  fill="#414042"></path>
+            <path d="M336.422 226.536c.139.856-2.466 1.905-3.244 1.776-5.78-.961-2.954-10.601 1.885-11.069 3.986-.385 5.107 2.805 3.06 5.443-.091.118-.194.217-.271.344"
+                  fill="#F2DEB8"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M338.38 219.061c-.396-.817-1.414-1.471-3.267-1.292l-.05-.526.05.526c-1.037.1-2.005.696-2.8 1.612-.794.914-1.383 2.113-1.66 3.328-.277 1.221-.229 2.406.182 3.316.399.883 1.156 1.554 2.43 1.765.076.013.292-.001.632-.091a5.906 5.906 0 0 0 1.017-.382c.342-.164.628-.345.813-.514.135-.124.164-.191.17-.207a.528.528 0 0 1 1.046-.145c.081.497-.243.893-.503 1.131-.289.265-.677.498-1.066.687-.395.19-.82.348-1.205.45-.363.097-.765.165-1.077.113l.086-.521-.086.521c-1.617-.268-2.674-1.163-3.22-2.372-.533-1.182-.56-2.617-.249-3.985.313-1.373.976-2.732 1.892-3.787.915-1.053 2.114-1.837 3.497-1.971 2.133-.206 3.669.542 4.318 1.883.636 1.313.317 2.984-.79 4.409l-.415-.322.415.322a3.363 3.363 0 0 1-.154.186.78.78 0 0 0-.081.107.528.528 0 1 1-.905-.545 1.95 1.95 0 0 1 .178-.243l.054-.063a1.74 1.74 0 0 0 .074-.089c.941-1.213 1.084-2.455.674-3.301Z"
+                  fill="#414042"></path>
+            <path d="m336.6 219.075-2.42-.01 2.42.01Z" fill="#fff"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M333.784 219.063a.396.396 0 0 1 .398-.394l2.42.01a.396.396 0 0 1-.004.792l-2.42-.01a.396.396 0 0 1-.394-.398Z"
+                  fill="#414042"></path>
+            <path d="M336.981 221.6c-.573-.004-1.146-.005-1.718-.009l1.718.009Z" fill="#fff"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M334.867 221.589a.396.396 0 0 1 .398-.394l.899.005.819.004a.396.396 0 1 1-.005.792l-.814-.004-.904-.004a.396.396 0 0 1-.393-.399Z"
+                  fill="#414042"></path>
+            <path d="M304.217 193.861s-11.348 29.678-8.314 34.322c3.034 4.644 16.233 11.364 24.324 6.915 8.091-4.45 9.491-7.41 9.649-11.079.143-3.309 2.605-7.179 6.246-6.808 3.64.371 4.399 5.016 4.399 5.016s6.472-2.831 7.686-8.899c1.214-6.068 2.427-20.961-13.754-18.065-16.181 2.895-30.236-1.402-30.236-1.402ZM316.425 252.273l-2.101-3.468a5.199 5.199 0 0 1 .667-6.264l4.665 2.364-3.231 7.368Z"
+                  fill="#414042"></path>
+            <path d="m142.781 521.392 11.906-11.315 9.863 14.462-11.703 11.734-12.392-2.379-2.427-7.686 4.753-4.816Z"
+                  fill="#F2DEB8"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M141.752 541.193a2.113 2.113 0 0 1 2.614-1.446c3.375.972 4.796 3.149 5.796 5.026.134.253.26.493.378.72.78 1.494 1.277 2.447 2.417 3.164a2.112 2.112 0 0 1-2.246 3.578c-2.19-1.375-3.234-3.429-3.977-4.891-.106-.208-.206-.405-.302-.586-.793-1.489-1.489-2.448-3.234-2.95a2.113 2.113 0 0 1-1.446-2.615ZM138.619 553.04a2.113 2.113 0 0 1 2.948.489c1.188 1.662 2.399 2.729 3.769 3.724.577.419 1.165.813 1.813 1.248l.458.307c.818.551 1.705 1.16 2.644 1.882a2.113 2.113 0 0 1-2.576 3.349 46.796 46.796 0 0 0-2.428-1.726l-.427-.286c-.651-.438-1.32-.886-1.966-1.355-1.624-1.179-3.201-2.554-4.724-4.685a2.112 2.112 0 0 1 .489-2.947Z"
+                  fill="#7D55FF"></path>
+            <path d="M130.102 582.348c-2.389-.386-3.513-1.496-5.05-2.453 12.563-9.576 12.731-38.717 6.273-49.832-2.615-4.5-3.245-3.305-7.698-5.265 1.212-.396 1.667-.776 3.023-1.14 4.754-1.279 9.906-2.908 14.99-2.554.091.006.243.067.315.052.945-.204 2.048.558 2.342 1.13.294.572-.128-.366.091.205.22.572.554 2.677.543 3.583-.021 1.633-.527 3.952 1.368 6.387 2.232 2.868 3.73 1.447 6.754 3.579.403 5.622-7.75 20.823-8.709 28.09-1.109 8.393-5.195 19.683-14.242 18.218Z"
+                  fill="#C4B6FF"></path>
+            <path d="M125.13 579.881c-.039.029-.075.015-.078.014-.277-.141-2.599-1.455-3.338-2.25-2.231-2.404-5.478-6.807-3.503-12.643 3.007-8.887 5.213-17.98 2.38-27.105-1.944-6.259-1.984-12.045 3.438-13.148 2.84-.578 5.396.398 7.719 5.312 5.507 11.653 5.835 40.197-6.618 49.82Z"
+                  fill="#F0F1F1"></path>
+            <path d="M125.571 562.376c-.014.011.006.023.005.022-.102-.051-.984-.549-1.255-.841-.816-.879-2.005-2.491-1.282-4.627 1.1-3.252 1.908-6.58.871-9.919-.711-2.291-.726-4.409 1.258-4.812 1.04-.212 1.975.145 2.825 1.944 2.016 4.265 2.136 14.711-2.422 18.233Z"
+                  fill="#B5CDFB"></path>
+            <path d="m74.698 493.72 13.601-9.208 7.356 15.884-13.358 9.589-11.945-4.315-1.133-7.98 5.479-3.97Z"
+                  fill="#F2DEB8"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M70.433 513.082a2.112 2.112 0 0 1 2.816-.997c3.17 1.512 4.215 3.893 4.892 5.908.092.272.176.529.255.773.524 1.602.858 2.623 1.866 3.517a2.113 2.113 0 0 1-2.804 3.161c-1.934-1.715-2.626-3.913-3.12-5.476-.07-.224-.136-.434-.201-.628-.538-1.6-1.068-2.66-2.707-3.442a2.112 2.112 0 0 1-.997-2.816ZM65.399 524.254a2.112 2.112 0 0 1 2.827.967c.899 1.834 1.918 3.085 3.107 4.292.5.507 1.016.993 1.584 1.528l.4.378a50.582 50.582 0 0 1 2.3 2.29 2.113 2.113 0 0 1-3.091 2.881 46.311 46.311 0 0 0-2.112-2.101l-.373-.352a63.938 63.938 0 0 1-1.718-1.659c-1.408-1.43-2.738-3.045-3.891-5.397a2.113 2.113 0 0 1 .967-2.827Z"
+                  fill="#7D55FF"></path>
+            <path d="M52.83 551.462c-2.293-.773-3.092-1.696-5.031-3.014 13.964-7.383 18.721-36.032 14.175-48.056-1.84-4.869-2.658-3.793-6.729-6.457 1.26-.192 1.771-.492 3.169-.629 4.9-.481 10.249-1.243 15.205-.06.09.022.23.107.303.104.966-.046 1.928.886 2.124 1.499.196.612-.066-.383.057.218.123.599.107 2.731-.053 3.622-.289 1.608-1.168 3.812.301 6.525 1.732 3.196 3.442 2.04 6.076 4.64-.526 5.612-11.063 19.268-13.202 26.279-2.47 8.098-7.711 18.258-16.395 15.329Z"
+                  fill="#C4B6FF"></path>
+            <path d="M47.799 548.448c-.043.023.004.065.001.062-.25-.184-2.41-2.003-3.004-2.829-1.916-2.661-4.287-7.613-1.381-13.046 4.425-8.272 8.093-16.88 6.796-26.347-.89-6.492.02-12.207 5.55-12.405 2.895-.104 5.257 1.278 6.742 6.507 3.52 12.399-.841 40.61-14.704 48.058Z"
+                  fill="#F0F1F1"></path>
+            <path d="M50.886 531.808c-.016.009.002.025 0 .024-.095-.071-.925-.769-1.153-1.086-.735-1.022-1.646-2.924-.53-5.01 1.699-3.177 3.108-6.482 2.61-10.117-.342-2.493.007-4.688 2.13-4.764 1.113-.04 2.02.491 2.59 2.499 1.351 4.761-.323 15.594-5.647 18.454Z"
+                  fill="#B5CDFB"></path>
+            <path d="M260.087 233.913s15.029 2.915 27.704 5.611c12.676 2.697 54.512 23.505 61.057 41.506 2.803 7.709-19.554 15.17-19.85 15.608-.297.439-82.486-23.403-82.486-23.403l13.575-39.322ZM656.37 462.908l-7.155-5.582 2.683-.619 4.55 3.815 7.155-5.827 7.156 5.827 7.157-5.827 7.152 5.827 7.156-5.827 7.155 5.827 7.156-5.827 7.079 5.603 7.143-5.603 7.121 5.603 7.444-5.42 5.692 6.226-1.581.681-4.111-4.46-6.863 4.675-7.551-4.751-7.294 5.659-7.157-5.582-7.156 5.582-7.155-5.582-7.155 5.582-7.153-5.582-7.157 5.582-7.156-5.582-7.155 5.582ZM678.476 476.43l-7.155-5.582 2.682-.619 4.55 3.815 7.156-5.827 7.156 5.827 7.157-5.827 7.152 5.827 7.156-5.827 7.155 5.827 7.155-5.827 7.08 5.603 7.142-5.603 7.122 5.603 7.444-5.42 5.692 6.226-1.581.681-4.111-4.46-6.863 4.675-7.551-4.751-7.294 5.659-7.157-5.582-7.156 5.582-7.155-5.582-7.156 5.582-7.152-5.582-7.157 5.582-7.156-5.582-7.155 5.582Z"
+                  fill="#C4B6FF"></path>
+            <path d="M420.35 327.382s27.569-8.4 26.176-2.158c-.899 4.027-6.591 7.552-6.591 7.552s26.299-1.77 26.251 3.666c-.048 5.435-11.022 19.857-17.993 19.444-6.833-.404-29.4-2.351-31.262-8.136-1.862-5.785 3.419-20.368 3.419-20.368Z"
+                  fill="#F2DEB8"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="m162.769 423.719 39.689-67.506 24.585 14.455-42.777 72.756-92.78 66.024-16.536-23.237 87.819-62.492Z"
+                  fill="#7D55FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="m206.647 344.315 35.937 15.762 27.287 14.853-13.635 25.049-26.22-14.273-34.824-15.274 11.455-26.117Z"
+                  fill="#7D55FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="m264.645 383.323-33.719 78.152-65.9 70.054-20.773-19.541 62.47-66.408 31.736-73.555 26.186 11.298Z"
+                  fill="#7D55FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="m251.839 271.104-.099.001a1242.121 1242.121 0 0 0-15.327.269c-4.253.103-8.391.234-11.491.395l-.096.005-41.812 29.768-22.054-30.978 45.964-32.724.135-.092a19.795 19.795 0 0 1 5.733-2.69l.045-.013a23.554 23.554 0 0 1 2.283-.523 36.96 36.96 0 0 1 2.737-.368c1.522-.153 3.319-.268 5.1-.36 3.631-.188 8.186-.329 12.534-.435a1279.184 1279.184 0 0 1 15.804-.277l.871-.01c5.375-.337 9.755.737 13.926 2.589l.64.284 77.215 41.332a35.094 35.094 0 0 1 10.914 9.109l.318.4 19.079 26.866 51.995 5.858-4.257 37.786-68.894-7.761-27.756-39.084-73.507-39.347Z"
+                  fill="#C4B6FF"></path>
+            <path d="M324.73 309.993c-9.601 27.368-40.328 69.281-45.493 74.225-3.898 3.728-23.207-5.694-41.903-16.573a513.763 513.763 0 0 1-22.942-14.207c-6.126-4.035-10.975-7.458-13.478-9.475-11.323-9.147 54.831-87.977 54.831-87.977l23.565 10.805 21.749 9.972 16.985 7.795s10.457 14.704 6.686 25.435Z"
+                  fill="#C4B6FF"></path>
+            <path d="m223.589 355.171 5.393 3.038c14.496 8.164 32.865 3.032 41.03-11.464l26.374-46.826c8.165-14.496 3.032-32.866-11.463-41.031l-5.394-3.037c-6.99-3.938-15.849-1.462-19.787 5.528l-41.682 74.005c-3.937 6.991-1.462 15.85 5.529 19.787Z"
+                  fill="#414042"></path>
+            <path opacity=".46"
+                  d="M291.918 272.572c5.651 2.591 7.971 9.525 4.798 14.872l-.062.104-37.011 62.172c-5.144 8.64-13.172 14.777-22.309 17.925a513.763 513.763 0 0 1-22.942-14.207c-6.126-4.036-10.975-7.458-13.478-9.475-11.323-9.147 54.831-87.977 54.831-87.977l23.565 10.805 12.608 5.781Z"
+                  fill="#414042"></path>
+            <path d="m287.919 276.868-39.483 75.207c-3.729 7.109-12.507 9.844-19.615 6.116l-5.472-2.884c-10.298-5.408-16.171-15.939-16.129-26.819a30.105 30.105 0 0 1 3.454-13.858l6.95-13.235 18.031-34.35c5.746-10.943 17.682-17.016 29.47-16.224a29.801 29.801 0 0 1 10.066 2.45c.623.275 1.236.571 1.838.887l5.45 3.032c.56.296 1.099.623 1.595.993a13.166 13.166 0 0 1 4.468 5.535c1.764 4.024 1.606 8.904-.623 13.15Z"
+                  fill="#7D55FF"></path>
+            <path d="M324.709 257.095c-.053.106-.623-.443-1.743-1.003-3.834-1.923-14.185-5.345-33.536 7.056-.296.179-.592.37-.888.57a13.166 13.166 0 0 0-4.468-5.535 41.953 41.953 0 0 1 2.039-1.552c6.802-4.912 16.9-9.106 29.576-5.535 0 0 3.728 1.763 5.788 3.105 1.627 1.056 3.232 2.894 3.232 2.894ZM284.581 238.757c-3.274 3.222-5.978 7.542-8.091 11.778a63.83 63.83 0 0 0-1.299 2.736 29.797 29.797 0 0 0-10.066-2.451 29.897 29.897 0 0 1 1.32-3.232c2.947-6.295 7.119-10.256 8.091-11.144a.612.612 0 0 1 .476-.158c.253.032.739.095 1.658.275 1.732.316 6.19 1.32 7.764 1.668.242.064.327.36.147.528ZM324.727 310.083s-37.806 28.62-56.212 28.319l-3.236 5.97s18.411-1.971 36.359-13.071c17.949-11.1 20.022-12.516 20.881-13.729.737-1.039 2.793-5.476 2.781-7.159-.002-.282-.407-.361-.573-.33Z"
+                  fill="#7D55FF"></path>
+            <path d="m263.763 347.547-.459-.212a2.276 2.276 0 0 1-1.109-3.021l4.207-9.086a2.276 2.276 0 0 1 3.021-1.108l.459.212a2.275 2.275 0 0 1 1.109 3.021l-4.207 9.085a2.275 2.275 0 0 1-3.021 1.109Z"
+                  fill="#7D55FF"></path>
+            <path d="m264.152 277.659-22.703-11.919a1.768 1.768 0 0 1 1.643-3.131l22.704 11.92a1.768 1.768 0 0 1-1.644 3.13ZM248.316 319.114l-9.524 15.597a9.805 9.805 0 0 1-12.924 3.572l-18.651-9.789a30.106 30.106 0 0 1 3.454-13.859l6.95-13.235a1.717 1.717 0 0 1 1.088.169l28.868 15.158a1.772 1.772 0 0 1 .739 2.387Z"
+                  fill="#414042"></path>
+            <path d="M434.979 522.628h-45.65c-11.049 0-20.007-8.957-20.007-20.006 0-11.05 8.958-20.007 20.007-20.007h45.65c11.05 0 20.007 8.957 20.007 20.007 0 11.049-8.957 20.006-20.007 20.006Z"
+                  fill="#C4B6FF"></path>
+            <path d="M415.461 502.622c-11.05 0-20.007-8.957-20.007-20.007 0-11.049 8.957-20.006 20.007-20.006 11.049 0 20.006 8.957 20.006 20.006 0 11.05-8.957 20.007-20.006 20.007Z"
+                  fill="#C4B6FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M236.903 139.387h-66.377v-1.056h66.377v1.056ZM236.903 145.466h-66.377v-1.056h66.377v1.056ZM215.778 151.546h-45.252v-1.057h45.252v1.057ZM215.778 157.625h-34.689v-1.056h34.689v1.056ZM215.778 163.704h-34.689v-1.057h34.689v1.057Z"
+                  fill="#C4B6FF"></path>
+            <path d="M580.796 297.849c.538-.052.867.379 1.443 1.079-.817-3.477-2.471-9.481-.882-10.946.352-.325 3.351-1.561 4.286 1.481.592-5.464 2.085-12.697 5.854-12.987 4.882-.376 3.387 11.298 2.605 15.929 1.082-1.656 1.164-2.782 2.09-3.136.984-.376 3.276 1.012 2.833 3.12-.438 2.083-.607 4.791-1.137 7.066 1.028-1.154 1.534-1.991 2.413-1.918 1.267.106 2.028 1.995 2.167 2.34 1.227 3.045-.266 6.959-2.834 9.361-2.408 2.253-5.418 2.854-7.474 2.982v6.505h-2.34v-6.536c-4.882-.406-10.423-3.391-11.358-7.787-.635-2.984.896-6.414 2.334-6.553Z"
+                  fill="#7D55FF"></path>
+            <path d="M576.764 296.897c-.538-.052-.868.379-1.443 1.079.816-3.477 2.47-9.481.882-10.947-.352-.325-3.352-1.56-4.287 1.482-.591-5.464-2.085-12.698-5.854-12.988-4.882-.375-3.386 11.299-2.604 15.93-1.082-1.656-1.165-2.783-2.091-3.136-.984-.376-3.275 1.012-2.832 3.12.437 2.083.606 4.791 1.137 7.066-1.029-1.154-1.535-1.991-2.413-1.918-1.267.106-2.029 1.995-2.168 2.34-1.227 3.045.267 6.959 2.834 9.361 2.409 2.253 5.419 2.854 7.474 2.982v6.505h2.34v-6.536c4.882-.406 10.424-3.391 11.359-7.787.634-2.984-.897-6.414-2.334-6.553Z"
+                  fill="#7D55FF"></path>
+            <path d="M588.128 304.182c-.538-.052-.867.378-1.443 1.078.816-3.477 2.47-9.481.882-10.946-.352-.325-3.351-1.561-4.286 1.481-.592-5.464-2.086-12.697-5.855-12.987-4.881-.375-3.386 11.299-2.604 15.93-1.082-1.656-1.164-2.783-2.091-3.137-.984-.376-3.275 1.012-2.832 3.12.437 2.084.607 4.792 1.137 7.067-1.028-1.154-1.534-1.992-2.413-1.918-1.267.106-2.028 1.995-2.167 2.34-1.228 3.045.266 6.959 2.834 9.361 2.408 2.253 5.418 2.854 7.473 2.982v6.504h2.341v-6.535c4.882-.406 10.423-3.392 11.358-7.788.635-2.983-.896-6.414-2.334-6.552ZM485.381 466.177c.538-.052.867.378 1.443 1.078-.817-3.477-2.471-9.481-.883-10.946.352-.325 3.352-1.561 4.287 1.481.591-5.464 2.085-12.697 5.854-12.987 4.882-.375 3.386 11.299 2.604 15.93 1.083-1.656 1.165-2.783 2.091-3.137.984-.376 3.275 1.012 2.833 3.121-.438 2.083-.607 4.791-1.137 7.066 1.028-1.154 1.534-1.991 2.413-1.918 1.266.106 2.028 1.995 2.167 2.34 1.227 3.045-.266 6.959-2.834 9.361-2.409 2.253-5.419 2.854-7.474 2.982v6.505h-2.34v-6.536c-4.882-.406-10.423-3.392-11.358-7.788-.635-2.983.896-6.414 2.334-6.552ZM458.083 457.793c-.538-.052-.868.378-1.443 1.078.816-3.477 2.47-9.481.882-10.946-.352-.325-3.352-1.561-4.287 1.481-.591-5.464-2.085-12.697-5.854-12.987-4.881-.375-3.386 11.299-2.604 15.93-1.082-1.656-1.165-2.783-2.091-3.137-.984-.376-3.275 1.012-2.832 3.12.437 2.084.606 4.792 1.137 7.067-1.029-1.154-1.535-1.992-2.413-1.918-1.267.105-2.029 1.995-2.168 2.34-1.227 3.045.267 6.959 2.834 9.361 2.409 2.252 5.419 2.854 7.474 2.982v6.504h2.34v-6.535c4.882-.406 10.424-3.392 11.359-7.788.634-2.984-.897-6.414-2.334-6.552Z"
+                  fill="#C4B6FF"></path>
+            <path d="M480.911 447.96c-.538-.051-.867.379-1.443 1.079.817-3.477 2.471-9.481.883-10.946-.353-.325-3.352-1.561-4.287 1.481-.591-5.464-2.085-12.697-5.854-12.987-4.882-.376-3.386 11.299-2.604 15.929-1.083-1.656-1.165-2.782-2.091-3.136-.984-.376-3.275 1.012-2.833 3.12.438 2.083.607 4.791 1.137 7.066-1.028-1.154-1.534-1.991-2.413-1.918-1.266.106-2.028 1.995-2.167 2.34-1.227 3.045.266 6.959 2.834 9.361 2.409 2.253 5.419 2.854 7.474 2.982v6.505h2.34v-6.535c4.882-.407 10.423-3.392 11.358-7.788.635-2.984-.896-6.414-2.334-6.553Z"
+                  fill="#C4B6FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M453.463 250.754c0-.292.237-.528.529-.528h44.902a.527.527 0 1 1 0 1.056h-44.902a.528.528 0 0 1-.529-.528ZM428.895 250.754c0-.292.236-.528.528-.528h21.309a.527.527 0 1 1 0 1.056h-21.309a.527.527 0 0 1-.528-.528ZM430.665 255.982c0-.292.236-.529.528-.529h44.903a.529.529 0 0 1 0 1.057h-44.903a.528.528 0 0 1-.528-.528ZM406.096 255.982c0-.292.236-.529.528-.529h21.309a.528.528 0 0 1 0 1.057h-21.309a.528.528 0 0 1-.528-.528Z"
+                  fill="#B5CDFB"></path>
+            <path d="M265.177 276.008s-5.716 2.623-5.341 8.246c.374 5.622 6.747-3.28 5.341-8.246Z"
+                  fill="#414042"></path>
+            <path d="M625.627 185.437h-16.954v30.691h16.954v-30.691Z" fill="#C4B6FF"></path>
+            <path d="M636.073 199.175H619.12v16.953h16.953v-16.953Z" fill="#C4B6FF"></path>
+            <g opacity=".7" fill="#fff">
+                <path d="M615.866 187.578h-4.453v8.648h4.453v-8.648ZM622.887 187.578h-4.452v8.648h4.452v-8.648ZM615.866 198.709h-4.453v8.648h4.453v-8.648ZM622.887 198.709h-4.452v8.648h4.452v-8.648Z"></path>
+            </g>
+            <path d="M613.631 422.75h-16.953v54.433h16.953V422.75Z" fill="#7D55FF"></path>
+            <path d="M624.077 460.23h-16.953v16.953h16.953V460.23ZM599.808 448.804h-16.954v28.379h16.954v-28.379Z"
+                  fill="#7D55FF"></path>
+            <path d="M603.87 448.633h-4.452v8.648h4.452v-8.648ZM610.891 448.633h-4.452v8.648h4.452v-8.648ZM603.87 459.764h-4.452v8.648h4.452v-8.648ZM610.891 459.764h-4.452v8.648h4.452v-8.648ZM603.87 426.087h-4.452v8.648h4.452v-8.648ZM610.891 426.087h-4.452v8.648h4.452v-8.648ZM603.87 437.219h-4.452v8.648h4.452v-8.648ZM610.891 437.219h-4.452v8.648h4.452v-8.648Z"
+                  fill="#B5CDFB"></path>
+            <path d="M439.588 365.741h-16.953v54.434h16.953v-54.434Z" fill="#C4B6FF"></path>
+            <path d="M450.034 403.22h-16.953v16.954h16.953V403.22ZM425.765 391.795h-16.954v28.379h16.954v-28.379Z"
+                  fill="#C4B6FF"></path>
+            <path d="M429.827 391.624h-4.452v8.648h4.452v-8.648ZM436.848 391.624h-4.452v8.648h4.452v-8.648ZM429.827 402.755h-4.452v8.648h4.452v-8.648ZM436.848 402.755h-4.452v8.648h4.452v-8.648ZM429.827 369.077h-4.452v8.648h4.452v-8.648ZM436.848 369.077h-4.452v8.648h4.452v-8.648ZM429.827 380.208h-4.452v8.648h4.452v-8.648ZM436.848 380.208h-4.452v8.648h4.452v-8.648ZM555.285 365.582c-15.22 0-27.558 12.337-27.558 27.569 0 9.928 27.558 62.848 27.558 62.848s27.569-54.63 27.569-62.848c0-15.232-12.337-27.569-27.569-27.569Zm0 40.656c-8.376 0-15.168-6.792-15.168-15.168s6.792-15.168 15.168-15.168c8.387 0 15.179 6.792 15.179 15.168s-6.792 15.168-15.179 15.168ZM555.291 467.339c9.284 0 16.81-2 16.81-4.468s-7.526-4.468-16.81-4.468c-9.285 0-16.811 2-16.811 4.468s7.526 4.468 16.811 4.468Z"
+                  fill="#7D55FF"></path>
+            <path d="M259.643 502.137a4.76 4.76 0 1 0 0-9.52 4.76 4.76 0 0 0 0 9.52Z" fill="#C4B6FF"></path>
+            <path d="M764.801 566.469a4.76 4.76 0 1 0 0-9.52 4.76 4.76 0 0 0 0 9.52Z" fill="#F0F1F1"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M324.735 151.826a3.703 3.703 0 1 0 .001-7.407 3.703 3.703 0 0 0-.001 7.407Zm4.76-3.703a4.76 4.76 0 1 1-9.52-.001 4.76 4.76 0 0 1 9.52.001Z"
+                  fill="#C4B6FF"></path>
+            <path d="M389.859 26.52a4.76 4.76 0 1 0-.001-9.52 4.76 4.76 0 0 0 .001 9.52Z" fill="#B5CDFB"></path>
+            <path d="M235.218 193.132a4.76 4.76 0 1 0-.001-9.52 4.76 4.76 0 0 0 .001 9.52Z" fill="#C4B6FF"></path>
+            <path d="M676.609 546.537a4.76 4.76 0 1 0 0-9.52 4.76 4.76 0 0 0 0 9.52Z" fill="#231F20"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M20.84 478.196c5.403 0 9.783-4.38 9.783-9.784 0-5.403-4.38-9.783-9.783-9.783s-9.784 4.38-9.784 9.783c0 5.404 4.38 9.784 9.784 9.784Zm10.84-9.784c0 5.987-4.854 10.84-10.84 10.84-5.987 0-10.84-4.853-10.84-10.84 0-5.986 4.853-10.839 10.84-10.839 5.986 0 10.84 4.853 10.84 10.839ZM761.43 223.116c5.403 0 9.783-4.38 9.783-9.783 0-5.404-4.38-9.784-9.783-9.784s-9.784 4.38-9.784 9.784c0 5.403 4.381 9.783 9.784 9.783Zm10.84-9.783c0 5.986-4.854 10.839-10.84 10.839-5.987 0-10.84-4.853-10.84-10.839 0-5.987 4.853-10.84 10.84-10.84 5.986 0 10.84 4.853 10.84 10.84Z"
+                  fill="#C4B6FF"></path>
+            <path d="M463.13 132.799a.876.876 0 1 0 .002-1.752.876.876 0 0 0-.002 1.752ZM470.378 137.822a.877.877 0 1 0 0-1.753.877.877 0 0 0 0 1.753ZM463.566 140.654a.877.877 0 1 0 0-1.753.877.877 0 0 0 0 1.753ZM486.155 180.264a.876.876 0 1 0 0-1.751.876.876 0 0 0 0 1.751ZM476.729 164.825a.877.877 0 1 0-.001-1.753.877.877 0 0 0 .001 1.753ZM471.785 154.374a.877.877 0 1 0 0-1.753.877.877 0 0 0 0 1.753ZM476.729 175.848a.876.876 0 1 0 0-1.751.876.876 0 0 0 0 1.751ZM481.452 159.364a1.332 1.332 0 1 0 0-2.664 1.332 1.332 0 0 0 0 2.664ZM486.155 169.631a1.332 1.332 0 1 0 0-2.664 1.332 1.332 0 0 0 0 2.664ZM467.749 188.271a1.332 1.332 0 1 0-.002-2.664 1.332 1.332 0 0 0 .002 2.664ZM474.521 145.07a1.331 1.331 0 1 0 0-2.662 1.331 1.331 0 0 0 0 2.662ZM479.497 186.939a1.332 1.332 0 1 0 0-2.664 1.332 1.332 0 0 0 0 2.664ZM753.061 326.313a.877.877 0 1 0 0-1.753.877.877 0 0 0 0 1.753ZM760.309 331.337a.877.877 0 1 0 0-1.755.877.877 0 0 0 0 1.755ZM753.497 334.168a.876.876 0 1 0 0-1.751.876.876 0 0 0 0 1.751ZM782.857 373.779a.877.877 0 1 0 0-1.755.877.877 0 0 0 0 1.755ZM773.431 358.339a.877.877 0 1 0-.001-1.753.877.877 0 0 0 .001 1.753ZM768.488 347.888a.876.876 0 1 0 0-1.751.876.876 0 0 0 0 1.751ZM773.431 369.362a.876.876 0 1 0 0-1.751.876.876 0 0 0 0 1.751ZM778.155 352.878a1.332 1.332 0 1 0-.002-2.664 1.332 1.332 0 0 0 .002 2.664ZM782.857 363.145a1.331 1.331 0 1 0 .001-2.663 1.331 1.331 0 0 0-.001 2.663ZM764.451 381.785a1.332 1.332 0 1 0 0-2.663 1.332 1.332 0 0 0 0 2.663ZM764.451 338.585a1.332 1.332 0 1 0 0-2.664 1.332 1.332 0 0 0 0 2.664ZM776.199 380.453a1.331 1.331 0 1 0 .001-2.663 1.331 1.331 0 0 0-.001 2.663Z"
+                  fill="#C4B6FF"></path>
+            <path d="M420.228 472.443a.702.702 0 1 0 .001-1.405.702.702 0 0 0-.001 1.405ZM426.037 476.469a.703.703 0 1 0 0-1.407.703.703 0 0 0 0 1.407ZM420.578 478.738a.702.702 0 1 0 0-1.403.702.702 0 0 0 0 1.403ZM447.125 510.491a.702.702 0 1 0 .001-1.405.702.702 0 0 0-.001 1.405ZM439.57 498.117a.703.703 0 1 0 0-1.407.703.703 0 0 0 0 1.407ZM435.608 489.741a.702.702 0 1 0 .001-1.405.702.702 0 0 0-.001 1.405ZM439.57 506.952a.703.703 0 1 0 0-1.407.703.703 0 0 0 0 1.407ZM443.356 493.74a1.067 1.067 0 1 0 0-2.133 1.067 1.067 0 0 0 0 2.133ZM447.125 501.969a1.067 1.067 0 1 0 0-2.133 1.067 1.067 0 0 0 0 2.133ZM432.373 516.908a1.067 1.067 0 1 0 0-2.133 1.067 1.067 0 0 0 0 2.133ZM429.357 482.278a1.068 1.068 0 1 0 0-2.135 1.068 1.068 0 0 0 0 2.135ZM441.789 515.841a1.067 1.067 0 1 0 0-2.133 1.067 1.067 0 0 0 0 2.133Z"
+                  fill="#B5CDFB"></path>
+            <path d="M644.739 282.437h-19.182a8.407 8.407 0 0 1 0-16.813h19.182a8.406 8.406 0 1 1 0 16.813Z"
+                  fill="#7D55FF"></path>
+            <path d="M636.537 274.031a8.406 8.406 0 0 1-8.406-8.407 8.407 8.407 0 0 1 16.813 0 8.407 8.407 0 0 1-8.407 8.407Z"
+                  fill="#7D55FF"></path>
+            <path opacity=".4"
+                  d="M95.086 392.277H45.314a5.034 5.034 0 0 1-5.034-5.034V267.565a5.034 5.034 0 0 1 5.034-5.034h49.772a5.034 5.034 0 0 1 5.034 5.034v119.678a5.034 5.034 0 0 1-5.034 5.034Z"
+                  fill="#B5CDFB"></path>
+            <path d="M95.086 247.28H45.314a5.034 5.034 0 0 1-5.034-5.034v-51.787a5.033 5.033 0 0 1 5.034-5.033h49.772a5.033 5.033 0 0 1 5.034 5.033v51.787a5.034 5.034 0 0 1-5.034 5.034ZM65.578 365.629H38.653a3.484 3.484 0 0 1-3.484-3.484v-.754a3.483 3.483 0 0 1 3.484-3.483h26.925a3.483 3.483 0 0 1 3.484 3.483v.754a3.484 3.484 0 0 1-3.484 3.484Z"
+                  fill="#C4B6FF"></path>
+            <path d="M102.973 365.629H76.048a3.484 3.484 0 0 1-3.484-3.484v-.754a3.483 3.483 0 0 1 3.484-3.483h26.925a3.483 3.483 0 0 1 3.484 3.483v.754a3.484 3.484 0 0 1-3.484 3.484Z"
+                  fill="#B5CDFB"></path>
+            <path d="M93.542 328.204H50.945a1.987 1.987 0 0 1-1.987-1.987v-.43c0-1.097.89-1.987 1.987-1.987h42.597c1.097 0 1.987.89 1.987 1.987v.43c0 1.097-.89 1.987-1.987 1.987ZM82.228 336.36H50.945a1.987 1.987 0 0 1-1.987-1.987v-.43c0-1.097.89-1.986 1.987-1.986h31.283c1.097 0 1.987.889 1.987 1.986v.43c0 1.098-.89 1.987-1.987 1.987ZM82.228 344.517H50.945a1.987 1.987 0 0 1-1.987-1.987v-.43c0-1.097.89-1.987 1.987-1.987h31.283c1.097 0 1.987.89 1.987 1.987v.43c0 1.097-.89 1.987-1.987 1.987Z"
+                  fill="#C4B6FF"></path>
+            <path d="M85.842 239.864H54.559a1.987 1.987 0 0 1-1.987-1.987v-.43c0-1.097.89-1.987 1.986-1.987h31.284c1.097 0 1.987.89 1.987 1.987v.43c0 1.097-.89 1.987-1.987 1.987Z"
+                  fill="#B5CDFB"></path>
+            <path d="M76.658 383.947H63.743a.91.91 0 0 1-.91-.91v-.197a.91.91 0 0 1 .91-.91h12.915a.91.91 0 0 1 .91.91v.197a.91.91 0 0 1-.91.91Z"
+                  fill="#C4B6FF"></path>
+            <path opacity=".4"
+                  d="M96.704 176.797H43.697a3.944 3.944 0 0 1-3.945-3.944V172a3.944 3.944 0 0 1 3.944-3.945h53.008a3.945 3.945 0 0 1 3.944 3.945v.853a3.944 3.944 0 0 1-3.944 3.944Z"
+                  fill="#B5CDFB"></path>
+            <path d="M51.407 154.173h-8.252a1.365 1.365 0 0 1-1.366-1.365v-.295c0-.755.612-1.366 1.366-1.366h8.252c.754 0 1.366.611 1.366 1.366v.295c0 .754-.612 1.365-1.366 1.365ZM97.245 154.173h-8.252a1.365 1.365 0 0 1-1.365-1.365v-.295c0-.755.61-1.366 1.365-1.366h8.252c.754 0 1.366.611 1.366 1.366v.295c0 .754-.612 1.365-1.366 1.365Z"
+                  fill="#C4B6FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M95.529 177.325H44.872v-1.056h50.657v1.056ZM95.529 285.656H44.872V284.6h50.657v1.056ZM95.529 255.434H44.872v-1.057h50.657v1.057Z"
+                  fill="#C4B6FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M97.249 311.81c.995 0 1.954-.156 2.851-.445l.324 1.006a10.357 10.357 0 0 1-3.175.496H43.15a10.36 10.36 0 0 1-3.025-.449l.308-1.011c.859.262 1.771.403 2.717.403H97.25Z"
+                  fill="#BBBDBF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M43.151 149.442a9.308 9.308 0 0 0-9.307 9.308v143.762a9.31 9.31 0 0 0 6.59 8.904l-.308 1.011c-4.247-1.295-7.338-5.243-7.338-9.915V158.75c0-5.724 4.64-10.364 10.363-10.364H97.25c5.724 0 10.364 4.64 10.364 10.364v143.762c0 4.617-3.019 8.527-7.189 9.868l-.324-1.005a9.312 9.312 0 0 0 6.456-8.863V158.75a9.307 9.307 0 0 0-9.307-9.308H43.15Z"
+                  fill="#C4B6FF"></path>
+            <path d="M81.325 154.793h-22.25a3.494 3.494 0 0 1-3.494-3.494v-3.305h29.238v3.305a3.494 3.494 0 0 1-3.494 3.494Z"
+                  fill="#C4B6FF"></path>
+            <path d="M50.932 303.065h-5.83a1.865 1.865 0 0 1-1.866-1.865v-5.831c0-1.03.835-1.865 1.865-1.865h5.83c1.031 0 1.866.835 1.866 1.865v5.831c0 1.03-.835 1.865-1.865 1.865Z"
+                  fill="#7D55FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M45.101 293.768c-.884 0-1.601.717-1.601 1.601v5.831c0 .884.717 1.601 1.601 1.601h5.83c.885 0 1.602-.717 1.602-1.601v-5.831c0-.884-.717-1.601-1.601-1.601H45.1Zm-2.13 1.601a2.13 2.13 0 0 1 2.13-2.129h5.83a2.13 2.13 0 0 1 2.13 2.129v5.831a2.13 2.13 0 0 1-2.13 2.129h-5.83a2.13 2.13 0 0 1-2.13-2.129v-5.831Z"
+                  fill="#C4B6FF"></path>
+            <path d="M65.72 303.065h-5.83a1.865 1.865 0 0 1-1.865-1.865v-5.831c0-1.03.835-1.865 1.865-1.865h5.83c1.031 0 1.866.835 1.866 1.865v5.831c0 1.03-.835 1.865-1.865 1.865Z"
+                  fill="#7D55FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M59.89 293.768c-.884 0-1.601.717-1.601 1.601v5.831c0 .884.717 1.601 1.601 1.601h5.83c.885 0 1.602-.717 1.602-1.601v-5.831c0-.884-.717-1.601-1.601-1.601h-5.83Zm-2.13 1.601a2.13 2.13 0 0 1 2.13-2.129h5.83a2.13 2.13 0 0 1 2.13 2.129v5.831a2.13 2.13 0 0 1-2.13 2.129h-5.83a2.13 2.13 0 0 1-2.13-2.129v-5.831Z"
+                  fill="#C4B6FF"></path>
+            <path d="M80.51 303.065h-5.83a1.865 1.865 0 0 1-1.866-1.865v-5.831c0-1.03.835-1.865 1.865-1.865h5.831c1.03 0 1.865.835 1.865 1.865v5.831c0 1.03-.835 1.865-1.865 1.865Z"
+                  fill="#7D55FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M74.68 293.768c-.885 0-1.602.717-1.602 1.601v5.831c0 .884.717 1.601 1.601 1.601h5.83c.885 0 1.602-.717 1.602-1.601v-5.831c0-.884-.717-1.601-1.601-1.601h-5.83Zm-2.13 1.601a2.13 2.13 0 0 1 2.13-2.129h5.83a2.13 2.13 0 0 1 2.13 2.129v5.831a2.13 2.13 0 0 1-2.13 2.129h-5.83a2.13 2.13 0 0 1-2.13-2.129v-5.831Z"
+                  fill="#C4B6FF"></path>
+            <path d="M95.3 303.065h-5.832a1.865 1.865 0 0 1-1.865-1.865v-5.831c0-1.03.835-1.865 1.865-1.865H95.3c1.03 0 1.865.835 1.865 1.865v5.831c0 1.03-.835 1.865-1.865 1.865Z"
+                  fill="#7D55FF"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M89.468 293.768c-.884 0-1.601.717-1.601 1.601v5.831c0 .884.717 1.601 1.601 1.601H95.3c.884 0 1.601-.717 1.601-1.601v-5.831c0-.884-.717-1.601-1.6-1.601h-5.832Zm-2.13 1.601a2.13 2.13 0 0 1 2.13-2.129H95.3a2.13 2.13 0 0 1 2.13 2.129v5.831a2.13 2.13 0 0 1-2.13 2.129h-5.83a2.13 2.13 0 0 1-2.13-2.129v-5.831Z"
+                  fill="#C4B6FF"></path>
+            <path d="M69.217 200.193a8.186 8.186 0 0 0-8.185 8.189c0 2.949 8.185 18.668 8.185 18.668s8.19-16.227 8.19-18.668a8.187 8.187 0 0 0-8.19-8.189Zm0 11.244c-2.488 0-3.993-1.943-3.993-3.673 0-2.297 2.055-3.818 3.993-3.818 1.78 0 3.497 2.028 3.497 3.818 0 1.561-1.005 3.673-3.497 3.673Z"
+                  fill="#7D55FF"></path>
+            <path d="M69.219 230.418c2.758 0 4.993-.594 4.993-1.327s-2.235-1.327-4.993-1.327c-2.758 0-4.993.594-4.993 1.327s2.235 1.327 4.993 1.327Z"
+                  fill="#000" fill-opacity=".58"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="m467.342 342.32-16.645-.837.053-1.055 16.645.837-.053 1.055ZM463.439 347.316l-18.103-.91.053-1.055 18.103.91-.053 1.055ZM458.072 352.24l-14.864-.91.064-1.054 14.865.91-.065 1.054ZM174.065 524.246l-14.361-13.725.73-.764 14.361 13.725-.73.764ZM101.133 504.51l-10.356-16.952.902-.551 10.355 16.952-.901.551Z"
+                  fill="#C4B6FF"></path>
+            <path opacity=".46"
+                  d="M275.191 249.923c.444.19.877.402 1.299.613a63.83 63.83 0 0 0-1.299 2.736 29.797 29.797 0 0 0-10.066-2.451 29.98 29.98 0 0 1 1.32-3.232 29.696 29.696 0 0 1 8.746 2.334ZM289.43 263.147c-.296.179-.592.369-.888.57a13.166 13.166 0 0 0-4.468-5.535 41.96 41.96 0 0 1 2.039-1.553 13.291 13.291 0 0 1 2.429 3.74c.391.887.687 1.816.888 2.778Z"
+                  fill="#414042"></path>
+            <path d="M141.418 523.274s2.064-6.124 3.127-5.534c1.062.59 3.408 2.082 2.308 2.921-1.099.84-4.121 3.337-4.121 3.337l-1.314-.724ZM72.912 495.596s2.911-5.769 3.88-5.034c.967.735 3.078 2.544 1.87 3.219-1.207.675-4.552 2.718-4.552 2.718l-1.198-.903Z"
+                  fill="#C4B6FF"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-eye">
+            <path d="M12 18c-5.52 0-10-6-10-6s4.48-6 10-6 10 6 10 6-4.48 6-10 6Z"></path>
+            <path d="M12 14.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M12 14.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-folder">
+            <path d="M19 10H2l3 10h17l-3-10Z" clip-rule="evenodd" fill-rule="evenodd"></path>
+            <path d="M22 20V4h-6l-2 2H4v4h15l3 10Z" clip-rule="evenodd" fill-rule="evenodd"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  stroke="currentColor" d="M2 10h17l3 10"></path>
+        </symbol>
+        <symbol class="icon" viewBox="0 0 1024 1024" id="icon-github">
+            <path d="M511.543 14.057C228.914 13.943 0 242.743 0 525.143 0 748.457 143.2 938.286 342.629 1008c26.857 6.743 22.742-12.343 22.742-25.371v-88.572C210.286 912.23 204 809.6 193.6 792.457c-21.029-35.886-70.743-45.028-55.886-62.171 35.315-18.172 71.315 4.571 113.029 66.171 30.171 44.686 89.028 37.143 118.857 29.714 6.514-26.857 20.457-50.857 39.657-69.485C248.571 727.886 181.6 629.829 181.6 513.257c0-56.571 18.629-108.571 55.2-150.514-23.314-69.143 2.171-128.343 5.6-137.143 66.4-5.943 135.429 47.543 140.8 51.771C420.914 267.2 464 261.83 512.229 261.83c48.457 0 91.657 5.6 129.714 15.885 12.914-9.828 76.914-55.771 138.628-50.171 3.315 8.8 28.229 66.628 6.286 134.857 37.029 42.057 55.886 94.514 55.886 151.2 0 116.8-67.429 214.971-228.572 243.314a145.714 145.714 0 0 1 43.543 104v128.572c.915 10.285 0 20.457 17.143 20.457 202.4-68.229 348.114-259.429 348.114-484.686 0-282.514-229.028-511.2-511.428-511.2z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" fill="none" id="icon-globe">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" fill="rgba(0,0,0,0)"
+                  d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" fill="rgba(0,0,0,0)"
+                  d="M12 2c13 11 0 20 0 20-13-11 0-20 0-20Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10"
+                  d="M2 12h20M5 5s6.1 4 14 0M19 18.8s-6.1-4-14 0"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-go-back">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M6 12h12M12 6l-6 6 6 6"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-hot">
+            <path d="M12 22c-2.72 0-7.43-2.67-7.95-7.01-.36-3.04 1.46-5.39 1.96-6 .41 2.11 1.52 3.71 2.94 4 .26.05.59.07.98 0-.11-2.32.07-6.66 2.93-9.99.31-.37.8-.7 1.14-1 .24 2.64.98 4.12 1.8 5 1.11 1.19 2.79 2 3.68 4.28.04.09.15.37.24.72.62 2.38.32 5.88-1.96 7.99C15.85 21.76 13.35 22 13 22h-1Z"></path>
+            <path d="M14 16a4.023 4.023 0 0 1-4 1c1.13 1.09 2.7 1.5 4 1 2.01-.76 2.83-3.46 2-5-.26-.47-.64-.79-1-1 .43 1.41.04 2.96-1 4Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M14 16a4.023 4.023 0 0 1-4 1c1.13 1.09 2.7 1.5 4 1 2.01-.76 2.83-3.46 2-5-.26-.47-.64-.79-1-1 .43 1.41.04 2.96-1 4Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-nav-home">
+            <path d="M21 10H3v12h18V10Z"></path>
+            <path d="M17 14h-4v8h4v-8ZM2 10h7l6-8H8l-6 8Z"></path>
+            <path d="M9 10h13l-7-8-6 8Z"></path>
+            <path stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 22v-8h-4v8"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"
+                  d="m15 2-6 8"></path>
+            <path stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M9 22V10"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"
+                  d="M2 10h20"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-nav-menu">
+            <path d="M6.515 4.121A2 2 0 0 0 5 6.061v.745a2 2 0 0 1 2.283-1.98L17 6.214V4.062a2 2 0 0 0-2.485-1.94l-8 2Z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5"
+                  d="M5 6.806a2 2 0 0 1 2.283-1.98L17 6.214"></path>
+            <path d="M5 6.806a2 2 0 0 1 2.283-1.98l10 1.429A2 2 0 0 1 19 8.235v11.959a2 2 0 0 1-2.283 1.98l-10-1.429A2 2 0 0 1 5 18.765V6.806Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" d="m9 10 6 1M9 14l6 1"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-nav-search">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5"
+                  d="m16 15.288-.707.707 6.003 6.003.707-.707L16 15.288Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5"
+                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-people">
+            <path d="M12.12 15.47c.5-1.99 2.5-3.47 4.88-3.47 2.76 0 5 1.99 5 4.44-1.97.45-3.69.56-5 .56-1.45 0-2.73-.14-3.8-.32-.29-.45-.65-.86-1.08-1.21ZM17 9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
+            <path d="M14 19.33c-2.36.54-4.43.67-6 .67-2.43 0-4.48-.32-6-.67C2 16.39 4.69 14 8 14s6 2.39 6 5.33ZM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-pin">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+                  d="M11 11h2v8l-1 3-1-3v-8ZM17 2H7l2.5 2.5v2l-.599.171A4 4 0 0 0 6 10.517V11h12v-.483a4 4 0 0 0-2.901-3.846L14.5 6.5v-2L17 2Z"></path>
+        </symbol>
+        <symbol class="icon" viewBox="0 0 1025 1024" id="icon-qq">
+            <path d="M879.243 586.81c-16.323-43.266-79.32-141.551-80.064-190.941h-.374c.125-2.628.374-5.254.374-7.877 0-179.445-128.665-324.87-287.365-324.87-158.765 0-287.369 145.425-287.369 324.87 0 2.623.252 5.249.312 7.877h-.312c-.743 49.39-63.677 147.675-80.063 190.941-16.387 43.392-20.484 87.156-12.912 121.922 7.573 34.635 13.779 56.144 20.98 62.896 7.137 6.877 13.964 14.13 35.627-1.125 17.377-14.382 36.368-43.641 36.368-43.641s15.705 45.39 50.77 80.03c-27.497 13.003-67.278 41.89-70.134 60.771-2.73 18.76 41.708 90.159 146.103 91.784 104.396 1.5 139.09-43.642 142.507-47.144 9.742-10.253 18.122-16.504 18.122-16.504s8.44 6.25 18.123 16.504c3.411 3.502 38.106 48.644 142.504 47.144 104.392-1.626 148.832-73.025 146.04-91.784-2.794-18.88-42.639-47.768-70.073-60.77 35.003-34.641 50.771-80.031 50.771-80.031s18.993 29.26 36.372 43.64c21.598 15.256 28.424 8.002 35.623 1.126 7.201-6.752 13.347-28.26 20.979-62.896 7.574-34.766 3.418-78.53-12.909-121.922z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-quote">
+            <path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12s4.5 10 10 10c1.8 0 3.5-.5 5-1.4l5 1.4-1.3-5c.8-1.5 1.3-3.2 1.3-5Z"></path>
+            <path d="M15.97 11.5h.07c1.08 0 1.96.88 1.96 1.97v.06c0 1.09-.88 1.97-1.97 1.97h-.07c-1.08 0-1.96-.88-1.96-1.97v-.07c0-1.08.88-1.96 1.97-1.96ZM7.97 11.5h.07c1.08 0 1.96.88 1.96 1.97v.06c0 1.09-.88 1.97-1.97 1.97h-.06C6.88 15.5 6 14.62 6 13.53v-.07c0-1.08.88-1.96 1.97-1.96Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M17 8.5c-1.77.47-2.93 2.34-2.99 4.77-.01.06-.01.13-.01.2v.03M9 8.5c-1.77.47-2.93 2.34-2.99 4.77-.01.06-.01.13-.01.2v.03"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M15.97 11.5h.07c1.08 0 1.96.88 1.96 1.97v.06c0 1.09-.88 1.97-1.97 1.97h-.07c-1.08 0-1.96-.88-1.96-1.97v-.07c0-1.08.88-1.96 1.97-1.96ZM7.97 11.5h.07c1.08 0 1.96.88 1.96 1.97v.06c0 1.09-.88 1.97-1.97 1.97h-.06C6.88 15.5 6 14.62 6 13.53v-.07c0-1.08.88-1.96 1.97-1.96Z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-search">
+            <path stroke-linejoin="round" stroke-linecap="round"
+                  d="m16 15.288-.707.707 6.003 6.003.707-.707L16 15.288Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" fill="rgba(0,0,0,0)"
+                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path>
+        </symbol>
+        <symbol class="icon" viewBox="0 0 1024 1024" id="icon-stackoverflow">
+            <path d="M709.4 622 318 539.4 301.6 618 693 700zm102-174-307-256.6-51 61.6 307 256.6zM749 527.4 386.4 358 353 431l362.4 169zM652 64l-64 48 238.6 320.6 64-48zm41 656H293v79.4h400zm79.4 160h-559V640h-80v320h719V640h-80z"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-tag">
+            <path d="M21.41 3.5c-.04-.48-.42-.86-.91-.91L14.02 2a.99.99 0 0 0-.8.29l-7.2 7.2 4.05-4.05-7.78 7.78a.996.996 0 0 0 0 1.41l7.07 7.07c.39.39 1.03.39 1.41 0l7.78-7.78-4.05 4.05 7.2-7.2c.21-.21.32-.5.29-.8l-.58-6.47Z"></path>
+            <path d="M17.414 9.414c.812-.812.838-2.104.057-2.885-.781-.78-2.073-.755-2.885.057-.813.812-.838 2.104-.057 2.885.781.78 2.073.756 2.885-.057Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M17.414 9.414c.812-.812.838-2.104.057-2.885-.781-.78-2.073-.755-2.885.057-.813.812-.838 2.104-.057 2.885.781.78 2.073.756 2.885-.057Z"></path>
+        </symbol>
+        <symbol fill="none" viewBox="0 0 24 24" id="icon-text-outline">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M16 22H8h4V2"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M2 6V2h20v4"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-text">
+            <path d="M12 1a1 1 0 0 1 1 1v19h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3V2a1 1 0 0 1 1-1Z" clip-rule="evenodd"
+                  fill-rule="evenodd"></path>
+            <path d="M1 2a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V3H3v3a1 1 0 0 1-2 0V2Z" clip-rule="evenodd"
+                  fill-rule="evenodd"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-toc">
+            <path d="m22 19-10 2V5l10-2v16Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="m15 13 4-1M15 9l4-1"></path>
+            <path d="m2 19 10 2V5L2 3v16Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M12 21V5"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="m5 12 4 1M5 8l4 1M5 16l4 1"></path>
+        </symbol>
+        <symbol viewBox="0 0 24 24" id="icon-twitter">
+            <path d="M22 5.89c-.74.32-1.54.53-2.36.64.85-.5 1.5-1.29 1.8-2.23-.79.47-1.67.79-2.6.98A4.121 4.121 0 0 0 15.85 4c-2.27 0-4.1 1.81-4.1 4.04 0 .32.03.63.09.92-3.4-.17-6.42-1.77-8.45-4.22-.35.6-.56 1.29-.56 2.04 0 1.4.73 2.64 1.82 3.35a3.99 3.99 0 0 1-1.85-.5v.04c0 1.96 1.42 3.59 3.28 3.97-.33.09-.7.13-1.08.13-.26 0-.53-.01-.78-.07.53 1.6 2.04 2.78 3.83 2.81a8.28 8.28 0 0 1-6.06 1.66C3.82 19.34 5.97 20 8.29 20c7.55 0 11.67-6.15 11.67-11.49 0-.18-.01-.35-.02-.52.82-.57 1.5-1.28 2.06-2.1Z"></path>
+        </symbol>
+        <symbol fill="none" viewBox="0 0 24 24" id="icon-warning">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                  d="M17 3H7l-5 9 5 9h10l5-9-5-9ZM12 7v6"></path>
+            <path stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M11.99 17h.02"></path>
+        </symbol>
+        <symbol class="icon" viewBox="0 0 1170 1024" id="icon-wechat">
+            <path d="M331.429 263.429q0-23.429-14.286-37.715t-37.714-14.285q-24.572 0-43.429 14.571t-18.857 37.429q0 22.285 18.857 36.857t43.429 14.571q23.428 0 37.714-14t14.286-37.428zM756 553.143q0-16-14.571-28.572T704 512q-15.429 0-28.286 12.857t-12.857 28.286q0 16 12.857 28.857T704 594.857q22.857 0 37.429-12.571T756 553.143zM621.143 263.429q0-23.429-14-37.715t-37.429-14.285q-24.571 0-43.428 14.571t-18.857 37.429q0 22.285 18.857 36.857t43.428 14.571q23.429 0 37.429-14t14-37.428zM984 553.143q0-16-14.857-28.572T932 512q-15.429 0-28.286 12.857t-12.857 28.286q0 16 12.857 28.857T932 594.857q22.286 0 37.143-12.571T984 553.143zM832 326.286Q814.286 324 792 324q-96.571 0-177.714 44T486.57 487.143 440 651.429q0 44.571 13.143 86.857-20 1.714-38.857 1.714-14.857 0-28.572-.857t-31.428-3.714-25.429-4-31.143-6-28.571-6L124.57 792l41.143-124.571Q0 551.429 0 387.429q0-96.572 55.714-177.715T206.571 82t207.715-46.571q100.571 0 190 37.714T754 177.429t78 148.857zm338.286 320.571q0 66.857-39.143 127.714t-106 110.572l31.428 103.428-113.714-62.285q-85.714 21.143-124.571 21.143-96.572 0-177.715-40.286T512.857 797.714t-46.571-150.857T512.857 496t127.714-109.429 177.715-40.285q92 0 173.143 40.285t130 109.715 48.857 150.571z"></path>
+        </symbol>
+        <symbol class="icon" viewBox="0 0 1025 1024" id="icon-weibo">
+            <path d="M690.325 102.848c-13.802 2.453-44.629 14.293-44.885 39.808-.256 25.493 27.05 42.133 40.832 43.413 50.88 0 294.208-13.205 249.707 221.568-6.166 25.75-10.88 65.174 19.669 73.472 27.755 6.976 44.885-22.016 52.587-44.096 3.69-25.685 116.224-362.154-317.91-334.165zM753.621 495.787s-51.008 11.029-26.88-26.923c37.888-74.219-23.786-196.01-183.658-115.072-55.083 29.355-55.083 8.555-53.248-28.16 4.949-200.47-366.635-57.536-471.915 203.115C-41.43 686.912 53.632 823.552 200.683 883.2c358.933 128.128 620.266-83.904 664.81-220.95 59.414-205.93-111.872-166.463-111.872-166.463zM409.43 835.797C239.531 859.136 88.94 784.47 73.003 669.12c-15.851-115.413 108.992-227.947 278.89-251.285 169.899-23.36 320.47 51.242 336.406 166.656 15.872 115.392-109.014 227.84-278.87 251.306z"></path>
+            <path d="M834.624 435.35c17.088 4.266 23.744-9.75 25.621-22.55 1.75-12.8 31.254-186.325-158.25-166.315-14.336 1.579-24 10.155-22.336 22.742 1.578 12.608 12.202 19.669 20.288 18.709 8.085-.939 134.656-23.125 124.288 110.25 1.898 12.14-6.635 32.897 10.389 37.163zM354.07 498.624c-88.555 16.981-149.462 87.744-135.98 158.08 13.483 70.336 96.257 113.536 184.854 96.533 88.576-16.96 149.419-87.744 135.979-158.037-13.547-70.315-96.256-113.557-184.854-96.576zm-10.518 189.76c-30.592 0-55.403-21.013-55.403-47.125 0-26.006 24.811-47.126 55.403-47.126s55.381 21.12 55.381 47.126c0 26.069-24.81 47.125-55.381 47.125zm90.73-63.595c-11.413 0-23.018-13.76-23.018-30.698 0-16.918 11.605-30.635 23.019-30.635s23.061 13.717 23.061 30.635c0 16.96-11.648 30.698-23.061 30.698z"></path>
+        </symbol>
+        <symbol class="icon" viewBox="0 0 1024 1024" id="icon-zhifu">
+            <path d="M572.229 189.829V844.57H640.8l28.8 81.6 121.6-81.6h150.286V189.83H572.229zm283.085 568h-68.457l-85.828 57.6-20.343-57.6h-20.572V279.2H855.2v478.629zm-327.2-274.515H376.343c2.4-51.314 4.914-119.2 7.543-197.6h149.6l-.115-9.257c0-.686-.228-16.8-2.628-33.257-2.4-17.143-7.543-39.886-24-39.886H255.77c5.029-23.543 17.943-79.657 33.6-107.2l7.315-12.8-14.743-.8c-.914 0-22.4-1.028-47.314 12.115-40.8 21.714-59.086 64.457-67.086 96.457-21.029 83.543-50.972 141.6-63.657 166.4-3.772 7.314-6.057 11.657-7.086 14.628-2.057 5.6-.914 11.2 3.2 14.857 12 10.858 43.657-3.314 44-3.428.686-.343 1.486-.686 2.514-1.143 15.886-7.2 62.972-28.571 79.772-96.571h64.8c.8 36.8 3.543 158.171 3.314 197.6H133.257l-2.4 1.714c-26.4 19.314-34.857 72.228-35.2 74.514l-1.6 10.514h190.857c-14.057 89.486-30.285 129.6-38.857 145.6-4.228 8-8.343 16-12.228 23.772-24.343 48.228-49.6 98.057-144.343 175.543-4.115 3.2-8 9.143-5.486 15.657 2.743 7.2 10.629 10.4 28.114 10.4 6.172 0 13.486-.343 22.172-1.143 57.028-5.029 115.2-20.571 154.4-100.114 19.428-40.115 36.228-81.943 50.171-124.457l156 182.857 5.714-13.715c.915-2.171 21.715-52.914 5.829-109.6l-.571-2.057-123.543-140.571-25.143 18.971c7.314-29.828 12.114-57.028 14.286-81.257H552.8v-9.143c0-45.828-21.143-73.028-21.943-74.171l-2.743-3.429z"></path>
+        </symbol>
+    </svg>
+
+    <script src="/themes/theme-aurora/assets/js/rocket-loader.min.js"
+            data-cf-settings="c4fc80a20b5f22d1e3fad8a8-|49"
+            defer>
+    </script>
+    <script>
+        (function () {
+            var js = "window['__CF$cv$params']={r:'7f3f34582df55b92',t:'MTY5MTU3NTc3Ni4wNjMwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/themes/theme-aurora/assets/js/invisible.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";
+            var _0xh = document.createElement('iframe');
+            _0xh.height = 1;
+            _0xh.width = 1;
+            _0xh.style.position = 'absolute';
+            _0xh.style.top = 0;
+            _0xh.style.left = 0;
+            _0xh.style.border = 'none';
+            _0xh.style.visibility = 'hidden';
+            document.body.appendChild(_0xh);
+
+            function handler() {
+                var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;
+                if (_0xi) {
+                    var _0xj = _0xi.createElement('script');
+                    _0xj.innerHTML = js;
+                    _0xi.getElementsByTagName('head')[0].appendChild(_0xj);
+                }
+            }
+
+            if (document.readyState !== 'loading') {
+                handler();
+            } else if (window.addEventListener) {
+                document.addEventListener('DOMContentLoaded', handler);
+            } else {
+                var prev = document.onreadystatechange || function () {
+                };
+                document.onreadystatechange = function (e) {
+                    prev(e);
+                    if (document.readyState !== 'loading') {
+                        document.onreadystatechange = prev;
+                        handler();
+                    }
+                };
+            }
+        })();
+    </script>
+    <script defer
+            src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854"
+            integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg=="
+            data-cf-beacon='{"rayId":"7f3f34582df55b92","version":"2023.7.0","r":1,"token":"dca43a35489f4b70880eed83af6998fb","si":100}'
+            crossorigin="anonymous">
+    </script>
+    </body>
+</th:block>

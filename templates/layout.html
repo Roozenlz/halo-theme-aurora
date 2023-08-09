@@ -1,26 +1,166 @@
 <!DOCTYPE html>
 <html
-  lang="en"
-  xmlns:th="https://www.thymeleaf.org"
-  th:fragment="html (head,content)"
+        lang="en"
+        xmlns:th="https://www.thymeleaf.org"
+        th:fragment="html (head,content)"
 >
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=2"
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=2"
     />
     <title th:text="${site.title}"></title>
-    <link rel="stylesheet" th:href="@{/assets/css/style.css}" />
-    <script th:src="@{/assets/js/main.js}"></script>
     <th:block th:if="${head != null}">
-      <th:block th:replace="${head}" />
+        <th:block th:replace="${head}"/>
     </th:block>
-  </head>
-  <body th:style="'background-color: '+${theme.config.style.background_color ?: '#f2f2f2'}">
-    <section>
-      <th:block th:replace="${content}" />
-    </section>
-  </body>
+
+    <!--    <meta name="description" content="一位正在重塑知识的技术人 公众号：技术银河">-->
+    <!--    <meta name="keywords" content="Frontend, Web development, Blog, Aurora Theme, TriDiamond">-->
+    <!--    <meta name="author" content="TriDiamond">-->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" th:href="@{/assets/css/aurora.css}">
+    <script async="" rel="prefetch" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+            type="text/javascript"></script>
+    <script rel="preload" src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/prism/1.29.0/components/prism-core.js"
+            data-manual="" type="text/javascript"></script>
+    <script rel="preload"
+            src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.js"
+            type="text/javascript"></script>
+    <script rel="preload"
+            src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"
+            type="text/javascript"></script>
+    <script rel="preload"
+            src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"
+            type="text/javascript"></script>
+    <script rel="preload" src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"
+            type="text/javascript"></script>
+    <script rel="preload" src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+            type="text/javascript"></script>
+    <link rel="stylesheet" href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <link rel="stylesheet"
+          href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css">
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Rubik">
+    <link rel="stylesheet" href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/waline/2.15.5/waline.min.css">
+    <style>
+        mjx-container[jax="SVG"] {
+            direction: ltr;
+        }
+
+        mjx-container[jax="SVG"] > svg {
+            overflow: visible;
+        }
+
+        mjx-container[jax="SVG"][display="true"] {
+            display: block;
+            text-align: center;
+            margin: 1em 0;
+        }
+
+        mjx-container[jax="SVG"][justify="left"] {
+            text-align: left;
+        }
+
+        mjx-container[jax="SVG"][justify="right"] {
+            text-align: right;
+        }
+
+        g[data-mml-node="merror"] > g {
+            fill: red;
+            stroke: red;
+        }
+
+        g[data-mml-node="merror"] > rect[data-background] {
+            fill: yellow;
+            stroke: none;
+        }
+
+        g[data-mml-node="mtable"] > line[data-line] {
+            stroke-width: 70px;
+            fill: none;
+        }
+
+        g[data-mml-node="mtable"] > rect[data-frame] {
+            stroke-width: 70px;
+            fill: none;
+        }
+
+        g[data-mml-node="mtable"] > .mjx-dashed {
+            stroke-dasharray: 140;
+        }
+
+        g[data-mml-node="mtable"] > .mjx-dotted {
+            stroke-linecap: round;
+            stroke-dasharray: 0, 140;
+        }
+
+        g[data-mml-node="mtable"] > svg {
+            overflow: visible;
+        }
+
+        [jax="SVG"] mjx-tool {
+            display: inline-block;
+            position: relative;
+            width: 0;
+            height: 0;
+        }
+
+        [jax="SVG"] mjx-tool > mjx-tip {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        mjx-tool > mjx-tip {
+            display: inline-block;
+            padding: .2em;
+            border: 1px solid #888;
+            font-size: 70%;
+            background-color: #F8F8F8;
+            color: black;
+            box-shadow: 2px 2px 5px #AAAAAA;
+        }
+
+        g[data-mml-node="maction"][data-toggle] {
+            cursor: pointer;
+        }
+
+        mjx-status {
+            display: block;
+            position: fixed;
+            left: 1em;
+            bottom: 1em;
+            min-width: 25%;
+            padding: .2em .4em;
+            border: 1px solid #888;
+            font-size: 90%;
+            background-color: #F8F8F8;
+            color: black;
+        }
+
+        foreignObject[data-mjx-xml] {
+            font-family: initial;
+            line-height: normal;
+            overflow: visible;
+        }
+
+        .MathJax path {
+            stroke-width: 3;
+        }
+
+        mjx-container[display="true"] {
+            overflow: auto hidden;
+        }
+
+        mjx-container[display="true"] + br {
+            display: none;
+        }
+    </style>
+</head>
+<body th:style="'background-color: '+${theme.config.style.background_color ?: '#f2f2f2'}">
+<section>
+    <th:block th:replace="${content}"/>
+</section>
+</body>
 </html>
