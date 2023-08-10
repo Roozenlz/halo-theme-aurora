@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html
-        lang="en"
-        xmlns:th="https://www.thymeleaf.org"
-        th:fragment="html (head,content)"
->
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:fragment="html (head,content)">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=2"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
     <title th:text="${site.title}"></title>
     <th:block th:if="${head != null}">
         <th:block th:replace="${head}"/>
@@ -161,9 +155,7 @@
         <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to
             continue.</strong>
     </noscript>
-    <section>
-        <th:block th:replace="${content}"/>
-    </section>
+    <th:block th:replace="${content}"/>
     <svg id="__svg__icons__dom__" xmlns="http://www.w3.org/2000/svg" xmlns:link="http://www.w3.org/1999/xlink"
          style="position: absolute; width: 0px; height: 0px;">
         <symbol viewBox="0 0 24 24" id="icon-arrow-left-circle">

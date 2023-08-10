@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="comment(group, kind, name, allowComment)" th:if="${allowComment}">
+  <div id="comments">
+    <div class="bg-ob-deep-800 p-4 mt-8 lg:px-14 lg:py-10 rounded-2xl shadow-xl mb-8 lg:mb-0">
+      <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
+        <!----><span class="w-full block">评论区</span><!----><span
+              class="absolute bottom-0 h-1 w-14 rounded-full"
+              style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+      </p>
+      <div id="gitalk-container"></div>
+      <div id="vcomments"></div>
+      <div id="tcomment"></div>
+      <div id="waline" data-v-app="">
+        <div data-waline="">
+          <div class="wl-reaction">
+            <div class="wl-reaction-title">你认为这篇文章怎么样？</div>
+            <ul class="wl-reaction-list">
+              <li class="wl-reaction-item active">
+                <div class="wl-reaction-img"><img
+                        src="//unpkg.com/@waline/emojis/tieba/tieba_agree.png">
+                  <div class="wl-reaction-votes">3</div>
+                </div>
+                <div class="wl-reaction-text"></div>
+              </li>
+              <li class="wl-reaction-item">
+                <div class="wl-reaction-img"><img
+                        src="//unpkg.com/@waline/emojis/tieba/tieba_look_down.png">
+                  <div class="wl-reaction-votes">0</div>
+                </div>
+                <div class="wl-reaction-text"></div>
+              </li>
+              <li class="wl-reaction-item">
+                <div class="wl-reaction-img"><img
+                        src="//unpkg.com/@waline/emojis/tieba/tieba_sunglasses.png">
+                  <div class="wl-reaction-votes">2</div>
+                </div>
+                <div class="wl-reaction-text"></div>
+              </li>
+              <li class="wl-reaction-item">
+                <div class="wl-reaction-img"><img
+                        src="//unpkg.com/@waline/emojis/tieba/tieba_pick_nose.png">
+                  <div class="wl-reaction-votes">1</div>
+                </div>
+                <div class="wl-reaction-text"></div>
+              </li>
+              <li class="wl-reaction-item">
+                <div class="wl-reaction-img"><img
+                        src="//unpkg.com/@waline/emojis/tieba/tieba_awkward.png">
+                  <div class="wl-reaction-votes">1</div>
+                </div>
+                <div class="wl-reaction-text"></div>
+              </li>
+              <li class="wl-reaction-item">
+                <div class="wl-reaction-img"><img
+                        src="//unpkg.com/@waline/emojis/tieba/tieba_sleep.png">
+                  <div class="wl-reaction-votes">0</div>
+                </div>
+                <div class="wl-reaction-text"></div>
+              </li>
+            </ul>
+          </div>
+          <div class="wl-comment"><!--v-if-->
+            <div class="wl-panel">
+              <div class="wl-header item2">
+                <div class="wl-header-item"><label
+                        for="wl-nick">昵称</label><input id="wl-nick"
+                                                         class="wl-input wl-nick"
+                                                         name="nick"
+                                                         type="text"></div>
+                <div class="wl-header-item"><label
+                        for="wl-mail">邮箱</label><input id="wl-mail"
+                                                         class="wl-input wl-mail"
+                                                         name="mail"
+                                                         type="email"></div>
+              </div>
+              <textarea id="wl-edit" class="wl-editor"
+                        placeholder="欢迎评论"></textarea>
+              <div class="wl-preview" style="display: none;">
+                <hr>
+                <h4>预览:</h4>
+                <div class="wl-content"></div>
+              </div>
+              <div class="wl-footer">
+                <div class="wl-actions"><a
+                        href="https://guides.github.com/features/mastering-markdown/"
+                        title="Markdown Guide"
+                        aria-label="Markdown is supported" class="wl-action"
+                        target="_blank" rel="noopener noreferrer">
+                  <svg width="16" height="16" ariaHidden="true">
+                    <path d="M14.85 3H1.15C.52 3 0 3.52 0 4.15v7.69C0 12.48.52 13 1.15 13h13.69c.64 0 1.15-.52 1.15-1.15v-7.7C16 3.52 15.48 3 14.85 3zM9 11H7V8L5.5 9.92 4 8v3H2V5h2l1.5 2L7 5h2v6zm2.99.5L9.5 8H11V5h2v3h1.5l-2.51 3.5z"
+                          fill="currentColor"></path>
+                  </svg>
+                </a>
+                  <button type="button" class="wl-action" title="表情"
+                          style="">
+                    <svg viewBox="0 0 1024 1024" width="24" height="24">
+                      <path d="M563.2 463.3 677 540c1.7 1.2 3.7 1.8 5.8 1.8.7 0 1.4-.1 2-.2 2.7-.5 5.1-2.1 6.6-4.4l25.3-37.8c1.5-2.3 2.1-5.1 1.6-7.8s-2.1-5.1-4.4-6.6l-73.6-49.1 73.6-49.1c2.3-1.5 3.9-3.9 4.4-6.6.5-2.7 0-5.5-1.6-7.8l-25.3-37.8a10.1 10.1 0 0 0-6.6-4.4c-.7-.1-1.3-.2-2-.2-2.1 0-4.1.6-5.8 1.8l-113.8 76.6c-9.2 6.2-14.7 16.4-14.7 27.5.1 11 5.5 21.3 14.7 27.4zM387 348.8h-45.5c-5.7 0-10.4 4.7-10.4 10.4v153.3c0 5.7 4.7 10.4 10.4 10.4H387c5.7 0 10.4-4.7 10.4-10.4V359.2c0-5.7-4.7-10.4-10.4-10.4zm333.8 241.3-41-20a10.3 10.3 0 0 0-8.1-.5c-2.6.9-4.8 2.9-5.9 5.4-30.1 64.9-93.1 109.1-164.4 115.2-5.7.5-9.9 5.5-9.5 11.2l3.9 45.5c.5 5.3 5 9.5 10.3 9.5h.9c94.8-8 178.5-66.5 218.6-152.7 2.4-5 .3-11.2-4.8-13.6zm186-186.1c-11.9-42-30.5-81.4-55.2-117.1-24.1-34.9-53.5-65.6-87.5-91.2-33.9-25.6-71.5-45.5-111.6-59.2-41.2-14-84.1-21.1-127.8-21.1h-1.2c-75.4 0-148.8 21.4-212.5 61.7-63.7 40.3-114.3 97.6-146.5 165.8-32.2 68.1-44.3 143.6-35.1 218.4 9.3 74.8 39.4 145 87.3 203.3.1.2.3.3.4.5l36.2 38.4c1.1 1.2 2.5 2.1 3.9 2.6 73.3 66.7 168.2 103.5 267.5 103.5 73.3 0 145.2-20.3 207.7-58.7 37.3-22.9 70.3-51.5 98.1-85 27.1-32.7 48.7-69.5 64.2-109.1 15.5-39.7 24.4-81.3 26.6-123.8 2.4-43.6-2.5-87-14.5-129zm-60.5 181.1c-8.3 37-22.8 72-43 104-19.7 31.1-44.3 58.6-73.1 81.7-28.8 23.1-61 41-95.7 53.4-35.6 12.7-72.9 19.1-110.9 19.1-82.6 0-161.7-30.6-222.8-86.2l-34.1-35.8c-23.9-29.3-42.4-62.2-55.1-97.7-12.4-34.7-18.8-71-19.2-107.9-.4-36.9 5.4-73.3 17.1-108.2 12-35.8 30-69.2 53.4-99.1 31.7-40.4 71.1-72 117.2-94.1 44.5-21.3 94-32.6 143.4-32.6 49.3 0 97 10.8 141.8 32 34.3 16.3 65.3 38.1 92 64.8 26.1 26 47.5 56 63.6 89.2 16.2 33.2 26.6 68.5 31 105.1 4.6 37.5 2.7 75.3-5.6 112.3z"
+                            fill="currentColor"></path>
+                    </svg>
+                  </button>
+                  <button type="button" class="wl-action" title="表情包">
+                    <svg width="24" height="24" fill="currentcolor"
+                         viewBox="0 0 24 24">
+                      <path d="M18.968 10.5H15.968V11.484H17.984V12.984H15.968V15H14.468V9H18.968V10.5V10.5ZM8.984 9C9.26533 9 9.49967 9.09367 9.687 9.281C9.87433 9.46833 9.968 9.70267 9.968 9.984V10.5H6.499V13.5H8.468V12H9.968V14.016C9.968 14.2973 9.87433 14.5317 9.687 14.719C9.49967 14.9063 9.26533 15 8.984 15H5.984C5.70267 15 5.46833 14.9063 5.281 14.719C5.09367 14.5317 5 14.2973 5 14.016V9.985C5 9.70367 5.09367 9.46933 5.281 9.282C5.46833 9.09467 5.70267 9.001 5.984 9.001H8.984V9ZM11.468 9H12.968V15H11.468V9V9Z"
+                            style="transform: translateY(0.5px);"></path>
+                      <path d="M18.5 3H5.75C3.6875 3 2 4.6875 2 6.75V18C2 20.0625 3.6875 21.75 5.75 21.75H18.5C20.5625 21.75 22.25 20.0625 22.25 18V6.75C22.25 4.6875 20.5625 3 18.5 3ZM20.75 18C20.75 19.2375 19.7375 20.25 18.5 20.25H5.75C4.5125 20.25 3.5 19.2375 3.5 18V6.75C3.5 5.5125 4.5125 4.5 5.75 4.5H18.5C19.7375 4.5 20.75 5.5125 20.75 6.75V18Z"></path>
+                    </svg>
+                  </button>
+                  <input id="wl-image-upload" class="upload" type="file"
+                         accept=".png,.jpg,.jpeg,.webp,.bmp,.gif">
+                  <!--v-if-->
+                  <button type="button" class="wl-action" title="预览">
+                    <svg viewBox="0 0 1024 1024" width="24" height="24">
+                      <path d="M710.816 654.301c70.323-96.639 61.084-230.578-23.705-314.843-46.098-46.098-107.183-71.109-172.28-71.109-65.008 0-126.092 25.444-172.28 71.109-45.227 46.098-70.756 107.183-70.756 172.106 0 64.923 25.444 126.007 71.194 172.106 46.099 46.098 107.184 71.109 172.28 71.109 51.414 0 100.648-16.212 142.824-47.404l126.53 126.006c7.058 7.06 16.297 10.979 26.406 10.979 10.105 0 19.343-3.919 26.402-10.979 14.467-14.467 14.467-38.172 0-52.723L710.816 654.301zm-315.107-23.265c-65.88-65.88-65.88-172.54 0-238.42 32.069-32.07 74.245-49.149 119.471-49.149 45.227 0 87.407 17.603 119.472 49.149 65.88 65.879 65.88 172.539 0 238.42-63.612 63.178-175.242 63.178-238.943 0zm0 0"
+                            fill="currentColor"></path>
+                      <path d="M703.319 121.603H321.03c-109.8 0-199.469 89.146-199.469 199.38v382.034c0 109.796 89.236 199.38 199.469 199.38h207.397c20.653 0 37.384-16.645 37.384-37.299 0-20.649-16.731-37.296-37.384-37.296H321.03c-68.582 0-124.352-55.77-124.352-124.267V321.421c0-68.496 55.77-124.267 124.352-124.267h382.289c68.582 0 124.352 55.771 124.352 124.267V524.72c0 20.654 16.736 37.299 37.385 37.299 20.654 0 37.384-16.645 37.384-37.299V320.549c-.085-109.8-89.321-198.946-199.121-198.946zm0 0"
+                            fill="currentColor"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="wl-info">
+                  <div class="wl-captcha-container"></div>
+                  <div class="wl-text-number">0 <span> &nbsp;/&nbsp; <span
+                          class="">300</span></span> &nbsp;字
+                  </div>
+                  <button type="button" class="wl-btn">登录</button>
+                  <button type="submit" class="primary wl-btn"
+                          title="Cmd|Ctrl + Enter">提交
+                  </button>
+                </div>
+                <div class="wl-gif-popup"><input type="text"
+                                                 placeholder="搜索表情包">
+                  <!--v-if-->
+                  <div class="wl-loading">
+                    <svg width="30" height="30" viewBox="0 0 100 100"
+                         preserveAspectRatio="xMidYMid">
+                      <circle cx="50" cy="50" fill="none"
+                              stroke="currentColor" strokeWidth="4"
+                              r="40" stroke-dasharray="85 30">
+                        <animateTransform attributeName="transform"
+                                          type="rotate"
+                                          repeatCount="indefinite"
+                                          dur="1s"
+                                          values="0 50 50;360 50 50"
+                                          keyTimes="0;1"></animateTransform>
+                      </circle>
+                    </svg>
+                  </div>
+                </div>
+                <div class="wl-emoji-popup">
+                  <div class="wl-tab-wrapper">
+                    <button type="button" title="weibo_smile">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_lovely">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_blush">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_grin">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_laugh">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_joy">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_angry">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_bye">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_hammer">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_kiss">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_love">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_mask">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_money">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_quiet">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_rage">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_sad">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_shy">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_sick">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_slient">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_smirk">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_slap">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_antic">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_desire">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_longing">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_no_idea">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_look_down">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_clap">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_yum">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_sleep">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_dizzy_face">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_chuckle">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_disappointed">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_flushed">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_heart_eyes">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_no">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_shuai">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_suprised">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_think">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_vomit">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_scream">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_sleepy">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_sob">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_sunglasses">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_greddy">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_pick_nose">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_annoyed">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_awkward">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_confused">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_grievance">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_poor">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_wink">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_rolling_eyes">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_watermalon">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_annoyed_left">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_annoyed_right">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_yawn">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_hufen">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_doge">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_husky">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_dog_annoyed">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_dog_bye">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_dog_consider">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_dog_cry">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_dog_joy">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_dog_laugh">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_dog_sweat">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_dog_think">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_dog_yum">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_cat">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_cat_annoyed">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_cat_bye">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_cat_cry">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_cat_think">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_girl_annoyed">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_boy">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_girl">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_panda">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_pig">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_rabbit">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_ultraman">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_wool_group">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_yan">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_xi">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_soap">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_meng">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_jiong">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_geili">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_shenma">
+                      <!--v-if--></button>
+                    <button type="button" title="weibo_alpaca">
+                      <!--v-if--></button>
+                  </div><!--v-if--></div>
+              </div>
+            </div><!--v-if--></div>
+          <div class="wl-meta-head">
+            <div class="wl-count"><span class="wl-num">1</span> 评论</div>
+            <ul class="wl-sort">
+              <li class="active">按正序</li>
+              <li class="">按倒序</li>
+              <li class="">按热度</li>
+            </ul>
+          </div>
+          <div class="wl-cards">
+            <div id="360001" class="wl-card-item">
+              <div class="wl-user" aria-hidden="true"><img
+                      src="https://q1.qlogo.cn/g?b=qq&amp;nk=123&amp;s=100">
+                <!--v-if--></div>
+              <div class="wl-card">
+                <div class="wl-head"><span class="wl-nick">123</span>
+                  <!--v-if--><!--v-if--><!--v-if--><!--v-if--><span
+                          class="wl-time">1 天前</span>
+                  <div class="wl-comment-actions"><!--v-if--><!--v-if-->
+                    <button type="button" class="wl-like" title="喜欢">
+                      <svg viewBox="0 0 1024 1024" width="24"
+                           height="24">
+                        <path d="M850.654 323.804c-11.042-25.625-26.862-48.532-46.885-68.225-20.022-19.61-43.258-34.936-69.213-45.73-26.78-11.124-55.124-16.727-84.375-16.727-40.622 0-80.256 11.123-114.698 32.135A214.79 214.79 0 0 0 512 241.819a214.79 214.79 0 0 0-23.483-16.562c-34.442-21.012-74.076-32.135-114.698-32.135-29.25 0-57.595 5.603-84.375 16.727-25.872 10.711-49.19 26.12-69.213 45.73-20.105 19.693-35.843 42.6-46.885 68.225-11.453 26.615-17.303 54.877-17.303 83.963 0 27.439 5.603 56.03 16.727 85.117 9.31 24.307 22.659 49.52 39.715 74.981 27.027 40.293 64.188 82.316 110.33 124.915 76.465 70.615 152.189 119.394 155.402 121.371l19.528 12.525c8.652 5.52 19.776 5.52 28.427 0l19.529-12.525c3.213-2.06 78.854-50.756 155.401-121.371 46.143-42.6 83.304-84.622 110.33-124.915 17.057-25.46 30.487-50.674 39.716-74.981 11.124-29.087 16.727-57.678 16.727-85.117.082-29.086-5.768-57.348-17.221-83.963zM512 761.5S218.665 573.55 218.665 407.767c0-83.963 69.461-152.023 155.154-152.023 60.233 0 112.473 33.618 138.181 82.727 25.708-49.109 77.948-82.727 138.18-82.727 85.694 0 155.155 68.06 155.155 152.023C805.335 573.551 512 761.5 512 761.5z"
+                              fill="currentColor"></path>
+                      </svg>
+                      <span>0</span></button>
+                    <button type="button" class="wl-reply" title="回复">
+                      <svg viewBox="0 0 1024 1024" width="24"
+                           height="24">
+                        <path d="M810.667 213.333a64 64 0 0 1 64 64V704a64 64 0 0 1-64 64H478.336l-146.645 96.107a21.333 21.333 0 0 1-33.024-17.856V768h-85.334a64 64 0 0 1-64-64V277.333a64 64 0 0 1 64-64h597.334zm0 64H213.333V704h149.334v63.296L459.243 704h351.424V277.333zm-271.36 213.334v64h-176.64v-64h176.64zm122.026-128v64H362.667v-64h298.666z"
+                              fill="currentColor"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="wl-meta" aria-hidden="true"><span
+                        class="wl-addr"
+                        data-value="Amazon">Amazon</span><span
+                        class="wl-browser" data-value="Chrome112.0">Chrome112.0</span><span
+                        class="wl-os"
+                        data-value="Windows 10">Windows 10</span></div>
+                <div class="wl-content"><p>123</p>
+                </div><!--v-if--><!--v-if-->
+                <div class="wl-quote"></div>
+              </div>
+            </div>
+          </div><!--v-if-->
+          <div class="wl-power"> Powered by <a
+                  href="https://github.com/walinejs/waline" target="_blank"
+                  rel="noopener noreferrer"> Waline </a> v2.15.5
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  <th:block-->
+<!--          th:if="${theme.config.comments.twikooEnable && #strings.equals(theme.config.comments.use, 'Twikoo') && not #strings.isEmpty(theme.config.comments.twikoos.envId)}">-->
+<!--    <div th:replace="~{modules/comment/twikoo :: twikoo}"></div>-->
+<!--  </th:block>-->
+<!--  &lt;!&ndash; 已知问题 PJAX 下，comment 首次请求会出错。当前的临时解决办法是使用 js 重试 &ndash;&gt;-->
+<!--  <div id="post-comment"-->
+<!--       th:if="${pluginFinder.available('PluginCommentWidget') && #strings.equals(theme.config.comments.use, 'commentWidget')}">-->
+<!--    <div class="comment-head">-->
+<!--      <div class="comment-headline"><i class="iconfont icon-comment-alt"></i> <span>评论</span></div>-->
+<!--      <div class="comment-privacy"><a href="/privacy">隐私政策</a></div>-->
+<!--      <div class="comment-tips" id="comment-tips">-->
+<!--        <span>你无需删除空行，直接评论以获取最佳展示效果</span>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <halo:comment th:attr="name=${name},kind=${kind},group=${group}" colorScheme="document.documentElement.getAttribute('data-theme')"/>-->
+<!--  </div>-->
+</th:block>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- 页脚模块 -->
+<footer th:fragment="footer">
+  <div id="footer" class="relative w-full pt-1"
+       style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%); --text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);">
+            <span class="bg-ob-deep-900 flex justify-center">
+                <div
+                        class="bg-ob-deep-900 rounded-lg max-w-10/12 lg:max-w-screen-2xl text-sm text-ob-normal w-full py-6 px-6 grid grid-rows-1 lg:grid-rows-none lg:grid-cols-4 justify-center items-center gap-8">
+                    <div
+                            class="flex flex-col lg:flex-row gap-6 lg:gap-12 row-span-1 lg:col-span-3 text-center lg:text-left">
+                        <ul class="flex flex-col gap-1.5">
+                            <li> Copyright © 2019 - 2023 <b class="font-extrabold">三钻</b> . All Rights Reserved. </li>
+                            <li> Powered by <a href="https://hexo.io/"><b
+                                    class="font-extrabold border-b-2 border-ob hover:text-ob"> Hexo </b></a> &amp;
+                                Themed by <a href="https://github.com/obsidianext/hexo-theme-obsidianext"><b
+                                      class="font-extrabold border-b-2 border-ob hover:text-ob"> Aurora v2.1.2</b></a>
+                                . </li><!---->
+                        </ul>
+                        <ul>
+                            <li><span id="busuanzi_container_site_pv">
+                                    <svg data-v-729e93ea=""
+                                         class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
+                                         aria-hidden="true">
+                                        <use data-v-729e93ea="" href="#icon-eye" fill="currentColor"
+                                             stroke="var(--background-primary)">
+                                        </use>
+                                    </svg>
+                                    <span id="busuanzi_value_site_pv"></span></span></li>
+                            <li><span id="busuanzi_container_site_uv"><svg data-v-729e93ea=""
+                                                                           class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
+                                                                           aria-hidden="true">
+                                        <use data-v-729e93ea="" href="#icon-people" fill="currentColor"
+                                             stroke="var(--background-primary)">
+                                        </use>
+                                    </svg>
+                                    <span id="busuanzi_value_site_uv"></span></span></li>
+                        </ul>
+                    </div>
+                    <div class="hidden lg:flex lg:col-span-1 justify-center lg:justify-end row-span-1 relative"><img
+                            class="footer-avatar diamond-avatar"
+                            src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                            alt="avatar" style=""></div>
+                </div>
+            </span>
+  </div>
+</footer>
+
+</html>
