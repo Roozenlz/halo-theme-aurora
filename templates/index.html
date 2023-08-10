@@ -7,7 +7,7 @@
     <!--    <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>-->
     <!--    <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>-->
     <div id="app" data-v-app="">
-        <div id="App-Wrapper" class="app-wrapper theme-dark" style="min-height: 664.8px;">
+        <div id="App-Wrapper" class="app-wrapper" style="min-height: 664.8px;">
             <div id="App-Container" class="app-container max-w-10/12 lg:max-w-screen-2xl px-3 lg:px-8" tabindex="-1"
                  style="--text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);">
                 <div data-v-7c4ba836="" class="header-container">
@@ -67,37 +67,30 @@
                                 </li>
                             </ul>
                         </nav>
-                        <div data-v-56016d5c="" class="header-controls absolute top-10 right-0 flex flex-row"
-                             tabindex="0">
-                        <span data-v-56016d5c="" class="ob-drop-shadow" data-dia="search">
-                            <svg data-v-729e93ea="" data-v-56016d5c="" class="svg-icon" aria-hidden="true">
-                                <use data-v-729e93ea="" href="#icon-search" fill="currentColor"
-                                     stroke="var(--text-white)"></use>
-                            </svg>
-                        </span>
-                            <div data-v-56016d5c="" class="ob-dropdown relative z-50">
-                            <span data-v-56016d5c="" class="ob-drop-shadow" data-dia="language">
+                        <div data-v-56016d5c=""
+                             class="header-controls absolute top-10 right-0 flex flex-row"
+                             tabindex="0" style="width: 140px;">
+                            <span data-v-56016d5c="" class="ob-drop-shadow" data-dia="search">
                                 <svg data-v-729e93ea="" data-v-56016d5c="" class="svg-icon" aria-hidden="true">
-                                    <use data-v-729e93ea="" href="#icon-globe" fill="currentColor"
+                                    <use data-v-729e93ea="" href="#icon-search" fill="currentColor"
                                          stroke="var(--text-white)"></use>
                                 </svg>
-                            <span data-v-56016d5c="">EN</span>
-                        </span>
-                            </div>
-                            <span data-v-56016d5c="" no-hover-effect="" class="ob-drop-shadow" data-dia="light-switch">
-                            <div data-v-ec7f8f5f="" data-v-56016d5c="" class="toggler">
-                            <div data-v-ec7f8f5f="" class="toggle-track"></div>
-                                <div data-v-ec7f8f5f="" class="slider"
-                                     style="background-color: rgb(110, 64, 201); transform: translateX(18px);"><svg
-                                        aria-hidden="true" width="14" height="13" viewBox="0 0 14 13"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        style="fill: yellow; margin: 7px 0px 0px 7px;">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                          d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z"></path>
-                                </svg>
-                                </div>
-                            </div>
-                        </span>
+                            </span>
+                            <theme-button value="dark" id="btn" size="1"></theme-button>
+                            <script>
+                                let day_night = document.getElementById("App-Wrapper").classList;
+                                day_night.add('theme-dark');
+                                btn.addEventListener("change", e => {
+                                    if (e.detail === 'dark') {
+                                        day_night.remove('theme-light')
+                                        day_night.add('theme-dark');
+                                    } else {
+                                        day_night.remove('theme-dark')
+                                        day_night.add('theme-light');
+                                    }
+                                });
+                            </script>
+                            <script th:src="@{/assets/js/day-night-toggle-button.js}"></script>
                         </div>
                     </header>
                 </div>
