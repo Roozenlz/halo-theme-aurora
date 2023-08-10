@@ -12,7 +12,7 @@
                           th:text="${#strings.isEmpty(subtitle) ? site.subtitle : subtitle}"></span>
                 </div>
                 <img data-v-2633daec="" class="logo-image"
-                     src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                     th:src="@{/assets/img/ObsidianestLog.png}"
                      alt="site-logo"></div>
             <nav data-v-faffdebb="" data-v-7c4ba836="" class="items-center flex-1 hidden lg:flex">
                 <ul data-v-faffdebb="" class="flex flex-row list-none px-6 text-white">
@@ -64,12 +64,12 @@
             <div data-v-56016d5c=""
                  class="header-controls absolute top-10 right-0 flex flex-row"
                  tabindex="0" style="width: 140px;">
-                            <span data-v-56016d5c="" class="ob-drop-shadow" data-dia="search">
-                                <svg data-v-729e93ea="" data-v-56016d5c="" class="svg-icon" aria-hidden="true">
-                                    <use data-v-729e93ea="" href="#icon-search" fill="currentColor"
-                                         stroke="var(--text-white)"></use>
-                                </svg>
-                            </span>
+                <span data-v-56016d5c="" class="ob-drop-shadow" data-dia="search">
+                    <svg data-v-729e93ea="" data-v-56016d5c="" class="svg-icon" aria-hidden="true">
+                        <use data-v-729e93ea="" href="#icon-search" fill="currentColor"
+                             stroke="var(--text-white)"></use>
+                    </svg>
+                </span>
                 <theme-button value="dark" id="btn" size="1"></theme-button>
                 <script>
                     let body_class = document.body.classList;
