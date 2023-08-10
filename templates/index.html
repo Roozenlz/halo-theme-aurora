@@ -78,15 +78,21 @@
                             </span>
                             <theme-button value="dark" id="btn" size="1"></theme-button>
                             <script>
-                                let day_night = document.getElementById("App-Wrapper").classList;
-                                day_night.add('theme-dark');
+                                let body_class = document.body.classList;
+                                let app_class = document.getElementById("App-Wrapper").classList;
+                                body_class.add('theme-dark');
+                                app_class.add('theme-dark');
                                 btn.addEventListener("change", e => {
                                     if (e.detail === 'dark') {
-                                        day_night.remove('theme-light')
-                                        day_night.add('theme-dark');
+                                        body_class.remove('theme-light')
+                                        body_class.add('theme-dark');
+                                        app_class.remove('theme-light')
+                                        app_class.add('theme-dark');
                                     } else {
-                                        day_night.remove('theme-dark')
-                                        day_night.add('theme-light');
+                                        body_class.remove('theme-dark')
+                                        body_class.add('theme-light');
+                                        app_class.remove('theme-dark')
+                                        app_class.add('theme-light');
                                     }
                                 });
                             </script>
