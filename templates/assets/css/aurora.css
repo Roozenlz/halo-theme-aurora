@@ -3259,7 +3259,12 @@ div::-webkit-scrollbar-track {
     display: inline;
     position: relative
 }
-
+.svg-icon[data-v-703f9be5] {
+    vertical-align: -.15em;
+    overflow: hidden;
+    display: inline;
+    position: relative
+}
 .svg-external-icon[data-v-729e93ea] {
     background-color: currentColor;
     -webkit-mask-size: cover !important;

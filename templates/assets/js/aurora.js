@@ -10401,7 +10401,7 @@ function l6(e, t, n, s, o, r) {
     })
 }
 
-const c6 = Le(n6, [["render", l6], ["__scopeId", "data-v-e40c54b4"]]), Ps = "/static/img/default-cover-dccf965f.jpg",
+const c6 = Le(n6, [["render", l6], ["__scopeId", "data-v-e40c54b4"]]), Ps = "/static/img/default-cover.jpg",
     u6 = Ce({
         name: "App", components: {HeaderMain: um, Footer: xm, Navigator: qm, MobileMenu: G5, Dia: c6}, setup() {
             const e = We(), t = Zo(), n = Ii(), s = Bo(), o = 996, {t: r} = nt(), i = "app-wrapper",
