@@ -4,10 +4,25 @@
 <th:block th:fragment="content">
     <link rel="stylesheet" th:href="@{/assets/css/post.css}">
     <link rel="stylesheet" th:href="@{/assets/css/comment.css}">
+    <style id="waline-darkmode">
+        body[class="theme-dark"] {
+        --waline-white: #000;
+        --waline-light-grey: #666;
+        --waline-dark-grey: #999;
+        --waline-color: #888;
+        --waline-bgcolor: #1e1e1e;
+        --waline-bgcolor-light: #272727;
+        --waline-bgcolor-hover: #444;
+        --waline-border-color: #333;
+        --waline-disable-bgcolor: #444;
+        --waline-disable-color: #272727;
+        --waline-bq-color: #272727;
+        --waline-info-bgcolor: #272727;
+        --waline-info-color: #666
+    }</style>
     <div id="app" data-v-app="">
         <div id="App-Wrapper" class="app-wrapper" style="min-height: 664.8px;">
-            <div id="App-Container" class="app-container max-w-10/12 lg:max-w-screen-2xl px-3 lg:px-8" tabindex="-1"
-                 style="--text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);">
+            <div id="App-Container" class="app-container max-w-10/12 lg:max-w-screen-2xl px-3 lg:px-8" tabindex="-1">
                 <nav th:replace="~{modules/nav :: nav(title = null,subtitle = null)}"></nav>
                 <div class="relative z-10">
                     <div class="flex flex-col" slug="aurora/custom-quotes">
@@ -50,7 +65,7 @@
                                                                                         stroke="white"></use></svg><span
                                             class="pl-2 opacity-70"><span class="waline-comment-count"
                                                                           data-path="/post/aurora%2Fcustom-quotes">1</span></span></span>
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +76,8 @@
                                     <article th:utext="${post.content.content}"></article>
 
                                     <h1 id="Custom-Container-Example"><a
-                                        href="#Custom-Container-Example" class="headerlink"
-                                        title="Custom Container Example."></a>Custom Container Example.</h1>
+                                            href="#Custom-Container-Example" class="headerlink"
+                                            title="Custom Container Example."></a>Custom Container Example.</h1>
                                     <blockquote><span class="custom-blockquote-svg"><svg width="24" height="24"
                                                                                          viewBox="0 0 24 24" fill=""
                                                                                          xmlns="http://www.w3.org/2000/svg"
@@ -428,207 +443,7 @@ Fusce rutrum venenatis eros in hendrerit. Pellentesque habitant morbi tristique 
                                         allowComment = ${post.spec.allowComment})}"/>
 
                             </div>
-                            <div>
-                                <div>
-                                    <div data-v-d931a8ea="" class="h-98 w-full rounded-2xl relative shadow-xl mb-8"
-                                         style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
-                                        <div data-v-d931a8ea=""
-                                             class="ob-gradient-cut-plate absolute bg-ob-deep-900 rounded-xl opacity-90 flex justify-center items-center pt-4 px-6 shadow-lg hover:shadow-2xl duration-300"
-                                             data-dia="author">
-                                            <div data-v-d931a8ea=""
-                                                 class="profile absolute w-full flex flex-col justify-center items-center">
-                                                <div data-v-d931a8ea=""
-                                                     class="flex flex-col justify-center items-center"><img
-                                                        data-v-d931a8ea="" class="ob-avatar diamond-avatar"
-                                                        src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
-                                                        alt="avatar">
-                                                    <h2 data-v-d931a8ea=""
-                                                        class="text-center pt-4 text-4xl font-semibold text-ob-bright">
-                                                        三钻</h2><span data-v-d931a8ea=""
-                                                                       class="h-1 w-14 rounded-full mt-2"
-                                                                       style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                                                    <p data-v-d931a8ea="" class="pt-6 px-10 w-full text-sm text-center">
-                                                        Think like an artist, develop like an artisan. <br> @ <b>公众号：技术银河</b>
-                                                    </p></div>
-                                                <div data-v-d931a8ea=""
-                                                     class="h-full w-full flex flex-col flex-1 justify-end items-end">
-                                                    <ul data-v-6aef6eb0="" data-v-d931a8ea=""
-                                                        class="flex flex-row justify-evenly flex-wrap w-full py-4 px-2 text-center items-center">
-                                                        <a data-v-6aef6eb0="" href="https://github.com/TriDiamond"
-                                                           target="_blank">
-                                                            <li data-v-6aef6eb0=""
-                                                                class="diamond-clip-path diamond-icon">
-                                                                <svg data-v-703f9be5="" data-v-6aef6eb0=""
-                                                                     class="svg-icon fill-current fill-current"
-                                                                     aria-hidden="true"
-                                                                     style="height: 1em; width: 1em;">
-                                                                    <use data-v-703f9be5="" href="#icon-github"
-                                                                         fill="currentColor"
-                                                                         stroke="var(--background-primary)"></use>
-                                                                </svg>
-                                                            </li>
-                                                        </a><!----><!----><!----><!----><a data-v-6aef6eb0=""
-                                                                                           href="https://weibo.com/u/7318914058"
-                                                                                           target="_blank">
-                                                        <li data-v-6aef6eb0="" class="diamond-clip-path diamond-icon">
-                                                            <svg data-v-703f9be5="" data-v-6aef6eb0=""
-                                                                 class="svg-icon fill-current fill-current"
-                                                                 aria-hidden="true" style="height: 1em; width: 1em;">
-                                                                <use data-v-703f9be5="" href="#icon-weibo"
-                                                                     fill="currentColor"
-                                                                     stroke="var(--background-primary)"></use>
-                                                            </svg>
-                                                        </li>
-                                                    </a><a data-v-6aef6eb0="" href="https://blog.csdn.net/TriDiamond6"
-                                                           target="_blank">
-                                                        <li data-v-6aef6eb0="" class="diamond-clip-path diamond-icon">
-                                                            <svg data-v-703f9be5="" data-v-6aef6eb0=""
-                                                                 class="svg-icon fill-current fill-current"
-                                                                 aria-hidden="true" style="height: 1em; width: 1em;">
-                                                                <use data-v-703f9be5="" href="#icon-csdn"
-                                                                     fill="currentColor"
-                                                                     stroke="var(--background-primary)"></use>
-                                                            </svg>
-                                                        </li>
-                                                    </a><a data-v-6aef6eb0=""
-                                                           href="https://www.zhihu.com/people/tridiamond"
-                                                           target="_blank">
-                                                        <li data-v-6aef6eb0="" class="diamond-clip-path diamond-icon">
-                                                            <svg data-v-703f9be5="" data-v-6aef6eb0=""
-                                                                 class="svg-icon fill-current fill-current"
-                                                                 aria-hidden="true" style="height: 1em; width: 1em;">
-                                                                <use data-v-703f9be5="" href="#icon-zhifu"
-                                                                     fill="currentColor"
-                                                                     stroke="var(--background-primary)"></use>
-                                                            </svg>
-                                                        </li>
-                                                    </a><a data-v-6aef6eb0=""
-                                                           href="https://juejin.cn/user/1873223546578589"
-                                                           target="_blank">
-                                                        <li data-v-6aef6eb0="" class="diamond-clip-path diamond-icon">
-                                                            掘
-                                                        </li>
-                                                    </a><a data-v-6aef6eb0="" href="https://live.bilibili.com/22619211"
-                                                           target="_blank">
-                                                        <li data-v-6aef6eb0="" class="diamond-clip-path diamond-icon">
-                                                            <div data-v-703f9be5="" data-v-6aef6eb0=""
-                                                                 class="svg-external-icon svg-icon fill-current fill-current"
-                                                                 style="-webkit-mask: url(&quot;/svg/bilibili.svg&quot;) 50% 50% no-repeat;"></div>
-                                                        </li>
-                                                    </a></ul>
-                                                    <ul data-v-d931a8ea=""
-                                                        class="grid grid-cols-4 pt-4 w-full px-2 text-lg">
-                                                        <li data-v-d931a8ea="" class="col-span-1 text-center"><span
-                                                                data-v-d931a8ea="" class="text-ob-bright">286k</span>
-                                                            <p data-v-d931a8ea="" class="text-base">文字</p></li>
-                                                        <li data-v-d931a8ea="" class="col-span-1 text-center"><span
-                                                                data-v-d931a8ea="" class="text-ob-bright">34</span>
-                                                            <p data-v-d931a8ea="" class="text-base">文章</p></li>
-                                                        <li data-v-d931a8ea="" class="col-span-1 text-center"><span
-                                                                data-v-d931a8ea="" class="text-ob-bright">14</span>
-                                                            <p data-v-d931a8ea="" class="text-base">分类</p></li>
-                                                        <li data-v-d931a8ea="" class="col-span-1 text-center"><span
-                                                                data-v-d931a8ea="" class="text-ob-bright">76</span>
-                                                            <p data-v-d931a8ea="" class="text-base">标签</p></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="sticky" style="z-index: 1; height: 362px;">
-                                        <div class="" style="bottom: initial; z-index: 1; height: 362px;">
-                                            <div id="sticky-sidebar">
-                                                <div class="sidebar-box mb-4" style="">
-                                                    <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
-                                                        <svg data-v-703f9be5=""
-                                                             class="svg-icon inline-block mr-2 inline-block mr-2"
-                                                             aria-hidden="true" style="height: 1em; width: 1em;">
-                                                            <use data-v-703f9be5="" href="#icon-toc" fill="currentColor"
-                                                                 stroke="var(--background-primary)"></use>
-                                                        </svg>
-                                                        <span class="w-full block">文章目录</span><!----><span
-                                                            class="absolute bottom-0 h-1 w-14 rounded-full"
-                                                            style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                                                    </p>
-                                                    <div style="max-height: 492px; overflow: hidden scroll;">
-                                                        <ol class="toc">
-                                                            <li class="toc-item toc-level-1 active"><a class="toc-link"
-                                                                                                       href="#Custom-Container-Example"><span
-                                                                    class="toc-text">Custom Container Example.</span></a>
-                                                                <ol class="toc-child">
-                                                                    <li class="toc-item toc-level-2"><a class="toc-link"
-                                                                                                        href="#Block-quote"><span
-                                                                            class="toc-text">Block quote</span></a></li>
-                                                                    <li class="toc-item toc-level-2"><a class="toc-link"
-                                                                                                        href="#Custom-Containers"><span
-                                                                            class="toc-text">Custom Containers</span></a>
-                                                                        <ol class="toc-child">
-                                                                            <li class="toc-item toc-level-3"><a
-                                                                                    class="toc-link"
-                                                                                    href="#Tip-Container"><span
-                                                                                    class="toc-text">Tip Container</span></a>
-                                                                            </li>
-                                                                            <li class="toc-item toc-level-3"><a
-                                                                                    class="toc-link"
-                                                                                    href="#Warning-Container"><span
-                                                                                    class="toc-text">Warning Container</span></a>
-                                                                            </li>
-                                                                            <li class="toc-item toc-level-3"><a
-                                                                                    class="toc-link"
-                                                                                    href="#Danger-Container"><span
-                                                                                    class="toc-text">Danger Container</span></a>
-                                                                            </li>
-                                                                            <li class="toc-item toc-level-3"><a
-                                                                                    class="toc-link"
-                                                                                    href="#Detail-container"><span
-                                                                                    class="toc-text">Detail container</span></a>
-                                                                            </li>
-                                                                        </ol>
-                                                                    </li>
-                                                                </ol>
-                                                            </li>
-                                                        </ol>
-                                                    </div>
-                                                </div>
-                                                <ul data-v-5c2edb2b="" id="sidebar-navigator"
-                                                    class="flex flex-row bg-ob-deep-800 rounded-xl shadow-2xl justify-items-center overflow-hidden">
-                                                    <li data-v-5c2edb2b=""
-                                                        class="border-r-4 border-ob-deep-900 flex justify-center py-3 w-full hover:opacity-50 hover:text-ob transition-all cursor-pointer">
-                                                        <svg data-v-703f9be5="" data-v-5c2edb2b=""
-                                                             class="svg-icon inline-block text-3xl inline-block text-3xl"
-                                                             aria-hidden="true" style="height: 1em; width: 1em;">
-                                                            <use data-v-703f9be5="" href="#icon-go-back"
-                                                                 fill="currentColor"
-                                                                 stroke="var(--background-primary)"></use>
-                                                        </svg>
-                                                    </li>
-                                                    <li data-v-5c2edb2b=""
-                                                        class="border-r-4 border-ob-deep-900 flex justify-center py-3 w-full hover:opacity-50 hover:text-ob transition-all cursor-pointer">
-                                                        <svg data-v-703f9be5="" data-v-5c2edb2b=""
-                                                             class="svg-icon inline-block text-3xl inline-block text-3xl"
-                                                             aria-hidden="true" style="height: 1em; width: 1em;">
-                                                            <use data-v-703f9be5="" href="#icon-back-to-top"
-                                                                 fill="currentColor"
-                                                                 stroke="var(--background-primary)"></use>
-                                                        </svg>
-                                                    </li>
-                                                    <li data-v-5c2edb2b=""
-                                                        class="flex justify-center py-3 w-full hover:opacity-50 hover:text-ob transition-all cursor-pointer"
-                                                        data-dia="jump-to-comment">
-                                                        <svg data-v-703f9be5="" data-v-5c2edb2b=""
-                                                             class="svg-icon inline-block text-3xl inline-block text-3xl"
-                                                             aria-hidden="true" style="height: 1em; width: 1em;">
-                                                            <use data-v-703f9be5="" href="#icon-quote"
-                                                                 fill="currentColor"
-                                                                 stroke="var(--background-primary)"></use>
-                                                        </svg>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <div th:replace="~{modules/aside :: aside(widgets = null)}"></div>
                         </div>
                     </div>
                 </div>

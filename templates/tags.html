@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html
-  xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{layout :: html(head = null,content = ~{::content})}"
+        xmlns:th="https://www.thymeleaf.org"
+        th:replace="~{layout :: html(head = null,content = ~{::content})}"
 >
-  <th:block th:fragment="content">
-    <h1>标签</h1>
-    <ul>
-      <li th:each="tag : ${tags}">
-        <a
-          th:href="@{${tag.status.permalink}}"
-          th:text="${tag.spec.displayName}"
-        ></a>
-      </li>
-    </ul>
-  </th:block>
+<th:block th:fragment="content">
+    <div id="app" data-v-app="">
+        <div id="App-Wrapper" class="app-wrapper theme-dark" style="min-height: 664.8px;">
+            <div id="App-Container" class="app-container max-w-10/12 lg:max-w-screen-2xl px-3 lg:px-8" tabindex="-1">
+                <nav th:replace="~{modules/nav :: nav(title = null,subtitle = null)}"></nav>
+                <div class="relative z-10">
+                    <div class="flex flex-col">
+                        <div class="post-header">
+                            <ul data-v-ccdbb884="" class="breadcrumbs flex flex-row gap-6 text-white">
+                                <li data-v-ccdbb884="">首页</li>
+                                <li data-v-ccdbb884="">标签</li>
+                            </ul>
+                            <h1 class="post-title text-white uppercase">标签</h1></div>
+                        <div class="bg-ob-deep-800 px-14 py-16 rounded-2xl shadow-xl block">
+                            <div class="flex justify-event flex-wrap pt-2">
+                                <div th:each="tag : ${tags}"
+                                     class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+                                    <a th:href="@{${tag.status.permalink}}"
+                                       th:text="${tag.spec.displayName}"
+                                       class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                                       style="font-size: 1.25rem; line-height: 1.75rem;">
+                                        <em class="opacity-50">#</em></a>
+                                    <span class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                                          style="font-size: 1.25rem; line-height: 1.75rem;"
+                                          th:text="${tag.status.postCount}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="loading-bar-wrapper" class=""></div>
+        </div>
+        <footer th:replace="~{modules/footer :: footer}"></footer>
+        <th:block th:replace="~{modules/common/navigator :: navigator}"/>
+        <th:block th:replace="~{modules/common/bot :: bot}"/>
+    </div>
+</th:block>
 </html>

@@ -74,19 +74,23 @@
                 <script>
                     let body_class = document.body.classList;
                     let app_class = document.getElementById("App-Wrapper").classList;
+                    let app_container = document.getElementById("App-Container");
                     body_class.add('theme-dark');
                     app_class.add('theme-dark');
+                    app_container.style = "--text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);"
                     btn.addEventListener("change", e => {
                         if (e.detail === 'dark') {
                             body_class.remove('theme-light')
                             body_class.add('theme-dark');
                             app_class.remove('theme-light')
                             app_class.add('theme-dark');
+                            app_container.style = "--text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);"
                         } else {
                             body_class.remove('theme-dark')
                             body_class.add('theme-light');
                             app_class.remove('theme-dark')
                             app_class.add('theme-light');
+                            app_container.style = "--text-accent: #ff0099; --text-sub-accent: #5433ff; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);"
                         }
                     });
                 </script>
