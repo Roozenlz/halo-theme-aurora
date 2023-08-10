@@ -3211,7 +3211,7 @@ div::-webkit-scrollbar-track {
     max-width: 200px;
     top: -60px;
     left: -60px;
-    opacity: .05;
+    opacity: .15;
     position: absolute;
     margin-right: .5rem;
     border-radius: 9999px
