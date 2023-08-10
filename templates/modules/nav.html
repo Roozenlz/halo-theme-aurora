@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<nav class="show" id="nav" th:fragment="nav(title,subtitle)">
+    <div data-v-7c4ba836="" class="header-container">
+        <header data-v-7c4ba836="" class="site-header">
+            <div data-v-2633daec="" data-v-7c4ba836="" class="flex items-start self-stretch relative">
+                <div data-v-2633daec=""
+                     class="flex flex-col relative py-4 z-10 text-white font-medium ob-drop-shadow cursor-pointer">
+                    <span data-v-2633daec="" class="flex text-4xl"
+                          th:text="${#strings.isEmpty(title) ? site.title : title}"></span>
+                    <span data-v-2633daec="" class="font-extrabold text-xs uppercase"
+                          th:text="${#strings.isEmpty(subtitle) ? site.subtitle : subtitle}"></span>
+                </div>
+                <img data-v-2633daec="" class="logo-image"
+                     src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                     alt="site-logo"></div>
+            <nav data-v-faffdebb="" data-v-7c4ba836="" class="items-center flex-1 hidden lg:flex">
+                <ul data-v-faffdebb="" class="flex flex-row list-none px-6 text-white">
+                    <li data-v-faffdebb=""
+                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                        <div data-v-faffdebb=""
+                             class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
+                             data-menu="Home"><span data-v-faffdebb="" class="relative z-50">Home</span>
+                        </div>
+                    </li>
+                    <li data-v-faffdebb=""
+                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                        <div data-v-faffdebb=""
+                             class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
+                             data-menu="About"><span data-v-faffdebb="" class="relative z-50">About</span>
+                        </div>
+                    </li>
+                    <li data-v-faffdebb=""
+                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                        <div data-v-faffdebb=""
+                             class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
+                             data-menu="Archives"><span data-v-faffdebb=""
+                                                        class="relative z-50">Archives</span>
+                        </div>
+                    </li>
+                    <li data-v-faffdebb=""
+                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                        <div data-v-faffdebb=""
+                             class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
+                             data-menu="Tags"><span data-v-faffdebb="" class="relative z-50">Tags</span>
+                        </div>
+                    </li>
+                    <li data-v-faffdebb=""
+                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                        <div data-v-faffdebb=""
+                             class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
+                             data-menu="MessageBoard"><span data-v-faffdebb=""
+                                                            class="relative z-50">Message Board</span>
+                        </div>
+                    </li>
+                    <li data-v-faffdebb=""
+                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
+                        <div data-v-faffdebb=""
+                             class="ob-dropdown relative z-50 nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase">
+                            <span data-v-faffdebb="" class="relative z-50">Aurora Theme</span><!----></div>
+                    </li>
+                </ul>
+            </nav>
+            <div data-v-56016d5c=""
+                 class="header-controls absolute top-10 right-0 flex flex-row"
+                 tabindex="0" style="width: 140px;">
+                            <span data-v-56016d5c="" class="ob-drop-shadow" data-dia="search">
+                                <svg data-v-729e93ea="" data-v-56016d5c="" class="svg-icon" aria-hidden="true">
+                                    <use data-v-729e93ea="" href="#icon-search" fill="currentColor"
+                                         stroke="var(--text-white)"></use>
+                                </svg>
+                            </span>
+                <theme-button value="dark" id="btn" size="1"></theme-button>
+                <script>
+                    let body_class = document.body.classList;
+                    let app_class = document.getElementById("App-Wrapper").classList;
+                    body_class.add('theme-dark');
+                    app_class.add('theme-dark');
+                    btn.addEventListener("change", e => {
+                        if (e.detail === 'dark') {
+                            body_class.remove('theme-light')
+                            body_class.add('theme-dark');
+                            app_class.remove('theme-light')
+                            app_class.add('theme-dark');
+                        } else {
+                            body_class.remove('theme-dark')
+                            body_class.add('theme-light');
+                            app_class.remove('theme-dark')
+                            app_class.add('theme-light');
+                        }
+                    });
+                </script>
+                <script th:src="@{/assets/js/day-night-toggle-button.js}"></script>
+            </div>
+        </header>
+    </div>
+    <div class="app-banner app-banner-image"
+         style="background-image: url(&quot;&quot;), url(&quot;/themes/theme-aurora/assets/img/default-cover-dccf965f.jpg&quot;); opacity: 0;">
+    </div>
+    <div class="app-banner app-banner-screen"
+         style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%); opacity: 0.99;">
+    </div>
+
+    <!--  <div id="nav-group">-->
+
+    <!--    &lt;!&ndash; 导航栏左侧 &ndash;&gt;-->
+    <!--    <div th:replace="~{modules/widgets/nav-left :: nav-left}"></div>-->
+
+    <!--    <div id="page-name-mask">-->
+    <!--      <div id="page-name"><a id="page-name-text" onclick="btf.scrollToDest(0,500)"-->
+    <!--                             th:text="${#strings.isEmpty(title) ? site.title : title}"></a></div>-->
+    <!--    </div>-->
+
+    <!--    &lt;!&ndash; 导航栏中间 &ndash;&gt;-->
+    <!--    <div th:replace="~{modules/widgets/nav-menu :: nav-menu}"></div>-->
+
+    <!--    &lt;!&ndash; 导航栏右侧 &ndash;&gt;-->
+    <!--    <div th:replace="~{modules/widgets/nav-right :: nav-right}"></div>-->
+
+    <!--  </div>-->
+</nav>
+
+</html>
