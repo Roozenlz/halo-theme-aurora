@@ -333,7 +333,7 @@ pre[class*=language-] {
 
 .token.string {
     color: var(--foreground) !important;
-    background: none !important
+    background: 0 0 !important
 }
 
 .token.tag {
@@ -350,7 +350,7 @@ pre[class*=language-] {
 
 .language-css .token.url {
     color: var(--foreground);
-    background: none !important
+    background: 0 0 !important
 }
 
 .token.variable {
@@ -363,7 +363,7 @@ pre[class*=language-] {
 
 .token.operator {
     color: var(--pink);
-    background: transparent
+    background: 0 0
 }
 
 .token.char {

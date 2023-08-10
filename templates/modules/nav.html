@@ -1,101 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <nav class="show" id="nav" th:fragment="nav(title,subtitle)">
-    <div  class="header-container">
-        <header  class="site-header">
-            <div   class="flex items-start self-stretch relative">
-                <div 
-                     class="flex flex-col relative py-4 z-10 text-white font-medium ob-drop-shadow cursor-pointer">
-                    <span  class="flex text-4xl"
+    <div class="header-container">
+        <header class="site-header">
+            <div class="flex items-start self-stretch relative">
+                <div class="flex flex-col relative py-4 z-10 text-white font-medium ob-drop-shadow cursor-pointer">
+                    <span class="flex text-4xl"
                           th:text="${#strings.isEmpty(title) ? site.title : title}"></span>
-                    <span  class="font-extrabold text-xs uppercase"
+                    <span class="font-extrabold text-xs uppercase"
                           th:text="${#strings.isEmpty(subtitle) ? site.subtitle : subtitle}"></span>
                 </div>
-                <img  class="logo-image"
-                     th:src="${site.logo}"
-                     alt="site-logo"></div>
-            <nav   class="items-center flex-1 hidden lg:flex">
-                <ul  class="flex flex-row list-none px-6 text-white">
-                    <li 
-                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div 
-                             class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
-                             data-menu="Home"><span  class="relative z-50">Home</span>
-                        </div>
-                    </li>
-                    <li 
-                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div 
-                             class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
-                             data-menu="About"><span  class="relative z-50">About</span>
-                        </div>
-                    </li>
-                    <li 
-                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div 
-                             class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
-                             data-menu="Archives"><span 
-                                                        class="relative z-50">Archives</span>
-                        </div>
-                    </li>
-                    <li 
-                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div 
-                             class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
-                             data-menu="Tags"><span  class="relative z-50">Tags</span>
-                        </div>
-                    </li>
-                    <li 
-                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div 
-                             class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
-                             data-menu="MessageBoard"><span 
-                                                            class="relative z-50">Message Board</span>
-                        </div>
-                    </li>
-                    <li 
-                        class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div 
-                             class="ob-dropdown relative z-50 nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase">
-                            <span  class="relative z-50">Aurora Theme</span><!----></div>
-                    </li>
-                </ul>
-            </nav>
-            <div 
-                 class="header-controls absolute top-10 right-0 flex flex-row"
-                 tabindex="0" style="width: 140px;">
-                <span  class="ob-drop-shadow" data-dia="search">
-                    <svg   class="svg-icon" aria-hidden="true">
-                        <use  href="#icon-search" fill="currentColor"
-                             stroke="var(--text-white)"></use>
-                    </svg>
-                </span>
-                <theme-button value="dark" id="btn" size="1"></theme-button>
-                <script>
-                    let body_class = document.body.classList;
-                    let app_class = document.getElementById("App-Wrapper").classList;
-                    let app_container = document.getElementById("App-Container");
-                    body_class.add('theme-dark');
-                    app_class.add('theme-dark');
-                    app_container.style = "--text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);"
-                    btn.addEventListener("change", e => {
-                        if (e.detail === 'dark') {
-                            body_class.remove('theme-light')
-                            body_class.add('theme-dark');
-                            app_class.remove('theme-light')
-                            app_class.add('theme-dark');
-                            app_container.style = "--text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);"
-                        } else {
-                            body_class.remove('theme-dark')
-                            body_class.add('theme-light');
-                            app_class.remove('theme-dark')
-                            app_class.add('theme-light');
-                            app_container.style = "--text-accent: #ff0099; --text-sub-accent: #5433ff; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);"
-                        }
-                    });
-                </script>
-                <script th:src="@{/assets/js/day-night-toggle-button.js}"></script>
-            </div>
+                <img class="logo-image" th:src="${site.logo}" alt="site-logo"></div>
+            <!-- 导航栏中间 -->
+            <div th:replace="~{modules/widgets/nav-menu :: nav-menu}"></div>
+            <!-- 导航栏右侧 -->
+            <div th:replace="~{modules/widgets/nav-right :: nav-right}"></div>
         </header>
     </div>
     <div class="app-banner app-banner-image"
@@ -103,24 +22,6 @@
     <div class="app-banner app-banner-screen"
          style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%); opacity: 0.91;">
     </div>
-
-    <!--  <div id="nav-group">-->
-
-    <!--    &lt;!&ndash; 导航栏左侧 &ndash;&gt;-->
-    <!--    <div th:replace="~{modules/widgets/nav-left :: nav-left}"></div>-->
-
-    <!--    <div id="page-name-mask">-->
-    <!--      <div id="page-name"><a id="page-name-text" onclick="btf.scrollToDest(0,500)"-->
-    <!--                             th:text="${#strings.isEmpty(title) ? site.title : title}"></a></div>-->
-    <!--    </div>-->
-
-    <!--    &lt;!&ndash; 导航栏中间 &ndash;&gt;-->
-    <!--    <div th:replace="~{modules/widgets/nav-menu :: nav-menu}"></div>-->
-
-    <!--    &lt;!&ndash; 导航栏右侧 &ndash;&gt;-->
-    <!--    <div th:replace="~{modules/widgets/nav-right :: nav-right}"></div>-->
-
-    <!--  </div>-->
 </nav>
 
 </html>

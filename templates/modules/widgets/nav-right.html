@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- 导航栏菜单栏 -->
+<div th:fragment="nav-right">
+    <div class="header-controls absolute top-10 right-0 flex flex-row"
+         tabindex="0" style="width: 140px;">
+                <span class="ob-drop-shadow" data-dia="search">
+                    <svg class="svg-icon" aria-hidden="true">
+                        <use href="#icon-search" fill="currentColor" stroke="var(--text-white)"></use>
+                    </svg>
+                </span>
+        <theme-button value="dark" id="btn" size="1"></theme-button>
+        <script>
+            let body_class = document.body.classList;
+            let app_class = document.getElementById("App-Wrapper").classList;
+            let app_container = document.getElementById("App-Container");
+            body_class.add('theme-dark');
+            app_class.add('theme-dark');
+            app_container.style = "--text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);"
+            btn.addEventListener("change", e => {
+                if (e.detail === 'dark') {
+                    body_class.remove('theme-light')
+                    body_class.add('theme-dark');
+                    app_class.remove('theme-light')
+                    app_class.add('theme-dark');
+                    app_container.style = "--text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);"
+                } else {
+                    body_class.remove('theme-dark')
+                    body_class.add('theme-light');
+                    app_class.remove('theme-dark')
+                    app_class.add('theme-light');
+                    app_container.style = "--text-accent: #ff0099; --text-sub-accent: #5433ff; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);"
+                }
+            });
+        </script>
+        <script th:src="@{/assets/js/day-night-toggle-button.js}"></script>
+    </div>
+</div>
+</html>
