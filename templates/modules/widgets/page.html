@@ -34,7 +34,7 @@
 
         <th:block th:if="${pageInfo.totalPages - pageInfo.page > 2}">
             <li data-v-a3fd6a03="" class="" th:if="${pageInfo.totalPages - pageInfo.page != 3}">…</li>
-            <a th:href="${path+'/page/'+pageInfo.totalPages}" th:text="${pageInfo.totalPages}">
+            <a th:href="${path+'/page/'+pageInfo.totalPages}">
                 <li data-v-a3fd6a03="" th:text="${pageInfo.totalPages}"></li>
             </a>
         </th:block>

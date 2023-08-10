@@ -1,9 +1,9 @@
-.breadcrumbs[data-v-ccdbb884],.breadcrumbs li[data-v-ccdbb884] {
+.breadcrumbs,.breadcrumbs li {
     position: relative;
     z-index: 20
 }
 
-.breadcrumbs li[data-v-ccdbb884]:after {
+.breadcrumbs li:after {
     content: ">";
     position: absolute;
     top: .05rem;
@@ -11,6 +11,6 @@
     opacity: .65
 }
 
-.breadcrumbs li[data-v-ccdbb884]:last-of-type:after {
+.breadcrumbs li:last-of-type:after {
     content: ""
 }

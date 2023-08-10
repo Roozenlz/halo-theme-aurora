@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org"
       th:replace="~{layout :: html(head = null,content = ~{::content})}">
 <th:block th:fragment="content">
-    <div id="app" data-v-app="">
+    <div id="app" >
         <div id="App-Wrapper" class="app-wrapper" style="min-height: 664.8px;">
             <div id="App-Container" class="app-container max-w-10/12 lg:max-w-screen-2xl px-3 lg:px-8" tabindex="-1">
                 <nav th:replace="~{modules/nav :: nav(title = null,subtitle = null)}"></nav>
@@ -20,3 +20,5 @@
         <th:block th:replace="~{modules/common/bot :: bot}"/>
     </div>
 </th:block>
+
+<!--data-v-[0-9a-z]*=""-->

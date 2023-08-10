@@ -1,72 +1,72 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <nav class="show" id="nav" th:fragment="nav(title,subtitle)">
-    <div data-v-7c4ba836="" class="header-container">
-        <header data-v-7c4ba836="" class="site-header">
-            <div data-v-2633daec="" data-v-7c4ba836="" class="flex items-start self-stretch relative">
-                <div data-v-2633daec=""
+    <div  class="header-container">
+        <header  class="site-header">
+            <div   class="flex items-start self-stretch relative">
+                <div 
                      class="flex flex-col relative py-4 z-10 text-white font-medium ob-drop-shadow cursor-pointer">
-                    <span data-v-2633daec="" class="flex text-4xl"
+                    <span  class="flex text-4xl"
                           th:text="${#strings.isEmpty(title) ? site.title : title}"></span>
-                    <span data-v-2633daec="" class="font-extrabold text-xs uppercase"
+                    <span  class="font-extrabold text-xs uppercase"
                           th:text="${#strings.isEmpty(subtitle) ? site.subtitle : subtitle}"></span>
                 </div>
-                <img data-v-2633daec="" class="logo-image"
+                <img  class="logo-image"
                      th:src="${site.logo}"
                      alt="site-logo"></div>
-            <nav data-v-faffdebb="" data-v-7c4ba836="" class="items-center flex-1 hidden lg:flex">
-                <ul data-v-faffdebb="" class="flex flex-row list-none px-6 text-white">
-                    <li data-v-faffdebb=""
+            <nav   class="items-center flex-1 hidden lg:flex">
+                <ul  class="flex flex-row list-none px-6 text-white">
+                    <li 
                         class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div data-v-faffdebb=""
+                        <div 
                              class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
-                             data-menu="Home"><span data-v-faffdebb="" class="relative z-50">Home</span>
+                             data-menu="Home"><span  class="relative z-50">Home</span>
                         </div>
                     </li>
-                    <li data-v-faffdebb=""
+                    <li 
                         class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div data-v-faffdebb=""
+                        <div 
                              class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
-                             data-menu="About"><span data-v-faffdebb="" class="relative z-50">About</span>
+                             data-menu="About"><span  class="relative z-50">About</span>
                         </div>
                     </li>
-                    <li data-v-faffdebb=""
+                    <li 
                         class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div data-v-faffdebb=""
+                        <div 
                              class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
-                             data-menu="Archives"><span data-v-faffdebb=""
+                             data-menu="Archives"><span 
                                                         class="relative z-50">Archives</span>
                         </div>
                     </li>
-                    <li data-v-faffdebb=""
+                    <li 
                         class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div data-v-faffdebb=""
+                        <div 
                              class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
-                             data-menu="Tags"><span data-v-faffdebb="" class="relative z-50">Tags</span>
+                             data-menu="Tags"><span  class="relative z-50">Tags</span>
                         </div>
                     </li>
-                    <li data-v-faffdebb=""
+                    <li 
                         class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div data-v-faffdebb=""
+                        <div 
                              class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
-                             data-menu="MessageBoard"><span data-v-faffdebb=""
+                             data-menu="MessageBoard"><span 
                                                             class="relative z-50">Message Board</span>
                         </div>
                     </li>
-                    <li data-v-faffdebb=""
+                    <li 
                         class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
-                        <div data-v-faffdebb=""
+                        <div 
                              class="ob-dropdown relative z-50 nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase">
-                            <span data-v-faffdebb="" class="relative z-50">Aurora Theme</span><!----></div>
+                            <span  class="relative z-50">Aurora Theme</span><!----></div>
                     </li>
                 </ul>
             </nav>
-            <div data-v-56016d5c=""
+            <div 
                  class="header-controls absolute top-10 right-0 flex flex-row"
                  tabindex="0" style="width: 140px;">
-                <span data-v-56016d5c="" class="ob-drop-shadow" data-dia="search">
-                    <svg data-v-729e93ea="" data-v-56016d5c="" class="svg-icon" aria-hidden="true">
-                        <use data-v-729e93ea="" href="#icon-search" fill="currentColor"
+                <span  class="ob-drop-shadow" data-dia="search">
+                    <svg   class="svg-icon" aria-hidden="true">
+                        <use  href="#icon-search" fill="currentColor"
                              stroke="var(--text-white)"></use>
                     </svg>
                 </span>

@@ -1,4 +1,4 @@
-.timeline[data-v-7beaea4c] {
+.timeline {
     position: relative;
     z-index: 2;
     line-height: 1.4em;
@@ -8,20 +8,20 @@
     width: 100%
 }
 
-.timeline h1[data-v-7beaea4c], .timeline h2[data-v-7beaea4c], .timeline h3[data-v-7beaea4c], .timeline h4[data-v-7beaea4c], .timeline h5[data-v-7beaea4c], .timeline h6[data-v-7beaea4c] {
+.timeline h1, .timeline h2, .timeline h3, .timeline h4, .timeline h5, .timeline h6 {
     margin-top: 0
 }
 
-.timeline-item[data-v-7beaea4c] {
+.timeline-item {
     padding-left: 40px;
     position: relative
 }
 
-.timeline-item[data-v-7beaea4c]:last-child {
+.timeline-item:last-child {
     padding-bottom: 0
 }
 
-.timeline-info[data-v-7beaea4c] {
+.timeline-info {
     color: var(--text-accent);
     font-size: 12px;
     font-weight: 700;
@@ -31,7 +31,7 @@
     white-space: nowrap
 }
 
-.timeline-marker[data-v-7beaea4c] {
+.timeline-marker {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -39,7 +39,7 @@
     width: 15px
 }
 
-.timeline-marker[data-v-7beaea4c]:before {
+.timeline-marker:before {
     background: var(--text-accent);
     border: 3px solid transparent;
     border-radius: 100%;
@@ -53,7 +53,7 @@
     transition: background .3s ease-in-out, border .3s ease-in-out
 }
 
-.timeline-marker[data-v-7beaea4c]:after {
+.timeline-marker:after {
     content: "";
     width: 3px;
     background: var(--text-normal);
@@ -64,24 +64,24 @@
     left: 6px
 }
 
-.timeline-item:last-child .timeline-marker[data-v-7beaea4c]:after {
+.timeline-item:last-child .timeline-marker:after {
     content: none
 }
 
-.timeline-item:not(.period):hover .timeline-marker[data-v-7beaea4c]:before {
+.timeline-item:not(.period):hover .timeline-marker:before {
     background: transparent;
     border: 3px solid var(--text-accent)
 }
 
-.timeline-content[data-v-7beaea4c] {
+.timeline-content {
     padding-bottom: 40px
 }
 
-.timeline-content p[data-v-7beaea4c]:last-child {
+.timeline-content p:last-child {
     margin-bottom: 0
 }
 
-.timeline-title[data-v-7beaea4c] {
+.timeline-title {
     position: relative;
     margin-bottom: 1rem;
     padding-bottom: .5rem;
@@ -91,7 +91,7 @@
     font-weight: 600
 }
 
-.timeline-title[data-v-7beaea4c]:after {
+.timeline-title:after {
     position: absolute;
     bottom: 0px;
     height: .25rem;
@@ -102,15 +102,15 @@
     left: 0
 }
 
-.period[data-v-7beaea4c] {
+.period {
     padding: 0
 }
 
-.period .timeline-info[data-v-7beaea4c] {
+.period .timeline-info {
     display: none
 }
 
-.period .timeline-marker[data-v-7beaea4c]:before {
+.period .timeline-marker:before {
     background: transparent;
     content: "";
     width: 15px;
@@ -124,131 +124,131 @@
     border-bottom: 3px solid var(--text-normal)
 }
 
-.period .timeline-marker[data-v-7beaea4c]:after {
+.period .timeline-marker:after {
     content: "";
     height: 32px;
     top: auto
 }
 
-.period .timeline-content[data-v-7beaea4c] {
+.period .timeline-content {
     padding: 40px 0 70px
 }
 
-.period .timeline-title[data-v-7beaea4c] {
+.period .timeline-title {
     margin: 0
 }
 
-.period .timeline-title[data-v-7beaea4c]:after {
+.period .timeline-title:after {
     content: none
 }
 
 @media (min-width: 768px) {
-    .timeline-split .timeline[data-v-7beaea4c], .timeline-centered .timeline[data-v-7beaea4c] {
+    .timeline-split .timeline, .timeline-centered .timeline {
         display: table
     }
 
-    .timeline-split .timeline-item[data-v-7beaea4c], .timeline-centered .timeline-item[data-v-7beaea4c] {
+    .timeline-split .timeline-item, .timeline-centered .timeline-item {
         display: table-row;
         padding: 0
     }
 
-    .timeline-split .timeline-info[data-v-7beaea4c], .timeline-centered .timeline-info[data-v-7beaea4c], .timeline-split .timeline-marker[data-v-7beaea4c], .timeline-centered .timeline-marker[data-v-7beaea4c], .timeline-split .timeline-content[data-v-7beaea4c], .timeline-centered .timeline-content[data-v-7beaea4c], .timeline-split .period .timeline-info[data-v-7beaea4c] {
+    .timeline-split .timeline-info, .timeline-centered .timeline-info, .timeline-split .timeline-marker, .timeline-centered .timeline-marker, .timeline-split .timeline-content, .timeline-centered .timeline-content, .timeline-split .period .timeline-info {
         display: table-cell;
         vertical-align: top
     }
 
-    .timeline-split .timeline-marker[data-v-7beaea4c], .timeline-centered .timeline-marker[data-v-7beaea4c] {
+    .timeline-split .timeline-marker, .timeline-centered .timeline-marker {
         position: relative
     }
 
-    .timeline-split .timeline-content[data-v-7beaea4c], .timeline-centered .timeline-content[data-v-7beaea4c] {
+    .timeline-split .timeline-content, .timeline-centered .timeline-content {
         padding-left: 30px
     }
 
-    .timeline-split .timeline-info[data-v-7beaea4c], .timeline-centered .timeline-info[data-v-7beaea4c] {
+    .timeline-split .timeline-info, .timeline-centered .timeline-info {
         padding-right: 30px
     }
 
-    .timeline-split .period .timeline-title[data-v-7beaea4c], .timeline-centered .period .timeline-title[data-v-7beaea4c] {
+    .timeline-split .period .timeline-title, .timeline-centered .period .timeline-title {
         position: relative;
         left: -45px
     }
 }
 
 @media (min-width: 992px) {
-    .timeline-centered[data-v-7beaea4c], .timeline-centered .timeline-item[data-v-7beaea4c], .timeline-centered .timeline-info[data-v-7beaea4c], .timeline-centered .timeline-marker[data-v-7beaea4c], .timeline-centered .timeline-content[data-v-7beaea4c] {
+    .timeline-centered, .timeline-centered .timeline-item, .timeline-centered .timeline-info, .timeline-centered .timeline-marker, .timeline-centered .timeline-content {
         display: block;
         margin: 0;
         padding: 0
     }
 
-    .timeline-centered .timeline-item[data-v-7beaea4c] {
+    .timeline-centered .timeline-item {
         padding-bottom: 40px;
         overflow: hidden
     }
 
-    .timeline-centered .timeline-marker[data-v-7beaea4c] {
+    .timeline-centered .timeline-marker {
         position: absolute;
         left: 50%;
         margin-left: -7.5px
     }
 
-    .timeline-centered .timeline-info[data-v-7beaea4c], .timeline-centered .timeline-content[data-v-7beaea4c] {
+    .timeline-centered .timeline-info, .timeline-centered .timeline-content {
         width: 50%
     }
 
-    .timeline-centered > .timeline-item:nth-child(odd) .timeline-info[data-v-7beaea4c] {
+    .timeline-centered > .timeline-item:nth-child(odd) .timeline-info {
         float: left;
         text-align: right;
         padding-right: 30px
     }
 
-    .timeline-centered > .timeline-item:nth-child(odd) .timeline-content[data-v-7beaea4c] {
+    .timeline-centered > .timeline-item:nth-child(odd) .timeline-content {
         float: right;
         text-align: left;
         padding-left: 30px
     }
 
-    .timeline-centered > .timeline-item:nth-child(odd) .timeline-content .timeline-title[data-v-7beaea4c]:after {
+    .timeline-centered > .timeline-item:nth-child(odd) .timeline-content .timeline-title:after {
         left: 0;
         right: initial
     }
 
-    .timeline-centered > .timeline-item:nth-child(even) .timeline-info[data-v-7beaea4c] {
+    .timeline-centered > .timeline-item:nth-child(even) .timeline-info {
         float: right;
         text-align: left;
         padding-left: 30px
     }
 
-    .timeline-centered > .timeline-item:nth-child(even) .timeline-content[data-v-7beaea4c] {
+    .timeline-centered > .timeline-item:nth-child(even) .timeline-content {
         float: left;
         text-align: right;
         padding-right: 30px
     }
 
-    .timeline-centered > .timeline-item:nth-child(even) .timeline-content .timeline-title[data-v-7beaea4c]:after {
+    .timeline-centered > .timeline-item:nth-child(even) .timeline-content .timeline-title:after {
         right: 0;
         left: initial
     }
 
-    .timeline-centered > .timeline-item.period .timeline-content[data-v-7beaea4c] {
+    .timeline-centered > .timeline-item.period .timeline-content {
         float: none;
         padding: 0;
         width: 100%;
         text-align: center
     }
 
-    .timeline-centered .timeline-item.period[data-v-7beaea4c] {
+    .timeline-centered .timeline-item.period {
         padding: 50px 0 90px
     }
 
-    .timeline-centered .period .timeline-marker[data-v-7beaea4c]:after {
+    .timeline-centered .period .timeline-marker:after {
         height: 30px;
         bottom: 0;
         top: auto
     }
 
-    .timeline-centered .period .timeline-title[data-v-7beaea4c] {
+    .timeline-centered .period .timeline-title {
         left: auto
     }
 }

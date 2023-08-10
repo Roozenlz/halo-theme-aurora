@@ -5,43 +5,43 @@
 >
 <th:block th:fragment="content">
     <link rel="stylesheet" th:href="@{/assets/css/archives.css}">
-    <div id="app" data-v-app="">
+    <div id="app" >
         <div id="App-Wrapper" class="app-wrapper theme-dark" style="min-height: 664.8px;">
             <div id="App-Container" class="app-container max-w-10/12 lg:max-w-screen-2xl px-3 lg:px-8" tabindex="-1">
                 <nav th:replace="~{modules/nav :: nav(title = null,subtitle = null)}"></nav>
                 <div class="relative z-10">
-                    <div data-v-7beaea4c="" class="flex flex-col">
-                        <div data-v-7beaea4c="" class="post-header">
-                            <ul data-v-ccdbb884="" data-v-7beaea4c=""
+                    <div  class="flex flex-col">
+                        <div  class="post-header">
+                            <ul  
                                 class="breadcrumbs flex flex-row gap-6 text-white">
-                                <li data-v-ccdbb884="">首页</li>
-                                <li data-v-ccdbb884="">归档</li>
+                                <li >首页</li>
+                                <li >归档</li>
                             </ul>
-                            <h1 data-v-7beaea4c="" class="post-title text-white uppercase">归档</h1></div>
-                        <div data-v-7beaea4c=""
+                            <h1  class="post-title text-white uppercase">归档</h1></div>
+                        <div 
                              class="bg-ob-deep-800 px-14 py-16 rounded-2xl shadow-xl block min-h-screen">
-                            <ul data-v-7beaea4c="" class="timeline timeline-centered">
+                            <ul  class="timeline timeline-centered">
                                 <th:block th:each="archive : ${archives.items}">
                                     <th:block th:each="month : ${archive.months}">
-                                        <li data-v-7beaea4c="" class="timeline-item period">
-                                            <div data-v-7beaea4c="" class="timeline-info"></div>
-                                            <div data-v-7beaea4c="" class="timeline-marker"></div>
-                                            <div data-v-7beaea4c="" class="timeline-content">
-                                                <h2 data-v-7beaea4c="" class="timeline-title">[[${month.month}]] [[${archive.year}]]</h2>
+                                        <li  class="timeline-item period">
+                                            <div  class="timeline-info"></div>
+                                            <div  class="timeline-marker"></div>
+                                            <div  class="timeline-content">
+                                                <h2  class="timeline-title">[[${month.month}]] [[${archive.year}]]</h2>
                                             </div>
                                         </li>
-                                        <li data-v-7beaea4c="" class="timeline-item"
+                                        <li  class="timeline-item"
                                             th:each="post : ${month.posts}">
-                                            <div data-v-7beaea4c="" class="timeline-info">
-                                                <span data-v-7beaea4c="" th:text="${#dates.format(post.spec.publishTime, 'MM/dd/yyyy')}"></span></div>
-                                            <div data-v-7beaea4c="" class="timeline-marker"></div>
-                                            <div data-v-7beaea4c="" class="timeline-content">
-                                                <a data-v-7beaea4c=""
+                                            <div  class="timeline-info">
+                                                <span  th:text="${#dates.format(post.spec.publishTime, 'MM/dd/yyyy')}"></span></div>
+                                            <div  class="timeline-marker"></div>
+                                            <div  class="timeline-content">
+                                                <a 
                                                    th:href="@{${post.status.permalink}}"
                                                    th:title="${post.spec.title}"
                                                    class="">
-                                                    <h3 th:text="${post.spec.title}" data-v-7beaea4c="" class="timeline-title"></h3></a>
-                                                <p th:text="${post.status.excerpt}"  data-v-7beaea4c=""></p>
+                                                    <h3 th:text="${post.spec.title}"  class="timeline-title"></h3></a>
+                                                <p th:text="${post.status.excerpt}"  ></p>
                                             </div>
                                         </li>
                                         </li>
