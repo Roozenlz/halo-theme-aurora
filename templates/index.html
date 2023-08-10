@@ -598,8 +598,9 @@
                     class="footer-avatar diamond-avatar"
                     src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
                     alt="avatar" style=""></div></div></span></div>
-        <div data-v-49ffe232="" id="Ob-Navigator" class="">
-            <div data-v-49ffe232="" class="Ob-Navigator-btt">
+        <script type="text/javascript" th:src="@{/assets/js/navigator.js}"></script>
+        <div data-v-49ffe232="" id="Ob-Navigator" >
+            <div id="returnTop" onclick="returnTop()" style="display: none" data-v-49ffe232="" class="Ob-Navigator-btt">
                 <div data-v-49ffe232="">
                     <svg data-v-703f9be5="" data-v-49ffe232="" class="svg-icon text-ob-bright" aria-hidden="true"
                          style="height: 1em; width: 1em;">
@@ -608,13 +609,19 @@
                     </svg>
                 </div>
                 <span data-v-49ffe232="" class="Ob-Navigator-tips">返回顶部</span></div>
-            <div data-v-49ffe232="" class="Ob-Navigator-ball">
+            <div data-v-49ffe232="" class="Ob-Navigator-ball" onclick="navigatorClickHandler()">
                 <div data-v-49ffe232=""
                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
-                    <svg data-v-729e93ea="" data-v-49ffe232="" class="svg-icon" aria-hidden="true">
+                    <svg id="scrollSvg1" data-v-729e93ea="" data-v-49ffe232="" class="svg-icon" aria-hidden="true">
                         <use data-v-729e93ea="" href="#icon-dots" fill="currentColor"
                              stroke="var(--background-primary)"></use>
                     </svg>
+                    <svg id="scrollSvg2" data-v-703f9be5="" data-v-49ffe232="" class="svg-icon text-base stroke-2" aria-hidden="true"
+                         style="height: 1em; width: 1em;display: none">
+                        <use data-v-703f9be5="" href="#icon-close" fill="currentColor"
+                             stroke="var(--background-primary)"></use>
+                    </svg>
+                    <span id="scrollPercent" data-v-49ffe232="" class="text-sm"></span>
                 </div>
             </div>
             <ul data-v-49ffe232="" class="Ob-Navigator-submenu">
