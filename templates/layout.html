@@ -158,9 +158,14 @@
         }
     </style>
 </head>
-<body th:style="'background-color: '+${theme.config.style.background_color ?: '#f2f2f2'}">
-<section>
-    <th:block th:replace="${content}"/>
-</section>
+<body id="body-container" class="theme-dark"
+      th:style="'background-color: '+${theme.config.style.background_color ?: '#f2f2f2'}">
+    <noscript>
+        <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to
+            continue.</strong>
+    </noscript>
+    <section>
+        <th:block th:replace="${content}"/>
+    </section>
 </body>
 </html>

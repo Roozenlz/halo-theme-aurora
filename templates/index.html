@@ -4,11 +4,8 @@
         th:replace="~{layout :: html(head = null,content = ~{::content})}"
 >
 <th:block th:fragment="content">
-    <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>
-    <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>
-    <body id="body-container" class="theme-dark">
-    <noscript><strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to
-        continue.</strong></noscript>
+    <!--    <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>-->
+    <!--    <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>-->
     <div id="app" data-v-app="">
         <div id="App-Wrapper" class="app-wrapper theme-dark" style="min-height: 664.8px;">
             <div id="App-Container" class="app-container max-w-10/12 lg:max-w-screen-2xl px-3 lg:px-8" tabindex="-1"
@@ -105,9 +102,11 @@
                     </header>
                 </div>
                 <div class="app-banner app-banner-image"
-                     style="background-image: url(&quot;&quot;), url(&quot;/themes/theme-aurora/assets/img/default-cover-dccf965f.jpg&quot;); opacity: 0;"></div>
+                     style="background-image: url(&quot;&quot;), url(&quot;/themes/theme-aurora/assets/img/default-cover-dccf965f.jpg&quot;); opacity: 0;">
+                </div>
                 <div class="app-banner app-banner-screen"
-                     style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%); opacity: 0.99;"></div>
+                     style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%); opacity: 0.99;">
+                </div>
                 <div class="relative z-10">
                     <div class="block">
                         <div id="feature">
@@ -137,7 +136,7 @@
                                     </span>
                                         <a href="/post/aurora%2Fcustom-quotes" class="">
                                             <h1 data-dia="article-link">
-                                            Aurora 自定义容器（Custom Containers）</h1></a>
+                                                Aurora 自定义容器（Custom Containers）</h1></a>
                                         <p>Aurora 添加了与 VuePress 一样的自定义容器, 包括提示 (tip)、注意 (warning)、特别注意
                                             (danger) 和隐藏内容 (details)...</p>
                                         <div class="article-footer">
@@ -161,7 +160,8 @@
                                                     data-v-729e93ea="" class="svg-icon inline-block inline-block"
                                                     aria-hidden="true">
                                             <use data-v-729e93ea="" href="#icon-hot" fill="currentColor"
-                                                 stroke="var(--background-primary)"></use></svg> Feature Articles</span>
+                                                 stroke="var(--background-primary)"></use></svg> 推荐文章
+                                            </span>
                                         </h2>
                                     </div>
                                     <span class="absolute top-0 w-full h-full z-0"
@@ -279,11 +279,13 @@
                         <span>
                             <p id="article-list"
                                class="relative opacity-90 flex items-center pt-12 pb-2 mb-8 text-3xl text-ob-bright uppercase"><svg
-                                data-v-729e93ea="" class="svg-icon inline-block mr-2 inline-block mr-2"
-                                aria-hidden="true">
-                            <use data-v-729e93ea="" href="#icon-article" fill="currentColor" stroke="var(--background-primary)"></use>
+                                    data-v-729e93ea="" class="svg-icon inline-block mr-2 inline-block mr-2"
+                                    aria-hidden="true">
+                            <use data-v-729e93ea="" href="#icon-article" fill="currentColor"
+                                 stroke="var(--background-primary)"></use>
                         </svg> Articles
-                            <span class="absolute bottom-0 h-1 w-24 rounded-full" style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span></p></span>
+                            <span class="absolute bottom-0 h-1 w-24 rounded-full"
+                                  style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span></p></span>
                         <div class="main-grid">
                             <div class="flex flex-col relative">
                                 <ul class="tab">
@@ -318,23 +320,26 @@
                                                 <img data-v-42e513fd="" alt="" lazy="loading"
                                                      th:src="@{/themes/theme-aurora/assets/img/default-cover-dccf965f.jpg}">
                                                 <span
-                                                    data-v-42e513fd="" class="thumbnail-screen"
-                                                    style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                                        data-v-42e513fd="" class="thumbnail-screen"
+                                                        style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
                                             </div>
                                             <div data-v-42e513fd="" class="article-content">
                                                 <span data-v-42e513fd="">
                                                     <b data-v-42e513fd="">Aurora</b>
                                                     <ul data-v-42e513fd="">
+                                                        <th:block th:if="${not #lists.isEmpty(post.tags)}">
                                                         <li data-v-42e513fd="" th:each="tagName : ${post.spec.tags}"
                                                             th:with="tag = ${tagFinder.getByName(tagName)}">
-                                                            <a th:href="@{${tag.status.permalink}}" >
+                                                            <a th:href="@{${tag.status.permalink}}">
                                                                 <em data-v-42e513fd=""># [[${tag.spec.displayName}]]</em>
                                                             </a>
                                                         </li>
+                                                        </th:block>
                                                     </ul>
                                                 </span>
                                                 <a data-v-42e513fd="" th:href="@{${post.status.permalink}}" class="">
-                                                    <h1 data-v-42e513fd="" data-dia="article-link" th:text="${post.spec.title}"></h1>
+                                                    <h1 data-v-42e513fd="" data-dia="article-link"
+                                                        th:text="${post.spec.title}"></h1>
                                                 </a>
                                                 <p data-v-42e513fd="" th:text="${post.spec.excerpt.raw}"></p>
                                                 <div data-v-42e513fd="" class="article-footer">
@@ -350,22 +355,10 @@
                                             </div>
                                         </div>
                                     </li>
-
                                 </ul>
-                                <div data-v-a3fd6a03="" class="paginator">
-                                    <ul data-v-a3fd6a03="">
-                                        <li data-v-a3fd6a03="" class="active">1</li>
-                                        <li data-v-a3fd6a03="" class="">2</li>
-                                        <li data-v-a3fd6a03="" class="">3</li>
-                                        <li data-v-a3fd6a03="" class="text-ob-bright">Older
-                                            <svg data-v-729e93ea="" data-v-a3fd6a03="" class="svg-icon"
-                                                 aria-hidden="true">
-                                                <use data-v-729e93ea="" href="#icon-arrow-right" fill="currentColor"
-                                                     stroke="var(--background-primary)"></use>
-                                            </svg>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <!-- 分页 -->
+                                <div th:replace="~{modules/widgets/page :: page('',${posts})}"></div>
+
                             </div>
                             <div>
                                 <div>
@@ -491,7 +484,7 @@
                                                         alt="comment-avatar" height="40" width="40"></div>
                                                 <div class="flex-1 text-xs">
                                                     <div class="text-xs mb-2 pt-1"><span class="text-ob pr-2">123
-                                                        <!----></span>
+                                                        </span>
                                                         <p class="text-gray-500">3 hours ago</p></div>
                                                     <div class="text-xs text-ob-bright pb-1">123
                                                     </div>
@@ -679,28 +672,29 @@
         </div>
         <div id="footer" class="relative w-full pt-1"
              style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%); --text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);">
-        <span class="bg-ob-deep-900 flex justify-center"><div
-                class="bg-ob-deep-900 rounded-lg max-w-10/12 lg:max-w-screen-2xl text-sm text-ob-normal w-full py-6 px-6 grid grid-rows-1 lg:grid-rows-none lg:grid-cols-4 justify-center items-center gap-8"><div
-                class="flex flex-col lg:flex-row gap-6 lg:gap-12 row-span-1 lg:col-span-3 text-center lg:text-left"><ul
-                class="flex flex-col gap-1.5"><li> Copyright © 2019 - 2023 <b class="font-extrabold">三钻</b> . All Rights Reserved. </li><li> Powered by <a
-                href="https://hexo.io/"><b class="font-extrabold border-b-2 border-ob hover:text-ob"> Hexo </b></a> &amp; Themed by <a
-                href="https://github.com/obsidianext/hexo-theme-obsidianext"><b
-                class="font-extrabold border-b-2 border-ob hover:text-ob"> Aurora v2.1.2</b></a> . </li><!----></ul><ul><li><span
-                id="busuanzi_container_site_pv"><svg data-v-729e93ea=""
-                                                     class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
-                                                     aria-hidden="true"><use data-v-729e93ea="" href="#icon-eye"
-                                                                             fill="currentColor"
-                                                                             stroke="var(--background-primary)"></use></svg><span
-                id="busuanzi_value_site_pv"></span></span></li><li><span id="busuanzi_container_site_uv"><svg
-                data-v-729e93ea="" class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
-                aria-hidden="true"><use data-v-729e93ea="" href="#icon-people" fill="currentColor"
-                                        stroke="var(--background-primary)"></use></svg><span
-                id="busuanzi_value_site_uv"></span></span></li></ul></div><div
-                class="hidden lg:flex lg:col-span-1 justify-center lg:justify-end row-span-1 relative"><img
-                class="footer-avatar diamond-avatar"
-                src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
-                alt="avatar" style=""></div></div></span></div><!---->
-        <div data-v-49ffe232="" id="Ob-Navigator" class=""><!---->
+        <span class="bg-ob-deep-900 flex justify-center">
+            <div
+                    class="bg-ob-deep-900 rounded-lg max-w-10/12 lg:max-w-screen-2xl text-sm text-ob-normal w-full py-6 px-6 grid grid-rows-1 lg:grid-rows-none lg:grid-cols-4 justify-center items-center gap-8"><div
+                    class="flex flex-col lg:flex-row gap-6 lg:gap-12 row-span-1 lg:col-span-3 text-center lg:text-left"><ul
+                    class="flex flex-col gap-1.5"><li> Copyright © 2019 - 2023 <b class="font-extrabold">三钻</b> . All Rights Reserved. </li><li> Powered by <a
+                    href="https://hexo.io/"><b class="font-extrabold border-b-2 border-ob hover:text-ob"> Hexo </b></a> &amp; Themed by <a
+                    href="https://github.com/obsidianext/hexo-theme-obsidianext"><b
+                    class="font-extrabold border-b-2 border-ob hover:text-ob"> Aurora v2.1.2</b></a> . </li><!----></ul><ul><li><span
+                    id="busuanzi_container_site_pv"><svg data-v-729e93ea=""
+                                                         class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
+                                                         aria-hidden="true"><use data-v-729e93ea="" href="#icon-eye"
+                                                                                 fill="currentColor"
+                                                                                 stroke="var(--background-primary)"></use></svg><span
+                    id="busuanzi_value_site_pv"></span></span></li><li><span id="busuanzi_container_site_uv"><svg
+                    data-v-729e93ea="" class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
+                    aria-hidden="true"><use data-v-729e93ea="" href="#icon-people" fill="currentColor"
+                                            stroke="var(--background-primary)"></use></svg><span
+                    id="busuanzi_value_site_uv"></span></span></li></ul></div><div
+                    class="hidden lg:flex lg:col-span-1 justify-center lg:justify-end row-span-1 relative"><img
+                    class="footer-avatar diamond-avatar"
+                    src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                    alt="avatar" style=""></div></div></span></div>
+        <div data-v-49ffe232="" id="Ob-Navigator" class="">
             <div data-v-49ffe232="" class="Ob-Navigator-ball">
                 <div data-v-49ffe232=""
                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
@@ -761,11 +755,56 @@
             </div>
         </div>
     </div>
+    <script>(function () {
+        var js = "window['__CF$cv$params']={r:'7f40be78ca330fc1',t:'MTY5MTU5MTkxOS41MzgwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/themes/theme-aurora/assets/js/invisible.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";
+        var _0xh = document.createElement('iframe');
+        _0xh.height = 1;
+        _0xh.width = 1;
+        _0xh.style.position = 'absolute';
+        _0xh.style.top = 0;
+        _0xh.style.left = 0;
+        _0xh.style.border = 'none';
+        _0xh.style.visibility = 'hidden';
+        document.body.appendChild(_0xh);
+
+        function handler() {
+            var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;
+            if (_0xi) {
+                var _0xj = _0xi.createElement('script');
+                _0xj.innerHTML = js;
+                _0xi.getElementsByTagName('head')[0].appendChild(_0xj);
+            }
+        }
+
+        if (document.readyState !== 'loading') {
+            handler();
+        } else if (window.addEventListener) {
+            document.addEventListener('DOMContentLoaded', handler);
+        } else {
+            var prev = document.onreadystatechange || function () {
+            };
+            document.onreadystatechange = function (e) {
+                prev(e);
+                if (document.readyState !== 'loading') {
+                    document.onreadystatechange = prev;
+                    handler();
+                }
+            };
+        }
+    })();</script>
+    <iframe height="1" width="1"
+            style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+
     <script defer=""
             src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854"
             integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg=="
-            data-cf-beacon="{&quot;rayId&quot;:&quot;7f3ee443adc235e6&quot;,&quot;version&quot;:&quot;2023.7.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;dca43a35489f4b70880eed83af6998fb&quot;,&quot;si&quot;:100}"
+            data-cf-beacon="{&quot;rayId&quot;:&quot;7f40be78ca330fc1&quot;,&quot;version&quot;:&quot;2023.7.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;dca43a35489f4b70880eed83af6998fb&quot;,&quot;si&quot;:100}"
             crossorigin="anonymous"></script>
+
+    <script th:src="@{/assets/js/rocket-loader.min.js}"
+            data-cf-settings="c4fc80a20b5f22d1e3fad8a8-|49"
+            defer>
+    </script>
     <svg id="__svg__icons__dom__" xmlns="http://www.w3.org/2000/svg" xmlns:link="http://www.w3.org/1999/xlink"
          style="position: absolute; width: 0px; height: 0px;">
         <symbol viewBox="0 0 24 24" id="icon-arrow-left-circle">
@@ -1273,54 +1312,4 @@
         </symbol>
     </svg>
 
-    <script src="/themes/theme-aurora/assets/js/rocket-loader.min.js"
-            data-cf-settings="c4fc80a20b5f22d1e3fad8a8-|49"
-            defer>
-    </script>
-    <script>
-        (function () {
-            var js = "window['__CF$cv$params']={r:'7f3f34582df55b92',t:'MTY5MTU3NTc3Ni4wNjMwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/themes/theme-aurora/assets/js/invisible.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";
-            var _0xh = document.createElement('iframe');
-            _0xh.height = 1;
-            _0xh.width = 1;
-            _0xh.style.position = 'absolute';
-            _0xh.style.top = 0;
-            _0xh.style.left = 0;
-            _0xh.style.border = 'none';
-            _0xh.style.visibility = 'hidden';
-            document.body.appendChild(_0xh);
-
-            function handler() {
-                var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;
-                if (_0xi) {
-                    var _0xj = _0xi.createElement('script');
-                    _0xj.innerHTML = js;
-                    _0xi.getElementsByTagName('head')[0].appendChild(_0xj);
-                }
-            }
-
-            if (document.readyState !== 'loading') {
-                handler();
-            } else if (window.addEventListener) {
-                document.addEventListener('DOMContentLoaded', handler);
-            } else {
-                var prev = document.onreadystatechange || function () {
-                };
-                document.onreadystatechange = function (e) {
-                    prev(e);
-                    if (document.readyState !== 'loading') {
-                        document.onreadystatechange = prev;
-                        handler();
-                    }
-                };
-            }
-        })();
-    </script>
-    <script defer
-            src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854"
-            integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg=="
-            data-cf-beacon='{"rayId":"7f3f34582df55b92","version":"2023.7.0","r":1,"token":"dca43a35489f4b70880eed83af6998fb","si":100}'
-            crossorigin="anonymous">
-    </script>
-    </body>
 </th:block>
