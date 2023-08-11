@@ -1,10 +1,67 @@
 <!DOCTYPE html>
-<html
-  xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{layout :: html(head = null,content = ~{::content})}"
->
-  <th:block th:fragment="content">
-    <h1 th:text="${singlePage.spec.title}"></h1>
-    <article th:utext="${singlePage.content.content}"></article>
-  </th:block>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{layout :: html(head = null,content = ~{::content})}">
+<th:block th:fragment="content">
+    <link rel="stylesheet" th:href="@{/assets/css/links.css}">
+    <div class="relative z-10">
+        <div class="">
+            <!--面包屑-->
+            <th:block th:replace="~{macro/breadcrumbs :: breadcrumbs('首页',${singlePage.spec.title})}"/>
+            <div class="flex flex-col">
+                <div class="post-header">
+                    <div class="flex flex-row items-center justify-start mt-8 mb-4">
+                        <div class="post-stats"><span>
+                            <svg class="svg-icon"
+                                 aria-hidden="true"
+                                 style="height: 1.25em; width: 1.25em;">
+                                <use href="#icon-clock-outline" fill="none" stroke="white"></use>
+                            </svg>
+                            <span class="pl-2 opacity-70">1 mins.</span>
+                        </span>
+                            <span>
+                                <svg class="svg-icon" aria-hidden="true" style="height: 1.25em; width: 1.25em;">
+                                    <use href="#icon-text-outline" fill="none" stroke="white"></use>
+                                </svg>
+                                <span class="pl-2 opacity-70">1k</span>
+                            </span>
+                            <span>
+                                <svg class="svg-icon h-5 w-5 h-5 w-5"
+                                     aria-hidden="true"
+                                     style="height: 1.25em; width: 1.25em;">
+                                    <use href="#icon-hot" fill="none" stroke="white"></use>
+                                </svg>
+                                <span class="pl-2 opacity-70">
+                                    <span class="waline-pageview-count">262</span>
+                                </span>
+                            </span>
+                            <span>
+                                <svg class="svg-icon h-5 w-5 h-5 w-5" aria-hidden="true"
+                                     style="height: 1.25em; width: 1.25em;">
+                                    <use href="#icon-quote" fill="none" stroke="white"></use>
+                                </svg>
+                                <span data-path="/links">0</span>
+                            </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-grid">
+                    <div>
+                        <div class="post-html">
+                            <article th:utext="${singlePage.content.content}"></article>
+                        </div>
+                        <!--/* 评论组件 */-->
+                        <th:block
+                                th:replace="~{modules/comment :: comment(group = 'content.halo.run',
+                                kind = 'SinglePage',
+                                name = ${singlePage.metadata.name},
+                                allowComment = ${singlePage.spec.allowComment})}"/>
+                    </div>
+                    <div th:replace="~{modules/aside :: aside(widgets = null)}"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</th:block>
 </html>
