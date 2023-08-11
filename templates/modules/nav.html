@@ -3,7 +3,7 @@
 <nav class="show" id="nav" th:fragment="nav(title,subtitle)">
     <div class="header-container">
         <header class="site-header">
-            <div class="flex items-start self-stretch relative">
+            <div onclick="javascript:window.location.href='/'" class="flex items-start self-stretch relative">
                 <div class="flex flex-col relative py-4 z-10 text-white font-medium ob-drop-shadow cursor-pointer">
                     <span class="flex text-4xl"
                           th:text="${#strings.isEmpty(title) ? site.title : title}"></span>
