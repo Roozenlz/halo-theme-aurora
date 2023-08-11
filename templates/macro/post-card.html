@@ -37,7 +37,7 @@
                     <h1 data-dia="article-link"
                         th:text="${post.spec.title}"></h1>
                 </a>
-                <p th:text="${post.spec.excerpt.raw}"></p>
+                <p th:text="${post.status.excerpt}"></p>
                 <div class="article-footer" th:with="owner=${post.owner}">
                     <div class="flex flex-row items-center">
                         <img class="hover:opacity-50 cursor-pointer"
