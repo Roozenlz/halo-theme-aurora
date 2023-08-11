@@ -5,13 +5,10 @@
     <link rel="stylesheet" th:href="@{/assets/css/links.css}">
     <div class="relative z-10">
         <div class="">
-            <ul class="breadcrumbs flex flex-row gap-6 text-white">
-                <li>首页</li>
-                <li>友链</li>
-            </ul>
+            <!--面包屑-->
+            <th:block th:replace="~{macro/breadcrumbs :: breadcrumbs('首页','友链')}"/>
             <div class="flex flex-col">
                 <div class="post-header">
-                    <h1 class="post-title text-white uppercase">友链</h1>
                     <div class="flex flex-row items-center justify-start mt-8 mb-4">
                         <div class="post-stats"><span>
                             <svg class="svg-icon"

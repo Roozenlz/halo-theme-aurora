@@ -1,0 +1,9 @@
+<th:block th:fragment="breadcrumbs(from,to)">
+  <div class="post-header">
+    <ul  class="breadcrumbs flex flex-row gap-6 text-white">
+      <li th:text="${from}"></li>
+      <li th:text="${to}"></li>
+    </ul>
+    <h1 th:text="${to}" class="post-title text-white uppercase"></h1>
+  </div>
+</th:block>

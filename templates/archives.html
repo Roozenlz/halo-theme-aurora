@@ -7,16 +7,10 @@
     <link rel="stylesheet" th:href="@{/assets/css/archives.css}">
     <div class="relative z-10">
         <div  class="flex flex-col">
-            <div  class="post-header">
-                <ul
-                        class="breadcrumbs flex flex-row gap-6 text-white">
-                    <li >首页</li>
-                    <li >归档</li>
-                </ul>
-                <h1  class="post-title text-white uppercase">归档</h1></div>
-            <div
-                    class="bg-ob-deep-800 px-14 py-16 rounded-2xl shadow-xl block min-h-screen">
-                <ul  class="timeline timeline-centered">
+            <!--面包屑-->
+            <th:block th:replace="~{macro/breadcrumbs :: breadcrumbs('首页','归档')}"/>
+            <div class="bg-ob-deep-800 px-14 py-16 rounded-2xl shadow-xl block min-h-screen">
+                <ul class="timeline timeline-centered">
                     <th:block th:each="archive : ${archives.items}">
                         <th:block th:each="month : ${archive.months}">
                             <li  class="timeline-item period">

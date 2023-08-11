@@ -6,16 +6,16 @@
         <div class="flex flex-col" slug="aurora/custom-quotes">
             <div class="main-grid">
                 <div class="post-header">
-                                <span class="post-labels" style="z-index: 999">
-                                    <b th:each="category : ${post.categories}">
-                                        <span style="font-weight: bold;font-size: larger"
-                                              th:text="${category.spec.displayName}"></span>
-                                    </b>
-                                    <ul>
-                                        <li th:each="tag : ${post.tags}">
-                                            <em class="opacity-50">#</em> [[${tag.spec.displayName}]]</li>
-                                    </ul>
-                                </span>
+                    <span class="post-labels" style="z-index: 999">
+                        <b th:each="category : ${post.categories}">
+                            <span style="font-weight: bold;font-size: larger"
+                                  th:text="${category.spec.displayName}"></span>
+                        </b>
+                        <ul>
+                            <li th:each="tag : ${post.tags}">
+                                <em class="opacity-50">#</em> [[${tag.spec.displayName}]]</li>
+                        </ul>
+                    </span>
                     <h1 class="post-title text-white" th:text="${post.spec.title}"></h1>
                     <div class="flex flex-row items-center justify-start mt-8 mb-4">
                         <div class="post-footer">
@@ -23,41 +23,41 @@
                                  alt="author avatar" lazy="error"
                                  th:src="${site.logo}">
                             <span class="text-white opacity-80">
-                                            <strong class="text-white pr-1.5 hover:opacity-50 cursor-pointer"
-                                                    th:text="${post.spec.owner}"></strong>
-                                            <span class="opacity-70">发布于 [[${#dates.format(post.spec.publishTime, 'yyyy-MM-dd')}]]</span>
-                                        </span>
+                                <strong class="text-white pr-1.5 hover:opacity-50 cursor-pointer"
+                                        th:text="${post.spec.owner}"></strong>
+                                <span class="opacity-70">发布于 [[${#dates.format(post.spec.publishTime, 'yyyy-MM-dd')}]]</span>
+                            </span>
                         </div>
                         <div class="post-stats"
                              th:with="wordCount = ${#strings.length(post.content.content)}">
-                                        <span>
-                                            <svg  class="svg-icon" aria-hidden="true"
-                                                  style="height: 1.25em; width: 1.25em;">
-                                                <use  href="#icon-clock-outline" fill="none"
-                                                      stroke="white"></use>
-                                            </svg>
-                                            <span class="pl-2 opacity-70">[[${wordCount / 400}]] mins.</span>
-                                        </span>
+                                <span>
+                                    <svg class="svg-icon" aria-hidden="true"
+                                         style="height: 1.25em; width: 1.25em;">
+                                        <use href="#icon-clock-outline" fill="none"
+                                             stroke="white"></use>
+                                    </svg>
+                                    <span class="pl-2 opacity-70">[[${wordCount / 400}]] mins.</span>
+                                </span>
                             <span>
-                                            <svg  class="svg-icon" aria-hidden="true"
-                                                  style="height: 1.25em; width: 1.25em;">
-                                                <use
-                                                        href="#icon-text-outline"
-                                                        fill="none"
-                                                        stroke="white"></use></svg>
-                                            <span class="pl-2 opacity-70">[[${wordCount}]]</span>
-                                        </span>
+                                <svg class="svg-icon" aria-hidden="true"
+                                     style="height: 1.25em; width: 1.25em;">
+                                    <use
+                                            href="#icon-text-outline"
+                                            fill="none"
+                                            stroke="white"></use></svg>
+                                <span class="pl-2 opacity-70">[[${wordCount}]]</span>
+                            </span>
                             <span>
-                                            <svg  class="svg-icon h-5 w-5 h-5 w-5" aria-hidden="true"
-                                                  style="height: 1.25em; width: 1.25em;">
-                                                <use  href="#icon-hot" fill="none"
-                                                      stroke="white"></use>
-                                            </svg>
-                                            <span class="pl-2 opacity-70">
-                                                <span class="waline-pageview-count"
-                                                      th:text="${post.stats.visit}"></span>
-                                            </span>
-                                        </span>
+                                <svg class="svg-icon h-5 w-5 h-5 w-5" aria-hidden="true"
+                                     style="height: 1.25em; width: 1.25em;">
+                                    <use href="#icon-hot" fill="none"
+                                         stroke="white"></use>
+                                </svg>
+                                <span class="pl-2 opacity-70">
+                                    <span class="waline-pageview-count"
+                                          th:text="${post.stats.visit}"></span>
+                                </span>
+                            </span>
                             <!--                                        //todo 显示评论数量-->
                             <!--                                        <span>-->
                             <!--                                            <svg  class="svg-icon h-5 w-5 h-5 w-5" aria-hidden="true"-->
@@ -401,35 +401,35 @@
                     <div class="flex flex-col lg:flex-row justify-start items-end my-8">
                         <div class="w-full h-full self-stretch mr-0 lg:mr-4">
                             <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
-                                <svg  class="svg-icon inline-block mr-2 inline-block mr-2"
-                                      aria-hidden="true" style="height: 1em; width: 1em;">
-                                    <use  href="#icon-arrow-left-circle" fill="currentColor"
-                                          stroke="var(--background-primary)"></use>
+                                <svg class="svg-icon inline-block mr-2 inline-block mr-2"
+                                     aria-hidden="true" style="height: 1em; width: 1em;">
+                                    <use href="#icon-arrow-left-circle" fill="currentColor"
+                                         stroke="var(--background-primary)"></use>
                                 </svg>
                                 <span class="w-full block">上一篇更回味</span><!----><span
                                     class="absolute bottom-0 h-1 w-14 rounded-full"
                                     style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
                             </p>
-                            <li  class="article-container"><!---->
-                                <div  class="article">
-                                    <div  class="article-thumbnail"><img
+                            <li class="article-container"><!---->
+                                <div class="article">
+                                    <div class="article-thumbnail"><img
                                             alt="" lazy="loaded"
                                             src="https://res.cloudinary.com/tridiamond/image/upload/v1690996333/blog/20200401220041648_ofuduk.gif"><span
                                             class="thumbnail-screen"
                                             style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
                                     </div>
-                                    <div  class="article-content"><span ><b
-                                    >FrontEnd</b><ul ></ul></span><a
+                                    <div class="article-content"><span><b
+                                    >FrontEnd</b><ul></ul></span><a
                                             href="/post/frontend%2F8-html-css-tips" class="">
-                                        <h1  data-dia="article-link">
+                                        <h1 data-dia="article-link">
                                             前端必看的8个HTML+CSS技巧</h1></a>
-                                        <p >CSS
+                                        <p>CSS
                                             是一个很独特的语言。看起来非常简单，但是某种特殊效果看似简单，实现起来就颇有难度。这篇文章主要是给在学习前端的童鞋分享一些新的
                                             CSS
                                             技巧，一些在前端教程和培训课堂中不会讲到的知识。第二就是让还在前端开发这条道路上的童鞋们，重新燃起对前端排版和特效的热爱和热情！🔥
                                             一、...</p>
-                                        <div  class="article-footer">
-                                            <div  class="flex flex-row items-center"><img
+                                        <div class="article-footer">
+                                            <div class="flex flex-row items-center"><img
                                                     class="hover:opacity-50 cursor-pointer"
                                                     src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
                                                     alt="author avatar"><span
@@ -445,32 +445,32 @@
                         <div class="w-full h-full self-stretch mt-8 lg:mt-0">
                             <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
                                 <!----><span class="w-full block text-right">下一篇更精彩</span>
-                                <svg  class="svg-icon inline-block ml-2 inline-block ml-2"
-                                      aria-hidden="true" style="height: 1em; width: 1em;">
-                                    <use  href="#icon-arrow-right-circle" fill="currentColor"
-                                          stroke="var(--background-primary)"></use>
+                                <svg class="svg-icon inline-block ml-2 inline-block ml-2"
+                                     aria-hidden="true" style="height: 1em; width: 1em;">
+                                    <use href="#icon-arrow-right-circle" fill="currentColor"
+                                         stroke="var(--background-primary)"></use>
                                 </svg>
                                 <span class="absolute bottom-0 h-1 w-14 rounded-full right-0"
                                       style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
                             </p>
-                            <li  class="article-container"><!---->
-                                <div  class="article">
-                                    <div  class="article-thumbnail"><img
+                            <li class="article-container"><!---->
+                                <div class="article">
+                                    <div class="article-thumbnail"><img
                                             alt="" lazy="loading"
                                             src="https://source.unsplash.com/yQnyP1g5zl4/1200x628"><span
                                             class="thumbnail-screen"
                                             style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
                                     </div>
-                                    <div  class="article-content"><span ><b
-                                    >FrontEnd</b><ul ></ul></span><a
+                                    <div class="article-content"><span><b
+                                    >FrontEnd</b><ul></ul></span><a
                                             href="/post/frontend%2Ffrontend-study" class="">
-                                        <h1  data-dia="article-link">
+                                        <h1 data-dia="article-link">
                                             一篇文章搞懂前端学习方法与构建知识体系</h1></a>
-                                        <p >
+                                        <p>
                                             在大前端的成长路上，很多的同学都非常的迷茫，看到一座座越来越高的山。慢慢在工作中也对自己的职业发展也特别迷茫。有些粉丝也私信我问过我一些职业发展的问题，还有“我应该学习什么技术？”，“学习到什么层级才是个头”。
                                             这次我给大家带来一遍文章，给大家讲讲怎么样才是一个优秀的前端工程师，...</p>
-                                        <div  class="article-footer">
-                                            <div  class="flex flex-row items-center"><img
+                                        <div class="article-footer">
+                                            <div class="flex flex-row items-center"><img
                                                     class="hover:opacity-50 cursor-pointer"
                                                     src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
                                                     alt="author avatar"><span
