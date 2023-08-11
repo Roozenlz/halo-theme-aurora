@@ -10,44 +10,12 @@
             <div class="flex flex-col">
                 <div class="post-header">
                     <div class="flex flex-row items-center justify-start mt-8 mb-4">
-                        <div class="post-stats"><span>
-                            <svg class="svg-icon"
-                                 aria-hidden="true"
-                                 style="height: 1.25em; width: 1.25em;">
-                                <use href="#icon-clock-outline" fill="none" stroke="white"></use>
-                            </svg>
-                            <span class="pl-2 opacity-70">1 mins.</span>
-                        </span>
-                            <span>
-                                <svg class="svg-icon" aria-hidden="true" style="height: 1.25em; width: 1.25em;">
-                                    <use href="#icon-text-outline" fill="none" stroke="white"></use>
-                                </svg>
-                                <span class="pl-2 opacity-70">1k</span>
-                            </span>
-                            <span>
-                                <svg class="svg-icon h-5 w-5 h-5 w-5"
-                                     aria-hidden="true"
-                                     style="height: 1.25em; width: 1.25em;">
-                                    <use href="#icon-hot" fill="none" stroke="white"></use>
-                                </svg>
-                                <span class="pl-2 opacity-70">
-                                    <span class="waline-pageview-count">262</span>
-                                </span>
-                            </span>
-                            <span>
-                                <svg class="svg-icon h-5 w-5 h-5 w-5" aria-hidden="true"
-                                     style="height: 1.25em; width: 1.25em;">
-                                    <use href="#icon-quote" fill="none" stroke="white"></use>
-                                </svg>
-                                <span data-path="/links">0</span>
-                            </span>
-                            </span>
-                        </div>
+                        <th:block th:replace="~{macro/post-stats :: post-stats(${singlePage})}"/>
                     </div>
                 </div>
                 <div class="main-grid">
                     <div>
-                        <div class="post-html">
+                        <div th:if="not ${#strings.isEmpty(singlePage.content.content)}" class="post-html">
                             <article th:utext="${singlePage.content.content}"></article>
                         </div>
                         <!--/* 评论组件 */-->
