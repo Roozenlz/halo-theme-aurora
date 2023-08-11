@@ -158,7 +158,18 @@
         <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to
             continue.</strong>
     </noscript>
-    <th:block th:replace="${content}"/>
+    <div id="app" >
+        <div id="App-Wrapper" class="app-wrapper theme-dark" style="min-height: 664.8px;">
+            <div id="App-Container" class="app-container max-w-10/12 lg:max-w-screen-2xl px-3 lg:px-8" tabindex="-1">
+                <nav th:replace="~{modules/nav :: nav(title = null,subtitle = null)}"></nav>
+                <th:block th:replace="${content}"/>
+            </div>
+            <div id="loading-bar-wrapper" class=""></div>
+        </div>
+    </div>
+    <footer th:replace="~{modules/footer :: footer}"></footer>
+    <th:block th:replace="~{modules/common/navigator :: navigator}"/>
+    <th:block th:replace="~{modules/common/bot :: bot}"/>
     <svg id="__svg__icons__dom__" xmlns="http://www.w3.org/2000/svg" xmlns:link="http://www.w3.org/1999/xlink"
          style="position: absolute; width: 0px; height: 0px;">
         <symbol viewBox="0 0 24 24" id="icon-arrow-left-circle">

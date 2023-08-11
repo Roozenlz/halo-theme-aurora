@@ -18,14 +18,10 @@
             --waline-info-bgcolor: #272727;
             --waline-info-color: #666
         }</style>
-    <div id="app" >
-        <div id="App-Wrapper" class="app-wrapper" style="min-height: 664.8px;">
-            <div id="App-Container" class="app-container max-w-10/12 lg:max-w-screen-2xl px-3 lg:px-8" tabindex="-1">
-                <nav th:replace="~{modules/nav :: nav(title = null,subtitle = null)}"></nav>
-                <div class="relative z-10">
-                    <div class="flex flex-col" slug="aurora/custom-quotes">
-                        <div class="main-grid">
-                            <div class="post-header">
+    <div class="relative z-10">
+        <div class="flex flex-col" slug="aurora/custom-quotes">
+            <div class="main-grid">
+                <div class="post-header">
                                 <span class="post-labels" style="z-index: 999">
                                     <b th:each="category : ${post.categories}">
                                         <span style="font-weight: bold;font-size: larger"
@@ -36,494 +32,486 @@
                                             <em class="opacity-50">#</em> [[${tag.spec.displayName}]]</li>
                                     </ul>
                                 </span>
-                                <h1 class="post-title text-white" th:text="${post.spec.title}"></h1>
-                                <div class="flex flex-row items-center justify-start mt-8 mb-4">
-                                    <div class="post-footer">
-                                        <img class="hover:opacity-50 cursor-pointer"
-                                             alt="author avatar" lazy="error"
-                                             th:src="${site.logo}">
-                                        <span class="text-white opacity-80">
+                    <h1 class="post-title text-white" th:text="${post.spec.title}"></h1>
+                    <div class="flex flex-row items-center justify-start mt-8 mb-4">
+                        <div class="post-footer">
+                            <img class="hover:opacity-50 cursor-pointer"
+                                 alt="author avatar" lazy="error"
+                                 th:src="${site.logo}">
+                            <span class="text-white opacity-80">
                                             <strong class="text-white pr-1.5 hover:opacity-50 cursor-pointer"
                                                     th:text="${post.spec.owner}"></strong>
                                             <span class="opacity-70">发布于 [[${#dates.format(post.spec.publishTime, 'yyyy-MM-dd')}]]</span>
                                         </span>
-                                    </div>
-                                    <div class="post-stats"
-                                         th:with="wordCount = ${#strings.length(post.content.content)}">
+                        </div>
+                        <div class="post-stats"
+                             th:with="wordCount = ${#strings.length(post.content.content)}">
                                         <span>
                                             <svg  class="svg-icon" aria-hidden="true"
-                                                 style="height: 1.25em; width: 1.25em;">
+                                                  style="height: 1.25em; width: 1.25em;">
                                                 <use  href="#icon-clock-outline" fill="none"
-                                                     stroke="white"></use>
+                                                      stroke="white"></use>
                                             </svg>
                                             <span class="pl-2 opacity-70">[[${wordCount / 400}]] mins.</span>
                                         </span>
-                                        <span>
+                            <span>
                                             <svg  class="svg-icon" aria-hidden="true"
-                                                 style="height: 1.25em; width: 1.25em;">
-                                                <use 
-                                                     href="#icon-text-outline"
-                                                     fill="none"
-                                                     stroke="white"></use></svg>
+                                                  style="height: 1.25em; width: 1.25em;">
+                                                <use
+                                                        href="#icon-text-outline"
+                                                        fill="none"
+                                                        stroke="white"></use></svg>
                                             <span class="pl-2 opacity-70">[[${wordCount}]]</span>
                                         </span>
-                                        <span>
+                            <span>
                                             <svg  class="svg-icon h-5 w-5 h-5 w-5" aria-hidden="true"
-                                                 style="height: 1.25em; width: 1.25em;">
+                                                  style="height: 1.25em; width: 1.25em;">
                                                 <use  href="#icon-hot" fill="none"
-                                                     stroke="white"></use>
+                                                      stroke="white"></use>
                                             </svg>
                                             <span class="pl-2 opacity-70">
                                                 <span class="waline-pageview-count"
                                                       th:text="${post.stats.visit}"></span>
                                             </span>
                                         </span>
-                                        <!--                                        //todo 显示评论数量-->
-                                        <!--                                        <span>-->
-                                        <!--                                            <svg  class="svg-icon h-5 w-5 h-5 w-5" aria-hidden="true"-->
-                                        <!--                                                 style="height: 1.25em; width: 1.25em;">-->
-                                        <!--                                                <use  href="#icon-quote" fill="none"-->
-                                        <!--                                                     stroke="white"></use>-->
-                                        <!--                                            </svg>-->
-                                        <!--                                            <span class="pl-2 opacity-70">-->
-                                        <!--                                                <span class="waline-comment-count"-->
-                                        <!--                                                      data-path="/post/aurora%2Fcustom-quotes">1</span>-->
-                                        <!--                                            </span>-->
-                                        <!--                                        </span>-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-grid">
-                            <div>
-                                <div class="post-html">
-                                    <article th:utext="${post.content.content}"></article>
-
-                                    <!--                                    参考样式代码-->
-                                    <!--                                    <h1 id="Custom-Container-Example">-->
-                                    <!--                                        <a href="#Custom-Container-Example" class="headerlink"-->
-                                    <!--                                           title="Custom Container Example.">-->
-                                    <!--                                        </a>Custom Container Example.</h1>-->
-                                    <!--                                    <blockquote>-->
-                                    <!--                                        <span class="custom-blockquote-svg">-->
-                                    <!--                                            <svg width="24" height="24"-->
-                                    <!--                                                 viewBox="0 0 24 24" fill=""-->
-                                    <!--                                                 xmlns="http://www.w3.org/2000/svg"-->
-                                    <!--                                                 data-reactroot="">-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C13.8 22 15.5 21.5 17 20.6L22 22L20.7 17C21.5 15.5 22 13.8 22 12Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M17 8.5C15.23 8.97 14.07 10.84 14.01 13.27C14 13.33 14 13.4 14 13.47V13.5"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M9 8.5C7.23 8.97 6.07 10.84 6.01 13.27C6 13.33 6 13.4 6 13.47V13.5"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"></path>-->
-                                    <!--</svg>-->
-                                    <!--</span>-->
-                                    <!--                                        <p>Since version <code>1.5.0</code>, Aurora added custom containers including-->
-                                    <!--                                            <code>tip</code>, <code>warning</code>, <code>danger</code> and <code>details</code>.-->
-                                    <!--                                        </p></blockquote>-->
-                                    <!--                                    <blockquote><span class="custom-blockquote-svg"><svg width="24" height="24"-->
-                                    <!--                                                                                         viewBox="0 0 24 24" fill=""-->
-                                    <!--                                                                                         xmlns="http://www.w3.org/2000/svg"-->
-                                    <!--                                                                                         data-reactroot="">-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C13.8 22 15.5 21.5 17 20.6L22 22L20.7 17C21.5 15.5 22 13.8 22 12Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M17 8.5C15.23 8.97 14.07 10.84 14.01 13.27C14 13.33 14 13.4 14 13.47V13.5"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M9 8.5C7.23 8.97 6.07 10.84 6.01 13.27C6 13.33 6 13.4 6 13.47V13.5"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"></path>-->
-                                    <!--</svg>-->
-                                    <!--</span>-->
-                                    <!--                                        <p>自从版本 <code>1.5.0</code>，Aurora 添加了与 VuePress 一样的自定义容器, 包括-->
-                                    <!--                                            <code>提示 (tip)</code>、<code>注意 (warning)</code>、<code>特别注意-->
-                                    <!--                                                (danger)</code> 和 <code>隐藏内容 (details)</code></p></blockquote>-->
-                                    <!--                                    <hr>-->
-                                    <!--                                    <h2 id="Block-quote"><a href="#Block-quote" class="headerlink"-->
-                                    <!--                                                            title="Block quote"></a>Block quote</h2>-->
-                                    <!--                                    <blockquote><span class="custom-blockquote-svg"><svg width="24" height="24"-->
-                                    <!--                                                                                         viewBox="0 0 24 24" fill=""-->
-                                    <!--                                                                                         xmlns="http://www.w3.org/2000/svg"-->
-                                    <!--                                                                                         data-reactroot="">-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C13.8 22 15.5 21.5 17 20.6L22 22L20.7 17C21.5 15.5 22 13.8 22 12Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M17 8.5C15.23 8.97 14.07 10.84 14.01 13.27C14 13.33 14 13.4 14 13.47V13.5"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M9 8.5C7.23 8.97 6.07 10.84 6.01 13.27C6 13.33 6 13.4 6 13.47V13.5"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"></path>-->
-                                    <!--</svg>-->
-                                    <!--</span>-->
-                                    <!--                                        <p>normal quote block.</p></blockquote>-->
-                                    <!--                                    <div class="code-toolbar">-->
-                                    <!--                                        <pre class="line-numbers language-markdown" data-language="markdown"-->
-                                    <!--                                             tabindex="0"><code class="language-markdown"><span-->
-                                    <!--                                                class="token blockquote punctuation">&gt;</span> normal quote block.</code></pre>-->
-                                    <!--                                        <div class="toolbar">-->
-                                    <!--                                            <div class="toolbar-item">-->
-                                    <!--                                                <button class="copy-to-clipboard-button" type="button"-->
-                                    <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
-
-                                    <!--                                    <hr>-->
-                                    <!--                                    <h2 id="Custom-Containers"><a href="#Custom-Containers" class="headerlink"-->
-                                    <!--                                                                  title="Custom Containers"></a>Custom Containers</h2>-->
-                                    <!--                                    <h3 id="Tip-Container"><a href="#Tip-Container" class="headerlink"-->
-                                    <!--                                                              title="Tip Container"></a>Tip Container</h3>-->
-                                    <!--                                    <div class="custom-quote tip">-->
-                                    <!--<span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill=""-->
-                                    <!--                                    xmlns="http://www.w3.org/2000/svg" data-reactroot="">-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M20.86 14.13C20 14.7 19.56 15.74 19.77 16.76C20.13 18.55 18.55 20.13 16.76 19.77C15.74 19.57 14.7 20 14.13 20.86C13.12 22.38 10.89 22.38 9.88 20.86C9.3 20 8.26 19.56 7.24 19.77C5.45 20.13 3.87 18.55 4.23 16.76C4.43 15.74 4 14.7 3.14 14.13C1.62 13.12 1.62 10.89 3.14 9.88C4 9.3 4.44 8.26 4.23 7.24C3.87 5.45 5.45 3.87 7.24 4.23C8.26 4.44 9.3 4 9.87 3.14C10.88 1.62 13.11 1.62 14.12 3.14C14.7 4 15.74 4.44 16.76 4.23C18.55 3.87 20.13 5.45 19.77 7.24C19.56 8.26 20 9.3 20.86 9.87C22.38 10.88 22.38 13.12 20.86 14.13Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M12.01 15C12.01 14.5 12.01 14.5 12.01 14.5C12.04 13.75 13 13.46 14.04 12.2C14.41 11.74 14.69 11.41 14.86 10.85C15.15 9.95 14.92 9.18 14.86 9.02C14.8 8.79 14.52 8 13.72 7.46C13.06 7.02 12.42 7 12.14 7C11.9 7 11.36 7 10.78 7.3C10.28 7.56 9.98 7.9 9.83 8.1C9.24 8.82 9.06 9.63 9 10.06"></path>-->
-                                    <!--<path stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M11.99 18H12.01"></path>-->
-                                    <!--</svg></span>-->
-                                    <!--                                        <p class="custom-quote-title">TIP</p>-->
-                                    <!--                                        <p>Normal Tips Container</p>-->
-                                    <!--                                    </div>-->
-                                    <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
-                                    <!--                                                                   data-language="markdown" tabindex="0"><code-->
-                                    <!--                                            class="language-markdown">:::tip-->
-                                    <!--Normal Tips Container-->
-                                    <!--:::</code></pre>-->
-                                    <!--                                        <div class="toolbar">-->
-                                    <!--                                            <div class="toolbar-item">-->
-                                    <!--                                                <button class="copy-to-clipboard-button" type="button"-->
-                                    <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
-
-                                    <!--                                    <div class="custom-quote tip">-->
-                                    <!--<span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill=""-->
-                                    <!--                                    xmlns="http://www.w3.org/2000/svg" data-reactroot="">-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M20.86 14.13C20 14.7 19.56 15.74 19.77 16.76C20.13 18.55 18.55 20.13 16.76 19.77C15.74 19.57 14.7 20 14.13 20.86C13.12 22.38 10.89 22.38 9.88 20.86C9.3 20 8.26 19.56 7.24 19.77C5.45 20.13 3.87 18.55 4.23 16.76C4.43 15.74 4 14.7 3.14 14.13C1.62 13.12 1.62 10.89 3.14 9.88C4 9.3 4.44 8.26 4.23 7.24C3.87 5.45 5.45 3.87 7.24 4.23C8.26 4.44 9.3 4 9.87 3.14C10.88 1.62 13.11 1.62 14.12 3.14C14.7 4 15.74 4.44 16.76 4.23C18.55 3.87 20.13 5.45 19.77 7.24C19.56 8.26 20 9.3 20.86 9.87C22.38 10.88 22.38 13.12 20.86 14.13Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M12.01 15C12.01 14.5 12.01 14.5 12.01 14.5C12.04 13.75 13 13.46 14.04 12.2C14.41 11.74 14.69 11.41 14.86 10.85C15.15 9.95 14.92 9.18 14.86 9.02C14.8 8.79 14.52 8 13.72 7.46C13.06 7.02 12.42 7 12.14 7C11.9 7 11.36 7 10.78 7.3C10.28 7.56 9.98 7.9 9.83 8.1C9.24 8.82 9.06 9.63 9 10.06"></path>-->
-                                    <!--<path stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M11.99 18H12.01"></path>-->
-                                    <!--</svg></span>-->
-                                    <!--                                        <p class="custom-quote-title">Custom header</p>-->
-                                    <!--                                        <p>Custom header</p>-->
-                                    <!--                                        <ul>-->
-                                    <!--                                            <li>tips content</li>-->
-                                    <!--                                            <li>tips new line</li>-->
-                                    <!--                                        </ul>-->
-
-                                    <!--                                    </div>-->
-                                    <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
-                                    <!--                                                                   data-language="markdown" tabindex="0"><code-->
-                                    <!--                                            class="language-markdown">:::tip Custom header-->
-
-                                    <!--Custom header-->
-
-                                    <!--<span class="token list punctuation">-</span> tips content-->
-                                    <!--<span class="token list punctuation">-</span> tips new line-->
-
-                                    <!--:::</code></pre>-->
-                                    <!--                                        <div class="toolbar">-->
-                                    <!--                                            <div class="toolbar-item">-->
-                                    <!--                                                <button class="copy-to-clipboard-button" type="button"-->
-                                    <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
-
-                                    <!--                                    <hr>-->
-                                    <!--                                    <h3 id="Warning-Container"><a href="#Warning-Container" class="headerlink"-->
-                                    <!--                                                                  title="Warning Container"></a>Warning Container</h3>-->
-                                    <!--                                    <div class="custom-quote warning">-->
-                                    <!--<span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill=""-->
-                                    <!--                                    xmlns="http://www.w3.org/2000/svg" data-reactroot="">-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M20.86 14.13C20 14.7 19.56 15.74 19.77 16.76C20.13 18.55 18.55 20.13 16.76 19.77C15.74 19.57 14.7 20 14.13 20.86C13.12 22.38 10.89 22.38 9.88 20.86C9.3 20 8.26 19.56 7.24 19.77C5.45 20.13 3.87 18.55 4.23 16.76C4.43 15.74 4 14.7 3.14 14.13C1.62 13.12 1.62 10.89 3.14 9.88C4 9.3 4.44 8.26 4.23 7.24C3.87 5.45 5.45 3.87 7.24 4.23C8.26 4.44 9.3 4 9.87 3.14C10.88 1.62 13.11 1.62 14.12 3.14C14.7 4 15.74 4.44 16.76 4.23C18.55 3.87 20.13 5.45 19.77 7.24C19.56 8.26 20 9.3 20.86 9.87C22.38 10.88 22.38 13.12 20.86 14.13Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M12 8V13"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M12 15.99V16.01"></path>-->
-                                    <!--</svg>-->
-                                    <!--</span>-->
-                                    <!--                                        <p class="custom-quote-title">WARNING</p>-->
-                                    <!--                                        <p>Warning!!!</p>-->
-                                    <!--                                    </div>-->
-                                    <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
-                                    <!--                                                                   data-language="markdown" tabindex="0"><code-->
-                                    <!--                                            class="language-markdown">:::warning-->
-                                    <!--Warning!!!-->
-                                    <!--:::</code></pre>-->
-                                    <!--                                        <div class="toolbar">-->
-                                    <!--                                            <div class="toolbar-item">-->
-                                    <!--                                                <button class="copy-to-clipboard-button" type="button"-->
-                                    <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
-
-                                    <!--                                    <div class="custom-quote warning">-->
-                                    <!--<span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill=""-->
-                                    <!--                                    xmlns="http://www.w3.org/2000/svg" data-reactroot="">-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M20.86 14.13C20 14.7 19.56 15.74 19.77 16.76C20.13 18.55 18.55 20.13 16.76 19.77C15.74 19.57 14.7 20 14.13 20.86C13.12 22.38 10.89 22.38 9.88 20.86C9.3 20 8.26 19.56 7.24 19.77C5.45 20.13 3.87 18.55 4.23 16.76C4.43 15.74 4 14.7 3.14 14.13C1.62 13.12 1.62 10.89 3.14 9.88C4 9.3 4.44 8.26 4.23 7.24C3.87 5.45 5.45 3.87 7.24 4.23C8.26 4.44 9.3 4 9.87 3.14C10.88 1.62 13.11 1.62 14.12 3.14C14.7 4 15.74 4.44 16.76 4.23C18.55 3.87 20.13 5.45 19.77 7.24C19.56 8.26 20 9.3 20.86 9.87C22.38 10.88 22.38 13.12 20.86 14.13Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M12 8V13"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M12 15.99V16.01"></path>-->
-                                    <!--</svg>-->
-                                    <!--</span>-->
-                                    <!--                                        <p class="custom-quote-title">Warning World</p>-->
-                                    <!--                                        <p><strong>Warning!!!</strong></p>-->
-                                    <!--                                    </div>-->
-                                    <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
-                                    <!--                                                                   data-language="markdown" tabindex="0"><code-->
-                                    <!--                                            class="language-markdown">:::warning Warning World-->
-                                    <!--<span class="token bold"><span class="token punctuation">**</span><span class="token content">Warning!!!</span><span-->
-                                    <!--        class="token punctuation">**</span></span>-->
-                                    <!--:::</code></pre>-->
-                                    <!--                                        <div class="toolbar">-->
-                                    <!--                                            <div class="toolbar-item">-->
-                                    <!--                                                <button class="copy-to-clipboard-button" type="button"-->
-                                    <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
-
-                                    <!--                                    <hr>-->
-                                    <!--                                    <h3 id="Danger-Container"><a href="#Danger-Container" class="headerlink"-->
-                                    <!--                                                                 title="Danger Container"></a>Danger Container</h3>-->
-                                    <!--                                    <div class="custom-quote danger">-->
-                                    <!--<span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill=""-->
-                                    <!--                                    xmlns="http://www.w3.org/2000/svg" data-reactroot="">-->
-                                    <!--<path fill=""-->
-                                    <!--      d="M19.76 5.23C15.84 5.23 12 2 12 2C12 2 8.15996 5.23 4.23996 5.23C4.23996 5.23 1.86996 16.99 12 22C22.13 16.99 19.76 5.23 19.76 5.23Z"-->
-                                    <!--      undefined="1"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M12 8V13"></path>-->
-                                    <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
-                                    <!--      d="M11.99 16H12"></path>-->
-                                    <!--</svg>-->
-                                    <!--</span>-->
-                                    <!--                                        <p class="custom-quote-title">WARNING</p>-->
-                                    <!--                                        <p>Danger!!!</p>-->
-                                    <!--                                    </div>-->
-                                    <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
-                                    <!--                                                                   data-language="markdown" tabindex="0"><code-->
-                                    <!--                                            class="language-markdown">:::danger-->
-                                    <!--Danger!!!-->
-                                    <!--:::</code></pre>-->
-                                    <!--                                        <div class="toolbar">-->
-                                    <!--                                            <div class="toolbar-item">-->
-                                    <!--                                                <button class="copy-to-clipboard-button" type="button"-->
-                                    <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
-
-                                    <!--                                    <hr>-->
-                                    <!--                                    <h3 id="Detail-container"><a href="#Detail-container" class="headerlink"-->
-                                    <!--                                                                 title="Detail container"></a>Detail container</h3>-->
-                                    <!--                                    <details class="custom-details">-->
-                                    <!--                                        <summary>Click to see more</summary>-->
-                                    <!--                                        <p>Fusce rutrum venenatis eros in hendrerit. Pellentesque habitant morbi-->
-                                    <!--                                            tristique senectus et netus et malesuada fames ac turpis egestas. Nullam-->
-                                    <!--                                            eget risus egestas, aliquet ipsum sed, volutpat tortor. Proin finibus tortor-->
-                                    <!--                                            ac mauris finibus rutrum. Nullam tincidunt arcu eu urna ullamcorper, eu-->
-                                    <!--                                            ultricies turpis ornare. Morbi id sollicitudin orci. Proin lobortis vehicula-->
-                                    <!--                                            nibh a ornare. Cras sodales eu ligula quis fermentum. Proin eu ultrices leo,-->
-                                    <!--                                            quis iaculis justo. Sed dictum, nulla sit amet imperdiet commodo, libero-->
-                                    <!--                                            sapien semper justo, ut lobortis elit nunc vitae ante. Nullam lobortis odio-->
-                                    <!--                                            quam, ac condimentum elit posuere vitae. Sed ornare, odio et rutrum varius,-->
-                                    <!--                                            lorem eros gravida urna, in pharetra sapien justo non magna.</p>-->
-                                    <!--                                        <ul>-->
-                                    <!--                                            <li>details content</li>-->
-                                    <!--                                            <li>details new line</li>-->
-                                    <!--                                        </ul>-->
-                                    <!--                                        <div class="code-toolbar">-->
-                                    <!--                                            <pre class="line-numbers language-javascript" data-language="javascript"-->
-                                    <!--                                                 tabindex="0"><code class="language-javascript">console<span-->
-                                    <!--                                                    class="token punctuation">.</span><span-->
-                                    <!--                                                    class="token function">log</span><span-->
-                                    <!--                                                    class="token punctuation">(</span><span class="token string">'hello world'</span><span-->
-                                    <!--                                                    class="token punctuation">)</span><span-->
-                                    <!--                                                    class="token punctuation">;</span></code></pre>-->
-                                    <!--                                            <div class="toolbar">-->
-                                    <!--                                                <div class="toolbar-item">-->
-                                    <!--                                                    <button class="copy-to-clipboard-button" type="button"-->
-                                    <!--                                                            data-copy-state="copy"><span>Copy</span></button>-->
-                                    <!--                                                </div>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </div>-->
-
-
-                                    <!--                                    </details>-->
-                                    <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
-                                    <!--                                                                   data-language="markdown" tabindex="0"><code-->
-                                    <!--                                            class="language-markdown">:::details Click to see more-->
-
-                                    <!--Fusce rutrum venenatis eros in hendrerit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam eget risus egestas, aliquet ipsum sed, volutpat tortor. Proin finibus tortor ac mauris finibus rutrum. Nullam tincidunt arcu eu urna ullamcorper, eu ultricies turpis ornare. Morbi id sollicitudin orci. Proin lobortis vehicula nibh a ornare. Cras sodales eu ligula quis fermentum. Proin eu ultrices leo, quis iaculis justo. Sed dictum, nulla sit amet imperdiet commodo, libero sapien semper justo, ut lobortis elit nunc vitae ante. Nullam lobortis odio quam, ac condimentum elit posuere vitae. Sed ornare, odio et rutrum varius, lorem eros gravida urna, in pharetra sapien justo non magna.-->
-
-                                    <!--<span class="token list punctuation">-</span> details content-->
-                                    <!--<span class="token list punctuation">-</span> details new line-->
-
-                                    <!--<span class="token code"><span class="token punctuation">```</span><span class="token code-language">javascript</span>-->
-                                    <!--<span class="token code-block language-javascript">console<span class="token punctuation">.</span><span-->
-                                    <!--        class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello world'</span><span-->
-                                    <!--        class="token punctuation">)</span><span class="token punctuation">;</span></span>-->
-                                    <!--<span class="token punctuation">```</span></span>-->
-
-                                    <!--:::</code></pre>-->
-                                    <!--                                        <div class="toolbar">-->
-                                    <!--                                            <div class="toolbar-item">-->
-                                    <!--                                                <button class="copy-to-clipboard-button" type="button"-->
-                                    <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </div>-->
-                                </div>
-
-                                <!--                            //todo 这里上一篇文章和下一篇文章-->
-
-                                <div class="flex flex-col lg:flex-row justify-start items-end my-8">
-                                    <div class="w-full h-full self-stretch mr-0 lg:mr-4">
-                                        <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
-                                            <svg  class="svg-icon inline-block mr-2 inline-block mr-2"
-                                                 aria-hidden="true" style="height: 1em; width: 1em;">
-                                                <use  href="#icon-arrow-left-circle" fill="currentColor"
-                                                     stroke="var(--background-primary)"></use>
-                                            </svg>
-                                            <span class="w-full block">上一篇更回味</span><!----><span
-                                                class="absolute bottom-0 h-1 w-14 rounded-full"
-                                                style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                                        </p>
-                                        <li  class="article-container"><!---->
-                                            <div  class="article">
-                                                <div  class="article-thumbnail"><img 
-                                                                                                       alt="" lazy="loaded"
-                                                                                                       src="https://res.cloudinary.com/tridiamond/image/upload/v1690996333/blog/20200401220041648_ofuduk.gif"><span
-                                                         class="thumbnail-screen"
-                                                        style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                                                </div>
-                                                <div  class="article-content"><span ><b
-                                                        >FrontEnd</b><ul ></ul></span><a
-                                                         href="/post/frontend%2F8-html-css-tips" class="">
-                                                    <h1  data-dia="article-link">
-                                                        前端必看的8个HTML+CSS技巧</h1></a>
-                                                    <p >CSS
-                                                        是一个很独特的语言。看起来非常简单，但是某种特殊效果看似简单，实现起来就颇有难度。这篇文章主要是给在学习前端的童鞋分享一些新的
-                                                        CSS
-                                                        技巧，一些在前端教程和培训课堂中不会讲到的知识。第二就是让还在前端开发这条道路上的童鞋们，重新燃起对前端排版和特效的热爱和热情！🔥
-                                                        一、...</p>
-                                                    <div  class="article-footer">
-                                                        <div  class="flex flex-row items-center"><img
-                                                                 class="hover:opacity-50 cursor-pointer"
-                                                                src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
-                                                                alt="author avatar"><span 
-                                                                                          class="text-ob-dim"><strong
-                                                                
-                                                                class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong> 发布于 四月 6, 2020</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div>
-                                    <div class="w-full h-full self-stretch mt-8 lg:mt-0">
-                                        <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
-                                            <!----><span class="w-full block text-right">下一篇更精彩</span>
-                                            <svg  class="svg-icon inline-block ml-2 inline-block ml-2"
-                                                 aria-hidden="true" style="height: 1em; width: 1em;">
-                                                <use  href="#icon-arrow-right-circle" fill="currentColor"
-                                                     stroke="var(--background-primary)"></use>
-                                            </svg>
-                                            <span class="absolute bottom-0 h-1 w-14 rounded-full right-0"
-                                                  style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                                        </p>
-                                        <li  class="article-container"><!---->
-                                            <div  class="article">
-                                                <div  class="article-thumbnail"><img 
-                                                                                                       alt="" lazy="loading"
-                                                                                                       src="https://source.unsplash.com/yQnyP1g5zl4/1200x628"><span
-                                                         class="thumbnail-screen"
-                                                        style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                                                </div>
-                                                <div  class="article-content"><span ><b
-                                                        >FrontEnd</b><ul ></ul></span><a
-                                                         href="/post/frontend%2Ffrontend-study" class="">
-                                                    <h1  data-dia="article-link">
-                                                        一篇文章搞懂前端学习方法与构建知识体系</h1></a>
-                                                    <p >
-                                                        在大前端的成长路上，很多的同学都非常的迷茫，看到一座座越来越高的山。慢慢在工作中也对自己的职业发展也特别迷茫。有些粉丝也私信我问过我一些职业发展的问题，还有“我应该学习什么技术？”，“学习到什么层级才是个头”。
-                                                        这次我给大家带来一遍文章，给大家讲讲怎么样才是一个优秀的前端工程师，...</p>
-                                                    <div  class="article-footer">
-                                                        <div  class="flex flex-row items-center"><img
-                                                                 class="hover:opacity-50 cursor-pointer"
-                                                                src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
-                                                                alt="author avatar"><span 
-                                                                                          class="text-ob-dim"><strong
-                                                                
-                                                                class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong> 发布于 八月 7, 2020</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div>
-                                </div>
-
-                                <!--/* 评论组件 */-->
-                                <th:block
-                                        th:replace="~{modules/comment :: comment(group = 'content.halo.run',
-                                        kind = 'Post',
-                                        name = ${post.metadata.name},
-                                        allowComment = ${post.spec.allowComment})}"/>
-                            </div>
-
-                            <div th:replace="~{modules/aside :: aside(widgets = null)}"></div>
+                            <!--                                        //todo 显示评论数量-->
+                            <!--                                        <span>-->
+                            <!--                                            <svg  class="svg-icon h-5 w-5 h-5 w-5" aria-hidden="true"-->
+                            <!--                                                 style="height: 1.25em; width: 1.25em;">-->
+                            <!--                                                <use  href="#icon-quote" fill="none"-->
+                            <!--                                                     stroke="white"></use>-->
+                            <!--                                            </svg>-->
+                            <!--                                            <span class="pl-2 opacity-70">-->
+                            <!--                                                <span class="waline-comment-count"-->
+                            <!--                                                      data-path="/post/aurora%2Fcustom-quotes">1</span>-->
+                            <!--                                            </span>-->
+                            <!--                                        </span>-->
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="main-grid">
+                <div>
+                    <div class="post-html">
+                        <article th:utext="${post.content.content}"></article>
+
+                        <!--                                    参考样式代码-->
+                        <!--                                    <h1 id="Custom-Container-Example">-->
+                        <!--                                        <a href="#Custom-Container-Example" class="headerlink"-->
+                        <!--                                           title="Custom Container Example.">-->
+                        <!--                                        </a>Custom Container Example.</h1>-->
+                        <!--                                    <blockquote>-->
+                        <!--                                        <span class="custom-blockquote-svg">-->
+                        <!--                                            <svg width="24" height="24"-->
+                        <!--                                                 viewBox="0 0 24 24" fill=""-->
+                        <!--                                                 xmlns="http://www.w3.org/2000/svg"-->
+                        <!--                                                 data-reactroot="">-->
+                        <!--<path fill=""-->
+                        <!--      d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C13.8 22 15.5 21.5 17 20.6L22 22L20.7 17C21.5 15.5 22 13.8 22 12Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path fill=""-->
+                        <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path fill=""-->
+                        <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M17 8.5C15.23 8.97 14.07 10.84 14.01 13.27C14 13.33 14 13.4 14 13.47V13.5"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M9 8.5C7.23 8.97 6.07 10.84 6.01 13.27C6 13.33 6 13.4 6 13.47V13.5"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"></path>-->
+                        <!--</svg>-->
+                        <!--</span>-->
+                        <!--                                        <p>Since version <code>1.5.0</code>, Aurora added custom containers including-->
+                        <!--                                            <code>tip</code>, <code>warning</code>, <code>danger</code> and <code>details</code>.-->
+                        <!--                                        </p></blockquote>-->
+                        <!--                                    <blockquote><span class="custom-blockquote-svg"><svg width="24" height="24"-->
+                        <!--                                                                                         viewBox="0 0 24 24" fill=""-->
+                        <!--                                                                                         xmlns="http://www.w3.org/2000/svg"-->
+                        <!--                                                                                         data-reactroot="">-->
+                        <!--<path fill=""-->
+                        <!--      d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C13.8 22 15.5 21.5 17 20.6L22 22L20.7 17C21.5 15.5 22 13.8 22 12Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path fill=""-->
+                        <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path fill=""-->
+                        <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M17 8.5C15.23 8.97 14.07 10.84 14.01 13.27C14 13.33 14 13.4 14 13.47V13.5"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M9 8.5C7.23 8.97 6.07 10.84 6.01 13.27C6 13.33 6 13.4 6 13.47V13.5"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"></path>-->
+                        <!--</svg>-->
+                        <!--</span>-->
+                        <!--                                        <p>自从版本 <code>1.5.0</code>，Aurora 添加了与 VuePress 一样的自定义容器, 包括-->
+                        <!--                                            <code>提示 (tip)</code>、<code>注意 (warning)</code>、<code>特别注意-->
+                        <!--                                                (danger)</code> 和 <code>隐藏内容 (details)</code></p></blockquote>-->
+                        <!--                                    <hr>-->
+                        <!--                                    <h2 id="Block-quote"><a href="#Block-quote" class="headerlink"-->
+                        <!--                                                            title="Block quote"></a>Block quote</h2>-->
+                        <!--                                    <blockquote><span class="custom-blockquote-svg"><svg width="24" height="24"-->
+                        <!--                                                                                         viewBox="0 0 24 24" fill=""-->
+                        <!--                                                                                         xmlns="http://www.w3.org/2000/svg"-->
+                        <!--                                                                                         data-reactroot="">-->
+                        <!--<path fill=""-->
+                        <!--      d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C13.8 22 15.5 21.5 17 20.6L22 22L20.7 17C21.5 15.5 22 13.8 22 12Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path fill=""-->
+                        <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path fill=""-->
+                        <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M17 8.5C15.23 8.97 14.07 10.84 14.01 13.27C14 13.33 14 13.4 14 13.47V13.5"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M9 8.5C7.23 8.97 6.07 10.84 6.01 13.27C6 13.33 6 13.4 6 13.47V13.5"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"></path>-->
+                        <!--</svg>-->
+                        <!--</span>-->
+                        <!--                                        <p>normal quote block.</p></blockquote>-->
+                        <!--                                    <div class="code-toolbar">-->
+                        <!--                                        <pre class="line-numbers language-markdown" data-language="markdown"-->
+                        <!--                                             tabindex="0"><code class="language-markdown"><span-->
+                        <!--                                                class="token blockquote punctuation">&gt;</span> normal quote block.</code></pre>-->
+                        <!--                                        <div class="toolbar">-->
+                        <!--                                            <div class="toolbar-item">-->
+                        <!--                                                <button class="copy-to-clipboard-button" type="button"-->
+                        <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
+                        <!--                                            </div>-->
+                        <!--                                        </div>-->
+                        <!--                                    </div>-->
+
+                        <!--                                    <hr>-->
+                        <!--                                    <h2 id="Custom-Containers"><a href="#Custom-Containers" class="headerlink"-->
+                        <!--                                                                  title="Custom Containers"></a>Custom Containers</h2>-->
+                        <!--                                    <h3 id="Tip-Container"><a href="#Tip-Container" class="headerlink"-->
+                        <!--                                                              title="Tip Container"></a>Tip Container</h3>-->
+                        <!--                                    <div class="custom-quote tip">-->
+                        <!--<span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill=""-->
+                        <!--                                    xmlns="http://www.w3.org/2000/svg" data-reactroot="">-->
+                        <!--<path fill=""-->
+                        <!--      d="M20.86 14.13C20 14.7 19.56 15.74 19.77 16.76C20.13 18.55 18.55 20.13 16.76 19.77C15.74 19.57 14.7 20 14.13 20.86C13.12 22.38 10.89 22.38 9.88 20.86C9.3 20 8.26 19.56 7.24 19.77C5.45 20.13 3.87 18.55 4.23 16.76C4.43 15.74 4 14.7 3.14 14.13C1.62 13.12 1.62 10.89 3.14 9.88C4 9.3 4.44 8.26 4.23 7.24C3.87 5.45 5.45 3.87 7.24 4.23C8.26 4.44 9.3 4 9.87 3.14C10.88 1.62 13.11 1.62 14.12 3.14C14.7 4 15.74 4.44 16.76 4.23C18.55 3.87 20.13 5.45 19.77 7.24C19.56 8.26 20 9.3 20.86 9.87C22.38 10.88 22.38 13.12 20.86 14.13Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M12.01 15C12.01 14.5 12.01 14.5 12.01 14.5C12.04 13.75 13 13.46 14.04 12.2C14.41 11.74 14.69 11.41 14.86 10.85C15.15 9.95 14.92 9.18 14.86 9.02C14.8 8.79 14.52 8 13.72 7.46C13.06 7.02 12.42 7 12.14 7C11.9 7 11.36 7 10.78 7.3C10.28 7.56 9.98 7.9 9.83 8.1C9.24 8.82 9.06 9.63 9 10.06"></path>-->
+                        <!--<path stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M11.99 18H12.01"></path>-->
+                        <!--</svg></span>-->
+                        <!--                                        <p class="custom-quote-title">TIP</p>-->
+                        <!--                                        <p>Normal Tips Container</p>-->
+                        <!--                                    </div>-->
+                        <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
+                        <!--                                                                   data-language="markdown" tabindex="0"><code-->
+                        <!--                                            class="language-markdown">:::tip-->
+                        <!--Normal Tips Container-->
+                        <!--:::</code></pre>-->
+                        <!--                                        <div class="toolbar">-->
+                        <!--                                            <div class="toolbar-item">-->
+                        <!--                                                <button class="copy-to-clipboard-button" type="button"-->
+                        <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
+                        <!--                                            </div>-->
+                        <!--                                        </div>-->
+                        <!--                                    </div>-->
+
+                        <!--                                    <div class="custom-quote tip">-->
+                        <!--<span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill=""-->
+                        <!--                                    xmlns="http://www.w3.org/2000/svg" data-reactroot="">-->
+                        <!--<path fill=""-->
+                        <!--      d="M20.86 14.13C20 14.7 19.56 15.74 19.77 16.76C20.13 18.55 18.55 20.13 16.76 19.77C15.74 19.57 14.7 20 14.13 20.86C13.12 22.38 10.89 22.38 9.88 20.86C9.3 20 8.26 19.56 7.24 19.77C5.45 20.13 3.87 18.55 4.23 16.76C4.43 15.74 4 14.7 3.14 14.13C1.62 13.12 1.62 10.89 3.14 9.88C4 9.3 4.44 8.26 4.23 7.24C3.87 5.45 5.45 3.87 7.24 4.23C8.26 4.44 9.3 4 9.87 3.14C10.88 1.62 13.11 1.62 14.12 3.14C14.7 4 15.74 4.44 16.76 4.23C18.55 3.87 20.13 5.45 19.77 7.24C19.56 8.26 20 9.3 20.86 9.87C22.38 10.88 22.38 13.12 20.86 14.13Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M12.01 15C12.01 14.5 12.01 14.5 12.01 14.5C12.04 13.75 13 13.46 14.04 12.2C14.41 11.74 14.69 11.41 14.86 10.85C15.15 9.95 14.92 9.18 14.86 9.02C14.8 8.79 14.52 8 13.72 7.46C13.06 7.02 12.42 7 12.14 7C11.9 7 11.36 7 10.78 7.3C10.28 7.56 9.98 7.9 9.83 8.1C9.24 8.82 9.06 9.63 9 10.06"></path>-->
+                        <!--<path stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M11.99 18H12.01"></path>-->
+                        <!--</svg></span>-->
+                        <!--                                        <p class="custom-quote-title">Custom header</p>-->
+                        <!--                                        <p>Custom header</p>-->
+                        <!--                                        <ul>-->
+                        <!--                                            <li>tips content</li>-->
+                        <!--                                            <li>tips new line</li>-->
+                        <!--                                        </ul>-->
+
+                        <!--                                    </div>-->
+                        <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
+                        <!--                                                                   data-language="markdown" tabindex="0"><code-->
+                        <!--                                            class="language-markdown">:::tip Custom header-->
+
+                        <!--Custom header-->
+
+                        <!--<span class="token list punctuation">-</span> tips content-->
+                        <!--<span class="token list punctuation">-</span> tips new line-->
+
+                        <!--:::</code></pre>-->
+                        <!--                                        <div class="toolbar">-->
+                        <!--                                            <div class="toolbar-item">-->
+                        <!--                                                <button class="copy-to-clipboard-button" type="button"-->
+                        <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
+                        <!--                                            </div>-->
+                        <!--                                        </div>-->
+                        <!--                                    </div>-->
+
+                        <!--                                    <hr>-->
+                        <!--                                    <h3 id="Warning-Container"><a href="#Warning-Container" class="headerlink"-->
+                        <!--                                                                  title="Warning Container"></a>Warning Container</h3>-->
+                        <!--                                    <div class="custom-quote warning">-->
+                        <!--<span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill=""-->
+                        <!--                                    xmlns="http://www.w3.org/2000/svg" data-reactroot="">-->
+                        <!--<path fill=""-->
+                        <!--      d="M20.86 14.13C20 14.7 19.56 15.74 19.77 16.76C20.13 18.55 18.55 20.13 16.76 19.77C15.74 19.57 14.7 20 14.13 20.86C13.12 22.38 10.89 22.38 9.88 20.86C9.3 20 8.26 19.56 7.24 19.77C5.45 20.13 3.87 18.55 4.23 16.76C4.43 15.74 4 14.7 3.14 14.13C1.62 13.12 1.62 10.89 3.14 9.88C4 9.3 4.44 8.26 4.23 7.24C3.87 5.45 5.45 3.87 7.24 4.23C8.26 4.44 9.3 4 9.87 3.14C10.88 1.62 13.11 1.62 14.12 3.14C14.7 4 15.74 4.44 16.76 4.23C18.55 3.87 20.13 5.45 19.77 7.24C19.56 8.26 20 9.3 20.86 9.87C22.38 10.88 22.38 13.12 20.86 14.13Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M12 8V13"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M12 15.99V16.01"></path>-->
+                        <!--</svg>-->
+                        <!--</span>-->
+                        <!--                                        <p class="custom-quote-title">WARNING</p>-->
+                        <!--                                        <p>Warning!!!</p>-->
+                        <!--                                    </div>-->
+                        <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
+                        <!--                                                                   data-language="markdown" tabindex="0"><code-->
+                        <!--                                            class="language-markdown">:::warning-->
+                        <!--Warning!!!-->
+                        <!--:::</code></pre>-->
+                        <!--                                        <div class="toolbar">-->
+                        <!--                                            <div class="toolbar-item">-->
+                        <!--                                                <button class="copy-to-clipboard-button" type="button"-->
+                        <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
+                        <!--                                            </div>-->
+                        <!--                                        </div>-->
+                        <!--                                    </div>-->
+
+                        <!--                                    <div class="custom-quote warning">-->
+                        <!--<span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill=""-->
+                        <!--                                    xmlns="http://www.w3.org/2000/svg" data-reactroot="">-->
+                        <!--<path fill=""-->
+                        <!--      d="M20.86 14.13C20 14.7 19.56 15.74 19.77 16.76C20.13 18.55 18.55 20.13 16.76 19.77C15.74 19.57 14.7 20 14.13 20.86C13.12 22.38 10.89 22.38 9.88 20.86C9.3 20 8.26 19.56 7.24 19.77C5.45 20.13 3.87 18.55 4.23 16.76C4.43 15.74 4 14.7 3.14 14.13C1.62 13.12 1.62 10.89 3.14 9.88C4 9.3 4.44 8.26 4.23 7.24C3.87 5.45 5.45 3.87 7.24 4.23C8.26 4.44 9.3 4 9.87 3.14C10.88 1.62 13.11 1.62 14.12 3.14C14.7 4 15.74 4.44 16.76 4.23C18.55 3.87 20.13 5.45 19.77 7.24C19.56 8.26 20 9.3 20.86 9.87C22.38 10.88 22.38 13.12 20.86 14.13Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M12 8V13"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M12 15.99V16.01"></path>-->
+                        <!--</svg>-->
+                        <!--</span>-->
+                        <!--                                        <p class="custom-quote-title">Warning World</p>-->
+                        <!--                                        <p><strong>Warning!!!</strong></p>-->
+                        <!--                                    </div>-->
+                        <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
+                        <!--                                                                   data-language="markdown" tabindex="0"><code-->
+                        <!--                                            class="language-markdown">:::warning Warning World-->
+                        <!--<span class="token bold"><span class="token punctuation">**</span><span class="token content">Warning!!!</span><span-->
+                        <!--        class="token punctuation">**</span></span>-->
+                        <!--:::</code></pre>-->
+                        <!--                                        <div class="toolbar">-->
+                        <!--                                            <div class="toolbar-item">-->
+                        <!--                                                <button class="copy-to-clipboard-button" type="button"-->
+                        <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
+                        <!--                                            </div>-->
+                        <!--                                        </div>-->
+                        <!--                                    </div>-->
+
+                        <!--                                    <hr>-->
+                        <!--                                    <h3 id="Danger-Container"><a href="#Danger-Container" class="headerlink"-->
+                        <!--                                                                 title="Danger Container"></a>Danger Container</h3>-->
+                        <!--                                    <div class="custom-quote danger">-->
+                        <!--<span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill=""-->
+                        <!--                                    xmlns="http://www.w3.org/2000/svg" data-reactroot="">-->
+                        <!--<path fill=""-->
+                        <!--      d="M19.76 5.23C15.84 5.23 12 2 12 2C12 2 8.15996 5.23 4.23996 5.23C4.23996 5.23 1.86996 16.99 12 22C22.13 16.99 19.76 5.23 19.76 5.23Z"-->
+                        <!--      undefined="1"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M12 8V13"></path>-->
+                        <!--<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke=""-->
+                        <!--      d="M11.99 16H12"></path>-->
+                        <!--</svg>-->
+                        <!--</span>-->
+                        <!--                                        <p class="custom-quote-title">WARNING</p>-->
+                        <!--                                        <p>Danger!!!</p>-->
+                        <!--                                    </div>-->
+                        <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
+                        <!--                                                                   data-language="markdown" tabindex="0"><code-->
+                        <!--                                            class="language-markdown">:::danger-->
+                        <!--Danger!!!-->
+                        <!--:::</code></pre>-->
+                        <!--                                        <div class="toolbar">-->
+                        <!--                                            <div class="toolbar-item">-->
+                        <!--                                                <button class="copy-to-clipboard-button" type="button"-->
+                        <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
+                        <!--                                            </div>-->
+                        <!--                                        </div>-->
+                        <!--                                    </div>-->
+
+                        <!--                                    <hr>-->
+                        <!--                                    <h3 id="Detail-container"><a href="#Detail-container" class="headerlink"-->
+                        <!--                                                                 title="Detail container"></a>Detail container</h3>-->
+                        <!--                                    <details class="custom-details">-->
+                        <!--                                        <summary>Click to see more</summary>-->
+                        <!--                                        <p>Fusce rutrum venenatis eros in hendrerit. Pellentesque habitant morbi-->
+                        <!--                                            tristique senectus et netus et malesuada fames ac turpis egestas. Nullam-->
+                        <!--                                            eget risus egestas, aliquet ipsum sed, volutpat tortor. Proin finibus tortor-->
+                        <!--                                            ac mauris finibus rutrum. Nullam tincidunt arcu eu urna ullamcorper, eu-->
+                        <!--                                            ultricies turpis ornare. Morbi id sollicitudin orci. Proin lobortis vehicula-->
+                        <!--                                            nibh a ornare. Cras sodales eu ligula quis fermentum. Proin eu ultrices leo,-->
+                        <!--                                            quis iaculis justo. Sed dictum, nulla sit amet imperdiet commodo, libero-->
+                        <!--                                            sapien semper justo, ut lobortis elit nunc vitae ante. Nullam lobortis odio-->
+                        <!--                                            quam, ac condimentum elit posuere vitae. Sed ornare, odio et rutrum varius,-->
+                        <!--                                            lorem eros gravida urna, in pharetra sapien justo non magna.</p>-->
+                        <!--                                        <ul>-->
+                        <!--                                            <li>details content</li>-->
+                        <!--                                            <li>details new line</li>-->
+                        <!--                                        </ul>-->
+                        <!--                                        <div class="code-toolbar">-->
+                        <!--                                            <pre class="line-numbers language-javascript" data-language="javascript"-->
+                        <!--                                                 tabindex="0"><code class="language-javascript">console<span-->
+                        <!--                                                    class="token punctuation">.</span><span-->
+                        <!--                                                    class="token function">log</span><span-->
+                        <!--                                                    class="token punctuation">(</span><span class="token string">'hello world'</span><span-->
+                        <!--                                                    class="token punctuation">)</span><span-->
+                        <!--                                                    class="token punctuation">;</span></code></pre>-->
+                        <!--                                            <div class="toolbar">-->
+                        <!--                                                <div class="toolbar-item">-->
+                        <!--                                                    <button class="copy-to-clipboard-button" type="button"-->
+                        <!--                                                            data-copy-state="copy"><span>Copy</span></button>-->
+                        <!--                                                </div>-->
+                        <!--                                            </div>-->
+                        <!--                                        </div>-->
+
+
+                        <!--                                    </details>-->
+                        <!--                                    <div class="code-toolbar"><pre class="line-numbers language-markdown"-->
+                        <!--                                                                   data-language="markdown" tabindex="0"><code-->
+                        <!--                                            class="language-markdown">:::details Click to see more-->
+
+                        <!--Fusce rutrum venenatis eros in hendrerit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam eget risus egestas, aliquet ipsum sed, volutpat tortor. Proin finibus tortor ac mauris finibus rutrum. Nullam tincidunt arcu eu urna ullamcorper, eu ultricies turpis ornare. Morbi id sollicitudin orci. Proin lobortis vehicula nibh a ornare. Cras sodales eu ligula quis fermentum. Proin eu ultrices leo, quis iaculis justo. Sed dictum, nulla sit amet imperdiet commodo, libero sapien semper justo, ut lobortis elit nunc vitae ante. Nullam lobortis odio quam, ac condimentum elit posuere vitae. Sed ornare, odio et rutrum varius, lorem eros gravida urna, in pharetra sapien justo non magna.-->
+
+                        <!--<span class="token list punctuation">-</span> details content-->
+                        <!--<span class="token list punctuation">-</span> details new line-->
+
+                        <!--<span class="token code"><span class="token punctuation">```</span><span class="token code-language">javascript</span>-->
+                        <!--<span class="token code-block language-javascript">console<span class="token punctuation">.</span><span-->
+                        <!--        class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello world'</span><span-->
+                        <!--        class="token punctuation">)</span><span class="token punctuation">;</span></span>-->
+                        <!--<span class="token punctuation">```</span></span>-->
+
+                        <!--:::</code></pre>-->
+                        <!--                                        <div class="toolbar">-->
+                        <!--                                            <div class="toolbar-item">-->
+                        <!--                                                <button class="copy-to-clipboard-button" type="button"-->
+                        <!--                                                        data-copy-state="copy"><span>Copy</span></button>-->
+                        <!--                                            </div>-->
+                        <!--                                        </div>-->
+                    </div>
+
+                    <!--                            //todo 这里上一篇文章和下一篇文章-->
+
+                    <div class="flex flex-col lg:flex-row justify-start items-end my-8">
+                        <div class="w-full h-full self-stretch mr-0 lg:mr-4">
+                            <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
+                                <svg  class="svg-icon inline-block mr-2 inline-block mr-2"
+                                      aria-hidden="true" style="height: 1em; width: 1em;">
+                                    <use  href="#icon-arrow-left-circle" fill="currentColor"
+                                          stroke="var(--background-primary)"></use>
+                                </svg>
+                                <span class="w-full block">上一篇更回味</span><!----><span
+                                    class="absolute bottom-0 h-1 w-14 rounded-full"
+                                    style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                            </p>
+                            <li  class="article-container"><!---->
+                                <div  class="article">
+                                    <div  class="article-thumbnail"><img
+                                            alt="" lazy="loaded"
+                                            src="https://res.cloudinary.com/tridiamond/image/upload/v1690996333/blog/20200401220041648_ofuduk.gif"><span
+                                            class="thumbnail-screen"
+                                            style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                    </div>
+                                    <div  class="article-content"><span ><b
+                                    >FrontEnd</b><ul ></ul></span><a
+                                            href="/post/frontend%2F8-html-css-tips" class="">
+                                        <h1  data-dia="article-link">
+                                            前端必看的8个HTML+CSS技巧</h1></a>
+                                        <p >CSS
+                                            是一个很独特的语言。看起来非常简单，但是某种特殊效果看似简单，实现起来就颇有难度。这篇文章主要是给在学习前端的童鞋分享一些新的
+                                            CSS
+                                            技巧，一些在前端教程和培训课堂中不会讲到的知识。第二就是让还在前端开发这条道路上的童鞋们，重新燃起对前端排版和特效的热爱和热情！🔥
+                                            一、...</p>
+                                        <div  class="article-footer">
+                                            <div  class="flex flex-row items-center"><img
+                                                    class="hover:opacity-50 cursor-pointer"
+                                                    src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                                                    alt="author avatar"><span
+                                                    class="text-ob-dim"><strong
+
+                                                    class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong> 发布于 四月 6, 2020</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
+                        <div class="w-full h-full self-stretch mt-8 lg:mt-0">
+                            <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
+                                <!----><span class="w-full block text-right">下一篇更精彩</span>
+                                <svg  class="svg-icon inline-block ml-2 inline-block ml-2"
+                                      aria-hidden="true" style="height: 1em; width: 1em;">
+                                    <use  href="#icon-arrow-right-circle" fill="currentColor"
+                                          stroke="var(--background-primary)"></use>
+                                </svg>
+                                <span class="absolute bottom-0 h-1 w-14 rounded-full right-0"
+                                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                            </p>
+                            <li  class="article-container"><!---->
+                                <div  class="article">
+                                    <div  class="article-thumbnail"><img
+                                            alt="" lazy="loading"
+                                            src="https://source.unsplash.com/yQnyP1g5zl4/1200x628"><span
+                                            class="thumbnail-screen"
+                                            style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                    </div>
+                                    <div  class="article-content"><span ><b
+                                    >FrontEnd</b><ul ></ul></span><a
+                                            href="/post/frontend%2Ffrontend-study" class="">
+                                        <h1  data-dia="article-link">
+                                            一篇文章搞懂前端学习方法与构建知识体系</h1></a>
+                                        <p >
+                                            在大前端的成长路上，很多的同学都非常的迷茫，看到一座座越来越高的山。慢慢在工作中也对自己的职业发展也特别迷茫。有些粉丝也私信我问过我一些职业发展的问题，还有“我应该学习什么技术？”，“学习到什么层级才是个头”。
+                                            这次我给大家带来一遍文章，给大家讲讲怎么样才是一个优秀的前端工程师，...</p>
+                                        <div  class="article-footer">
+                                            <div  class="flex flex-row items-center"><img
+                                                    class="hover:opacity-50 cursor-pointer"
+                                                    src="https://res.cloudinary.com/tridiamond/image/upload/v1625037705/ObsidianestLogo-hex_hecqbw.png"
+                                                    alt="author avatar"><span
+                                                    class="text-ob-dim"><strong
+
+                                                    class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong> 发布于 八月 7, 2020</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+
+                    <!--/* 评论组件 */-->
+                    <th:block
+                            th:replace="~{modules/comment :: comment(group = 'content.halo.run',
+                                        kind = 'Post',
+                                        name = ${post.metadata.name},
+                                        allowComment = ${post.spec.allowComment})}"/>
+                </div>
+
+                <div th:replace="~{modules/aside :: aside(widgets = null)}"></div>
+            </div>
         </div>
-        <div id="loading-bar-wrapper" class=""></div>
-    </div>
-    <footer th:replace="~{modules/footer :: footer}"></footer>
-    <th:block th:replace="~{modules/common/navigator :: navigator}"/>
-    <th:block th:replace="~{modules/common/bot :: bot}"/>
     </div>
 </th:block>
 </html>
