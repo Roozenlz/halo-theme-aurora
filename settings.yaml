@@ -4,21 +4,6 @@ metadata:
   name: theme-aurora-setting
 spec:
   forms:
-    - group: index
-      label: 首页
-      formSchema:
-        - $formkit: postSelect
-          name: pin_post
-          label: 首页置顶文章
-          value: ""
-        - $formkit: postSelect
-          name: feature_post1
-          label: 首页推荐文章1
-          value: ""
-        - $formkit: postSelect
-          name: feature_post2
-          label: 首页推荐文章2
-          value: ""
     - group: basics
       label: 基础
       formSchema:
@@ -48,13 +33,27 @@ spec:
           label: 版权协议
           placeholder: 请输入版权协议地址
           help: 文章模块声明版权，也会使用此协议
-
+    - group: index
+      label: 首页
+      formSchema:
+        - $formkit: postSelect
+          name: pin_post
+          label: 首页置顶文章
+          value: ""
+        - $formkit: postSelect
+          name: feature_post1
+          label: 首页推荐文章1
+          value: ""
+        - $formkit: postSelect
+          name: feature_post2
+          label: 首页推荐文章2
+          value: ""
     - group: nav
       label: 导航
       formSchema:
         - $formkit: menuRadio
-          name: leftMenu
-          label: 站点名左侧
+          name: menu
+          label: 菜单栏
           help: 默认只有主菜单，可前往【外观】—>【菜单】新建菜单组
           value: ""
         - $formkit: group
