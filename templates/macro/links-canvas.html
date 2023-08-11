@@ -1,0 +1,82 @@
+<!--<th:block th:fragment="links-canvas(groups)" th:if="${theme.config.link.linksCanvas && not #lists.isEmpty(groups)}" >-->
+<th:block th:fragment="links-canvas(groups)">
+
+    <style>
+        #iframe {
+            opacity: .9;
+            /*border: var(--purple-40) 10px solid;*/
+            border-radius: 12px;
+        }
+
+        .addBtn {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .addBtn button {
+            transition: .2s;
+            display: flex;
+            margin: 31px auto 0px;
+            color: var(--text-accent);
+            padding: 15px;
+            border-radius: 12px;
+            background: var(--background-secondary);
+            align-items: center;
+        }
+
+        button {
+            padding: 0;
+            outline: 0;
+            border: none;
+            background: 0 0;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .fa-solid,
+        .fas {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+
+        .addBtn i {
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+
+        .addBtn button:hover {
+            background: #4b7aff;
+            color: #fff;
+        }
+    </style>
+    <div class="flink">
+        <div class="flex w-full rounded-2xl relative shadow-xl"
+             style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
+            <iframe id="iframe" scrolling="auto"
+                    src="/themes/theme-aurora/assets/html/link-canvas.html" frameborder="0"
+                    height="450px" width="100%"></iframe>
+        </div>
+        <div class="addBtn">
+            <button onclick="javascript:refreshFrame();">
+                <!--                //todo 这里放一个图标-->
+                换个头像试试
+            </button>
+        </div>
+    </div>
+    <script th:inline="javascript">
+        function refreshFrame() {
+            document.getElementById('iframe').contentWindow.location.reload(true);
+        }
+
+        const group = [[${ groups }]]
+        const logos = group.flatMap((item) => {
+            return item.links
+        }).flatMap((item) => {
+            return item.spec.logo
+        })
+        localStorage.setItem('logos', JSON.stringify(logos))
+    </script>
+
+</th:block>

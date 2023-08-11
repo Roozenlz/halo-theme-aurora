@@ -155,3 +155,15 @@
     overflow: hidden;
     text-overflow: ellipsis
 }
+
+#link-card .article .article-content .link-logo-image{
+    height: 100px;
+    width: 100px;
+    max-width: 200px;
+    top: 75px;
+    left: -25px;
+    opacity: .15;
+    position: absolute;
+    margin-right: .5rem;
+    border-radius: 9999px;
+}
