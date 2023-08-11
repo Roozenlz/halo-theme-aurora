@@ -4,6 +4,21 @@ metadata:
   name: theme-aurora-setting
 spec:
   forms:
+    - group: index
+      label: 首页
+      formSchema:
+        - $formkit: postSelect
+          name: pin_post
+          label: 首页置顶文章
+          value: ""
+        - $formkit: postSelect
+          name: feature_post1
+          label: 首页推荐文章1
+          value: ""
+        - $formkit: postSelect
+          name: feature_post2
+          label: 首页推荐文章2
+          value: ""
     - group: basics
       label: 基础
       formSchema:

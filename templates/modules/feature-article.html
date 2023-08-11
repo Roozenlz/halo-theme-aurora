@@ -2,191 +2,84 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!-- 置顶的文章-->
 <div id="feature" th:fragment="feature-article">
-    <div class="article-container">
-    <span class="article-tag">
-        <b>
-            <svg class="svg-icon" aria-hidden="true">
-                <use href="#icon-hot" fill="currentColor"
-                     stroke="var(--background-primary)"></use>
-            </svg> 推荐
-        </b>
-    </span>
+    <div th:if="${theme.config.index.pin_post}" th:with="post=${postFinder.getByName(theme.config.index.pin_post)}"
+         class="article-container">
+            <span class="article-tag">
+                <b>
+                    <svg class="svg-icon" aria-hidden="true">
+                        <use href="#icon-pin" fill="currentColor"
+                             stroke="var(--background-primary)"></use>
+                    </svg> 置顶
+                </b>
+            </span>
         <div class="feature-article">
             <div class="feature-thumbnail">
                 <img class="ob-hz-thumbnail" lazy="loaded"
-                     src="https://source.unsplash.com/ukzHlkoz1IE/1200x628">
+                     th:src="${#strings.isEmpty(post.spec.cover) ? ASSETS +'/img/default-cover.jpg' : post.spec.cover} ">
                 <span class="thumbnail-screen"
                       style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
             </div>
             <div class="feature-content">
-                <span>
-                    <b>Aurora</b>
-                    <ul>
-                        <li><em># aurora</em></li>
-                        <li><em># project-blog</em></li>
+                <span style="text-wrap: nowrap; overflow: hidden;">
+                    <th:block th:if="${not #lists.isEmpty(post.categories)}"
+                              th:each="category,stat : ${post.categories}">
+                        <a th:if="${stat.index}<=2" th:href="@{${category.status.permalink}}">
+                            <b>[[${category.spec.displayName}]]</b>
+                        </a>
+                    </th:block>
+                    <ul style="max-width: 100px">
+                        <li th:if="${not #lists.isEmpty(post.tags)}"
+                            th:each="tag,stat : ${post.tags}">
+                            <a th:if="${stat.index}<=3" th:href="@{${tag.status.permalink}}">
+                                <em># [[${tag.spec.displayName}]]</em>
+                            </a>
+                        </li>
                     </ul>
                 </span>
-                <a href="/post/aurora%2Fcustom-quotes" class="">
-                    <h1 data-dia="article-link">
-                        Aurora 自定义容器（Custom Containers）</h1>
+                <a th:href="@{${post.status.permalink}}" class="">
+                    <h1 data-dia="article-link"
+                        th:text="${post.spec.title}"></h1>
                 </a>
-                <p>Aurora 添加了与 VuePress 一样的自定义容器, 包括提示 (tip)、注意 (warning)、特别注意
-                    (danger) 和隐藏内容 (details)...</p>
-                <div class="article-footer">
-                    <div class="flex flex-row items-center"><img
-                            class="hover:opacity-50 cursor-pointer" alt="" lazy="loaded"
-                            th:src="@{/assets/img/ObsidianestLogo.png}"><span
-                            class="text-ob-dim"><strong
-                            class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong>
-                                                    shared on May 2, 2021</span>
+                <p th:text="${post.spec.excerpt.raw}"></p>
+                <div class="article-footer" th:with="owner=${post.owner}">
+                    <div class="flex flex-row items-center">
+                        <img class="hover:opacity-50 cursor-pointer"
+                             th:src="${owner.avatar==null? ASSETS+'/img/ObsidianestLogo.png': owner.avatar}"
+                             alt="author avatar">
+                        <span class="text-ob-dim">
+                            <strong class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer"
+                                    th:text="${owner.displayName}"></strong>发布于 [[${#dates.format(post.spec.publishTime, 'MMMM dd,yyyy')}]]</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="inverted-main-grid py-8 gap-8 box-border">
-        <div
-                class="relative overflow-hidden h-56 lg:h-auto rounded-2xl bg-ob-deep-800 shadow-lg">
-            <div
-                    class="ob-gradient-plate opacity-90 relative z-10 bg-ob-deep-900 rounded-2xl flex justify-start items-end px-8 pb-10 shadow-md">
+        <div class="relative overflow-hidden h-56 lg:h-auto rounded-2xl bg-ob-deep-800 shadow-lg">
+            <div class="ob-gradient-plate opacity-90 relative z-10 bg-ob-deep-900 rounded-2xl flex justify-start items-end px-8 pb-10 shadow-md">
                 <h2 class="text-3xl pb-8 lg:pb-16">
-                    <p
-                            style="background-image: -webkit-linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;">
-                        EDITOR'S SELECTION</p>
-                    <span class="relative text-2xl text-ob-bright font-semibold"><svg
-                            class="svg-icon inline-block inline-block"
-                            aria-hidden="true">
-                                                    <use href="#icon-hot" fill="currentColor"
-                                                         stroke="var(--background-primary)"></use>
-                                                </svg> 推荐文章
-                                            </span>
+                    <p style="background-image: -webkit-linear-gradient(130deg, rgb(36, 198, 220),
+                        rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;">EDITOR'S SELECTION</p>
+                    <span class="relative text-2xl text-ob-bright font-semibold">
+                        <svg class="svg-icon inline-block inline-block"
+                             aria-hidden="true">
+                            <use href="#icon-hot" fill="currentColor"
+                                 stroke="var(--background-primary)"></use>
+                        </svg> 推荐文章
+                    </span>
                 </h2>
             </div>
             <span class="absolute top-0 w-full h-full z-0"
                   style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
         </div>
         <ul class="grid lg:grid-cols-2 gap-8">
-
-            <li class="article-container">
-                                        <span class="article-tag">
-                                            <b>
-                                                <svg class="svg-icon"
-                                                     aria-hidden="true">
-                                                    <use href="#icon-hot" fill="currentColor"
-                                                         stroke="var(--background-primary)">
-                                                    </use>
-                                                </svg> 推荐</b>
-                                        </span>
-                <div class="article">
-                    <div class="article-thumbnail">
-                        <img alt="" lazy="loaded"
-                             src="https://source.unsplash.com/VivsxaizzVE/1200x628"><span
-                            class="thumbnail-screen"
-                            style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                    </div>
-                    <div class="article-content">
-                                                <span>
-                                                    <b>FrontEnd</b>
-                                                    <ul>
-                                                        <li><em># JavaScript</em>
-                                                        </li>
-                                                        <li><em># Browser</em>
-                                                        </li>
-                                                    </ul>
-                                                </span>
-                        <a
-                                href="/post/frontend%2Fbrowser-working-logic-css-computation"
-                                class="">
-                            <h1 data-dia="article-link">实战中学习浏览器工作原理
-                                —
-                                HTML 解析与 CSS 计算</h1>
-                        </a>
-                        <p>上一部分我们完成了从 HTTP 发送 Request，到接收到
-                            Response，并且把 Response 中的文本都解析出来。 这一部分我们主要讲解如何做
-                            HTML 解析 和 CSS 计算这两个部分。
-                            根据我们上部分列出的一个完整的浏览器架构的话，蓝色背景的部分就是我们目前已经...</p>
-                        <div class="article-footer">
-                            <div class="flex flex-row items-center"><img
-                                    class="hover:opacity-50 cursor-pointer"
-                                    th:src="@{/assets/img/ObsidianestLogo.png}"
-                                    alt="author avatar"><span
-                                    class="text-ob-dim"><strong
-
-                                    class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong>
-                                                            shared on Aug 23, 2020</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-
-            <li class="article-container">
-                                        <span class="article-tag">
-                                            <b>
-                                                <svg class="svg-icon"
-                                                     aria-hidden="true">
-                                                    <use href="#icon-hot" fill="currentColor"
-                                                         stroke="var(--background-primary)">
-                                                    </use>
-                                                </svg> 推荐</b>
-                                        </span>
-                <div class="article">
-                    <div class="article-thumbnail">
-                        <img alt="" lazy="loaded"
-                             src="https://res.cloudinary.com/tridiamond/image/upload/v1690996333/blog/20200401220041648_ofuduk.gif"><span
-                            class="thumbnail-screen"
-                            style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                    </div>
-                    <div class="article-content">
-                                                <span>
-                                                    <b>FrontEnd</b>
-                                                    <ul>
-                                                        <li><em>#
-                                                                HTML&amp;CSS</em></li>
-                                                        <li><em># CSS
-                                                                Animation</em></li>
-                                                    </ul>
-                                                </span>
-                        <a href="/post/frontend%2F8-html-css-tips" class="">
-                            <h1 data-dia="article-link">
-                                前端必看的8个HTML+CSS技巧</h1>
-                        </a>
-                        <p>CSS
-                            是一个很独特的语言。看起来非常简单，但是某种特殊效果看似简单，实现起来就颇有难度。这篇文章主要是给在学习前端的童鞋分享一些新的
-                            CSS
-                            技巧，一些在前端教程和培训课堂中不会讲到的知识。第二就是让还在前端开发这条道路上的童鞋们，重新燃起对前端排版和特效的热爱和热情！🔥
-                            一、...</p>
-                        <div class="article-footer">
-                            <div class="flex flex-row items-center"><img
-                                    class="hover:opacity-50 cursor-pointer"
-                                    th:src="@{/assets/img/ObsidianestLogo.png}"
-                                    alt="author avatar">
-                                <span class="text-ob-dim">
-                                                            <strong
-                                                                    class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong>
-                                                            shared on Apr 6, 2020</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            <th:block
+                    th:replace="~{macro/post-card :: post-card(true,${postFinder.getByName(theme.config.index.feature_post1)})}"/>
+            <th:block
+                    th:replace="~{macro/post-card :: post-card(true,${postFinder.getByName(theme.config.index.feature_post2)})}"/>
         </ul>
     </div>
 </div>
-<!--<div class="recent-top-post-group" id="recent-top-post-group"-->
-<!--     th:fragment="recent-top"-->
-<!--     th:if="${theme.config.top.recentTop}">-->
-
-<!--  <div class="recent-post-top" id="recent-post-top">-->
-<!--    &lt;!&ndash; banner &ndash;&gt;-->
-<!--    <div th:replace="~{modules/widgets/banner-group :: banner-group}"></div>-->
-<!--    &lt;!&ndash; top &ndash;&gt;-->
-<!--    <div th:replace="~{modules/widgets/top-group :: top-group}"></div>-->
-
-<!--  </div>-->
-<!--</div>-->
-
 </html>

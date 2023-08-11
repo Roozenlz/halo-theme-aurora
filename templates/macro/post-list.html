@@ -31,58 +31,10 @@
             </svg>
         </span>
         <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-            <li th:each="post : ${posts.items}" class="article-container">
-                    <span th:if="${post.spec.pinned}" class="article-tag">
-                        <b>
-                            <svg class="svg-icon"
-                                 aria-hidden="true">
-                                <use href="#icon-hot" fill="currentColor"
-                                     stroke="var(--background-primary)">
-                                </use>
-                            </svg> 推荐</b>
-                    </span>
-                <div class="article">
-                    <div class="article-thumbnail">
-                        <img alt="" lazy="loading"
-                             th:src="${#strings.isEmpty(post.spec.cover) ? ASSETS +'/img/default-cover.jpg' : post.spec.cover} ">
-                        <span class="thumbnail-screen"
-                              style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                    </div>
-                    <div class="article-content">
-                        <span style="text-wrap: nowrap; overflow: hidden;">
-                            <th:block th:if="${not #lists.isEmpty(post.categories)}"
-                                      th:each="category,stat : ${post.categories}">
-                                <a th:if="${stat.index}<=2" th:href="@{${category.status.permalink}}">
-                                    <b>[[${category.spec.displayName}]]</b>
-                                </a>
-                            </th:block>
-                            <ul style="max-width: 100px">
-                                <li th:if="${not #lists.isEmpty(post.tags)}"
-                                    th:each="tag,stat : ${post.tags}">
-                                    <a th:if="${stat.index}<=3" th:href="@{${tag.status.permalink}}">
-                                        <em># [[${tag.spec.displayName}]]</em>
-                                    </a>
-                                </li>
-                            </ul>
-                        </span>
-                        <a th:href="@{${post.status.permalink}}" class="">
-                            <h1 data-dia="article-link"
-                                th:text="${post.spec.title}"></h1>
-                        </a>
-                        <p th:text="${post.spec.excerpt.raw}"></p>
-                        <div class="article-footer" th:with="owner=${post.owner}">
-                            <div class="flex flex-row items-center">
-                                <img class="hover:opacity-50 cursor-pointer"
-                                     th:src="${owner.avatar==null? ASSETS+'/img/ObsidianestLogo.png': owner.avatar}"
-                                     alt="author avatar">
-                                <span class="text-ob-dim">
-                                    <strong class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer"
-                                            th:text="${owner.displayName}"></strong>发布于 [[${#dates.format(post.spec.publishTime, 'MMMM dd,yyyy')}]]</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            <th:block th:each="post : ${posts.items}">
+                <th:block th:replace="~{macro/post-card :: post-card(${post.spec.pinned},${post})}"/>
+            </th:block>
+
         </ul>
         <!-- 分页 -->
         <div th:replace="~{modules/widgets/page :: page('',${posts})}"></div>
