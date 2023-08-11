@@ -15,10 +15,9 @@
                     <div th:each="tag : ${tags}"
                          class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
                         <a th:href="@{${tag.status.permalink}}"
-                           th:text="${tag.spec.displayName}"
                            class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
                            style="font-size: 1.25rem; line-height: 1.75rem;">
-                            <em class="opacity-50">#</em></a>
+                            <em class="opacity-50">#</em> [[${tag.spec.displayName}]]</a>
                         <span class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
                               style="font-size: 1.25rem; line-height: 1.75rem;"
                               th:text="${tag.status.postCount}"></span>
