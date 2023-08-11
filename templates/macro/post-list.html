@@ -20,7 +20,8 @@
                 <span class="first-tab" style="">全部</span>
             </li>
             <li th:each="categoryItem : ${categories}" th:classappend="${categoryItem==category}?'active':''">
-                <span th:text="${categoryItem.spec.displayName}"></span><b th:text="${categoryItem.status.postCount}"></b>
+                <span th:text="${categoryItem.spec.displayName}"></span><b
+                    th:text="${categoryItem.status.postCount}"></b>
             </li>
         </ul>
         <span class="tab-expander" style="z-index: 999;">
@@ -31,7 +32,7 @@
         </span>
         <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             <li th:each="post : ${posts.items}" class="article-container">
-                    <span class="article-tag">
+                    <span th:if="${post.spec.pinned}" class="article-tag">
                         <b>
                             <svg class="svg-icon"
                                  aria-hidden="true">
@@ -43,22 +44,25 @@
                 <div class="article">
                     <div class="article-thumbnail">
                         <img alt="" lazy="loading"
-                             th:src="@{/themes/theme-aurora/assets/img/default-cover.jpg}">
+                             th:src="${#strings.isEmpty(post.spec.cover) ? ASSETS +'/img/default-cover.jpg' : post.spec.cover} ">
                         <span class="thumbnail-screen"
                               style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
                     </div>
                     <div class="article-content">
-                        <span>
-                            <b>Aurora</b>
-                            <ul>
-                                <th:block th:if="${not #lists.isEmpty(post.tags)}">
-                                    <li th:each="tagName : ${post.spec.tags}"
-                                        th:with="tag = ${tagFinder.getByName(tagName)}">
-                                        <a th:href="@{${tag.status.permalink}}">
-                                            <em># [[${tag.spec.displayName}]]</em>
-                                        </a>
-                                    </li>
-                                </th:block>
+                        <span style="text-wrap: nowrap; overflow: hidden;">
+                            <th:block th:if="${not #lists.isEmpty(post.categories)}"
+                                      th:each="category,stat : ${post.categories}">
+                                <a th:if="${stat.index}<=2" th:href="@{${category.status.permalink}}">
+                                    <b>[[${category.spec.displayName}]]</b>
+                                </a>
+                            </th:block>
+                            <ul style="max-width: 100px">
+                                <li th:if="${not #lists.isEmpty(post.tags)}"
+                                    th:each="tag,stat : ${post.tags}">
+                                    <a th:if="${stat.index}<=3" th:href="@{${tag.status.permalink}}">
+                                        <em># [[${tag.spec.displayName}]]</em>
+                                    </a>
+                                </li>
                             </ul>
                         </span>
                         <a th:href="@{${post.status.permalink}}" class="">
@@ -66,13 +70,14 @@
                                 th:text="${post.spec.title}"></h1>
                         </a>
                         <p th:text="${post.spec.excerpt.raw}"></p>
-                        <div class="article-footer">
+                        <div class="article-footer" th:with="owner=${post.owner}">
                             <div class="flex flex-row items-center">
                                 <img class="hover:opacity-50 cursor-pointer"
-                                     th:src="@{/assets/img/ObsidianestLogo.png}"
+                                     th:src="${owner.avatar==null? ASSETS+'/img/ObsidianestLogo.png': owner.avatar}"
                                      alt="author avatar">
                                 <span class="text-ob-dim">
-                                    <strong class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer">三钻</strong>shared on May 2, 2021</span>
+                                    <strong class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer"
+                                            th:text="${owner.displayName}"></strong>发布于 [[${#dates.format(post.spec.publishTime, 'MMMM dd,yyyy')}]]</span>
                             </div>
                         </div>
                     </div>
