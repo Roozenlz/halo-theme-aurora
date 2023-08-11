@@ -5,11 +5,11 @@ metadata:
 spec:
   displayName: Aurora
   author:
-    name: roozen
+    name: Roozen
     website: https://roozen.top
-  description: 移植自hexo-theme-aurora的主题
-  logo: https://halo.run/logo
-  website: https://roozen.top
+  description: 移植自hexo-theme-aurora适配Halo2.x的Aurora主题
+  logo: https://roozen.top/upload/ObsidianestLogo-hex_hecqbw.png
+  website: https://roozen.top/?preview-theme=theme-aurora
   repo: https://github.com/Roozenlz/halo-theme-aurora
   settingName: "theme-aurora-setting"
   configMapName: "theme-aurora-configMap"
