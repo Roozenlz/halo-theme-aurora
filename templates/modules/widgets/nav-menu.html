@@ -7,7 +7,9 @@
             <li th:each="menuItem : ${menu.menuItems}"
                 class="not-italic font-medium text-xs h-full relative flex flex-col items-center justify-center cursor-pointer text-center py-4 px-2">
                 <div class="nav-link text-sm block px-1.5 py-0.5 rounded-md relative uppercase cursor-pointer"
-                     data-menu="Home"><span class="relative z-50" th:text="${menuItem.status.displayName}"></span>
+                     data-menu="Home">
+                    <span class="relative z-50" th:text="${menuItem.status.displayName}"
+                          th:onclick="go([[${menuItem.status.href}]])"></span>
                     <div class="menu-child origin-top-right absolute right-0 mt-2 bg-ob-deep-900 rounded-lg py-2 shadow-md">
                         <a th:each="menuItemChildren : ${menuItem.children}"
                            th:target="${menuItemChildren.spec.target?.value}"
@@ -17,6 +19,11 @@
                         </a>
                     </div>
                 </div>
+                <script>
+                    function go(to) {
+                        window.location.href = to;
+                    }
+                </script>
             </li>
         </ul>
     </nav>
@@ -24,6 +31,7 @@
         .menu-child {
             display: none;
         }
+
         .menus ul li:hover .menu-child {
             display: flex;
         }
