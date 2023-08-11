@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!-- 导航栏菜单栏 -->
-<div th:fragment="nav-right">
+<th:block th:fragment="nav-right">
     <div class="header-controls absolute top-10 right-0 flex flex-row"
          tabindex="0" style="width: 140px;">
-                <span class="ob-drop-shadow" data-dia="search">
-                    <svg class="svg-icon" aria-hidden="true">
-                        <use href="#icon-search" fill="currentColor" stroke="var(--text-white)"></use>
-                    </svg>
-                </span>
+            <span class="ob-drop-shadow" data-dia="search">
+                <svg class="svg-icon" aria-hidden="true">
+                    <use href="#icon-search" fill="currentColor" stroke="var(--text-white)"></use>
+                </svg>
+            </span>
         <theme-button value="dark" id="btn" size="1"></theme-button>
         <script>
             let body_class = document.body.classList;
@@ -35,5 +35,5 @@
         </script>
         <script th:src="@{/assets/js/day-night-toggle-button.js}"></script>
     </div>
-</div>
+</th:block>
 </html>

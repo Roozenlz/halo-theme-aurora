@@ -12,7 +12,7 @@
                 </div>
                 <img class="logo-image" th:src="${site.logo}" alt="site-logo"></div>
             <!-- 导航栏中间 -->
-            <div th:replace="~{modules/widgets/nav-menu :: nav-menu}"></div>
+            <th:block th:replace="~{modules/widgets/nav-menu :: nav-menu}"></th:block>
             <!-- 导航栏右侧 -->
             <div th:replace="~{modules/widgets/nav-right :: nav-right}"></div>
         </header>
