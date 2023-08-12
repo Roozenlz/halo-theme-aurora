@@ -1,5 +1,114 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <th:block th:fragment="mobile-sidebar">
+    <div class="App-Mobile-sidebar">
+        <div id="App-Mobile-Profile" class="App-Mobile-wrapper" style="opacity: 1; transform: translateY(0px);">
+            <div class="flex flex-col justify-center items-center">
+                <img class="diamond-avatar h-28 w-28 shadow-xl m-0"
+                     th:src="@{/assets/img/ObsidianestLogo.png}"
+                     alt="avatar">
+                <h2 class="text-center pt-4 text-4xl font-semibold text-ob-bright">三钻</h2>
+                <span class="h-1 w-14 rounded-full mt-2"
+                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
+            </span>
+                <p class="pt-6 px-2 w-full text-sm text-center text-ob-dim">Think like an artist, develop like an
+                    artisan. <br> @ <b>公众号：技术银河</b></p>
+                <ul class="flex flex-row justify-evenly flex-wrap w-full py-4 px-2 text-center items-center">
+                    <a href="https://github.com/TriDiamond" target="_blank">
+                        <li class="diamond-clip-path diamond-icon">
+                            <svg class="svg-icon fill-current fill-current"
+                                 style="height: 1em; width: 1em;">
+                                <use href="#icon-github" fill="currentColor" stroke="var(--background-primary)"></use>
+                            </svg>
+                        </li>
+                    </a>
+                    <a href="https://weibo.com/u/7318914058"
+                       target="_blank">
+                        <li class="diamond-clip-path diamond-icon">
+                            <svg class="svg-icon fill-current fill-current"
+                                 style="height: 1em; width: 1em;">
+                                <use href="#icon-weibo" fill="currentColor" stroke="var(--background-primary)"></use>
+                            </svg>
+                        </li>
+                    </a>
+                    <a href="https://blog.csdn.net/TriDiamond6" target="_blank">
+                        <li class="diamond-clip-path diamond-icon">
+                            <svg class="svg-icon fill-current fill-current"
+                                 style="height: 1em; width: 1em;">
+                                <use href="#icon-csdn" fill="currentColor" stroke="var(--background-primary)"></use>
+                            </svg>
+                        </li>
+                    </a><a href="https://www.zhihu.com/people/tridiamond" target="_blank">
+                    <li class="diamond-clip-path diamond-icon">
+                        <svg class="svg-icon fill-current fill-current"
+                             style="height: 1em; width: 1em;">
+                            <use href="#icon-zhifu" fill="currentColor" stroke="var(--background-primary)"></use>
+                        </svg>
+                    </li>
+                </a>
+                    <a href="https://juejin.cn/user/1873223546578589" target="_blank">
+                        <li class="diamond-clip-path diamond-icon">掘</li>
+                    </a>
+                    <a href="https://live.bilibili.com/22619211" target="_blank">
+                        <li class="diamond-clip-path diamond-icon">
+                            <span
+                                    class="fill-current">
+                                <object class="hidden" data="#icon-https://tridiamond.tech/svg/bilibili.svg">
+                                </object>
+                                <svg
+                                        class="svg-icon external-icon" fill="currentColor"
+                                        stroke="var(--background-primary)" style="height: 1em; width: 1em;"
+                                        xmlns="http://www.w3.org/2000/svg" t="1617961011545" viewBox="0 0 1024 1024"
+                                        version="1.1"
+                                        p-id="810" width="200" height="200">
+                                <path xmlns="http://www.w3.org/2000/svg"
+                                      d="M306.005333 117.632L444.330667 256h135.296l138.368-138.325333a42.666667 42.666667 0 0 1 60.373333 60.373333L700.330667 256H789.333333A149.333333 149.333333 0 0 1 938.666667 405.333333v341.333334a149.333333 149.333333 0 0 1-149.333334 149.333333h-554.666666A149.333333 149.333333 0 0 1 85.333333 746.666667v-341.333334A149.333333 149.333333 0 0 1 234.666667 256h88.96L245.632 177.962667a42.666667 42.666667 0 0 1 60.373333-60.373334zM789.333333 341.333333h-554.666666a64 64 0 0 0-63.701334 57.856L170.666667 405.333333v341.333334a64 64 0 0 0 57.856 63.701333L234.666667 810.666667h554.666666a64 64 0 0 0 63.701334-57.856L853.333333 746.666667v-341.333334A64 64 0 0 0 789.333333 341.333333zM341.333333 469.333333a42.666667 42.666667 0 0 1 42.666667 42.666667v85.333333a42.666667 42.666667 0 0 1-85.333333 0v-85.333333a42.666667 42.666667 0 0 1 42.666666-42.666667z m341.333334 0a42.666667 42.666667 0 0 1 42.666666 42.666667v85.333333a42.666667 42.666667 0 0 1-85.333333 0v-85.333333a42.666667 42.666667 0 0 1 42.666667-42.666667z"
+                                      p-id="811" fill=""></path>
+                            </svg>
+                            </span>
+                        </li>
+                    </a>
+                </ul>
+                <ul class="grid grid-cols-3 pt-4 w-full px-2 text-lg">
+                    <li class="col-span-1 text-center"><span class="text-ob-bright">34</span>
+                        <p class="text-base text-ob-dim">文章</p></li>
+                    <li class="col-span-1 text-center"><span class="text-ob-bright">14</span>
+                        <p class="text-base text-ob-dim">分类</p></li>
+                    <li class="col-span-1 text-center"><span class="text-ob-bright">76</span>
+                        <p class="text-base text-ob-dim">标签</p></li>
+                </ul>
+            </div>
+            <ul class="flex flex-col justify-center items-center mt-8 w-full list-none text-ob-bright">
+                <li class="pb-2 cursor-pointer">
+                    <div class="text-sm block px-1.5 py-0.5 rounded-md relative uppercase"><span class="relative z-50">首页</span>
+                    </div>
+                </li>
+                <li class="pb-2 cursor-pointer">
+                    <div class="text-sm block px-1.5 py-0.5 rounded-md relative uppercase"><span class="relative z-50">关于</span>
+                    </div>
+                </li>
+                <li class="pb-2 cursor-pointer">
+                    <div class="text-sm block px-1.5 py-0.5 rounded-md relative uppercase"><span class="relative z-50">归档</span>
+                    </div>
+                </li>
+                <li class="pb-2 cursor-pointer">
+                    <div class="text-sm block px-1.5 py-0.5 rounded-md relative uppercase"><span class="relative z-50">标签</span>
+                    </div>
+                </li>
+                <li class="pb-2 cursor-pointer">
+                    <div class="text-sm block px-1.5 py-0.5 rounded-md relative uppercase"><span class="relative z-50">友链</span>
+                    </div>
+                </li>
+                <li class="pb-2 cursor-pointer">
+                    <div class="text-sm block px-1.5 py-0.5 rounded-md relative uppercase"><span class="relative z-50">留言板</span>
+                    </div>
+                </li>
+                <li class="pb-2 cursor-pointer">
+                    <div class="ob-dropdown relative z-50 flex flex-col justify-center items-center nav-link text-sm px-1.5 py-0.5 rounded-md relative uppercase">
+                        <span class="relative z-50">Aurora 主题</span><!----></div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </th:block>
 </html>

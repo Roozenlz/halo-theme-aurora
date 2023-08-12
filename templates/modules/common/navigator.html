@@ -30,7 +30,7 @@
             </div>
         </div>
         <ul id="navigator-submenu" class="Ob-Navigator-submenu">
-            <li id="Ob-Navigator-top"
+            <li id="Ob-Navigator-top" onclick="returnTop()"
                 style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
                 <div>
                     <svg class="svg-icon text-ob-bright">
@@ -40,7 +40,7 @@
                 </div>
                 <span class="Ob-Navigator-tips">返回顶部</span></li>
             <li id="Ob-Navigator-menu"
-                class="lg:none"
+                class="lg:none" onclick="openMobileMenu()"
                 style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
                 <div>
                     <svg class="svg-icon text-ob-bright"
@@ -49,7 +49,7 @@
                     </svg>
                 </div>
                 <span class="Ob-Navigator-tips">打开菜单</span></li>
-            <li id="Ob-Navigator-home"
+            <li id="Ob-Navigator-home" onclick="javascript:window.location.href='/'"
                 style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
                 <div>
                     <svg class="svg-icon text-ob-bright">
@@ -65,13 +65,12 @@
                         <use href="#icon-nav-search" fill="var(--background-primary)" stroke="currentColor"></use>
                     </svg>
                 </div>
-                <span class="Ob-Navigator-tips">Open search</span>
+                <span class="Ob-Navigator-tips">打开搜索</span>
             </li>
         </ul>
         <script>
             const submenu = document.getElementById('navigator-submenu')
             var menu = submenu.childNodes[3];
-            console.log(menu)
             var home = submenu.childNodes[5]
             if (window.innerWidth >= 1024) {
                 menu = submenu.removeChild(menu)
@@ -81,10 +80,32 @@
             window.addEventListener("resize", (e) => {
                 if (submenu.isEqualNode(menu.parentNode) && window.innerWidth >= 1024) {
                     menu = submenu.removeChild(menu)
-                } else if(!submenu.isEqualNode(menu.parentNode) && window.innerWidth < 1024) {
+                } else if (!submenu.isEqualNode(menu.parentNode) && window.innerWidth < 1024) {
                     submenu.insertBefore(menu, home)
                 }
             })
+            const mobile = document.getElementById('App-Mobile-Profile');
+            let isOpen = false;
+            const app = document.getElementById('app')
+            const app_wrapper = document.getElementById('App-Wrapper')
+
+            function openMobileMenu() {
+                if (isOpen) {
+                    mobile.style = 'opacity: 0; transform: translateY(-20%);'
+                    document.body.style = ''
+                    app.style = 'overflow: auto; max-height: initial;'
+                    app_wrapper.style = 'min-height: 100vh; border-radius: 0px; overflow: hidden; max-height: 100vh; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1);'
+                    setTimeout(() => {
+                        app_wrapper.style = 'min-height: initial; border-radius: 0px; overflow: auto; max-height: initial; transform: none;'
+                    }, 500)
+                } else {
+                    mobile.style = 'opacity: 1; transform: translateY(0px);'
+                    document.body.style = 'overflow: hidden; position: fixed; top: 0px; width: 100%;'
+                    app.style = 'overflow: hidden; max-height: 100vh;'
+                    app_wrapper.style = 'min-height: 100vh; border-radius: 16px; overflow: hidden; max-height: 100vh; transform: translate3d(302px, 0px, 0px) scale3d(0.86, 0.86, 1);'
+                }
+                isOpen = !isOpen;
+            }
         </script>
     </div>
 </th:block>
