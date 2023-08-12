@@ -530,6 +530,11 @@
     </svg>
 
 
+    <div>
+        <script th:src="@{/assets/js/main.js}"></script>
+        <!-- Tocbot 目录生成 start -->
+        <th:block th:replace="~{modules/common/toc-bot :: toc-bot}"></th:block>
+    </div>
     <script th:if="${theme.config.code.enable}">
         //代码块
         btf.addPrismTool()

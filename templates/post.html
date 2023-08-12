@@ -35,7 +35,7 @@
             <div class="main-grid">
                 <div>
                     <div class="post-html">
-                        <article id="article-container" th:class="${ theme.config.code.enable_line || pluginFinder.available('PluginPrismJS') ? 'line-numbers' : ''}"
+                        <article id="article-container" th:class="'post-content  ' + ${ theme.config.code.enable_line || pluginFinder.available('PluginPrismJS') ? 'line-numbers' : ''}"
                         th:utext="${post.content.content}"></article>
 
                         <!--                                    参考样式代码-->

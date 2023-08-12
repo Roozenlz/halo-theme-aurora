@@ -25,7 +25,7 @@
                                 name = ${singlePage.metadata.name},
                                 allowComment = ${singlePage.spec.allowComment})}"/>
                     </div>
-                    <div th:replace="~{modules/aside :: aside(widgets = null)}"></div>
+                    <div th:replace="~{modules/aside :: aside(${theme.config.sidebar.widgetss.pageWidgets})}"></div>
                 </div>
 
             </div>

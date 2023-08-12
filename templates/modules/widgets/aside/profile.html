@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- 侧边栏自我介绍 -->
+
+
+<div th:fragment="profile" class="h-98 w-full rounded-2xl relative shadow-xl mb-8"
+     style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
+    <div class="ob-gradient-cut-plate absolute bg-ob-deep-900 rounded-xl opacity-90 flex justify-center items-center pt-4 px-6 shadow-lg hover:shadow-2xl duration-300"
+         data-dia="author">
+        <div class="profile absolute w-full flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center">
+                <img class="ob-avatar diamond-avatar"
+                     th:src="@{${#strings.isEmpty(site.logo) ? assets_link + '/images/hao-logo.jpg' : site.logo}}"
+                     alt="avatar">
+                <h2 class="text-center pt-4 text-4xl font-semibold text-ob-bright">
+                    [[${site.title}]]</h2><span class="h-1 w-14 rounded-full mt-2"
+                                                style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                <p class="pt-6 px-10 w-full text-sm text-center" th:utext="${theme.config.sidebar.profile.profileDesc}">
+                </p>
+            </div>
+            <div class="h-full w-full flex flex-col flex-1 justify-end items-end">
+                <ul th:if="${not #lists.isEmpty(theme.config.sidebar.profile.socialMedia)}"
+                    th:with="socialMedias = ${theme.config.sidebar.profile.socialMedia}"
+                    class="flex flex-row justify-evenly flex-wrap w-full py-4 px-2 text-center items-center">
+                    <a th:each="socialMedia : ${socialMedias}" th:href="${socialMedia.url}"
+                       th:title="${socialMedia.name}" target="_blank">
+
+                        <li class="diamond-clip-path diamond-icon">
+                            <i class="iconfont" th:classappend="${socialMedia.icon}"></i>
+                        </li>
+                    </a>
+                </ul>
+                <ul class="grid grid-cols-4 pt-4 w-full px-2 text-lg" th:with="stats = ${siteStatsFinder.getStats()}">
+                    <li class="col-span-1 text-center"><span class="text-ob-bright">[[${stats.post}]]</span>
+                        <p class="text-base">文章</p>
+                    </li>
+                    <li class="col-span-1 text-center"><span class="text-ob-bright">[[${stats.category}]]</span>
+                        <p class="text-base">分类</p>
+                    </li>
+                    <li class="col-span-1 text-center"><span class="text-ob-bright">[[${stats.visit}]]</span>
+                        <p class="text-base">访问量</p>
+                    </li>
+                    <li class="col-span-1 text-center">
+                        <span class="text-ob-bright" id="runtimeshow" th:text="${theme.config.basics.siteStartTime}"></span>
+                        <p class="text-base">建站天数</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</html>

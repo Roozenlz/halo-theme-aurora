@@ -35,6 +35,11 @@
     <!-- 声明一些公共信息 -->
     <script  th:inline="javascript">
         var GLOBAL_CONFIG = {
+            source: {
+                twikoo: {
+                    js: '/themes/theme-aurora/assets/libs/twikoo/twikoo.all.min.js',
+                }
+            },
             prism: {
                 enable: [[${ theme.config.code.enable }]],
                 enable_title: [[${ theme.config.code.enable_title }]],

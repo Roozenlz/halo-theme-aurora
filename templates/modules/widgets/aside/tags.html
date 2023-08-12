@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div class="sidebar-box" th:fragment="tags">
+    <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
+        <svg class="svg-icon inline-block mr-2 inline-block mr-2">
+            <use href="#icon-tag" fill="currentColor" stroke="var(--background-primary)"></use>
+        </svg>
+        <span class="w-full block">Tags</span><!----><span class="absolute bottom-0 h-1 w-14 rounded-full"
+                                                           style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+    </p>
+    <div class="flex justify-event flex-wrap pt-2">
+        <th:block
+                th:with="tags = ${tagFinder.listAll()}, tagQuantity = ${#conversions.convert(theme.config.sidebar.tagQuantity, 'java.lang.Integer')}">
+            <div th:each="tag,iterStat : ${tags}"
+                 class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all"
+                 th:if="${tagQuantity >= 0 && iterStat.index < tagQuantity || tagQuantity < 0}">
+                <a th:href="@{${tag.status.permalink}}"
+                   class="bg-ob-deep-900 text-center px-3 py-1 rounded-tl-md rounded-bl-md text-sm"
+                   style="font-size: 0.75rem; line-height: 1rem;">
+                    <em class="opacity-50">#</em> [[${tag.spec.displayName}]]</a>
+                <span
+                        class="bg-ob-deep-900 text-ob-secondary text-center px-2 py-1 rounded-tr-md rounded-br-md text-sm opacity-70"
+                        style="font-size: 0.75rem; line-height: 1rem;">[[${tag.status.visiblePostCount}]]</span>
+            </div>
+        </th:block>
+
+        <div class="flex flex-row items-center hover:opacity-50 mr-2 mb-2 cursor-pointer transition-all">
+            <span class="text-center px-3 py-1 rounded-md text-sm"><b class="border-b-2 border-ob hover:text-ob"><a
+                    href="/tags" class="">View more ... </a></b></span>
+        </div>
+    </div>
+</div>
