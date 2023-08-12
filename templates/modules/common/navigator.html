@@ -2,60 +2,90 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <th:block th:fragment="navigator">
     <script type="text/javascript" th:src="@{/assets/js/navigator.js}"></script>
-    <div  id="Ob-Navigator">
-        <div id="returnTop" onclick="returnTop()" style="display: none"  class="Ob-Navigator-btt">
-            <div >
-                <svg   class="svg-icon text-ob-bright" aria-hidden="true"
+    <div id="Ob-Navigator"
+         style="-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;">
+        <div id="returnTop" onclick="returnTop()" style="display: none" class="Ob-Navigator-btt">
+            <div>
+                <svg class="svg-icon text-ob-bright"
                      style="height: 1em; width: 1em;">
-                    <use  href="#icon-back-to-top" fill="currentColor"
+                    <use href="#icon-back-to-top" fill="currentColor"
                          stroke="var(--background-primary)"></use>
                 </svg>
             </div>
-            <span  class="Ob-Navigator-tips">返回顶部</span></div>
-        <div  class="Ob-Navigator-ball" onclick="navigatorClickHandler()">
-            <div 
-                 style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
-                <svg id="scrollSvg1"   class="svg-icon" aria-hidden="true">
-                    <use  href="#icon-dots" fill="currentColor"
+            <span class="Ob-Navigator-tips">返回顶部</span></div>
+        <div class="Ob-Navigator-ball" onclick="navigatorClickHandler()">
+            <div
+                    style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
+                <svg id="scrollSvg1" class="svg-icon">
+                    <use href="#icon-dots" fill="currentColor"
                          stroke="var(--background-primary)"></use>
                 </svg>
-                <svg id="scrollSvg2"   class="svg-icon text-base stroke-2"
-                     aria-hidden="true"
+                <svg id="scrollSvg2" class="svg-icon text-base stroke-2"
+
                      style="height: 1em; width: 1em;display: none">
-                    <use  href="#icon-close" fill="currentColor"
+                    <use href="#icon-close" fill="currentColor"
                          stroke="var(--background-primary)"></use>
                 </svg>
-                <span id="scrollPercent"  class="text-sm"></span>
+                <span id="scrollPercent" class="text-sm"></span>
             </div>
         </div>
-        <ul  class="Ob-Navigator-submenu">
-            <li  id="Ob-Navigator-top"
+        <ul id="navigator-submenu" class="Ob-Navigator-submenu">
+            <li id="Ob-Navigator-top"
                 style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
-                <div >
-                    <svg   class="svg-icon text-ob-bright" aria-hidden="true">
-                        <use  href="#icon-back-to-top" fill="currentColor"
+                <div>
+                    <svg class="svg-icon text-ob-bright">
+                        <use href="#icon-back-to-top" fill="currentColor"
                              stroke="var(--background-primary)"></use>
                     </svg>
                 </div>
-                <span  class="Ob-Navigator-tips">Back to top</span></li><!---->
-            <li  id="Ob-Navigator-home"
+                <span class="Ob-Navigator-tips">返回顶部</span></li>
+            <li id="Ob-Navigator-menu"
+                class="lg:none"
                 style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
-                <div >
-                    <svg   class="svg-icon text-ob-bright" aria-hidden="true">
-                        <use  href="#icon-nav-home" fill="currentColor"
+                <div>
+                    <svg class="svg-icon text-ob-bright"
+                         style="height: 1em; width: 1em;">
+                        <use href="#icon-nav-menu" fill="currentColor" stroke="var(--background-primary)"></use>
+                    </svg>
+                </div>
+                <span class="Ob-Navigator-tips">打开菜单</span></li>
+            <li id="Ob-Navigator-home"
+                style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
+                <div>
+                    <svg class="svg-icon text-ob-bright">
+                        <use href="#icon-nav-home" fill="currentColor"
                              stroke="var(--background-primary)"></use>
                     </svg>
                 </div>
-                <span  class="Ob-Navigator-tips">Back to home</span></li>
-            <li  id="Ob-Navigator-search"
+                <span class="Ob-Navigator-tips">返回首页</span></li>
+            <li id="Ob-Navigator-search"
                 style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
-                <div >
-                    <svg   class="svg-icon text-ob-bright" aria-hidden="true">
-                        <use  href="#icon-nav-search" fill="var(--background-primary)" stroke="currentColor"></use>
+                <div>
+                    <svg class="svg-icon text-ob-bright">
+                        <use href="#icon-nav-search" fill="var(--background-primary)" stroke="currentColor"></use>
                     </svg>
                 </div>
-                <span  class="Ob-Navigator-tips">Open search</span></li>
+                <span class="Ob-Navigator-tips">Open search</span>
+            </li>
         </ul>
+        <script>
+            const submenu = document.getElementById('navigator-submenu')
+            var menu = submenu.childNodes[3];
+            console.log(menu)
+            var home = submenu.childNodes[5]
+            if (window.innerWidth >= 1024) {
+                menu = submenu.removeChild(menu)
+            } else {
+                submenu.insertBefore(menu, home)
+            }
+            window.addEventListener("resize", (e) => {
+                if (submenu.isEqualNode(menu.parentNode) && window.innerWidth >= 1024) {
+                    menu = submenu.removeChild(menu)
+                } else if(!submenu.isEqualNode(menu.parentNode) && window.innerWidth < 1024) {
+                    submenu.insertBefore(menu, home)
+                }
+            })
+        </script>
     </div>
 </th:block>
 </html>

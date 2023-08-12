@@ -5,17 +5,17 @@
     <span>
         <p id="article-list"
            class="relative opacity-90 flex items-center pt-12 pb-2 mb-8 text-3xl text-ob-bright uppercase">
-            <svg  class="svg-icon inline-block mr-2 inline-block mr-2"
-                  aria-hidden="true">
-                <use  href="#icon-article" fill="currentColor"
-                      stroke="var(--background-primary)"></use>
+            <svg class="svg-icon inline-block mr-2 inline-block mr-2">
+                <use href="#icon-article" fill="currentColor"
+                     stroke="var(--background-primary)"></use>
             </svg> 文章列表
             <span class="absolute bottom-0 h-1 w-24 rounded-full"
                   style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
         </p>
     </span>
     <div class="main-grid">
-        <th:block th:replace="~{macro/post-list :: post-list('tag',${posts.items},${theme.config.article.index_number})}"/>
+        <th:block
+                th:replace="~{macro/post-list :: post-list('tag',${posts.items},${theme.config.article.index_number})}"/>
         <div th:replace="~{modules/aside :: aside(widgets = null)}"></div>
     </div>
 </th:block>

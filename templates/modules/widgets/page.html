@@ -6,43 +6,44 @@
     @param  path       '/path/page/n' 中的 `/path` 需要保留 `/`
     @param  pageInfo   Halo类型UrlContextListResult<ListedPostVo>
  -->
-<div data-v-a3fd6a03="" class="paginator" th:fragment="page(path,pageInfo)">
-    <ul data-v-a3fd6a03="">
-        <a  th:if="${pageInfo.hasPrevious}" th:href="${pageInfo.prevUrl}">
-            <li data-v-a3fd6a03="" class="text-ob-bright">
-                <svg data-v-729e93ea="" data-v-a3fd6a03="" class="svg-icon" aria-hidden="true">
-                    <use data-v-729e93ea="" href="#icon-arrow-left" fill="currentColor" stroke="var(--background-primary)"></use>
-                </svg>新的
+<div class="paginator" th:fragment="page(path,pageInfo)">
+    <ul>
+        <a th:if="${pageInfo.hasPrevious}" th:href="${pageInfo.prevUrl}">
+            <li class="text-ob-bright">
+                <svg class="svg-icon">
+                    <use href="#icon-arrow-left" fill="currentColor" stroke="var(--background-primary)"></use>
+                </svg>
+                新的
             </li>
         </a>
 
         <!-- 页码按钮 -->
         <th:block th:if="${pageInfo.page > 3}">
             <a class="page-number" th:href="${path+'/page/1'}">
-                <li data-v-a3fd6a03="" class=""  th:text="1"></li>
+                <li class="" th:text="1"></li>
             </a>
-            <li data-v-a3fd6a03="" class="" th:if="${pageInfo.page != 4}">…</li>
+            <li class="" th:if="${pageInfo.page != 4}">…</li>
         </th:block>
 
         <th:block th:each="index:${#numbers.sequence(pageInfo.page-2,pageInfo.page+2)}">
-            <li data-v-a3fd6a03="" class="active" th:if="${pageInfo.page} == ${index}" th:text="${pageInfo.page}"></li>
+            <li class="active" th:if="${pageInfo.page} == ${index}" th:text="${pageInfo.page}"></li>
             <a th:unless="${pageInfo.page == index}" th:if="${index > 0 && index <= pageInfo.totalPages}"
                th:href="${path+'/page/'+index}">
-                <li data-v-a3fd6a03="" th:text="${index}"></li>
+                <li th:text="${index}"></li>
             </a>
         </th:block>
 
         <th:block th:if="${pageInfo.totalPages - pageInfo.page > 2}">
-            <li data-v-a3fd6a03="" class="" th:if="${pageInfo.totalPages - pageInfo.page != 3}">…</li>
+            <li class="" th:if="${pageInfo.totalPages - pageInfo.page != 3}">…</li>
             <a th:href="${path+'/page/'+pageInfo.totalPages}">
-                <li data-v-a3fd6a03="" th:text="${pageInfo.totalPages}"></li>
+                <li th:text="${pageInfo.totalPages}"></li>
             </a>
         </th:block>
 
-        <a  th:if="${pageInfo.hasNext}" th:href="${pageInfo.nextUrl}">
-            <li data-v-a3fd6a03="" class="text-ob-bright">以往
-                <svg data-v-729e93ea="" data-v-a3fd6a03="" class="svg-icon" aria-hidden="true">
-                    <use data-v-729e93ea="" href="#icon-arrow-right" fill="currentColor" stroke="var(--background-primary)"></use>
+        <a th:if="${pageInfo.hasNext}" th:href="${pageInfo.nextUrl}">
+            <li class="text-ob-bright">以往
+                <svg class="svg-icon">
+                    <use href="#icon-arrow-right" fill="currentColor" stroke="var(--background-primary)"></use>
                 </svg>
             </li>
         </a>

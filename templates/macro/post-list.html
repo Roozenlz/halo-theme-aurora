@@ -19,7 +19,8 @@
         </ul>
         <ul id="post_tab" th:if="${type=='category'}" th:with="categories = ${categoryFinder.listAll()}" class="tab"
             style="z-index: 9;">
-            <li onclick="javascript:window.location.href='/#article-list'" th:classappend="${category==null}?'active':''">
+            <li onclick="javascript:window.location.href='/#article-list'"
+                th:classappend="${category==null}?'active':''">
                 <span class="tab-span first-tab" style="">全部</span>
             </li>
             <li th:each="categoryItem : ${categories}"
@@ -30,7 +31,7 @@
             </li>
         </ul>
         <span onclick="expandHandler()" id="expander" class="tab-expander" style="z-index: 999;">
-            <svg class="svg-icon" aria-hidden="true">
+            <svg class="svg-icon">
                 <use href="#icon-chevron" fill="currentColor"
                      stroke="var(--background-primary)"></use>
             </svg>

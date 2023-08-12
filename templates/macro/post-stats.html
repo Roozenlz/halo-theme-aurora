@@ -2,7 +2,7 @@
     <div class="post-stats"
          th:with="wordCount = ${#strings.length(post.content.content)}">
             <span>
-                <svg class="svg-icon" aria-hidden="true"
+                <svg class="svg-icon" 
                      style="height: 1.25em; width: 1.25em;">
                     <use href="#icon-clock-outline" fill="none"
                          stroke="white"></use>
@@ -10,7 +10,7 @@
                 <span class="pl-2 opacity-70">[[${wordCount / 400}]] mins.</span>
             </span>
         <span>
-                <svg class="svg-icon" aria-hidden="true"
+                <svg class="svg-icon" 
                      style="height: 1.25em; width: 1.25em;">
                     <use
                             href="#icon-text-outline"
@@ -19,7 +19,7 @@
                 <span class="pl-2 opacity-70">[[${wordCount}]]</span>
             </span>
         <span>
-            <svg class="svg-icon h-5 w-5 h-5 w-5" aria-hidden="true"
+            <svg class="svg-icon h-5 w-5 h-5 w-5" 
                  style="height: 1.25em; width: 1.25em;">
                 <use href="#icon-hot" fill="none"
                      stroke="white"></use>
@@ -31,7 +31,7 @@
         </span>
         <!--                                        //todo 显示评论数量-->
         <!--                                        <span>-->
-        <!--                                            <svg  class="svg-icon h-5 w-5 h-5 w-5" aria-hidden="true"-->
+        <!--                                            <svg  class="svg-icon h-5 w-5 h-5 w-5" -->
         <!--                                                 style="height: 1.25em; width: 1.25em;">-->
         <!--                                                <use  href="#icon-quote" fill="none"-->
         <!--                                                     stroke="white"></use>-->

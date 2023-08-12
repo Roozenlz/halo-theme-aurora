@@ -360,29 +360,31 @@
                              class="w-full h-full self-stretch mr-0 lg:mr-4">
                             <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
                                 <svg class="svg-icon inline-block mr-2 inline-block mr-2"
-                                     aria-hidden="true" style="height: 1em; width: 1em;">
+                                     style="height: 1em; width: 1em;">
                                     <use href="#icon-arrow-left-circle" fill="currentColor"
                                          stroke="var(--background-primary)"></use>
                                 </svg>
                                 <span class="w-full block">上一篇更回味</span>
                                 <span class="absolute bottom-0 h-1 w-14 rounded-full"
-                                    style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
                             </p>
-                            <th:block th:replace="~{macro/post-card :: post-card(${post.spec.pinned},${postCursor.previous})}"/>
+                            <th:block
+                                    th:replace="~{macro/post-card :: post-card(${post.spec.pinned},${postCursor.previous})}"/>
                         </div>
                         <div th:if="${postCursor.hasNext()}"
                              class="w-full h-full self-stretch mt-8 lg:mt-0">
                             <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
-                                <!----><span class="w-full block text-right">下一篇更精彩</span>
+                                <span class="w-full block text-right">下一篇更精彩</span>
                                 <svg class="svg-icon inline-block ml-2 inline-block ml-2"
-                                     aria-hidden="true" style="height: 1em; width: 1em;">
+                                     style="height: 1em; width: 1em;">
                                     <use href="#icon-arrow-right-circle" fill="currentColor"
                                          stroke="var(--background-primary)"></use>
                                 </svg>
                                 <span class="absolute bottom-0 h-1 w-14 rounded-full right-0"
                                       style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
                             </p>
-                            <th:block th:replace="~{macro/post-card :: post-card(${post.spec.pinned},${postCursor.next})}"/>
+                            <th:block
+                                    th:replace="~{macro/post-card :: post-card(${post.spec.pinned},${postCursor.next})}"/>
                         </div>
                     </div>
 
