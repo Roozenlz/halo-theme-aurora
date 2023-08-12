@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- 公共的 head 部分，可以定义部分 links,scripts,styles -->
+<head th:fragment="head(head)">
+
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+    <title th:text="${site.title}"></title>
+    <th:block th:if="${head != null}">
+        <th:block th:replace="${head}"/>
+    </th:block>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" th:href="@{/assets/css/aurora.css}">
+    <script async="" rel="prefetch"
+            src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+            type="text/javascript"></script>
+    <script rel="preload" src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"
+            type="text/javascript"></script>
+    <script rel="preload" src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+            type="text/javascript"></script>
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Rubik">
+    <link rel="stylesheet" href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/waline/2.15.5/waline.min.css">
+    <link rel="stylesheet" th:href="@{/assets/css/breadcrumbs.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/post.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/comment.css}">
+    <script th:src="@{/assets/js/utils.js}"></script>
+    <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- 代码块自动识别语言 -->
+    <th:block th:replace="~{modules/common/code :: code}"/>
+    <!--  代码块-->
+    <th:block th:replace="~{macro/prism-code :: prism-code}"/>
+    <!-- 声明一些公共信息 -->
+    <script  th:inline="javascript">
+        var GLOBAL_CONFIG = {
+            prism: {
+                enable: [[${ theme.config.code.enable }]],
+                enable_title: [[${ theme.config.code.enable_title }]],
+                enable_hr: [[${ theme.config.code.enable_hr }]],
+                enable_line: [[${ theme.config.code.enable_line }]],
+                enable_copy: [[${ theme.config.code.enable_copy }]],
+                enable_expander: [[${ theme.config.code.enable_expander }]],
+                prism_limit: Number([[${#strings.isEmpty(theme.config.code.height_limit) ? 300 : theme.config.code.height_limit}]])+30,
+                enable_height_limit: [[${theme.config.code.enable_height_limit}]]
+            },
+        }
+    </script>
+
+
+    <style>
+        mjx-container[jax="SVG"] {
+            direction: ltr;
+        }
+
+        mjx-container[jax="SVG"] > svg {
+            overflow: visible;
+        }
+
+        mjx-container[jax="SVG"][display="true"] {
+            display: block;
+            text-align: center;
+            margin: 1em 0;
+        }
+
+        mjx-container[jax="SVG"][justify="left"] {
+            text-align: left;
+        }
+
+        mjx-container[jax="SVG"][justify="right"] {
+            text-align: right;
+        }
+
+        g[data-mml-node="merror"] > g {
+            fill: red;
+            stroke: red;
+        }
+
+        g[data-mml-node="merror"] > rect[data-background] {
+            fill: yellow;
+            stroke: none;
+        }
+
+        g[data-mml-node="mtable"] > line[data-line] {
+            stroke-width: 70px;
+            fill: none;
+        }
+
+        g[data-mml-node="mtable"] > rect[data-frame] {
+            stroke-width: 70px;
+            fill: none;
+        }
+
+        g[data-mml-node="mtable"] > .mjx-dashed {
+            stroke-dasharray: 140;
+        }
+
+        g[data-mml-node="mtable"] > .mjx-dotted {
+            stroke-linecap: round;
+            stroke-dasharray: 0, 140;
+        }
+
+        g[data-mml-node="mtable"] > svg {
+            overflow: visible;
+        }
+
+        [jax="SVG"] mjx-tool {
+            display: inline-block;
+            position: relative;
+            width: 0;
+            height: 0;
+        }
+
+        [jax="SVG"] mjx-tool > mjx-tip {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        mjx-tool > mjx-tip {
+            display: inline-block;
+            padding: .2em;
+            border: 1px solid #888;
+            font-size: 70%;
+            background-color: #F8F8F8;
+            color: black;
+            box-shadow: 2px 2px 5px #AAAAAA;
+        }
+
+        g[data-mml-node="maction"][data-toggle] {
+            cursor: pointer;
+        }
+
+        mjx-status {
+            display: block;
+            position: fixed;
+            left: 1em;
+            bottom: 1em;
+            min-width: 25%;
+            padding: .2em .4em;
+            border: 1px solid #888;
+            font-size: 90%;
+            background-color: #F8F8F8;
+            color: black;
+        }
+
+        foreignObject[data-mjx-xml] {
+            font-family: initial;
+            line-height: normal;
+            overflow: visible;
+        }
+
+        .MathJax path {
+            stroke-width: 3;
+        }
+
+        mjx-container[display="true"] {
+            overflow: auto hidden;
+        }
+
+        mjx-container[display="true"] + br {
+            display: none;
+        }
+    </style>
+</head>
+
+</html>
