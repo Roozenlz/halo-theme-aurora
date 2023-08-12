@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="code">
+    <!-- 自动识别语言 -->
+    <th:block th:if="${theme.config.code.enable}">
+        <script th:src="@{/assets/libs/prism/highlight.min.js}"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                hljs.highlightAll()
+            })
+        </script>
+
+    </th:block>
+
+</th:block>
+
+</html>
