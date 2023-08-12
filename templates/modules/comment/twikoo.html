@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- 导航栏菜单栏 -->
+<div id="comments" th:fragment="twikoo">
+    <div class="bg-ob-deep-800 p-4 mt-8 lg:px-14 lg:py-10 rounded-2xl shadow-xl mb-8 lg:mb-0">
+        <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
+            <span class="w-full block">评论区</span><span
+                class="absolute bottom-0 h-1 w-14 rounded-full"
+                style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+        </p>
+        <div id="twikoo-wrap"></div>
+    </div>
+
+    <script>(() => {
+        const init = () => {
+            twikoo.init(Object.assign({
+                el: '#twikoo-wrap',
+                envId: "[(${theme.config.comments.twikoos.envId})]",
+                region: ''
+            }, null))
+        }
+
+        const runFn = () => {
+            init()
+        }
+
+        const loadTwikoo = () => {
+            if (typeof twikoo === 'object') {
+                setTimeout(runFn, 0)
+                return
+            }
+            $.getScript("/themes/theme-aurora/assets/libs/twikoo/twikoo.all.min.js").then(runFn)
+        }
+
+        if ('Twikoo' === 'Twikoo' || !false) {
+            if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+            else loadTwikoo()
+        } else {
+            window.loadOtherComment = () => {
+                loadTwikoo()
+            }
+        }
+
+
+    })()</script>
+
+</div>
+
+
+</html>
