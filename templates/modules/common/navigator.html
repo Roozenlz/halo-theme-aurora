@@ -72,19 +72,23 @@
             const submenu = document.getElementById('navigator-submenu')
             var menu = submenu.childNodes[3];
             var home = submenu.childNodes[5]
+            const mobile = document.getElementById('App-Mobile-Profile');
             if (window.innerWidth >= 1024) {
                 menu = submenu.removeChild(menu)
+                mobile.style.display = 'none'
             } else {
                 submenu.insertBefore(menu, home)
             }
             window.addEventListener("resize", (e) => {
                 if (submenu.isEqualNode(menu.parentNode) && window.innerWidth >= 1024) {
                     menu = submenu.removeChild(menu)
+                    mobile.style.display = 'none'
                 } else if (!submenu.isEqualNode(menu.parentNode) && window.innerWidth < 1024) {
+                    // mobile.style.display = 'block'
                     submenu.insertBefore(menu, home)
                 }
             })
-            const mobile = document.getElementById('App-Mobile-Profile');
+
             let isOpen = false;
             const app = document.getElementById('app')
             const app_wrapper = document.getElementById('App-Wrapper')
