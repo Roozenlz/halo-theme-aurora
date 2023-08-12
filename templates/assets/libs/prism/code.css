@@ -128,10 +128,6 @@
     text-shadow: none
 }
 
-#article-container .code-toolbar pre[class*=language-] code[class*=language-]::-webkit-scrollbar {
-    width: 5px;
-    height: 5px
-}
 
 #article-container .code-toolbar pre[class*=language-] code[class*=language-] .style .token.string,#article-container .code-toolbar pre[class*=language-] code[class*=language-] .token.entity,#article-container .code-toolbar pre[class*=language-] code[class*=language-] .token.operator,#article-container .code-toolbar pre[class*=language-] code[class*=language-] .token.string,#article-container .code-toolbar pre[class*=language-] code[class*=language-] .token.url {
     background-color: transparent
@@ -289,5 +285,4 @@
         filter: alpha(opacity=60)
     }
 }
-
 /*代码块*/
