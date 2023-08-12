@@ -143,7 +143,7 @@ var btf = {
             if(isEnableCopy){
                 var copy = document.createElement("i");
 
-                copy.className = 'haofont hao-icon-paste copy-button code-copy cursor-pointer'
+                copy.className = 'iconfont icon-paste copy-button code-copy cursor-pointer'
                 customItem.appendChild(copy)
 
                 copy.addEventListener('click', function () {
@@ -202,7 +202,7 @@ var btf = {
                 r.classList.add("close")
                 const ele = document.createElement("div");
                 ele.className = "code-expand-btn";
-                ele.innerHTML = '<i class="haofont hao-icon-angle-double-down"></i>';
+                ele.innerHTML = '<i class="iconfont icon-angle-double-down"></i>';
                 ele.addEventListener("click", expandCode);
                 r.offsetParent.appendChild(ele);
             }
@@ -255,6 +255,25 @@ var btf = {
         var e = document.querySelector("link[data-code-theme=light]"),
             o = document.querySelector("link[data-code-theme=dark]");
         (o || e) && ("light" === t ? (o.disabled = !0, e.disabled = !1) : (e.disabled = !0, o.disabled = !1))
+
+    },
+
+    snackbarShow: (text, showAction, duration) => {
+        const sa = (typeof showAction !== 'undefined') ? showAction : false
+        const dur = (typeof duration !== 'undefined') ? duration : 5000
+        // const position = GLOBAL_CONFIG.Snackbar.position
+        const bg = document.documentElement.getAttribute('data-theme') === 'light' ? GLOBAL_CONFIG.Snackbar.bgLight : GLOBAL_CONFIG.Snackbar.bgDark
+        const style = document.createElement('style');
+        document.head.appendChild(style);
+        const styleSheet = style.sheet;
+        styleSheet.insertRule(`:root{--heo-snackbar-time: ${dur}ms!important}`, styleSheet.cssRules.length);
+        // Snackbar.show({
+        //     text: text,
+        //     backgroundColor: bg,
+        //     showAction: sa,
+        //     duration: dur,
+        //     pos: position
+        // })
 
     },
 

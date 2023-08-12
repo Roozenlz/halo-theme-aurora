@@ -74,20 +74,27 @@
             var menu = submenu.childNodes[3];
             var home = submenu.childNodes[5]
             const mobile = document.getElementById('App-Mobile-Profile');
+            const pc_aside = document.getElementById('app-pc-aside')
             if (window.innerWidth >= 1024) {
                 menu = submenu.removeChild(menu)
                 mobile.style.display = 'none'
             } else {
+                pc_aside.style.display = 'none'
                 submenu.insertBefore(menu, home)
             }
-            window.addEventListener("resize", (e) => {
-                if (submenu.isEqualNode(menu.parentNode) && window.innerWidth >= 1024) {
-                    menu = submenu.removeChild(menu)
-                    mobile.style.display = 'none'
-                } else if (!submenu.isEqualNode(menu.parentNode) && window.innerWidth < 1024) {
-                    // mobile.style.display = 'block'
-                    submenu.insertBefore(menu, home)
-                }
+            let timeOut = null; // 初始化空定时器
+            window.addEventListener("resize", () => {
+                clearTimeout(timeOut)   // 频繁操作，一直清空先前的定时器
+                timeOut = setTimeout(() => {  // 只执行最后一次事件
+                    if (submenu.isEqualNode(menu.parentNode) && window.innerWidth >= 1024) {
+                        menu = submenu.removeChild(menu)
+                        mobile.style.display = 'none'
+                        pc_aside.style.display = 'block'
+                    } else if (!submenu.isEqualNode(menu.parentNode) && window.innerWidth < 1024) {
+                        pc_aside.style.display = 'none'
+                        submenu.insertBefore(menu, home)
+                    }
+                }, 300)
             })
 
             let isOpen = false;

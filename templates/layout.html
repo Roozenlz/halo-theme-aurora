@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org"
       th:fragment="html (head,content)">
-<head th:replace="~{modules/head :: head(head = ${head})}">
-
-</head>
+<head th:replace="~{modules/head :: head(head = ${head})}"></head>
 <body id="body-container" th:with="ASSETS='/themes/theme-aurora/assets'">
     <noscript>
         <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to
@@ -538,7 +536,6 @@
     <script th:if="${theme.config.code.enable}">
         //代码块
         btf.addPrismTool()
-        btf.dataCodeTheme()
     </script>
 </body>
 </html>
