@@ -1,36 +1,62 @@
-<th:block th:fragment="post-list(type,postItems)">
+<th:block th:fragment="post-list(type,postItems,colNum)">
     <div class="flex flex-col relative">
         <style>
             .active .tab-span {
                 background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);
             }
         </style>
-        <ul th:if="${type=='tag'}" th:with="tags = ${tagFinder.listAll()}" class="tab"
+        <ul id="post_tab" th:if="${type=='tag'}" th:with="tags = ${tagFinder.listAll()}" class="tab"
             style="z-index: 9;">
-            <li th:classappend="${tag==null}?'active':''">
+            <li onclick="javascript:window.location.href='/#article-list'" th:classappend="${tag==null}?'active':''">
                 <span class="tab-span first-tab" style="">全部</span>
             </li>
-            <li th:each="tagItem : ${tags}" th:classappend="${tagItem==tag}?'active':''">
-                <span class="tab-span" th:text="${tagItem.spec.displayName}"></span><b th:text="${tagItem.status.postCount}"></b>
+            <li th:each="tagItem : ${tags}"
+                th:classappend="${tagItem==tag}?'active':''"
+                th:onclick="go([[${tagItem.status.permalink}]])">
+                <span class="tab-span" th:text="${tagItem.spec.displayName}"></span><b
+                    th:text="${tagItem.status.postCount}"></b>
             </li>
         </ul>
-        <ul th:if="${type=='category'}" th:with="categories = ${categoryFinder.listAll()}" class="tab"
+        <ul id="post_tab" th:if="${type=='category'}" th:with="categories = ${categoryFinder.listAll()}" class="tab"
             style="z-index: 9;">
-            <li th:classappend="${category==null}?'active':''">
+            <li onclick="javascript:window.location.href='/#article-list'" th:classappend="${category==null}?'active':''">
                 <span class="tab-span first-tab" style="">全部</span>
             </li>
-            <li th:each="categoryItem : ${categories}" th:classappend="${categoryItem==category}?'active':''">
+            <li th:each="categoryItem : ${categories}"
+                th:classappend="${categoryItem==category}?'active':''"
+                th:onclick="go([[${categoryItem.status.permalink}]])">
                 <span class="tab-span" th:text="${categoryItem.spec.displayName}"></span><b
                     th:text="${categoryItem.status.postCount}"></b>
             </li>
         </ul>
-        <span class="tab-expander" style="z-index: 999;">
+        <span onclick="expandHandler()" id="expander" class="tab-expander" style="z-index: 999;">
             <svg class="svg-icon" aria-hidden="true">
                 <use href="#icon-chevron" fill="currentColor"
                      stroke="var(--background-primary)"></use>
             </svg>
         </span>
-        <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <script>
+            const expander = document.getElementById('expander');
+            const tab = document.getElementById('post_tab')
+
+            function expandHandler() {
+                if (tab.classList.contains('expanded-tab')) {
+                    tab.classList.remove('expanded-tab')
+                } else {
+                    tab.classList.add('expanded-tab')
+                }
+                if (expander.classList.contains('expanded')) {
+                    expander.classList.remove('expanded')
+                } else {
+                    expander.classList.add('expanded')
+                }
+            }
+
+            function go(to) {
+                window.location.href = to;
+            }
+        </script>
+        <ul th:class="${'grid grid-cols-'+colNum+' gap-8'}">
             <th:block th:each="post : ${posts.items}">
                 <th:block th:replace="~{macro/post-card :: post-card(${post.spec.pinned},${post})}"/>
             </th:block>

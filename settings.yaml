@@ -48,6 +48,30 @@ spec:
           name: feature_post2
           label: 首页推荐文章2
           value: ""
+    - group: article
+      label: 文章
+      formSchema:
+        - $formkit: number
+          name: index_number
+          label: 首页文章列表每列显示数量
+          value: 3
+          validation: "min:1|max:4"
+          min: 1
+          max: 4
+        - $formkit: number
+          name: tag_number
+          label: 标签页文章列表每列显示数量
+          value: 1
+          validation: "min:1|max:4"
+          min: 1
+          max: 4
+        - $formkit: number
+          name: category_number
+          label: 分类页文章列表每列显示数量
+          value: 1
+          validation: "min:1|max:4"
+          min: 1
+          max: 4
     - group: nav
       label: 导航
       formSchema:

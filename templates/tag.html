@@ -2,6 +2,6 @@
 <html xmlns:th="https://www.thymeleaf.org"
       th:replace="~{layout :: html(head = null,content = ~{::content})}">
 <th:block th:fragment="content">
-    <th:block th:replace="~{macro/post-list :: post-list('tag',${posts.items})}"/>
+    <th:block th:replace="~{macro/post-list :: post-list('tag',${posts.items},${theme.config.article.tag_number})}"/>
 </th:block>
 </html>
