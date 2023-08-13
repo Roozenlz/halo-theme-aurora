@@ -80,8 +80,6 @@
             if (window.innerWidth >= 1024) {
                 menu = submenu.removeChild(menu)
                 mobile.style.display = 'none'
-                post_cols.classList.remove('grid-cols-1','grid-cols-2','grid-cols-3','grid-cols-4')
-                post_cols.classList.add(set_post_cols);
             } else {
                 pc_aside.style.display = 'none'
                 submenu.insertBefore(menu, home)
@@ -96,6 +94,9 @@
                         menu = submenu.removeChild(menu)
                         mobile.style.display = 'none'
                         pc_aside.style.display = 'block'
+                        post_cols.classList.remove('grid-cols-1','grid-cols-2','grid-cols-3','grid-cols-4')
+                        post_cols.classList.add(set_post_cols);
+                        console.log(set_post_cols)
                     } else if (!submenu.isEqualNode(menu.parentNode) && window.innerWidth < 1024) {
                         pc_aside.style.display = 'none'
                         submenu.insertBefore(menu, home)

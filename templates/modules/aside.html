@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!-- 侧边栏 -->
-<div class="aside-content" id="app-pc-aside" th:fragment="aside(widgets)">
+<div class="aside-content" style="z-index: 99;" id="app-pc-aside" th:fragment="aside(widgets)">
 
     <!-- 侧栏部件，不包含 toc 则直接遍历 -->
     <th:block th:if="${not #strings.contains(widgets, 'toc')}">

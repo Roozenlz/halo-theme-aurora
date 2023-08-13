@@ -575,12 +575,12 @@ spec:
 #              name: postWidgets
 #              label: 文章页
 #              help: post 可以支持设置 toc
-#            - $formkit: textarea
-#              name: tagWidgets
-#              label: 标签页
-#            - $formkit: textarea
-#              name: categoryWidgets
-#              label: 分类页
+            - $formkit: textarea
+              name: tagWidgets
+              label: 标签页
+            - $formkit: textarea
+              name: categoryWidgets
+              label: 分类页
             - $formkit: textarea
               name: pageWidgets
               label: 自定义页

@@ -2,6 +2,10 @@
 <html xmlns:th="https://www.thymeleaf.org"
       th:replace="~{layout :: html(head = null,content = ~{::content})}">
 <th:block th:fragment="content">
-    <th:block th:replace="~{macro/post-list :: post-list('tag',${posts.items},${theme.config.article.tag_number})}"/>
+    <div class="main-grid">
+        <th:block
+                th:replace="~{macro/post-list :: post-list('tag',${posts.items},${theme.config.article.tag_number})}"/>
+        <div th:replace="~{modules/aside :: aside(${theme.config.sidebar.widgets.tagWidgets})}"></div>
+    </div>
 </th:block>
 </html>
