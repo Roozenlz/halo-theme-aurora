@@ -41,7 +41,7 @@
                     </div>
                     <div class="hidden lg:flex lg:col-span-1 justify-center lg:justify-end row-span-1 relative"><img
                             class="footer-avatar diamond-avatar"
-                            th:src="${site.logo}"
+                            th:src="@{${#strings.isEmpty(site.logo) ? ASSETS + '/img/ObsidianestLogo.png' : site.logo}}"
                             alt="avatar" style=""></div>
                 </div>
             </span>

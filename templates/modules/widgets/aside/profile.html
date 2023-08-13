@@ -10,7 +10,7 @@
         <div class="profile absolute w-full flex flex-col justify-center items-center">
             <div class="flex flex-col justify-center items-center">
                 <img class="ob-avatar diamond-avatar"
-                     th:src="@{${#strings.isEmpty(site.logo) ? assets_link + '/images/hao-logo.jpg' : site.logo}}"
+                     th:src="@{${#strings.isEmpty(site.logo) ? ASSETS + '/img/ObsidianestLogo.png' : site.logo}}"
                      alt="avatar">
                 <h2 class="text-center pt-4 text-4xl font-semibold text-ob-bright">
                     [[${site.title}]]</h2><span class="h-1 w-14 rounded-full mt-2"

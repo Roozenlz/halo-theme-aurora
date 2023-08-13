@@ -75,16 +75,22 @@
             var home = submenu.childNodes[5]
             const mobile = document.getElementById('App-Mobile-Profile');
             const pc_aside = document.getElementById('app-pc-aside')
-            const post_cols =document.getElementById('post-cols')
-            const set_post_cols = post_cols.classList.toString().split(' ')[1];
+            const post_cols = document.getElementById('post-cols')
+            if (post_cols !== null) {
+                var set_post_cols = post_cols.classList.toString().split(' ')[1];
+            }
             if (window.innerWidth >= 1024) {
                 menu = submenu.removeChild(menu)
                 mobile.style.display = 'none'
             } else {
-                pc_aside.style.display = 'none'
+                if (pc_aside !== null) {
+                    pc_aside.style.display = 'none'
+                }
                 submenu.insertBefore(menu, home)
-                post_cols.classList.remove('grid-cols-1','grid-cols-2','grid-cols-3','grid-cols-4')
-                post_cols.classList.add('grid-cols-1');
+                if (post_cols !== null) {
+                    post_cols.classList.remove('grid-cols-1', 'grid-cols-2', 'grid-cols-3', 'grid-cols-4')
+                    post_cols.classList.add('grid-cols-1');
+                }
             }
             let timeOut = null; // 初始化空定时器
             window.addEventListener("resize", () => {
@@ -93,20 +99,27 @@
                     if (submenu.isEqualNode(menu.parentNode) && window.innerWidth >= 1024) {
                         menu = submenu.removeChild(menu)
                         mobile.style.display = 'none'
-                        pc_aside.style.display = 'block'
-                        post_cols.classList.remove('grid-cols-1','grid-cols-2','grid-cols-3','grid-cols-4')
-                        post_cols.classList.add(set_post_cols);
-                        console.log(set_post_cols)
+                        if (pc_aside !== null) {
+                            pc_aside.style.display = 'block'
+                        }
+                        if (post_cols !== null) {
+                            post_cols.classList.remove('grid-cols-1', 'grid-cols-2', 'grid-cols-3', 'grid-cols-4')
+                            post_cols.classList.add(set_post_cols);
+                        }
                     } else if (!submenu.isEqualNode(menu.parentNode) && window.innerWidth < 1024) {
-                        pc_aside.style.display = 'none'
+                        if(pc_aside!==null) {
+                            pc_aside.style.display = 'none'
+                        }
                         submenu.insertBefore(menu, home)
-                        post_cols.classList.remove('grid-cols-1','grid-cols-2','grid-cols-3','grid-cols-4')
-                        post_cols.classList.add('grid-cols-1');
+                        if (post_cols !== null) {
+                            post_cols.classList.remove('grid-cols-1', 'grid-cols-2', 'grid-cols-3', 'grid-cols-4')
+                            post_cols.classList.add('grid-cols-1');
+                        }
                     }
                 }, 300)
             })
 
-            let isOpen = false;
+            var isOpen = false;
             const app = document.getElementById('app')
             const app_wrapper = document.getElementById('App-Wrapper')
 
