@@ -9,35 +9,53 @@
                         class="bg-ob-deep-900 rounded-lg max-w-10/12 lg:max-w-screen-2xl text-sm text-ob-normal w-full py-6 px-6 grid grid-rows-1 lg:grid-rows-none lg:grid-cols-4 justify-center items-center gap-8">
                     <div style="justify-self: center;"
                          class="flex flex-col lg:flex-row gap-6 lg:gap-12 row-span-1 lg:col-span-3 text-center lg:text-left">
-                        <div class="flex flex-col lg:flex-row gap-6 lg:gap-12 row-span-1 lg:col-span-3 text-center lg:text-left"><ul
-                                class="flex flex-col gap-1.5">
-                            <li>
-                                <th:block
-                                        th:if="${not #strings.isEmpty(theme.config.basics.siteStartTime)}">
-                                    ©[[${#strings.arraySplit(theme.config.basics.siteStartTime, '-')[0]}]] - [[${#dates.format(new java.util.Date(), 'yyyy')}]]
-                                </th:block>
-                                <th:block th:if="${#strings.isEmpty(theme.config.basics.siteStartTime)}">
-                                    ©[[${#dates.format(new java.util.Date(), 'yyyy')}]]
-                                </th:block>
-                                 <b class="font-extrabold">[[${site.title}]]</b> . All Rights Reserved. </li>
-                            <li> Powered by <a
-                                    href="https://halo.run"><b
-                                    class="font-extrabold border-b-2 border-ob hover:text-ob"> Halo </b></a> &amp; Themed by <a
-                                    href="https://github.com/Roozenlz/halo-theme-aurora"><b
-                                    class="font-extrabold border-b-2 border-ob hover:text-ob"> Halo-Theme-Aurora </b></a> . </li>
-                            </ul><ul class="flex flex-col min-w-[150px]"><li class="flex"><span><svg
-                                class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
-                                style="height: 1em; width: 1em;"><use
-                                href="#icon-hot"
-                                fill="currentColor"
-                                stroke="var(--background-primary)"></use></svg> 浏览次数：</span><span
-                                class="flex-1 text-right"><span class="waline-pageview-count" th:text="${stats.visit}"></span></span></li>
+                        <div class="flex flex-col lg:flex-row gap-6 lg:gap-12 row-span-1 lg:col-span-3 text-center lg:text-left">
+                            <ul class="flex flex-col gap-1.5">
+                                <li>
+                                    <th:block
+                                            th:if="${not #strings.isEmpty(theme.config.basics.siteStartTime)}">
+                                        ©[[${#strings.arraySplit(theme.config.basics.siteStartTime, '-')[0]}]] - [[${#dates.format(new java.util.Date(), 'yyyy')}]]
+                                    </th:block>
+                                    <th:block th:if="${#strings.isEmpty(theme.config.basics.siteStartTime)}">
+                                        ©[[${#dates.format(new java.util.Date(), 'yyyy')}]]
+                                    </th:block>
+                                     <b class="font-extrabold">[[${site.title}]]</b> . All Rights Reserved. </li>
+                                 <li> Powered by <a
+                                         href="https://halo.run"><b
+                                         class="font-extrabold border-b-2 border-ob hover:text-ob"> Halo </b></a> &amp; Themed by <a
+                                         href="https://github.com/Roozenlz/halo-theme-aurora"><b
+                                         class="font-extrabold border-b-2 border-ob hover:text-ob"> Halo-Theme-Aurora </b></a> . </li>
+                            </ul>
+                            <ul class="flex flex-col gap-1.5">
+                                <li>
+                                    <a href="https://beian.miit.gov.cn/">
+                                    <b class="font-extrabold border-b-2 border-ob hover:text-ob"
+                                       th:text="${theme.config.basics.icp}"></b>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.beian.gov.cn/portal/registerSystemInfo">
+                                        <b class="font-extrabold border-b-2 border-ob hover:text-ob"
+                                           th:text="${theme.config.basics.gongan}">
+                                        </b>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="flex flex-col min-w-[150px]"><li class="flex"><span><svg
+                                    class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
+                                    style="height: 1em; width: 1em;"><use
+                                    href="#icon-hot"
+                                    fill="currentColor"
+                                    stroke="var(--background-primary)"></use></svg> 浏览次数：</span><span
+                                    class="flex-1 text-right"><span class="waline-pageview-count"
+                                                                    th:text="${stats.visit}"></span></span></li>
                             <li class="flex"><span class="">
                                 <svg class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
                                      style="height: 1em; width: 1em;"><use
                                         href="#icon-date" fill="currentColor"
                                         stroke="var(--background-primary)"></use></svg> 建站日期：</span>
-                                <span  class="flex-1 text-right" th:text="${theme.config.basics.siteStartTime}"></span></li></ul></div>
+                                <span class="flex-1 text-right"
+                                      th:text="${theme.config.basics.siteStartTime}"></span></li></ul></div>
                     </div>
                     <div class="hidden lg:flex lg:col-span-1 justify-center lg:justify-end row-span-1 relative"><img
                             class="footer-avatar diamond-avatar"
