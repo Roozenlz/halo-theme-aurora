@@ -12,10 +12,16 @@
                 <img class="ob-avatar diamond-avatar"
                      th:src="@{${#strings.isEmpty(site.logo) ? ASSETS + '/img/ObsidianestLogo.png' : site.logo}}"
                      alt="avatar">
-                <h2 class="text-center pt-4 text-4xl font-semibold text-ob-bright">
-                    [[${site.title}]]</h2><span class="h-1 w-14 rounded-full mt-2"
-                                                style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                <p class="pt-6 px-10 w-full text-sm text-center" th:utext="${theme.config.sidebar.profile.profileDesc}">
+                <h2 th:if="${#strings.isEmpty(theme.config.sidebar.profile.profileName)}"
+                    th:text="${site.title}"
+                    class="text-center pt-4 text-4xl font-semibold text-ob-bright"></h2>
+                <h2 th:unless="${#strings.isEmpty(theme.config.sidebar.profile.profileName)}"
+                    th:text="${theme.config.sidebar.profile.profileName}"
+                    class="text-center pt-4 text-4xl font-semibold text-ob-bright"></h2>
+                <span class="h-1 w-14 rounded-full mt-2"
+                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                <p class="pt-6 px-10 w-full text-sm text-center"
+                   th:utext="${theme.config.sidebar.profile.profileDesc}">
                 </p>
             </div>
             <div class="h-full w-full flex flex-col flex-1 justify-end items-end">
