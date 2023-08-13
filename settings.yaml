@@ -11,7 +11,7 @@ spec:
           name: siteStartTime
           label: 建站时间
           validation: required
-          value: "2023-08-05"
+          value: "2023-08-13"
           help: 注意，此项为必填项
         - $formkit: text
           name: icp
