@@ -605,8 +605,8 @@ spec:
             - $formkit: repeater
               name: socialMedia
               label: 社交媒体
-              help: 此处社交媒体最多设置两个
-              max: 2
+              help: 此处社交媒体最多设置12个
+              max: 12
               value: [ ]
               children:
                 - $formkit: select
