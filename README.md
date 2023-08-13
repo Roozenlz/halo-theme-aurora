@@ -18,6 +18,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="http://roozen.top"><img src="https://avatars.githubusercontent.com/u/93673944?v=4?s=100" width="100px;" alt="Roozen"/><br /><sub><b>Roozen</b></sub></a><br /><a href="#infra-Roozenlz" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Roozenlz/halo-theme-aurora/commits?author=Roozenlz" title="Tests">⚠️</a> <a href="https://github.com/Roozenlz/halo-theme-aurora/commits?author=Roozenlz" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/chengzhongxue"><img src="https://avatars.githubusercontent.com/u/89380218?v=4?s=100" width="100px;" alt="困困鱼"/><br /><sub><b>困困鱼</b></sub></a><br /><a href="#infra-chengzhongxue" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Roozenlz/halo-theme-aurora/commits?author=chengzhongxue" title="Tests">⚠️</a> <a href="https://github.com/Roozenlz/halo-theme-aurora/commits?author=chengzhongxue" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
