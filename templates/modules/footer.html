@@ -52,5 +52,39 @@
             blockquoteElement.innerHTML = blockquoteSvg + blockquoteElement.innerHTML;
         }
     </script>
+    <script>
+        var footer = document.getElementById('footer'),
+            sticky = document.getElementById('sticky-sidebar'),
+            stickyTop = sticky.offsetTop
+        window.addEventListener('scroll', scrollFunc)
+        function scrollFunc() {
+            // let footerTop = footer.getBoundingClientRect().top;
+            // let stickyBottom = sticky.getBoundingClientRect().bottom;
+            // 定位底部
+            // if(window.pageYOffset < domTop - window.innerHeight){
+            //     sticky.style.position = 'fixed';
+            //     sticky.style.bottom = 0;
+            // }else{
+            //     sticky.style.left = 'auto';
+            //     sticky.style.position = 'static'
+            // }
+            // console.log('stickyTop'+stickyTop)
+            // console.log('stickyBottom'+stickyBottom)
+            // console.log('footerTop'+footerTop)
+            // console.log('ret')
+            // if(stickyBottom + 20 >= footerTop){
+            //     sticky.style.position = 'static'
+            //     return
+            // }
+            // 定位顶部
+            if (window.scrollY  > stickyTop) {
+                sticky.style.position = 'fixed'
+                sticky.style.top = '20px';
+            } else {
+                sticky.style.position = 'static'
+            }
+        }
+        scrollFunc()
+    </script>
 </footer>
 </html>

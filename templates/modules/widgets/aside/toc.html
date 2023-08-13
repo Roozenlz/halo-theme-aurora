@@ -1,63 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!-- 目录 -->
-<div class="card-widget" style="z-index: 1; height: 362px;" th:fragment="toc">
-    <div class="" style="bottom: initial; z-index: 1; height: 362px;">
-        <div id="sticky-sidebar">
-            <div class="sidebar-box mb-4" style="">
-                <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
-                    <svg
-                            class="svg-icon inline-block mr-2 inline-block mr-2"
-                            style="height: 1em; width: 1em;">
-                        <use href="#icon-toc" fill="currentColor"
-                             stroke="var(--background-primary)"></use>
-                    </svg>
-                    <span class="w-full block">文章目录</span><span
-                        class="absolute bottom-0 h-1 w-14 rounded-full"
-                        style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                </p>
-                <div style="max-height: 492px; overflow: hidden scroll;">
-                    <ol class="toc">
-
-                    </ol>
-                </div>
-            </div>
-            <ul id="sidebar-navigator"
-                class="flex flex-row bg-ob-deep-800 rounded-xl shadow-2xl justify-items-center overflow-hidden">
-                <li onclick="window.history.back()"
-                    class="border-r-4 border-ob-deep-900 flex justify-center py-3 w-full hover:opacity-50 hover:text-ob transition-all cursor-pointer">
-                    <svg
-                            class="svg-icon inline-block text-3xl inline-block text-3xl"
-                            style="height: 1em; width: 1em;">
-                        <use href="#icon-go-back"
-                             fill="currentColor"
-                             stroke="var(--background-primary)"></use>
-                    </svg>
-                </li>
-                <li  onclick="returnTop()"
-                     class="border-r-4 border-ob-deep-900 flex justify-center py-3 w-full hover:opacity-50 hover:text-ob transition-all cursor-pointer">
-                    <svg
-                            class="svg-icon inline-block text-3xl inline-block text-3xl"
-                            style="height: 1em; width: 1em;">
-                        <use
-                                href="#icon-back-to-top"
-                                fill="currentColor"
-                                stroke="var(--background-primary)"></use>
-                    </svg>
-                </li>
-                <li
-                        class="flex justify-center py-3 w-full hover:opacity-50 hover:text-ob transition-all cursor-pointer"
-                        data-dia="jump-to-comment">
-                    <svg
-                            class="svg-icon inline-block text-3xl inline-block text-3xl"
-                            style="height: 1em; width: 1em;">
-                        <use href="#icon-quote"
-                             fill="currentColor"
-                             stroke="var(--background-primary)"></use>
-                    </svg>
-                </li>
-            </ul>
+<div th:fragment="toc">
+    <div class="sidebar-box mb-4" style="">
+        <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
+            <svg class="svg-icon inline-block mr-2 inline-block mr-2"
+                 style="height: 1em; width: 1em;">
+                <use href="#icon-toc" fill="currentColor"
+                     stroke="var(--background-primary)"></use>
+            </svg>
+            <span class="w-full block">文章目录</span><span
+                class="absolute bottom-0 h-1 w-14 rounded-full"
+                style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+        </p>
+        <div style="max-height: 492px; overflow: hidden scroll;">
+            <ol class="toc"></ol>
         </div>
     </div>
+    <ul id="sidebar-navigator"
+        class="flex flex-row bg-ob-deep-800 rounded-xl shadow-2xl justify-items-center overflow-hidden mb-8">
+        <li onclick="window.history.back()"
+            class="border-r-4 border-ob-deep-900 flex justify-center py-3 w-full hover:opacity-50 hover:text-ob transition-all cursor-pointer">
+            <svg class="svg-icon inline-block text-3xl inline-block text-3xl"
+                 style="height: 1em; width: 1em;">
+                <use href="#icon-go-back"
+                     fill="currentColor"
+                     stroke="var(--background-primary)"></use>
+            </svg>
+        </li>
+        <li onclick="returnTop()"
+            class="border-r-4 border-ob-deep-900 flex justify-center py-3 w-full hover:opacity-50 hover:text-ob transition-all cursor-pointer">
+            <svg class="svg-icon inline-block text-3xl inline-block text-3xl"
+                 style="height: 1em; width: 1em;">
+                <use href="#icon-back-to-top"
+                     fill="currentColor"
+                     stroke="var(--background-primary)"></use>
+            </svg>
+        </li>
+        <li onclick="window.location.href=window.location.href.split('#')[0]+'#comments'"
+            class="flex justify-center py-3 w-full hover:opacity-50 hover:text-ob transition-all cursor-pointer"
+            data-dia="jump-to-comment">
+            <svg class="svg-icon inline-block text-3xl inline-block text-3xl"
+                 style="height: 1em; width: 1em;">
+                <use href="#icon-quote"
+                     fill="currentColor"
+                     stroke="var(--background-primary)"></use>
+            </svg>
+        </li>
+    </ul>
 </div>
+
 </html>

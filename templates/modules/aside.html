@@ -19,7 +19,7 @@
         </th:block>
 
         <!-- toc 之后的组件需要被 sticky_layout 包裹 -->
-        <div class="sticky_layout">
+        <div id="sticky-sidebar" style="width: 320px;">
             <th:block th:replace="~{modules/widgets/aside/toc :: toc}"/>
             <th:block th:each="widget : ${#strings.listSplit(#strings.substringAfter(widgets, 'toc'), ',')}">
                 <th:block th:replace="~{'modules/widgets/aside/'+ ${widget}}"/>

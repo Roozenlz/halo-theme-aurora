@@ -563,28 +563,27 @@ spec:
           help: 目前提供的小部件有：profile（站点资料）, comments（最新评论）, tags（文章标签）。你可以随意组合或排序，以逗号隔开。
           value:
             indexWidgets: profile,tags,comments
-            postWidgets: profile,tags,comments,toc
+            postWidgets: profile,toc
             tagWidgets: profile,tags,comments
             categoryWidgets: profile,tags,comments
-            pageWidgets: ""
+            pageWidgets: profile,tags,comments
           children:
             - $formkit: textarea
               name: indexWidgets
               label: 首页
-            - $formkit: textarea
-              name: postWidgets
-              label: 文章页
-              help: post 可以支持设置 toc
-            - $formkit: textarea
-              name: tagWidgets
-              label: 标签页
-            - $formkit: textarea
-              name: categoryWidgets
-              label: 分类页
+#            - $formkit: textarea
+#              name: postWidgets
+#              label: 文章页
+#              help: post 可以支持设置 toc
+#            - $formkit: textarea
+#              name: tagWidgets
+#              label: 标签页
+#            - $formkit: textarea
+#              name: categoryWidgets
+#              label: 分类页
             - $formkit: textarea
               name: pageWidgets
               label: 自定义页
-              help: 自定义页面默认没有侧栏
         - $formkit: group
           name: profile
           label: 个人卡片
