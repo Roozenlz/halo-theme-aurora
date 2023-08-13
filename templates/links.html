@@ -8,43 +8,11 @@
             <!--面包屑-->
             <th:block th:replace="~{macro/breadcrumbs :: breadcrumbs('首页','友链')}"/>
             <div class="flex flex-col">
-                <div class="post-header">
-                    <div class="flex flex-row items-center justify-start mt-8 mb-4">
-                        <div class="post-stats"><span>
-                            <svg class="svg-icon"
-                                 
-                                 style="height: 1.25em; width: 1.25em;">
-                                <use href="#icon-clock-outline" fill="none" stroke="white"></use>
-                            </svg>
-                            <span class="pl-2 opacity-70">1 mins.</span>
-                        </span>
-                            <span>
-                                <svg class="svg-icon"  style="height: 1.25em; width: 1.25em;">
-                                    <use href="#icon-text-outline" fill="none" stroke="white"></use>
-                                </svg>
-                                <span class="pl-2 opacity-70">1k</span>
-                            </span>
-                            <span>
-                                <svg class="svg-icon h-5 w-5 h-5 w-5"
-                                     
-                                     style="height: 1.25em; width: 1.25em;">
-                                    <use href="#icon-hot" fill="none" stroke="white"></use>
-                                </svg>
-                                <span class="pl-2 opacity-70">
-                                    <span class="waline-pageview-count">262</span>
-                                </span>
-                            </span>
-                            <span>
-                                <svg class="svg-icon h-5 w-5 h-5 w-5" 
-                                     style="height: 1.25em; width: 1.25em;">
-                                    <use href="#icon-quote" fill="none" stroke="white"></use>
-                                </svg>
-                                <span data-path="/links">0</span>
-                            </span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="post-header">-->
+<!--                    <div class="flex flex-row items-center justify-start mt-8 mb-4">-->
+<!--                        <th:block th:replace="~{macro/post-stats :: post-stats(${singlePage})}"/>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="flex h-[25rem] w-full rounded-2xl relative shadow-xl mb-8"
                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
                     <div class="ob-gradient-plate absolute bg-ob-deep-900 rounded-xl opacity-90 flex justify-center items-center shadow-lg hover:shadow-2xl duration-300 overflow-hidden">
@@ -65,6 +33,7 @@
                             <div class="absolute right-8 top-8 flex space-x-3">
                                 <a class="py-2 px-3 text-ob-bright flex items-center justify-center z-10 transition cursor-pointer rounded-xl bg-ob-deep-900 border-solid border-ob-bright border-t-2 border-b-2 border-r-2 border-l-2 opacity-80 select-none">随机访问</a>
                                 <a class="py-2 px-3 text-white flex items-center justify-center z-10 transition cursor-pointer rounded-xl font-semibold select-none"
+                                   href="#content"
                                    style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">申请友链</a>
                             </div>
                             <div class="link-group-wrapper flex flex-nowrap pt-28 left-0 top-0">
@@ -195,7 +164,7 @@
                                 </li>
                             </ul>
                             <p>如果因为从本页跳转给你造成了损失，深表歉意，并且建议用户如果发现存在问题在本页面进行回复。通常会很快处理。如果长时间无法得到处理，建议联系
-                                <a href="mailto:2273038475@qq.com">2273038475@qq.com</a>。</p>
+                                <a th:href="${'mailto:'+theme.config.link.contact}" th:text="${theme.config.link.contact}"></a>。</p>
                         </details>
                         <h2 id="友情链接申请">
                             <a href="#友情链接申请" class="headerlink"
@@ -234,19 +203,7 @@
                             </span>
                             <p>请按以下格式填写你的博客信息</p>
                         </blockquote>
-                        <div class="code-toolbar">
-                            <pre class="line-numbers language-yaml"
-                                 data-language="yaml" tabindex="0"><code class="language-yaml"><span class="token key atrule">nick</span><span class="token punctuation">:</span> Roozen的小破站 <span class="token comment">#昵称</span>
-<span class="token key atrule">avatar</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//roozen.top/upload/touxiang.jpg <span class="token comment"># 你的头像</span>
-<span class="token key atrule">description</span><span class="token punctuation">:</span> 技术宅男拯救世界！<span class="token comment"># 简单的自我描述</span>
-<span class="token key atrule">link</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//roozen.top <span class="token comment"># 博客链接</span>
-<span class="token key atrule">label</span><span class="token punctuation">:</span> 技术 <span class="token comment"># 这里是分类（可选：技术｜个人｜设计）分类欢迎提意见，没有接受的请按我列的选择</span></code></pre>
-                            <div class="toolbar">
-                                <div class="toolbar-item">
-                                    <button class="copy-to-clipboard-button" type="button"
-                                            data-copy-state="copy"><span>Copy</span></button>
-                                </div>
-                            </div>
+                        <div class="code-toolbar" th:utext="${theme.config.link.applicationFormat}">
                         </div>
                     </div>
                 </div>
