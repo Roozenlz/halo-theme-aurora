@@ -19,7 +19,7 @@
                 class="bg-ob-deep-900 px-2 py-2 mb-1.5 rounded-lg flex flex-row justify-items-center items-stretch shadow-sm hover:shadow-ob transition-shadow">
                 <div class="flex justify-start items-start">
                     <img class="col-span-1 mr-2 rounded-full p-1"
-                         th:src="${#strings.isEmpty(comment.owner.avatar)?'https://cravatar.cn/avatar/?d=mp':comment.owner.avatar}"
+                         th:src="${#strings.isEmpty(comment.owner.avatar)? ASSETS + '/img/ObsidianestLogo.png' :comment.owner.avatar}"
                          alt="comment-avatar" height="40" width="40"></img>
                 </div>
                 <div class="flex-1 text-xs">
