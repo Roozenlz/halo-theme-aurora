@@ -68,7 +68,12 @@ spec:
         - $formkit: menuRadio
           name: menu
           label: 菜单栏
-          help: 默认只有主菜单，可前往【外观】—>【菜单】新建菜单组
+          help: 默认只有主菜单，可前往【外观】—>【菜单】新建菜单组，最多支持二级菜单
+          value: ""
+        - $formkit: menuRadio
+          name: appMenu
+          label: 移动端菜单栏
+          help: 建议只有一级菜单
           value: ""
     - group: sidebar
       label: 侧栏
