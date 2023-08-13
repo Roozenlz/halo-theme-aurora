@@ -3,11 +3,22 @@
 <!-- 最新评论 -->
 <div class="sidebar-box" th:fragment="comments">
     <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
-        <svg class="svg-icon inline-block mr-2 inline-block mr-2">
+        <svg class="svg-icon inline-block mr-2 inline-block mr-2" aria-hidden="true" style="height: 1em; width: 1em;">
             <use href="#icon-quote" fill="currentColor" stroke="var(--background-primary)"></use>
         </svg>
-        <span class="w-full block">Recent Comments</span><!----><span class="absolute bottom-0 h-1 w-14 rounded-full"
-                                                                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+        <span class="w-full block">最近评论</span><!---->
+        <span class="absolute bottom-0 h-1 w-14 rounded-full"
+              style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+    </p>
+</div>
+<div class="sidebar-box" th:fragment="comments1">
+    <p class="relative flex items-center pb-2 mb-4 text-xl text-ob-bright uppercase">
+        <svg class="svg-icon inline-block mr-2 inline-block mr-2" style="height: 1em; width: 1em;">
+            <use href="#icon-quote" fill="currentColor" stroke="var(--background-primary)"></use>
+        </svg>
+        <span class="w-full block">最近评论</span>
+        <span class="absolute bottom-0 h-1 w-14 rounded-full"
+              style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
     </p>
 
     <ul id="newcomm">
@@ -16,24 +27,24 @@
                 th:with="page = ${comment.spec.subjectRef.kind == 'Post' ? postFinder.getByName(comment.spec.subjectRef.name) : null}"
                 th:if="${iterStat.index  < theme.config.sidebar.newcommentnumber}"
                 class="bg-ob-deep-900 px-2 py-2 mb-1.5 rounded-lg flex flex-row justify-items-center items-stretch shadow-sm hover:shadow-ob transition-shadow">
-                <div class="flex justify-start items-start"><img class="col-span-1 mr-2 rounded-full p-1"
-                                                                 th:src="${#strings.isEmpty(comment.owner.avatar)?'https://cravatar.cn/avatar/?d=mp':comment.owner.avatar}"
-                                                                 alt="comment-avatar" height="40"
-                                                                 width="40"></div>
+                <div class="flex justify-start items-start">
+                    <img class="col-span-1 mr-2 rounded-full p-1"
+                         th:src="${#strings.isEmpty(comment.owner.avatar)?'https://cravatar.cn/avatar/?d=mp':comment.owner.avatar}"
+                         alt="comment-avatar" height="40" width="40"></img>
+                </div>
                 <div class="flex-1 text-xs">
                     <div class="text-xs mb-2 pt-1"><span class="text-ob pr-2">[[${comment.owner.displayName}]]
-                        </span>
-                        <p class="text-gray-500">[[${#dates.format(comment.metadata.creationTimestamp, 'yyyy-MM-dd HH:mm:ss')}]]</p>
+                        <p class="text-gray-500">[[${#dates.format(comment.metadata.creationTimestamp, 'yyyy-MM-dd
+                            HH:mm:ss')}]]</p>
                     </div>
-                    <div class="text-xs text-ob-bright pb-1">
+                    <div class="text-xs text-ob-bright pb-1" style="overflow: hidden;width: 12rem;max-height: 2rem;">
                         [[${comment.spec.content}]]
                     </div>
                 </div>
             </li>
         </th:block>
     </ul>
-    <script
-            th:if="${theme.config.comments.twikooEnable && #strings.equals(theme.config.comments.use, 'Twikoo') && not #strings.isEmpty(theme.config.comments.twikoos.envId)}">
+    <script th:if="${theme.config.comments.twikooEnable && #strings.equals(theme.config.comments.use, 'Twikoo') && not #strings.isEmpty(theme.config.comments.twikoos.envId)}">
         (() => {
             const runTwikoo = () => {
                 const pagesize = [[${ theme.config.sidebar.newcommentnumber }]];
@@ -47,19 +58,21 @@
                 }).then(function (res) {
                     let commenthtml = '';
                     res.forEach((items) => {
+                        console.log(items)
                         commenthtml += `
-        <li
-                class="bg-ob-deep-900 px-2 py-2 mb-1.5 rounded-lg flex flex-row justify-items-center items-stretch shadow-sm hover:shadow-ob transition-shadow">
-            <div class="flex justify-start items-start"><img
-                    class="col-span-1 mr-2 rounded-full p-1"
-                    src="${items.avatar}"
-                    alt="comment-avatar" height="40" width="40"></div>
+        <li class="bg-ob-deep-900 px-2 py-2 mb-1.5 rounded-lg flex flex-row justify-items-center items-stretch shadow-sm hover:shadow-ob transition-shadow">
+            <div class="flex justify-start items-start">
+            <img class="col-span-1 mr-2 rounded-full p-1"
+                 src="${items.avatar}"
+                 alt="comment-avatar" height="40" width="40"></img>
+            </div>
             <div class="flex-1 text-xs">
                 <div class="text-xs mb-2 pt-1">
                     <span class="text-ob pr-2">${items.nick}</span>
+                    <!--<b class="text-ob-secondary bg-ob-deep-800 py-0.5 px-1.5 rounded-md opacity-75">博主</b>-->
                     <p class="text-gray-500">${items.relativeTime}</p>
                 </div>
-                <div class="text-xs text-ob-bright pb-1">
+                <div class="text-xs text-ob-bright pb-1" style="overflow: hidden;width: 12rem;max-height: 2rem;">
                     ${items.commentText}
                 </div>
             </div>
