@@ -31,7 +31,7 @@
                         <p class="text-base text-ob-dim">访问量</p></li>
                 </ul>
             </div>
-            <ul th:with="menu = ${#strings.isEmpty(theme.config.nav.menu) ? menuFinder.getPrimary() : menuFinder.getByName(theme.config.nav.menu)}"
+            <ul th:with="menu = ${#strings.isEmpty(theme.config.nav.appMenu) ? menuFinder.getPrimary() : menuFinder.getByName(theme.config.nav.appMenu)}"
                 class="flex flex-col justify-center items-center mt-8 w-full list-none text-ob-bright">
                 <li th:each="menuItem : ${menu.menuItems}" th:onclick="go([[${menuItem.status.href}]])"
                     class="pb-2 cursor-pointer">
@@ -44,6 +44,21 @@
                             <span class="relative z-50" th:text="${menuItemChildren.status.displayName}"></span>
                         </a>
                     </div>
+                </li>
+            </ul>
+            <ul class="flex flex-col justify-center items-center mt-8 w-full list-none text-ob-bright">
+                <li>
+                    <a href="https://beian.miit.gov.cn/">
+                        <b class="font-extrabold border-b-2 border-ob hover:text-ob"
+                           th:text="${theme.config.basics.icp}"></b>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.beian.gov.cn/portal/registerSystemInfo">
+                        <b class="font-extrabold border-b-2 border-ob hover:text-ob"
+                           th:text="${theme.config.basics.gongan}">
+                        </b>
+                    </a>
                 </li>
             </ul>
         </div>
