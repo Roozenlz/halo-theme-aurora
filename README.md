@@ -25,10 +25,10 @@
 <table>
   <tr>
     <td>
-      <img src="https://roozen.top/upload/aurora_light.png"/>
+      <img src="https://roozen.top/upload/aurora-light.webp"/>
     </td>
     <td>
-      <img src="https://roozen.top/upload/aurora_dark.png"/>
+      <img src="https://roozen.top/upload/aurora-dark.webp"/>
     </td>
   </tr>
 </table>
