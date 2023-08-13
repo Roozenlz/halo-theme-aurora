@@ -57,7 +57,7 @@
                 window.location.href = to;
             }
         </script>
-        <ul th:class="${'grid grid-cols-'+colNum+' gap-8'}">
+        <ul id="post-cols" th:class="${'grid grid-cols-'+colNum+' gap-8'}">
             <th:block th:each="post : ${posts.items}">
                 <th:block th:replace="~{macro/post-card :: post-card(${post.spec.pinned},${post})}"/>
             </th:block>

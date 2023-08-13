@@ -2,36 +2,46 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!-- 页脚模块 -->
 <footer th:fragment="footer">
-    <div id="footer" class="relative w-full pt-1"
+    <div id="footer" class="relative w-full pt-1" th:with="stats = ${siteStatsFinder.getStats()}"
          style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%); --text-accent: #24c6dc; --text-sub-accent: #ff0099; --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);">
             <span class="bg-ob-deep-900 flex justify-center">
                 <div
                         class="bg-ob-deep-900 rounded-lg max-w-10/12 lg:max-w-screen-2xl text-sm text-ob-normal w-full py-6 px-6 grid grid-rows-1 lg:grid-rows-none lg:grid-cols-4 justify-center items-center gap-8">
-                    <div
-                            class="flex flex-col lg:flex-row gap-6 lg:gap-12 row-span-1 lg:col-span-3 text-center lg:text-left">
+                    <div style="justify-self: center;"
+                         class="flex flex-col lg:flex-row gap-6 lg:gap-12 row-span-1 lg:col-span-3 text-center lg:text-left">
                         <div class="flex flex-col lg:flex-row gap-6 lg:gap-12 row-span-1 lg:col-span-3 text-center lg:text-left"><ul
-                                class="flex flex-col gap-1.5"><li> Copyright © 2019 - 2023 <b
-                                class="font-extrabold">三钻</b> . All Rights Reserved. </li><li> Powered by <a
-                                href="https://hexo.io/"><b class="font-extrabold border-b-2 border-ob hover:text-ob"> Hexo </b></a> &amp; Themed by <a
-                                href="https://github.com/obsidianext/hexo-theme-obsidianext"><b
-                                class="font-extrabold border-b-2 border-ob hover:text-ob"> Aurora v2.2.2</b></a> . </li>
+                                class="flex flex-col gap-1.5">
+                            <li>
+                                <th:block
+                                        th:if="${not #strings.isEmpty(theme.config.basics.siteStartTime)}">
+                                    ©[[${#strings.arraySplit(theme.config.basics.siteStartTime, '-')[0]}]] - [[${#dates.format(new java.util.Date(), 'yyyy')}]]
+                                </th:block>
+                                <th:block th:if="${#strings.isEmpty(theme.config.basics.siteStartTime)}">
+                                    ©[[${#dates.format(new java.util.Date(), 'yyyy')}]]
+                                </th:block>
+                                 <b class="font-extrabold">[[${site.title}]]</b> . All Rights Reserved. </li>
+                            <li> Powered by <a
+                                    href="https://halo.run"><b
+                                    class="font-extrabold border-b-2 border-ob hover:text-ob"> Halo </b></a> &amp; Themed by <a
+                                    href="https://github.com/Roozenlz/halo-theme-aurora"><b
+                                    class="font-extrabold border-b-2 border-ob hover:text-ob"> Halo-Theme-Aurora </b></a> . </li>
                             </ul><ul class="flex flex-col min-w-[150px]"><li class="flex"><span><svg
                                 class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
                                 style="height: 1em; width: 1em;"><use
                                 href="#icon-hot"
                                 fill="currentColor"
                                 stroke="var(--background-primary)"></use></svg> 浏览次数：</span><span
-                                class="flex-1 text-right"><span class="waline-pageview-count" data-path="/">64196</span></span></li>
+                                class="flex-1 text-right"><span class="waline-pageview-count" th:text="${stats.visit}"></span></span></li>
                             <li class="flex"><span class="">
                                 <svg class="svg-icon mr-1 text-lg inline-block mr-1 text-lg inline-block"
                                      style="height: 1em; width: 1em;"><use
                                         href="#icon-date" fill="currentColor"
-                                        stroke="var(--background-primary)"></use></svg> 建站天数：</span><span
-                                    class="flex-1 text-right">864 天</span></li></ul></div>
+                                        stroke="var(--background-primary)"></use></svg> 建站日期：</span>
+                                <span  class="flex-1 text-right" th:text="${theme.config.basics.siteStartTime}"></span></li></ul></div>
                     </div>
                     <div class="hidden lg:flex lg:col-span-1 justify-center lg:justify-end row-span-1 relative"><img
                             class="footer-avatar diamond-avatar"
-                            th:src="@{/assets/img/ObsidianestLogo.png}"
+                            th:src="${site.logo}"
                             alt="avatar" style=""></div>
                 </div>
             </span>
@@ -57,6 +67,7 @@
             sticky = document.getElementById('sticky-sidebar'),
             stickyTop = sticky.offsetTop
         window.addEventListener('scroll', scrollFunc)
+
         function scrollFunc() {
             // let footerTop = footer.getBoundingClientRect().top;
             // let stickyBottom = sticky.getBoundingClientRect().bottom;
@@ -77,13 +88,14 @@
             //     return
             // }
             // 定位顶部
-            if (window.scrollY  > stickyTop) {
+            if (window.scrollY > stickyTop) {
                 sticky.style.position = 'fixed'
                 sticky.style.top = '20px';
             } else {
                 sticky.style.position = 'static'
             }
         }
+
         scrollFunc()
     </script>
 </footer>

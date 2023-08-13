@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     /**
-     * 網頁運行時間
+     * 网页运行时间
      */
     const addRuntime = () => {
         const $runtimeCount = document.getElementById('runtimeshow');
