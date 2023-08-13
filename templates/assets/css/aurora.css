@@ -3361,12 +3361,14 @@ div::-webkit-scrollbar-track {
     display: inline;
     position: relative
 }
-.svg-icon{
+
+.svg-icon {
     vertical-align: -.15em;
     overflow: hidden;
     display: inline;
     position: relative
 }
+
 .svg-external-icon {
     background-color: currentColor;
     -webkit-mask-size: cover !important;
@@ -3560,13 +3562,16 @@ div::-webkit-scrollbar-track {
     opacity: 1;
     transform: translate(-15%)
 }
+
 #Ob-Navigator .Ob-Navigator-btt .Ob-Navigator-tips {
     bottom: 25%;
 }
+
 #Ob-Navigator .Ob-Navigator-btt:hover .Ob-Navigator-tips {
     opacity: 1;
     transform: translate(-15%)
 }
+
 #Ob-Navigator .Ob-Navigator-submenu li div {
     display: flex;
     height: 100%;
@@ -4210,4 +4215,14 @@ body {
 #aside-content .sticky_layout {
     top: 80px;
     transition: top 0s;
+}
+.toc-link::before {
+    display: none !important;
+}
+.is-active-link::before {
+    display: inline-block !important;
+    background-color: var(--text-accent) !important;
+}
+.is-active-link {
+    color: var(--text-accent) !important;
 }
