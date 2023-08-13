@@ -4,29 +4,6 @@ metadata:
   generateName: annotation-setting-
 spec:
   targetRef:
-    group: ""
-    kind: MenuItem
-  formSchema:
-    - $formkit: "text"
-      name: "icon"
-      label: "图标"
-    - $formkit: "radio"
-      name: "isVertical"
-      value: "0"
-      label: "该菜单的子菜单是否为垂直菜单"
-      options:
-        - label: 是
-          value: "1"
-        - label: 否
-          value: "0"
----
-
-apiVersion: v1alpha1
-kind: AnnotationSetting
-metadata:
-  generateName: annotation-setting-
-spec:
-  targetRef:
     group: "core.halo.run"
     kind: LinkGroup
   formSchema:
@@ -39,14 +16,10 @@ spec:
           value: default
         - label: 美化
           value: beautify
-        - label: 失联
-          value: deprecated
     - $formkit: "textarea"
       name: "description"
       label: "描述"
-
 ---
-
 apiVersion: v1alpha1
 kind: AnnotationSetting
 metadata:
@@ -66,24 +39,4 @@ spec:
       name: "labelColor"
       value: "#425AEF"
       label: "标签颜色"
-
 ---
-
-apiVersion: v1alpha1
-kind: AnnotationSetting
-metadata:
-  generateName: annotation-setting-
-spec:
-  targetRef:
-    group: "core.halo.run"
-    kind: PhotoGroup
-  formSchema:
-    - $formkit: "attachment"
-      name: "cover"
-      label: "分组图片"
-    - $formkit: "attachment"
-      name: "background"
-      label: "分组顶部 banner 图片"
-    - $formkit: "textarea"
-      name: "description"
-      label: "分组描述"
