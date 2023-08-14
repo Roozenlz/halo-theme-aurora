@@ -6,6 +6,125 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "785018",
+      "name": "豆瓣",
+      "font_class": "douban",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "829865",
+      "name": "csdn",
+      "font_class": "csdn",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "1126028",
+      "name": "微信公众号",
+      "font_class": "weixingongzhonghao",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "1206331",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "1244207",
+      "name": "知乎",
+      "font_class": "zhihu",
+      "unicode": "e69a",
+      "unicode_decimal": 59034
+    },
+    {
+      "icon_id": "3876438",
+      "name": "telegram",
+      "font_class": "telegram",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "4936959",
+      "name": "linkedin",
+      "font_class": "linkedin",
+      "unicode": "e87d",
+      "unicode_decimal": 59517
+    },
+    {
+      "icon_id": "4936972",
+      "name": "instagram",
+      "font_class": "instagram1",
+      "unicode": "e87f",
+      "unicode_decimal": 59519
+    },
+    {
+      "icon_id": "4936977",
+      "name": "Gitlab-fill",
+      "font_class": "Gitlab-fill",
+      "unicode": "e881",
+      "unicode_decimal": 59521
+    },
+    {
+      "icon_id": "4937023",
+      "name": "facebook-fill",
+      "font_class": "facebook-fill",
+      "unicode": "e88d",
+      "unicode_decimal": 59533
+    },
+    {
+      "icon_id": "5634857",
+      "name": "steam",
+      "font_class": "steam",
+      "unicode": "f23b",
+      "unicode_decimal": 62011
+    },
+    {
+      "icon_id": "8356570",
+      "name": "推特1",
+      "font_class": "tuite",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "15378535",
+      "name": "leetcode",
+      "font_class": "leetcode",
+      "unicode": "ebf2",
+      "unicode_decimal": 60402
+    },
+    {
+      "icon_id": "18166606",
+      "name": "百度",
+      "font_class": "baidu",
+      "unicode": "e8cb",
+      "unicode_decimal": 59595
+    },
+    {
+      "icon_id": "19449431",
+      "name": "语雀",
+      "font_class": "yuque-fill",
+      "unicode": "eab5",
+      "unicode_decimal": 60085
+    },
+    {
+      "icon_id": "27365027",
+      "name": "discord",
+      "font_class": "discord",
+      "unicode": "ebf8",
+      "unicode_decimal": 60408
+    },
+    {
+      "icon_id": "27365278",
+      "name": "slack",
+      "font_class": "slack",
+      "unicode": "ec1f",
+      "unicode_decimal": 60447
+    },
+    {
       "icon_id": "35048154",
       "name": "copyright",
       "font_class": "copyright",
