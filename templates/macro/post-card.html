@@ -10,7 +10,7 @@
         <div class="article">
             <div class="article-thumbnail">
                 <img alt="" lazy="loading"
-                     th:src="${#strings.isEmpty(post.spec.cover) ? ASSETS +'/img/default-cover.jpg' : post.spec.cover} ">
+                     th:src="${#strings.isEmpty(post.spec.cover) ? theme.config.article.default_img : post.spec.cover} ">
                 <span class="thumbnail-screen"
                       style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
             </div>
