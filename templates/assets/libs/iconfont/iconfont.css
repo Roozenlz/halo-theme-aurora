@@ -2,9 +2,9 @@
   font-family: "roozenfont"; /* Project id 4209751 */
   /* Color fonts */
   src: 
-       url('iconfont.woff2?t=1691997754571') format('woff2'),
-       url('iconfont.woff?t=1691997754571') format('woff'),
-       url('iconfont.ttf?t=1691997754571') format('truetype');
+       url('iconfont.woff2?t=1692002143154') format('woff2'),
+       url('iconfont.woff?t=1692002143154') format('woff'),
+       url('iconfont.ttf?t=1692002143154') format('truetype');
 }
 
 .roozenfont {
@@ -13,6 +13,74 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.roozen-douban:before {
+  content: "\e684";
+}
+
+.roozen-csdn:before {
+  content: "\e685";
+}
+
+.roozen-weixingongzhonghao:before {
+  content: "\e686";
+}
+
+.roozen-weixin:before {
+  content: "\e687";
+}
+
+.roozen-zhihu:before {
+  content: "\e69a";
+}
+
+.roozen-telegram:before {
+  content: "\e688";
+}
+
+.roozen-linkedin:before {
+  content: "\e87d";
+}
+
+.roozen-instagram1:before {
+  content: "\e87f";
+}
+
+.roozen-Gitlab-fill:before {
+  content: "\e881";
+}
+
+.roozen-facebook-fill:before {
+  content: "\e88d";
+}
+
+.roozen-steam:before {
+  content: "\f23b";
+}
+
+.roozen-tuite:before {
+  content: "\e689";
+}
+
+.roozen-leetcode:before {
+  content: "\ebf2";
+}
+
+.roozen-baidu:before {
+  content: "\e8cb";
+}
+
+.roozen-yuque-fill:before {
+  content: "\eab5";
+}
+
+.roozen-discord:before {
+  content: "\ebf8";
+}
+
+.roozen-slack:before {
+  content: "\ec1f";
 }
 
 .roozen-copyright:before {
