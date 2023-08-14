@@ -99,7 +99,7 @@ function popCommentBarrage(data) {
         </a>
         <div class="barrageNick">${data.nick}</div>
         <img class="barrageAvatar" src="https://cravatar.cn/avatar/${data.mailMd5}"/>
-        <a class="comment-barrage-close" href="javascript:heo.switchCommentBarrage()"><i class="iconfont icon-xmark"></i></a>
+        <a class="comment-barrage-close" href="javascript:heo.switchCommentBarrage()"><i class="roozenfont roozen-xmark"></i></a>
         </div>
         <a class="barrageContent" href="#${data.id}">${data.comment}</a>
         `
