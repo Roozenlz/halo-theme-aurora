@@ -143,7 +143,7 @@ var btf = {
             if(isEnableCopy){
                 var copy = document.createElement("i");
 
-                copy.className = 'iconfont icon-paste copy-button code-copy cursor-pointer'
+                copy.className = 'roozenfont roozen-paste copy-button code-copy cursor-pointer'
                 customItem.appendChild(copy)
 
                 copy.addEventListener('click', function () {
@@ -202,7 +202,7 @@ var btf = {
                 r.classList.add("close")
                 const ele = document.createElement("div");
                 ele.className = "code-expand-btn";
-                ele.innerHTML = '<i class="iconfont icon-angle-double-down"></i>';
+                ele.innerHTML = '<i class="roozenfont roozen-angle-double-down"></i>';
                 ele.addEventListener("click", expandCode);
                 r.offsetParent.appendChild(ele);
             }

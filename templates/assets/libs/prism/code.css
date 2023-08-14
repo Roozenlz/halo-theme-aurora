@@ -168,11 +168,11 @@
 }
 
 #article-container .code-expand-btn:hover i {
-    color: var(--heo-white);
+    color: var(--text-sub-accent);
 }
 
 #article-container .code-expand-btn i {
-    color: var(--hlnumber-color);
+    color: var(--text-accent);
     font-size: 14px;
     line-height: 1;
 }
