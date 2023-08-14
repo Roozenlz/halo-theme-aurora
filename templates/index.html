@@ -2,6 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org"
       th:replace="~{layout :: html(head = null,content = ~{::content})}">
 <th:block th:fragment="content">
+    <th:block th:replace="~{macro/app-banner :: app-banner(img=${theme.config.top.index_img})}"/>
     <div class="relative z-10">
         <div class="block">
             <th:block th:replace="~{modules/feature-article :: feature-article}"></th:block>

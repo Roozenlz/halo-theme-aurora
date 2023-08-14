@@ -23,6 +23,35 @@ spec:
           label: 公安备案
           placeholder: 请输入公安备案号
           help: 格式：皖公网安备 xxxxxxxx 号
+    - group: top
+      label: 顶部
+      formSchema:
+        - $formkit: attachment
+          name: default_img
+          value: /themes/theme-aurora/assets/img/default-cover.jpg
+          label: 默认背景图
+          placeholder: 请填写背景图地址
+          help: 下方选项为空时的默认图，可填写随机图地址，默认为 /themes/theme-aurora/assets/img/default-cover.jpg ，文章及自定义页面的背景图与其封面图一致
+        - $formkit: attachment
+          name: index_img
+          label: 首页顶部背景图
+          placeholder: 请填写背景图地址
+        - $formkit: attachment
+          name: archives_img
+          label: 文章归档页顶部背景图
+          placeholder: 请填写背景图地址
+        - $formkit: attachment
+          name: links_img
+          label: 友链顶部背景图
+          placeholder: 请填写背景图地址
+        - $formkit: attachment
+          name: tag_img
+          label: 标签页顶部背景图
+          placeholder: 请填写背景图地址
+        - $formkit: attachment
+          name: category_img
+          label: 分类页顶部背景图
+          placeholder: 请填写背景图地址
     - group: index
       label: 首页
       formSchema:
