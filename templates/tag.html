@@ -2,6 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org"
       th:replace="~{layout :: html(head = null,content = ~{::content})}">
 <th:block th:fragment="content">
+    <th:block th:replace="~{macro/app-banner :: app-banner(img=${theme.config.top.tag_img})}"/>
     <div class="main-grid">
         <th:block
                 th:replace="~{macro/post-list :: post-list('tag',${posts.items},${theme.config.article.tag_number})}"/>
