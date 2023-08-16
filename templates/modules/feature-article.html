@@ -2,9 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!-- 置顶的文章-->
 <div id="feature" th:fragment="feature-article">
-    <th:block th:if="${not #strings.isEmpty(theme.config.index.pin_post)}">
-        <div th:with="post=${postFinder.getByName(theme.config.index.pin_post)}"
-             class="article-container">
+    <th:block th:if="${theme.config.index.enable_pin}">
+        <th:block th:if="${not #strings.isEmpty(theme.config.index.pin_post)}">
+            <div th:with="post=${postFinder.getByName(theme.config.index.pin_post)}"
+                 class="article-container">
             <span class="article-tag">
                 <b>
                     <svg class="svg-icon">
@@ -13,14 +14,14 @@
                     </svg> 置顶
                 </b>
             </span>
-            <div class="feature-article">
-                <div class="feature-thumbnail">
-                    <img class="ob-hz-thumbnail" lazy="loaded"
-                         th:src="${#strings.isEmpty(post.spec.cover) ? theme.config.article.default_img : post.spec.cover} ">
-                    <span class="thumbnail-screen"
-                          style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                </div>
-                <div class="feature-content">
+                <div class="feature-article">
+                    <div class="feature-thumbnail">
+                        <img class="ob-hz-thumbnail" lazy="loaded"
+                             th:src="${#strings.isEmpty(post.spec.cover) ? theme.config.article.default_img : post.spec.cover} ">
+                        <span class="thumbnail-screen"
+                              style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                    </div>
+                    <div class="feature-content">
                 <span style="text-wrap: nowrap; overflow: hidden;">
                     <th:block th:if="${not #lists.isEmpty(post.categories)}"
                               th:each="category,stat : ${post.categories}">
@@ -37,55 +38,60 @@
                         </li>
                     </ul>
                 </span>
-                    <a th:href="@{${post.status.permalink}}" class="">
-                        <h1 data-dia="article-link"
-                            th:text="${post.spec.title}"></h1>
-                    </a>
-                    <p th:text="${post.status.excerpt}"></p>
-                    <div class="article-footer" th:with="owner=${post.owner}">
-                        <div class="flex flex-row items-center">
-                            <img class="hover:opacity-50 cursor-pointer"
-                                 th:src="${owner.avatar==null? ASSETS+'/img/ObsidianestLogo.png': owner.avatar}"
-                                 alt="author avatar">
-                            <span class="text-ob-dim">
+                        <a th:href="@{${post.status.permalink}}" class="">
+                            <h1 data-dia="article-link"
+                                th:text="${post.spec.title}"></h1>
+                        </a>
+                        <p th:text="${post.status.excerpt}"></p>
+                        <div class="article-footer" th:with="owner=${post.owner}">
+                            <div class="flex flex-row items-center">
+                                <img class="hover:opacity-50 cursor-pointer"
+                                     th:src="${owner.avatar==null? ASSETS+'/img/ObsidianestLogo.png': owner.avatar}"
+                                     alt="author avatar">
+                                <span class="text-ob-dim">
                             <strong class="text-ob-normal pr-1.5 hover:text-ob hover:opacity-50 cursor-pointer"
                                     th:text="${owner.displayName}"></strong>发布于 [[${#dates.format(post.spec.publishTime, 'MMMM dd,yyyy')}]]</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </th:block>
     </th:block>
-    <th:block th:if="${(not #strings.isEmpty(theme.config.index.feature_post1))||(not #strings.isEmpty(theme.config.index.feature_post2))}">
-        <div class="inverted-main-grid py-8 gap-8 box-border">
-            <div class="relative overflow-hidden h-56 lg:h-auto rounded-2xl bg-ob-deep-800 shadow-lg">
-                <div class="ob-gradient-plate opacity-90 relative z-10 bg-ob-deep-900 rounded-2xl flex justify-start items-end px-8 pb-10 shadow-md">
-                    <h2 class="text-3xl pb-8 lg:pb-16">
-                        <p style="background-image: -webkit-linear-gradient(130deg, rgb(36, 198, 220),
+    <th:block th:if="${theme.config.index.enable_feature}">
+        <th:block
+                th:if="${(not #strings.isEmpty(theme.config.index.feature_post1))||(not #strings.isEmpty(theme.config.index.feature_post2))}">
+            <div class="inverted-main-grid py-8 gap-8 box-border">
+                <div class="relative overflow-hidden h-56 lg:h-auto rounded-2xl bg-ob-deep-800 shadow-lg">
+                    <div class="ob-gradient-plate opacity-90 relative z-10 bg-ob-deep-900 rounded-2xl flex justify-start items-end px-8 pb-10 shadow-md">
+                        <h2 class="text-3xl pb-8 lg:pb-16">
+                            <p style="background-image: -webkit-linear-gradient(130deg, rgb(36, 198, 220),
                         rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;">EDITOR'S SELECTION</p>
-                        <span class="relative text-2xl text-ob-bright font-semibold">
+                            <span class="relative text-2xl text-ob-bright font-semibold">
                         <svg class="svg-icon inline-block inline-block"
                         >
                             <use href="#icon-hot" fill="currentColor"
                                  stroke="var(--background-primary)"></use>
                         </svg> 推荐文章
                     </span>
-                    </h2>
+                        </h2>
+                    </div>
+                    <span class="absolute top-0 w-full h-full z-0"
+                          style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
                 </div>
-                <span class="absolute top-0 w-full h-full z-0"
-                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                <ul class="grid lg:grid-cols-2 gap-8">
+                    <th:block th:if="${not #strings.isEmpty(theme.config.index.feature_post1)}">
+                        <th:block
+                                th:replace="~{macro/post-card :: post-card(true,${postFinder.getByName(theme.config.index.feature_post1)})}"/>
+                    </th:block>
+                    <th:block th:if="${not #strings.isEmpty(theme.config.index.feature_post2)}">
+                        <th:block
+                                th:replace="~{macro/post-card :: post-card(true,${postFinder.getByName(theme.config.index.feature_post2)})}"/>
+                    </th:block>
+                </ul>
             </div>
-            <ul class="grid lg:grid-cols-2 gap-8">
-                <th:block th:if="${not #strings.isEmpty(theme.config.index.feature_post1)}">
-                    <th:block th:replace="~{macro/post-card :: post-card(true,${postFinder.getByName(theme.config.index.feature_post1)})}"/>
-                </th:block>
-                <th:block th:if="${not #strings.isEmpty(theme.config.index.feature_post2)}">
-                    <th:block th:replace="~{macro/post-card :: post-card(true,${postFinder.getByName(theme.config.index.feature_post2)})}"/>
-                </th:block>
-            </ul>
-        </div>
-    </th:block>
+        </th:block>
 </div>
 </html>
