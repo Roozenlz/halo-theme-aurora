@@ -55,15 +55,38 @@ spec:
     - group: index
       label: 首页
       formSchema:
+        - $formkit: radio
+          name: enable_pin
+          label: 置顶文章
+          key: enable_pin
+          id: enable_pin
+          options:
+            - label: 显示
+              value: true
+            - label: 隐藏
+              value: false
         - $formkit: postSelect
+          if: $get(enable_pin).value
           name: pin_post
           label: 首页置顶文章
           value: ""
+        - $formkit: radio
+          name: enable_feature
+          label: 推荐文章
+          key: enable_feature
+          id: enable_feature
+          options:
+            - label: 显示
+              value: true
+            - label: 隐藏
+              value: false
         - $formkit: postSelect
+          if: $get(enable_feature).value
           name: feature_post1
           label: 首页推荐文章1
           value: ""
         - $formkit: postSelect
+          if: $get(enable_feature).value
           name: feature_post2
           label: 首页推荐文章2
           value: ""
