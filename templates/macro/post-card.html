@@ -1,5 +1,5 @@
 <th:block th:fragment="post-card(feature,post)">
-    <li class="article-container">
+    <li class="article-container" th:with="default_img=${#strings.contains(theme.config.article.default_img,'http') ? ((#strings.contains(theme.config.article.default_img,'?') ? theme.config.article.default_img : theme.config.article.default_img+'?')+','+post.spec.title): theme.config.article.default_img}">
         <span th:if="${feature}" class="article-tag">
               <b>
                 <svg class="svg-icon">
@@ -10,7 +10,7 @@
         <div class="article">
             <div class="article-thumbnail">
                 <img alt="" lazy="loading"
-                     th:src="${#strings.isEmpty(post.spec.cover) ? theme.config.article.default_img : post.spec.cover} ">
+                     th:src="${#strings.isEmpty(post.spec.cover) ? default_img : post.spec.cover} ">
                 <span class="thumbnail-screen"
                       style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
             </div>
