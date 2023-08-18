@@ -2,12 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!-- 导航栏菜单栏 -->
 <th:block th:fragment="nav-right">
-    <div class="header-controls absolute top-10 right-0 flex flex-row"
-         tabindex="0" style="top: 70px;right: -40px;width: 140px;">
+    <div id="nav-right" class="header-controls absolute top-10 right-0 flex flex-row"
+         tabindex="0" style="z-index:999;right: -40px;width: 140px;">
             <span class="ob-drop-shadow" data-dia="search" onclick="SearchWidget.open()">
-                <svg class="svg-icon">
-                    <use href="#icon-search" fill="currentColor" stroke="var(--text-white)"></use>
-                </svg>
+                <i class="roozenfont roozen-magnifying-glass" style="font-size: x-large"></i>
             </span>
         <theme-button id="btn" size="1"></theme-button>
         <script>
