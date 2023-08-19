@@ -105,7 +105,7 @@
 
 ## ☕ 赞助
 如果你觉得这个主题不错，你可以帮作者买一杯咖啡表示鼓励 ☕。（赞助的时候记得加上备注 🥰）
-![sponsor](https://github.com/Roozenlz/halo-theme-aurora/assets/93673944/90fda424-46c4-47bb-b667-049d6dc34bc5)
+![sponsor](https://roozen.top/upload/aurora-icon/sponsor.png)
 
 
 ## 💬 讨论
