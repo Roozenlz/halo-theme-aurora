@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'top.roozen.aurora'
-version '1.0.1'
+version '1.0.2'
 
 repositories {
   mavenCentral()
