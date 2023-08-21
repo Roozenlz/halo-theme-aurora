@@ -45,7 +45,8 @@
 是一款适用于 [Halo2.x](https://github.com/halo-dev/halo) 的博客主题。
 
 移植自 [Hexo](https://hexo.io/zh-cn/index.html) 社区中 [auroral-ui组织](https://github.com/auroral-ui)
-的 [Hexo-Theme-Aurora](https://github.com/auroral-ui/hexo-theme-aurora) 主题，作者是 [Benny Guo](https://github.com/bennyxguo)
+的 [Hexo-Theme-Aurora](https://github.com/auroral-ui/hexo-theme-aurora)
+主题，作者是 [Benny Guo](https://github.com/bennyxguo)
 
 ## 🚨 注意事项(看我看我)
 
@@ -102,11 +103,14 @@
 
 [Halo-Theme-Aurora](https://github.com/Roozenlz/halo-theme-aurora) 使用 [MIT](./LICENSE) 协议开源，请遵守开源协议。
 
-
 ## ☕ 赞助
+
 如果你觉得这个主题不错，你可以帮作者买一杯咖啡表示鼓励 ☕。（赞助的时候记得加上备注 🥰）
 ![sponsor](https://roozen.top/upload/aurora-icon/sponsor.png)
 
+|    时间     | 小伙伴 |   平台   | 金额 | 备注 |
+|:---------:|:---:|:------:|:--:|:--:|
+| 2023-8-21 | *晨  | Alipay | 30 | ☕  |
 
 ## 💬 讨论
 
