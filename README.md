@@ -120,14 +120,14 @@
 
 <img width="360" src="https://roozen.top/upload/roozenwx.png" />
 
-## Contributors ✨
+## ✨ 贡献者
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.
-Contributions of any kind welcome!
+该项目遵循 [all-contributors](https://github.com/all-contributors/all-contributors) 规范.
+欢迎任何形式的贡献！
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+感谢这些很棒的人 ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#-贡献者)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -146,3 +146,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## 📊 指标
+
+![Alt](https://repobeats.axiom.co/api/embed/d44ec60a238233682441f9a05cb518372b6e43d0.svg "Repobeats analytics image")
