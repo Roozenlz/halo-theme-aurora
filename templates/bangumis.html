@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{layout :: html(htmlType = 'bangumis',content = ~{::content})}">
+<th:block th:fragment="content">
+    <th:block th:replace="~{macro/app-banner :: app-banner(img=${theme.config.top.tag_img})}"/>
+    <div class="relative z-10">
+        <div class="flex flex-col">
+            <!--面包屑-->
+            <th:block th:replace="~{macro/breadcrumbs :: breadcrumbs('首页','追番列表')}"/>
+            <div class="bg-ob-deep-800 px-14 py-16 rounded-2xl shadow-xl block">
+                <div class="flex justify-event flex-wrap pt-2">
+                    <div id="article-container">
+                        <style>
+                            .bangumi-tabs {
+                                margin-bottom: 15px;
+                                margin-top: 15px
+                            }
+
+                            #article-container {
+                                overflow-wrap: break-word;
+                            }
+
+                            #article-container a:not(.rss-plan-item) {
+                                color: rgb(48, 122, 246);
+                            }
+
+                            #article-container a:not(.rss-plan-item):hover {
+                                text-decoration: underline;
+                            }
+
+                            #article-container img {
+                                display: block;
+                                margin: 0px auto 0.8rem;
+                            }
+
+                            /* 文章字号 */
+                            #article-container p {
+                                font-size: 0.9rem;
+                                line-height: 1.7;
+                                font-weight: 400;
+                            }
+
+                            #article-container p {
+                                margin: 1rem 0;
+                                text-align: left;
+                                letter-spacing: 0.6px;
+                            }
+
+                            /* 文章中的超链接 */
+                            #article-container a:not(.rss-plan-item) {
+                                text-decoration: none;
+                                border-bottom: 2px solid var(--text-accent);
+                                color: var(--text-a);
+                                font-weight: bold;
+                                padding: 0 4px;
+                                border-radius: 4px 4px 0 0;
+                            }
+
+                            #article-container a:not(.fancybox):not(.rss-plan-item):hover {
+                                opacity: 1;
+                                text-decoration: none;
+                                border-bottom: 2px solid #00000000;
+                                color: var(--background-primary);
+                                background: var(--text-accent);
+                                border-radius: 4px;
+                                box-shadow: var(--accent-shadow);
+                            }
+
+                            /* 文章图片 */
+                            #article-container img {
+                                border-radius: 12px;
+                                margin-bottom: 0.5rem;
+                                object-fit: cover;
+                            }
+
+                            .bangumi-tab {
+                                padding: 5px
+                            }
+
+                            a.bangumi-tab {
+                                text-decoration: none
+                            }
+
+                            .bangumi-active {
+                                background: #657b83;
+                                color: #fff
+                            }
+
+                            .bangumi-item {
+                                position: relative;
+                                clear: both;
+                                padding: 10px 0;
+                                border-bottom: 1px solid #ddd;
+                                min-height: 180px
+                            }
+
+                            @media screen and (max-width: 600px) {
+                                .bangumi-item {
+                                    width: 100%
+                                }
+                            }
+
+                            .bangumi-picture {
+                                position: absolute;
+                                left: 0;
+                                top: 10px;
+                                width: 110px
+                            }
+
+                            .bangumi-picture img {
+                                margin: 10px 0
+                            }
+
+                            .bangumi-info {
+                                padding-left: 120px;
+                                margin-top: 10px
+                            }
+
+                            .bangumi-meta {
+                                font-size: 12px;
+                                padding-right: 10px;
+                                height: 45px
+                            }
+
+                            .bangumi-comments {
+                                min-height: 5.1rem;
+                                font-size: 12px;
+                                margin-top: 10px
+                            }
+
+                            .bangumi-comments > p {
+                                word-break: break-all;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                white-space: normal;
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 3
+                            }
+
+                            .bangumi-pagination {
+                                margin-top: 15px;
+                                text-align: center;
+                                margin-bottom: 10px
+                            }
+
+                            .bangumi-button {
+                                padding: 5px
+                            }
+
+                            .bangumi-button:hover {
+                                background: #657b83;
+                                color: #fff
+                            }
+
+                            .bangumi-hide {
+                                display: none
+                            }
+
+                            .bangumi-show {
+                                display: block
+                            }
+
+                            .bangumi-title {
+                                font-size: 18px
+                            }
+
+                            .bangumi-title a {
+                                line-height: 1;
+                                text-decoration: none
+                            }
+
+                            .bangumi-info-items {
+                                font-size: 12px;
+                                color: #2fd8d8;
+                                padding-top: 10px;
+                                line-height: 1;
+                                float: left;
+                                width: 100%
+                            }
+
+                            .bangumi-info-item {
+                                display: inline-block;
+                                width: 13%;
+                                border-right: 1px solid #2fd8d8;
+                                text-align: center;
+                                height: 34px
+                            }
+
+                            .bangumi-info-label {
+                                display: block;
+                                line-height: 12px
+                            }
+
+                            .bangumi-info-item em {
+                                display: block;
+                                padding-top: 6px;
+                                line-height: 17px;
+                                font-style: normal;
+                                font-weight: 700
+                            }
+
+                            .bangumi-info-total {
+                                padding-top: 11px;
+                                display: block;
+                                line-height: 12px;
+                                font-weight: 700
+                            }
+
+                            .bangumi-info-item-score {
+                                border-right: 1px solid #0000;
+                                width: 50px
+                            }
+
+                            .bangumi-info-label-em {
+                                color: transparent;
+                                opacity: 0;
+                                visibility: hidden;
+                                line-height: 6px !important;
+                                padding: 0 !important
+                            }
+
+                            @media (max-width: 650px) {
+
+                                .bangumi-coin,
+                                .bangumi-type {
+                                    display: none
+                                }
+
+                                .bangumi-info-item {
+                                    width: 16%
+                                }
+                            }
+
+                            @media (max-width: 590px) {
+
+                                .bangumi-danmaku,
+                                .bangumi-wish {
+                                    display: none
+                                }
+
+                                .bangumi-info-item {
+                                    width: 19%
+                                }
+                            }
+
+                            @media (max-width: 520px) {
+
+                                .bangumi-doing,
+                                .bangumi-play {
+                                    display: none
+                                }
+
+                                .bangumi-info-item {
+                                    width: 24%
+                                }
+                            }
+
+                            @media (max-width: 480px) {
+
+                                .bangumi-collect,
+                                .bangumi-follow {
+                                    display: none
+                                }
+
+                                .bangumi-info-item {
+                                    width: 30%
+                                }
+                            }
+
+                            @media (max-width: 400px) {
+                                .bangumi-area {
+                                    display: none
+                                }
+
+                                .bangumi-info-item {
+                                    width: 45%
+                                }
+                            }
+
+                            .bangumi-my-comments {
+                                border: 1px dashed #8f8f8f;
+                                padding: 3px;
+                                border-radius: 5px;
+                                margin-left: -120px
+                            }
+
+                            .bangumi-starstop {
+                                background: url(https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.7.9/lib/img/rate_star_2x.png) 100% 100%/10px 19.5px repeat-x;
+                                height: 10px;
+                                width: 50px;
+                                display: inline-block;
+                                float: none
+                            }
+
+                            .bangumi-starlight {
+                                background: url(https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.7.9/lib/img/rate_star_2x.png) 0 0/10px 19.5px repeat-x;
+                                height: 10px;
+                                display: block;
+                                width: 100%
+                            }
+
+                            .bangumi-starlight.stars1 {
+                                width: 5px
+                            }
+
+                            .bangumi-starlight.stars2 {
+                                width: 10px
+                            }
+
+                            .bangumi-starlight.stars3 {
+                                width: 15px
+                            }
+
+                            .bangumi-starlight.stars4 {
+                                width: 20px
+                            }
+
+                            .bangumi-starlight.stars5 {
+                                width: 25px
+                            }
+
+                            .bangumi-starlight.stars6 {
+                                width: 30px
+                            }
+
+                            .bangumi-starlight.stars7 {
+                                width: 35px
+                            }
+
+                            .bangumi-starlight.stars8 {
+                                width: 40px
+                            }
+
+                            .bangumi-starlight.stars9 {
+                                width: 45px
+                            }
+
+                            .bangumi-starlight.stars10 {
+                                width: 50px
+                            }
+
+                            #article-container .bangumi-picture a {
+                                padding-left: 0px;
+                                padding-right: 0px;
+                                border-bottom-width: 0px;
+                            }
+
+                            #article-container .bangumi-tab.bangumi-active {
+                                background: var(--strong-gradient);
+                                color: var(--background-secondary);
+                                border-radius: 10px;
+                            }
+
+                            #article-container .bangumi-tabs .bangumi-tab {
+                                border-bottom: none !important;
+                                border-radius: 10px;
+                            }
+
+                            #article-container .bangumi-tabs a.bangumi-tab:hover {
+                                text-decoration: none !important;
+                                border-radius: 10px;
+                            }
+
+                            #article-container .bangumi-pagination a.bangumi-button {
+                                border-bottom: none;
+                                border-radius: 10px;
+                            }
+
+                            .bangumi-button:hover {
+                                background: var(--text-accent) !important;
+                                border-radius: 10px !important;
+                                color: var(--background-primary) !important;
+                            }
+
+                            a.bangumi-button.bangumi-nextpage:hover {
+                                text-decoration: none !important;
+                            }
+
+                            .bangumi-button {
+                                padding: 5px 10px !important;
+                            }
+
+                            a.bangumi-tab {
+                                padding: 5px 10px !important;
+                            }
+
+                            svg.icon.faa-tada {
+                                font-size: 1.1em;
+                            }
+
+                            .bangumi-info-item {
+                                border-right: 1px solid var(--text-sub-accent);
+                            }
+
+                            .bangumi-info-item span {
+                                color: var(--text-sub-accent);
+                            }
+
+                            .bangumi-info-item em {
+                                color: var(--text-sub-accent);
+                            }
+
+                            .bangumi-pagenum{
+                                color: var(--text-sub-accent);
+                            }
+                        </style>
+
+                        <div class="bangumi-tabs">
+                            <a class="bangumi-tab" id="bangumi-tab1" href="javascript:;" rel="external" target="_self"
+                               onclick="return false" data-pjax-state="">
+                                想看
+                                ([[${bangumiFinder.getDataTotal(1,1)}]])</a>
+                            <a class="bangumi-tab bangumi-active" id="bangumi-tab2" href="javascript:;" rel="external"
+                               target="_self" onclick="return false" data-pjax-state="">
+                                在看
+                                ([[${bangumiFinder.getDataTotal(1,2)}]])</a>
+                            <a class="bangumi-tab" id="bangumi-tab3" href="javascript:;" rel="external" target="_self"
+                               onclick="return false" data-pjax-state="">
+                                已看
+                                ([[${bangumiFinder.getDataTotal(1,3)}]])</a>
+                        </div>
+                        <div>
+                            <div id="bangumi-item1" class="bangumi-hide">
+                                <th:block th:each="bangumi : ${bangumiFinder.getBiliDataAll(1,1)}">
+                                    <th:block th:replace="~{macro/bangumi-item :: bangumi-item(${bangumi.spec})}"/>
+                                </th:block>
+                                <div class="bangumi-pagination">
+                                    <a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state=""> 首页</a>
+                                    <a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state="">上一页</a>
+                                    <span class="bangumi-pagenum">1 / 1</span>
+                                    <a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state="">下一页</a>
+                                    <a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state="">尾页</a>
+                                </div>
+                            </div>
+                            <div id="bangumi-item2" class="bangumi-show">
+                                <th:block th:each="bangumi : ${bangumiFinder.getBiliDataAll(1,2)}">
+                                    <th:block th:replace="~{macro/bangumi-item :: bangumi-item(${bangumi.spec})}"/>
+                                </th:block>
+                                <div class="bangumi-pagination">
+                                    <a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state=""> 首页</a>
+                                    <a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state="">上一页</a>
+                                    <span class="bangumi-pagenum">1 / 1</span>
+                                    <a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state="">下一页</a>
+                                    <a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state="">尾页</a>
+                                </div>
+                            </div>
+                            <div id="bangumi-item3" class="bangumi-hide">
+                                <th:block th:each="bangumi : ${bangumiFinder.getBiliDataAll(1,3)}">
+                                    <th:block th:replace="~{macro/bangumi-item :: bangumi-item(${bangumi.spec})}"/>
+                                </th:block>
+                                <div class="bangumi-pagination">
+                                    <a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state=""> 首页</a>
+                                    <a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state="">上一页</a>
+                                    <span class="bangumi-pagenum">1 / 1</span>
+                                    <a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state="">下一页</a>
+                                    <a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self"
+                                       onclick="return false" data-pjax-state="">尾页</a>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            (function () {
+                                const bangumiLazyload = false;
+                                "use strict";/* eslint-disable no-plusplus */
+                                (function () {// eslint-disable-next-line func-style
+                                    function a() {
+                                        this.classList.add("bangumi-active");
+                                        for (var a = this.siblings(), b = 0; b < a.length; b++) a[b].classList.remove("bangumi-active");// 显示对应板块
+                                        var c = this.id.replace("tab", "item"), d = document.getElementById(c);
+                                        d.classList.remove("bangumi-hide"), d.classList.add("bangumi-show"), a = document.getElementById(c).siblings();
+                                        for (var e = 0; e < a.length; e++) a[e].classList.remove("bangumi-show"), a[e].classList.add("bangumi-hide")
+                                    }
+
+                                    Element.prototype.siblings = function () {
+                                        for (var a = [], b = this.parentNode.children, c = 0; c < b.length; c++) b[c] !== this && a.push(b[c]);
+                                        return a
+                                    };
+                                    for (var b = document.getElementsByClassName("bangumi-tab"), c = 0; c < b.length; c++) b[c].onclick = a, b[c].onclick.apply(b[c]);
+                                    "undefined" != typeof pagenumsPre && axios.get(new URL("../bangumis.json", window.location.href)).then(function (a) {
+                                        if (a.data) {
+                                            var b = {
+                                                wantWatch: a.data.wantWatch.slice(10).map(function (a) {
+                                                    return ejs.render(ejsTemplate, {
+                                                        item: a,
+                                                        loading: loading,
+                                                        metaColor: metaColor,
+                                                        type: type
+                                                    })
+                                                }).join("\n"), watching: a.data.watching.slice(10).map(function (a) {
+                                                    return ejs.render(ejsTemplate, {
+                                                        item: a,
+                                                        loading: loading,
+                                                        metaColor: metaColor,
+                                                        type: type
+                                                    })
+                                                }).join("\n"), watched: a.data.watched.slice(10).map(function (a) {
+                                                    return ejs.render(ejsTemplate, {
+                                                        item: a,
+                                                        loading: loading,
+                                                        metaColor: metaColor,
+                                                        type: type
+                                                    })
+                                                }).join("\n")
+                                            };
+                                            document.querySelectorAll("#bangumi-item1>.bangumi-pagination")[0].insertAdjacentHTML("beforeBegin", b.wantWatch), document.querySelectorAll("#bangumi-item2>.bangumi-pagination")[0].insertAdjacentHTML("beforeBegin", b.watching), document.querySelectorAll("#bangumi-item3>.bangumi-pagination")[0].insertAdjacentHTML("beforeBegin", b.watched)
+                                        }
+                                    })
+                                })();
+                                document.getElementsByClassName('bangumi-tab')[1].click();
+                                /* eslint-disable no-plusplus, func-style */
+                                (function () {
+                                    var a = Math.ceil;
+
+                                    function b(b, c) {
+                                        return `${b + 1} / ${a(0 == c.length / 10 ? 1 : a(c.length / 10))}`
+                                    }
+
+                                    function c() {
+                                        const a = this.parentNode.siblings();
+                                        g(a, 0), this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText = b(0, a)
+                                    }
+
+                                    function d() {
+                                        const a = this.parentNode.siblings();
+                                        let c = this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText;
+                                        c = c.substr(0, c.indexOf("/") - 1), c = parseInt(c, 10) - 1, 0 < c && c--, g(a, c), this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText = b(c, a)
+                                    }
+
+                                    function e() {
+                                        const c = this.parentNode.siblings();
+                                        let d = this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText;
+                                        d = d.substr(0, d.indexOf("/") - 1), d = parseInt(d, 10) - 1, d < a(c.length / 10) - 1 && d++, g(c, d), this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText = b(d, c)
+                                    }
+
+                                    function f() {
+                                        const c = this.parentNode.siblings();
+                                        g(c, a(c.length / 10) - 1), this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText = b(-1 == a(c.length / 10) - 1 ? 0 : a(c.length / 10) - 1, c)
+                                    }
+
+                                    function g(a, b) {
+                                        for (let c = 0; c < a.length; c++) if (Math.floor(c / 10) === b) {
+                                            a[c].classList.remove("bangumi-hide");
+                                            const [b] = a[c].getElementsByTagName("img");
+                                            bangumiLazyload && (b.src = b.getAttribute("data-src"))
+                                        } else a[c].classList.add("bangumi-hide")
+                                    }
+
+                                    const h = document.getElementsByClassName("bangumi-firstpage"),
+                                        j = document.getElementsByClassName("bangumi-previouspage"),
+                                        k = document.getElementsByClassName("bangumi-nextpage"),
+                                        l = document.getElementsByClassName("bangumi-lastpage"),
+                                        m = document.getElementsByClassName("bangumi-pagenum");
+                                    for (let b = 0; b < h.length; b++) {
+                                        h[b].onclick = c, j[b].onclick = d, k[b].onclick = e, l[b].onclick = f;// set page num
+                                        const g = "undefined" == typeof pagenumsPre ? m[b].parentNode.siblings().length : pagenumsPre[b] ?? m[b].parentNode.siblings().length;
+                                        h[b].click(), m[b].innerText = `1 / ${0 === a(g / 10) ? 1 : a(g / 10)}`
+                                    }
+                                })();
+                            })();
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <!--/* 评论组件 */-->
+            <th:block
+                    th:replace="~{modules/comment :: comment(group = 'content.halo.run',
+                            kind = 'SinglePage',
+                            name = 'bangumis',
+                            allowComment = true)}"/>
+        </div>
+    </div>
+</th:block>
+
+
+</html>
