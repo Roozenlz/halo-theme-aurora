@@ -89,9 +89,11 @@
 > 部分插件可能已经预设在 Halo 内。
 > 部分插件主题尚未适配。
 
-- 评论功能 [plugin-comment-widget](https://github.com/halo-sigs/plugin-comment-widget/releases)
-- 搜索功能 [plugin-search-widget](https://github.com/halo-sigs/plugin-search-widget/releases)
-- 友链页面 [plugin-links](https://github.com/halo-sigs/plugin-links/releases)
+- 评论功能 [plugin-comment-widget](https://github.com/halo-sigs/plugin-comment-widget)
+- 搜索功能 [plugin-search-widget](https://github.com/halo-sigs/plugin-search-widget)
+- 友链页面 [plugin-links](https://github.com/halo-sigs/plugin-links)
+- 瞬间页面 [plugin-moments](https://github.com/halo-sigs/plugin-moments)
+- 追番插件 [plugin-bilibili-bangumi](https://github.com/Roozenlz/plugin-bilibili-bangumi)
 
 > 更多插件请参见：https://github.com/halo-sigs/awesome-halo
 
