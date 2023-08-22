@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
-      th:replace="~{layout :: html(head = null,content = ~{::content})}">
+      th:replace="~{layout :: html(htmlType = 'tag',content = ~{::content})}">
 <th:block th:fragment="content">
     <th:block th:replace="~{macro/app-banner :: app-banner(img=${theme.config.top.tag_img})}"/>
     <div class="relative z-10">

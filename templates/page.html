@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
-      th:replace="~{layout :: html(head = null,content = ~{::content})}">
+      th:replace="~{layout :: html(htmlType = 'page',content = ~{::content})}">
 <th:block th:fragment="content">
     <th:block th:replace="~{macro/app-banner :: app-banner(img=${singlePage.spec.cover})}"/>
     <link rel="stylesheet" th:href="@{/assets/css/links.css}">

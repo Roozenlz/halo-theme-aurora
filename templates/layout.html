@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org"
-      th:fragment="html (head,content)">
-<head th:replace="~{modules/head :: head(head = ${head})}"></head>
+      th:fragment="html (htmlType,content)">
+<head th:replace="~{modules/head :: head(htmlType = ${htmlType})}"></head>
 <body id="body-container" th:with="ASSETS='/themes/theme-aurora/assets'">
     <noscript>
         <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to
