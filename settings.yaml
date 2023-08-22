@@ -566,6 +566,14 @@ spec:
               label: "xonokai"
             - value: "z-touch"
               label: "z-touch"
+    - group: title
+      label: 标题
+      formSchema:
+        - $formkit: text
+          name: moments_title
+          label: 瞬间页面顶部文字
+          help: 需要安装瞬间插件，然后访问 /moments
+          value: 我的动态
     - group: other
       label: 其他设置
       formSchema:
