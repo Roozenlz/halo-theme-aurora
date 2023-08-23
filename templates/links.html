@@ -5,175 +5,174 @@
     <th:block th:replace="~{macro/app-banner :: app-banner(img=${theme.config.top.links_img})}"/>
     <link rel="stylesheet" th:href="@{/assets/css/links.css}">
     <div class="relative z-10">
-        <div class="">
+        <div class="flex flex-col mt-20">
             <!--面包屑-->
             <th:block th:replace="~{macro/breadcrumbs :: breadcrumbs('首页','友链')}"/>
-            <div class="flex flex-col">
-<!--                <div class="post-header">-->
-<!--                    <div class="flex flex-row items-center justify-start mt-8 mb-4">-->
-<!--                        <th:block th:replace="~{macro/post-stats :: post-stats(${singlePage})}"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-                <div class="flex h-[25rem] w-full rounded-2xl relative shadow-xl mb-8"
-                     style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
-                    <div class="ob-gradient-plate absolute bg-ob-deep-900 rounded-xl opacity-90 flex justify-center items-center shadow-lg hover:shadow-2xl duration-300 overflow-hidden">
-                        <div class="flex w-full relative overflow-hidden">
-                            <div class="top-6 left-6 absolute flex flex-col">
-                                <div class="text-ob-dim text-sm">友情链接</div>
-                                <p class="relative opacity-90 flex items-center text-ob-bright uppercase pb-2 mb-0 mt-0 text-2xl">
-                                    <svg class="svg-icon inline-block mr-2 inline-block mr-2" 
-                                         style="height: 1em; width: 1em;">
-                                        <use href="#icon-friends" fill="currentColor"
-                                             stroke="var(--background-primary)"></use>
-                                    </svg>
-                                    与无数博主共同进步
-                                    <span class="absolute bottom-0 h-1 w-24 rounded-full"
-                                          style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                                </p>
-                            </div>
-                            <div class="absolute right-8 top-8 flex space-x-3">
-                                <a class="py-2 px-3 text-ob-bright flex items-center justify-center z-10 transition cursor-pointer rounded-xl bg-ob-deep-900 border-solid border-ob-bright border-t-2 border-b-2 border-r-2 border-l-2 opacity-80 select-none">随机访问</a>
-                                <a class="py-2 px-3 text-white flex items-center justify-center z-10 transition cursor-pointer rounded-xl font-semibold select-none"
-                                   href="#content"
-                                   style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">申请友链</a>
-                            </div>
-                            <div class="link-group-wrapper flex flex-nowrap pt-28 left-0 top-0">
-                                <th:block th:each="group : ${groups}">
-                                    <th:block th:each="link,iterStat : ${group.links}" th:if="${group.links.size > 2}">
-                                        <div class="links-group-avatar-pair ml-4 pb-7 pt-4 select-none"
-                                             th:if="${iterStat.even}">
-                                            <a class="links-group-avatar h-[120px] w-[120px] flex items-center justify-center text-white text-6xl font-bold"
-                                               target="_blank" th:href="${linkOdd.spec.url}"
-                                               th:title="${linkOdd.spec.displayName}"
-                                               th:with="linkOdd = ${group.links.get(iterStat.index - 1)}">
-                                                <img class="h-full w-full shadow-xl m-0 rounded-full"
-                                                     alt="link-avatar"
-                                                     th:src="@{${linkOdd.spec.logo}}"
-                                                     th:title="${linkOdd.spec.displayName}">
-                                            </a>
-                                            <a class="links-group-avatar h-[120px] w-[120px] flex items-center justify-center text-white text-6xl font-bold"
-                                               target="_blank" th:href="${linkEven.spec.url}"
-                                               th:title="${linkEven.spec.displayName}"
-                                               th:with="linkEven = ${link}">
-                                                <img class="h-full w-full shadow-xl m-0 rounded-full"
-                                                     alt="link-avatar"
-                                                     th:src="@{${linkEven.spec.logo}}"
-                                                     th:title="${linkEven.spec.displayName}">
-                                            </a>
-                                        </div>
-                                    </th:block>
+            <div class="flex h-[25rem] w-full rounded-2xl relative shadow-xl mb-8"
+                 style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">
+                <div class="ob-gradient-plate absolute bg-ob-deep-900 rounded-xl opacity-90 flex justify-center items-center shadow-lg hover:shadow-2xl duration-300 overflow-hidden">
+                    <div class="flex w-full relative overflow-hidden">
+                        <div class="top-6 left-6 absolute flex flex-col">
+                            <div class="text-ob-dim text-sm">友情链接</div>
+                            <p class="relative opacity-90 flex items-center text-ob-bright uppercase pb-2 mb-0 mt-0 text-2xl">
+                                <svg class="svg-icon inline-block mr-2 inline-block mr-2"
+                                     style="height: 1em; width: 1em;">
+                                    <use href="#icon-friends" fill="currentColor"
+                                         stroke="var(--background-primary)"></use>
+                                </svg>
+                                与无数博主共同进步
+                                <span class="absolute bottom-0 h-1 w-24 rounded-full"
+                                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                            </p>
+                        </div>
+                        <div class="absolute right-8 top-8 flex space-x-3">
+                            <a class="py-2 px-3 text-ob-bright flex items-center justify-center z-10 transition cursor-pointer rounded-xl bg-ob-deep-900 border-solid border-ob-bright border-t-2 border-b-2 border-r-2 border-l-2 opacity-80 select-none">随机访问</a>
+                            <a class="py-2 px-3 text-white flex items-center justify-center z-10 transition cursor-pointer rounded-xl font-semibold select-none"
+                               href="#content"
+                               style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);">申请友链</a>
+                        </div>
+                        <div class="link-group-wrapper flex flex-nowrap pt-28 left-0 top-0">
+                            <th:block th:each="group : ${groups}">
+                                <th:block th:each="link,iterStat : ${group.links}" th:if="${group.links.size > 2}">
+                                    <div class="links-group-avatar-pair ml-4 pb-7 pt-4 select-none"
+                                         th:if="${iterStat.even}">
+                                        <a class="links-group-avatar h-[120px] w-[120px] flex items-center justify-center text-white text-6xl font-bold"
+                                           target="_blank" th:href="${linkOdd.spec.url}"
+                                           th:title="${linkOdd.spec.displayName}"
+                                           th:with="linkOdd = ${group.links.get(iterStat.index - 1)}">
+                                            <img class="h-full w-full shadow-xl m-0 rounded-full"
+                                                 alt="link-avatar"
+                                                 th:src="@{${linkOdd.spec.logo}}"
+                                                 th:title="${linkOdd.spec.displayName}">
+                                        </a>
+                                        <a class="links-group-avatar h-[120px] w-[120px] flex items-center justify-center text-white text-6xl font-bold"
+                                           target="_blank" th:href="${linkEven.spec.url}"
+                                           th:title="${linkEven.spec.displayName}"
+                                           th:with="linkEven = ${link}">
+                                            <img class="h-full w-full shadow-xl m-0 rounded-full"
+                                                 alt="link-avatar"
+                                                 th:src="@{${linkEven.spec.logo}}"
+                                                 th:title="${linkEven.spec.displayName}">
+                                        </a>
+                                    </div>
                                 </th:block>
-                            </div>
+                            </th:block>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!--互动友链-->
-                <th:block th:replace="~{macro/links-canvas :: links-canvas(${groups})}"/>
+            <!--互动友链-->
+            <th:block th:replace="~{macro/links-canvas :: links-canvas(${groups})}"/>
 
-                <th:block th:each="group,iterStat : ${groups}">
-                    <p th:if="${not #lists.isEmpty(group.spec.displayName)}"
-                       class="relative opacity-90 flex items-center text-ob-bright uppercase pt-12 pb-2 mb-2 text-3xl">
-                        [[${group.spec.displayName}]] <span class="ml-2">([[${group.links.size}]])</span>
-                        <span class="absolute bottom-0 h-1 w-24 rounded-full"
-                              style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                    </p>
-                    <span th:if="${not #strings.isEmpty(#annotations.get(group, 'description'))}"
-                          th:text="${#annotations.get(group, 'description')}"
-                          class="text-ob-dim mb-8 text-lg"></span>
+            <th:block th:each="group,iterStat : ${groups}">
+                <p th:if="${not #lists.isEmpty(group.spec.displayName)}"
+                   class="relative opacity-90 flex items-center text-ob-bright uppercase pt-12 pb-2 mb-2 text-3xl">
+                    [[${group.spec.displayName}]] <span class="ml-2">([[${group.links.size}]])</span>
+                    <span class="absolute bottom-0 h-1 w-24 rounded-full"
+                          style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                </p>
+                <span th:if="${not #strings.isEmpty(#annotations.get(group, 'description'))}"
+                      th:text="${#annotations.get(group, 'description')}"
+                      class="text-ob-dim mb-8 text-lg"></span>
 
-                    <ul th:if="${#strings.equals(#annotations.get(group, 'displayStyle'),'default') && not #lists.isEmpty(group.links)}"
-                        class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-8">
-                        <li th:each="link : ${group.links}"
-                            id="link-card" class="article-container category-mode">
-                            <div class="article">
-                                <div class="article-thumbnail">
-                                    <img style="pointer-events: none;"
-                                         th:alt="${link.spec.displayName}"
-                                         th:src="@{${#annotations.contains(link, 'siteshot') ? #annotations.get(link,'siteshot'): link.spec.logo }}"
-                                         lazy="loaded">
-                                    <span class="thumbnail-screen"
-                                          style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                                </div>
-                                <div class="article-content">
-                                    <span th:if="${ #annotations.contains(link, 'label')}">
-                                        <b th:style="'background-color:' + ${#annotations.get(link,'labelColor')}" th:text="${#annotations.get(link, 'label')}"></b>
-                                    </span>
-                                    <a th:title="${link.spec.displayName}"
-                                       th:href="${link.spec.url}" target="_blank">
-                                        <img class="link-logo-image" th:alt="${link.spec.displayName}" th:src="${link.spec.logo}">
-                                        <h1 th:text="${link.spec.displayName}" class="text-xl"></h1>
-                                    </a>
-                                    <p th:text="${link.spec.description}"></p>
-                                </div>
+                <ul th:if="${#strings.equals(#annotations.get(group, 'displayStyle'),'default') && not #lists.isEmpty(group.links)}"
+                    class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-8">
+                    <li th:each="link : ${group.links}"
+                        id="link-card" class="article-container category-mode">
+                        <div class="article">
+                            <div class="article-thumbnail">
+                                <img style="pointer-events: none;"
+                                     th:alt="${link.spec.displayName}"
+                                     th:src="@{${#annotations.contains(link, 'siteshot') ? #annotations.get(link,'siteshot'): link.spec.logo }}"
+                                     lazy="loaded">
+                                <span class="thumbnail-screen"
+                                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
                             </div>
-                        </li>
-                    </ul>
-
-                    <ul th:if="${#strings.equals(#annotations.get(group, 'displayStyle'),'beautify') && not #lists.isEmpty(group.links)}"
-                        class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-8">
-                        <li th:each="link : ${group.links}"
-                            id="link-card" class="article-container highlighted category-mode">
-                            <div class="article">
-                                <div class="article-thumbnail">
-                                    <img style="pointer-events: none;"
-                                         th:alt="${link.spec.displayName}"
-                                         th:src="@{${#annotations.contains(link, 'siteshot') ? #annotations.get(link,'siteshot'): link.spec.logo }}"
-                                         lazy="loaded">
-                                    <span class="thumbnail-screen"
-                                          style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
-                                </div>
-                                <div class="article-content">
+                            <div class="article-content">
                                     <span th:if="${ #annotations.contains(link, 'label')}">
-                                        <b class="vip" style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"
+                                        <b th:style="'background-color:' + ${#annotations.get(link,'labelColor')}"
                                            th:text="${#annotations.get(link, 'label')}"></b>
                                     </span>
-                                    <a th:title="${link.spec.displayName}"
-                                       th:href="${link.spec.url}" target="_blank">
-                                        <img class="link-logo-image" th:alt="${link.spec.displayName}" th:src="${link.spec.logo}">
-                                        <h1 th:text="${link.spec.displayName}" class="text-xl"></h1>
-                                    </a>
-                                    <p th:text="${link.spec.description}"></p>
-                                </div>
+                                <a th:title="${link.spec.displayName}"
+                                   th:href="${link.spec.url}" target="_blank">
+                                    <img class="link-logo-image" th:alt="${link.spec.displayName}"
+                                         th:src="${link.spec.logo}">
+                                    <h1 th:text="${link.spec.displayName}" class="text-xl"></h1>
+                                </a>
+                                <p th:text="${link.spec.description}"></p>
                             </div>
-                        </li>
-                    </ul>
-                </th:block>
+                        </div>
+                    </li>
+                </ul>
 
-                <div class="mt-8" id="content">
-                    <div class="post-html">
-                        <details class="custom-details">
-                            <summary>友情链接页免责声明</summary>
-                            <p></p>
-                            <h2 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h2>
-                            <p>
-                                本博客遵守中华人民共和国相关法律。本页内容仅作为方便学习而产生的快速链接的链接方式，对与友情链接中存在的链接、好文推荐链接等均为其他网站。我本人能力有限无法逐个甄别每篇文章的每个字，并无法获知是否在收录后原作者是否对链接增加了违反法律甚至其他破坏用户计算机等行为。因为部分友链网站甚至没有做备案、域名并未做实名认证等，所以友链网站均可能存在风险，请你须知。</p>
-                            <p>所以在我力所能及的情况下，我会包括但不限于：</p>
-                            <ul>
-                                <li>针对收录的博客中的绝大多数内容通过标题来鉴别是否存在有风险的内容</li>
-                                <li>在收录的友链好文推荐中检查是否存在风险内容</li>
-                            </ul>
-                            <p>但是你在访问的时候，仍然无法避免，包括但不限于：</p>
-                            <ul>
-                                <li>作者更换了超链接的指向，替换成了其他内容</li>
-                                <li>作者的服务器被恶意攻击、劫持、被注入恶意内容</li>
-                                <li>作者的域名到期，被不法分子用作他用</li>
-                                <li>作者修改了文章内容，增加钓鱼网站、广告等无效信息</li>
-                                <li>不完善的隐私保护对用户的隐私造成了侵害、泄漏</li>
-                                <li>
-                                    最新文章部分为机器抓取，本站作者未经过任何审核和筛选，本着友链信任原则添加的。如果你发现其中包含违反中华人民共和国法律的内容，请即使联系和举报。该友链会被拉黑。
-                                </li>
-                            </ul>
-                            <p>如果因为从本页跳转给你造成了损失，深表歉意，并且建议用户如果发现存在问题在本页面进行回复。通常会很快处理。如果长时间无法得到处理，建议联系
-                                <a th:href="${'mailto:'+theme.config.link.contact}" th:text="${theme.config.link.contact}"></a>。</p>
-                        </details>
-                        <h2 id="友情链接申请">
-                            <a href="#友情链接申请" class="headerlink"
-                               title="友情链接申请">
-                            </a>友情链接申请</h2>
+                <ul th:if="${#strings.equals(#annotations.get(group, 'displayStyle'),'beautify') && not #lists.isEmpty(group.links)}"
+                    class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-8">
+                    <li th:each="link : ${group.links}"
+                        id="link-card" class="article-container highlighted category-mode">
+                        <div class="article">
+                            <div class="article-thumbnail">
+                                <img style="pointer-events: none;"
+                                     th:alt="${link.spec.displayName}"
+                                     th:src="@{${#annotations.contains(link, 'siteshot') ? #annotations.get(link,'siteshot'): link.spec.logo }}"
+                                     lazy="loaded">
+                                <span class="thumbnail-screen"
+                                      style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"></span>
+                            </div>
+                            <div class="article-content">
+                                    <span th:if="${ #annotations.contains(link, 'label')}">
+                                        <b class="vip"
+                                           style="background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);"
+                                           th:text="${#annotations.get(link, 'label')}"></b>
+                                    </span>
+                                <a th:title="${link.spec.displayName}"
+                                   th:href="${link.spec.url}" target="_blank">
+                                    <img class="link-logo-image" th:alt="${link.spec.displayName}"
+                                         th:src="${link.spec.logo}">
+                                    <h1 th:text="${link.spec.displayName}" class="text-xl"></h1>
+                                </a>
+                                <p th:text="${link.spec.description}"></p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </th:block>
+
+            <div class="mt-8" id="content">
+                <div class="post-html">
+                    <details class="custom-details">
+                        <summary>友情链接页免责声明</summary>
+                        <p></p>
+                        <h2 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h2>
                         <p>
-                            很高兴能和非常多的朋友们交流，如果你也想加入友链，可以在下方留言，我会在不忙的时候统一添加。</p>
-                        <blockquote>
+                            本博客遵守中华人民共和国相关法律。本页内容仅作为方便学习而产生的快速链接的链接方式，对与友情链接中存在的链接、好文推荐链接等均为其他网站。我本人能力有限无法逐个甄别每篇文章的每个字，并无法获知是否在收录后原作者是否对链接增加了违反法律甚至其他破坏用户计算机等行为。因为部分友链网站甚至没有做备案、域名并未做实名认证等，所以友链网站均可能存在风险，请你须知。</p>
+                        <p>所以在我力所能及的情况下，我会包括但不限于：</p>
+                        <ul>
+                            <li>针对收录的博客中的绝大多数内容通过标题来鉴别是否存在有风险的内容</li>
+                            <li>在收录的友链好文推荐中检查是否存在风险内容</li>
+                        </ul>
+                        <p>但是你在访问的时候，仍然无法避免，包括但不限于：</p>
+                        <ul>
+                            <li>作者更换了超链接的指向，替换成了其他内容</li>
+                            <li>作者的服务器被恶意攻击、劫持、被注入恶意内容</li>
+                            <li>作者的域名到期，被不法分子用作他用</li>
+                            <li>作者修改了文章内容，增加钓鱼网站、广告等无效信息</li>
+                            <li>不完善的隐私保护对用户的隐私造成了侵害、泄漏</li>
+                            <li>
+                                最新文章部分为机器抓取，本站作者未经过任何审核和筛选，本着友链信任原则添加的。如果你发现其中包含违反中华人民共和国法律的内容，请即使联系和举报。该友链会被拉黑。
+                            </li>
+                        </ul>
+                        <p>如果因为从本页跳转给你造成了损失，深表歉意，并且建议用户如果发现存在问题在本页面进行回复。通常会很快处理。如果长时间无法得到处理，建议联系
+                            <a th:href="${'mailto:'+theme.config.link.contact}"
+                               th:text="${theme.config.link.contact}"></a>。</p>
+                    </details>
+                    <h2 id="友情链接申请">
+                        <a href="#友情链接申请" class="headerlink"
+                           title="友情链接申请">
+                        </a>友情链接申请</h2>
+                    <p>
+                        很高兴能和非常多的朋友们交流，如果你也想加入友链，可以在下方留言，我会在不忙的时候统一添加。</p>
+                    <blockquote>
                             <span class="custom-blockquote-svg">
                                 <svg width="24" height="24"
                                      viewBox="0 0 24 24" fill=""
@@ -202,21 +201,21 @@
                                           d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"></path>
                                 </svg>
                             </span>
-                            <p>请按以下格式填写你的博客信息</p>
-                        </blockquote>
-                        <div class="code-toolbar" th:utext="${theme.config.link.applicationFormat}">
-                        </div>
+                        <p>请按以下格式填写你的博客信息</p>
+                    </blockquote>
+                    <div class="code-toolbar" th:utext="${theme.config.link.applicationFormat}">
                     </div>
                 </div>
+            </div>
 
-                <!--/* 评论组件 */-->
-                <th:block
-                        th:replace="~{modules/comment :: comment(group = 'content.halo.run',
+            <!--/* 评论组件 */-->
+            <th:block
+                    th:replace="~{modules/comment :: comment(group = 'content.halo.run',
                         kind = 'SinglePage',
                         name = 'links',
                         allowComment = true)}"/>
-            </div>
         </div>
+
     </div>
 </th:block>
 
