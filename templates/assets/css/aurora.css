@@ -1253,7 +1253,8 @@ img, video {
 
 .post-html ol {
     list-style: none;
-    counter-reset: li
+    counter-reset: li;
+    word-break: break-all;
 }
 
 .post-html ol > li {
