@@ -5,32 +5,32 @@
     <th:block th:replace="~{macro/app-banner :: app-banner(img=${singlePage.spec.cover})}"/>
     <link rel="stylesheet" th:href="@{/assets/css/links.css}">
     <div class="relative z-10">
-        <div class="">
+
+        <div class="flex flex-col mt-20">
             <!--面包屑-->
             <th:block th:replace="~{macro/breadcrumbs :: breadcrumbs('首页',${singlePage.spec.title})}"/>
-            <div class="flex flex-col">
-                <div class="post-header">
-                    <div class="flex flex-row items-center justify-start mt-8 mb-4">
-                        <th:block th:replace="~{macro/post-stats :: post-stats(${singlePage})}"/>
-                    </div>
+            <div class="post-header">
+                <div class="flex flex-row items-center justify-start mt-8 mb-4">
+                    <th:block th:replace="~{macro/post-stats :: post-stats(${singlePage})}"/>
                 </div>
-                <div class="main-grid">
-                    <div>
-                        <div th:if="not ${#strings.isEmpty(singlePage.content.content)}" class="post-html">
-                            <article th:utext="${singlePage.content.content}"></article>
-                        </div>
-                        <!--/* 评论组件 */-->
-                        <th:block
-                                th:replace="~{modules/comment :: comment(group = 'content.halo.run',
+            </div>
+            <div class="main-grid">
+                <div>
+                    <div th:if="not ${#strings.isEmpty(singlePage.content.content)}" class="post-html">
+                        <article th:utext="${singlePage.content.content}"></article>
+                    </div>
+                    <!--/* 评论组件 */-->
+                    <th:block
+                            th:replace="~{modules/comment :: comment(group = 'content.halo.run',
                                 kind = 'SinglePage',
                                 name = ${singlePage.metadata.name},
                                 allowComment = ${singlePage.spec.allowComment})}"/>
-                    </div>
-                    <div th:replace="~{modules/aside :: aside(${theme.config.sidebar.widgets.pageWidgets})}"></div>
                 </div>
-
+                <div th:replace="~{modules/aside :: aside(${theme.config.sidebar.widgets.pageWidgets})}"></div>
             </div>
+
         </div>
+
     </div>
 </th:block>
 </html>
