@@ -52,6 +52,14 @@ spec:
           name: category_img
           label: 分类页顶部背景图
           placeholder: 请填写背景图地址
+        - $formkit: attachment
+          name: moments_img
+          label: 瞬间页顶部背景图
+          placeholder: 请填写背景图地址
+        - $formkit: attachment
+          name: bangumis_img
+          label: 追番页顶部背景图
+          placeholder: 请填写背景图地址
     - group: index
       label: 首页
       formSchema:

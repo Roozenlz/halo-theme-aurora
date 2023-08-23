@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org"
       th:replace="~{layout :: html(htmlType = 'moments',content = ~{::content})}">
 <th:block th:fragment="content">
-    <th:block th:replace="~{macro/app-banner :: app-banner(img=${theme.config.top.archives_img})}"/>
+    <th:block th:replace="~{macro/app-banner :: app-banner(img=${theme.config.top.moments_img})}"/>
     <link rel="stylesheet" th:href="@{/assets/css/archives.css}">
     <div class="relative z-10">
         <div class="flex flex-col">
