@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
-      th:replace="~{layout :: html(htmlType = 'category',content = ~{::content})}">
+      th:replace="~{layout :: html(htmlType = 'category',content = ~{::content},title = ${'分类' + ' | ' + site.title})}">
 <th:block th:fragment="content">
   <th:block th:replace="~{macro/app-banner :: app-banner(img=${theme.config.top.category_img})}"/>
   <div class="relative z-10">
