@@ -1273,7 +1273,7 @@ img, video {
     width: 1em;
     margin-left: -1.5em;
     margin-right: .5em;
-    text-align: right;
+    text-align: left;
     direction: rtl;
     overflow: visible;
     word-break: keep-all;
