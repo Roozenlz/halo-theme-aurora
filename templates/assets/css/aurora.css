@@ -1266,7 +1266,7 @@ img, video {
 }
 
 .post-html ol > li:before, .post-html ul ol > li:before, .post-html ul ul ol > li:before, .post-html ul ul ul ol > li:before {
-    content: "." counter(li);
+    content: "." counter(list-item);
     color: var(--text-accent);
     font-weight: 400;
     display: inline-block;
